@@ -1,0 +1,47 @@
+:root {
+  /* Variables... */
+  --bg-color: #121111;
+  --font-family-normal: "Space Grotesk", serif;
+  --font-family-pixel: "Press Start 2P", serif;
+  --text-color: #ffffff;
+
+  --link-hover-color: #d041ff;
+
+  --btn-neon-layer-top: #ff00c7;
+  --btn-neon-layer-middle: #e400b2;
+  --btn-neon-layer-bottom: #7a008d;
+
+  --btn-green-layer-top: #0fac27;
+  --btn-green-layer-middle: #0a8f1e;
+  --btn-green-layer-bottom: #0a4f15;
+
+  --btn-red-layer-top: #d71a09;
+  --btn-red-layer-middle: #a2180b;
+  --btn-red-layer-bottom: #590d06;
+
+  --btn-yellow-layer-top: #bebe00;
+  --btn-yellow-layer-middle: #9d9d00;
+  --btn-yellow-layer-bottom: #4c4c01;
+
+  --btn-purple-layer-top: #800fb5;
+  --btn-purple-layer-middle: #670d91;
+  --btn-purple-layer-bottom: #420b5b;
+}
+
+body {
+  background-color: var(--bg-color);
+  width: 100%;
+  color: var(--text-color);
+  /* TODO; uncomment the line below after dev finalization */
+  /* overflow-y: hidden; */
+}
+
+body,
+body * {
+  box-sizing: border-box;
+  font-family: var(--font-family-normal);
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+  z-index: 1;
+}

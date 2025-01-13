@@ -1,0 +1,98 @@
+/* ============== Landing Banner =================== */
+
+section.landing-banner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+}
+
+section.landing-banner h1 {
+  z-index: 10;
+  font-size: 4.6rem;
+  text-align: center;
+  font-weight: 700;
+
+  margin-top: 12rem;
+  margin-bottom: 6rem;
+}
+
+section.landing-banner .pixel-btn {
+  margin-bottom: 12rem;
+}
+
+section.landing-banner .scroll-down {
+  opacity: .6;
+  transition: all .3s ease;
+}
+
+section.landing-banner .scroll-down:hover {
+  transform: translateY(5px);
+}
+
+/* Dices */
+section.landing-banner .dices img {
+  position: absolute;
+  background-size: cover;
+  background-position: center;
+  animation: float 8s ease-in-out infinite;
+  -webkit-user-drag: none;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+
+/* // TODO: Need to adapt the values below for different screen sizes */
+
+section.landing-banner .dices img.d4 {
+  margin-left: 12rem;
+  margin-top: 6rem;
+  animation-delay: -0s;
+}
+
+section.landing-banner .dices img.d6 {
+  margin-left: -18rem;
+  margin-top: -29rem;
+  animation-delay: -1s;
+}
+
+section.landing-banner .dices img.d8 {
+  margin-left: -26rem;
+  margin-top: 5rem;
+  animation-delay: -2s;
+}
+
+section.landing-banner .dices img.d10 {
+  margin-left: 15rem;
+  margin-top: -26rem;
+  animation-delay: -3s;
+}
+
+section.landing-banner .dices img.d12 {
+  margin-left: -40rem;
+  margin-top: -14rem;
+  animation-delay: -4s;
+}
+
+section.landing-banner .dices img.d20 {
+  margin-left: 30rem;
+  margin-top: -6rem;
+  animation-delay: -5s;
+}
+
+/* Floating Animation */
+@keyframes float {
+  0% {
+    transform: translateY(0%);
+  }
+
+  50% {
+    transform: translateY(20%);
+  }
+
+  100% {
+    transform: translateY(0%);
+  }
+}
