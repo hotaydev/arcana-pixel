@@ -2,13 +2,20 @@
   "name": "arcanapixel.com",
   "version": "1.0.0",
   "scripts": {
-    "start": "serve src/"
+    "dev": "serve src/",
+    "start": "serve dist/",
+    "minify:html": "html-minifier --minify-css true --minify-js true --collapse-whitespace --remove-comments --file-ext html --input-dir src --output-dir dist",
+    "minify:css": "html-minifier --minify-css true --minify-js true --collapse-whitespace --remove-comments --file-ext css --input-dir src --output-dir dist",
+    "minify:js": "html-minifier --minify-css true --minify-js true --collapse-whitespace --remove-comments --file-ext js --input-dir src --output-dir dist",
+    "minify:images": "cp -r src/assets/images dist/assets/images",
+    "build": "rm -rf ./dist && npm run minify:html && npm run minify:css && npm run minify:js && npm run minify:images"
   },
   "keywords": [],
   "author": "",
   "license": "AGPL-3.0",
   "description": "",
   "devDependencies": {
+    "html-minifier": "^4.0.0",
     "serve": "^14.2.4"
   }
 }
