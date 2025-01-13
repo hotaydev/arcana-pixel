@@ -112,7 +112,7 @@
         <div class="rect-t1"></div>
         <div class="rect-t2"></div>
       </div>
-      <div class="btn-text">Jogar</div>
+      <div class="btn-text" onclick="scrollToCTA()">Jogar</div>
     </div>
 
     <div class="scroll-down">
@@ -234,7 +234,7 @@
             <div class="rect-t1"></div>
             <div class="rect-t2"></div>
           </div>
-          <div class="btn-text">Jogar</div>
+          <div class="btn-text" onclick="scrollToCTA()">Jogar</div>
         </div>
       </div>
     </div>
@@ -265,7 +265,7 @@
             <div class="rect-t1"></div>
             <div class="rect-t2"></div>
           </div>
-          <div class="btn-text">Jogar</div>
+          <div class="btn-text" onclick="scrollToCTA()">Jogar</div>
         </div>
       </div>
     </div>
@@ -297,7 +297,7 @@
             <div class="rect-t1"></div>
             <div class="rect-t2"></div>
           </div>
-          <div class="btn-text">Jogar</div>
+          <div class="btn-text" onclick="scrollToCTA()">Jogar</div>
         </div>
       </div>
     </div>
@@ -328,7 +328,7 @@
             <div class="rect-t1"></div>
             <div class="rect-t2"></div>
           </div>
-          <div class="btn-text">Jogar</div>
+          <div class="btn-text" onclick="scrollToCTA()">Jogar</div>
         </div>
       </div>
     </div>
@@ -338,7 +338,7 @@
   <section class="still-in-development">
     <img src="assets/images/other/divider.png" alt="Divisor" class="divider">
 
-    <div class="content">
+    <div class="content" id="still-in-development">
 
       <div class="stars">
         <img class="star-1" src="assets/images/other/star.svg" />
@@ -443,6 +443,14 @@
     </div>
   </footer>
 
+  <script>
+    function scrollToCTA() {
+      const element = document.querySelector('#still-in-development');
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  </script>
 </body>
 
 </html>
