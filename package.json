@@ -1,0 +1,14 @@
+{
+  "name": "arcanapixel.com",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "serve src/"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "AGPL-3.0",
+  "description": "",
+  "devDependencies": {
+    "serve": "^14.2.4"
+  }
+}

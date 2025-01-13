@@ -1,0 +1,232 @@
+<style>
+  section.tools-presentation {
+    width: 100%;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: relative;
+  }
+
+
+  /* Tab Chooser/Selector/Changer */
+  .tab-chooser {
+    display: flex;
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+    height: 50px;
+    background-color: transparent;
+    border: 2px solid var(--text-color);
+    border-radius: 25px;
+    overflow: hidden;
+    padding: 4px;
+    margin-bottom: 4rem;
+  }
+
+  .tab-chooser input[type="radio"] {
+    display: none;
+  }
+
+  .tab-chooser label {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: var(--text-color);
+    cursor: pointer;
+    z-index: 1;
+    transition: color 0.3s ease;
+  }
+
+  .tab-chooser label:first-of-type {
+    margin-right: -2px;
+  }
+
+  .tab-chooser .slider {
+    position: absolute;
+    top: 4px;
+    bottom: 4px;
+    left: 4px;
+    width: calc(50% - 4px);
+    background-color: var(--tab-chooser-color);
+    border-radius: 25px;
+    transition: transform 0.3s ease;
+    z-index: 0;
+  }
+
+  .tab-chooser input#jogador:checked~.slider {
+    transform: translateX(0%);
+  }
+
+  .tab-chooser input#mestre:checked~.slider {
+    transform: translateX(100%);
+  }
+
+  /* Cards */
+  section.tools-presentation .cards {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    gap: 2rem;
+    max-width: 1200px;
+  }
+
+  section.tools-presentation .cards .card {
+    border: 2px solid var(--tab-chooser-color);
+    padding: 16px;
+    border-radius: 20px;
+    width: 230px;
+    height: 360px;
+    background-color: var(--card-background);
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    text-align: center;
+    z-index: 2;
+  }
+
+  section.tools-presentation .cards .card h4 {
+    font-weight: 600;
+    font-size: 1.3rem;
+    margin-bottom: 1.2rem;
+  }
+
+  section.tools-presentation .cards .card p {
+    font-weight: 400;
+    font-size: 1rem;
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    section.tools-presentation .cards {
+      gap: 1rem;
+    }
+
+    section.tools-presentation .cards .card {
+      width: 100%;
+      max-width: 300px;
+    }
+  }
+
+  section.tools-presentation .details {
+    position: relative;
+  }
+
+  section.tools-presentation svg.path {
+    position: absolute;
+    z-index: 0;
+    top: 18rem;
+  }
+
+  section.tools-presentation .details img.map {
+    position: absolute;
+    z-index: 0;
+    left: 32rem;
+    top: 6rem;
+    z-index: 1;
+  }
+
+  section.tools-presentation .details img.character {
+    position: absolute;
+    z-index: 0;
+    left: -43rem;
+    top: 10rem;
+    z-index: 1;
+  }
+
+  section.tools-presentation .realtime {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .6rem;
+    margin-top: 2rem;
+  }
+
+  section.tools-presentation .realtime p {
+    font-weight: 500;
+  }
+</style>
+
+<section class="tools-presentation">
+  <h2>Ferramentas pensadas para facilitar</h2>
+
+  <div class="details">
+    <img class="map" src="/assets/images/other/mapa.png" />
+    <img class="character" src="/assets/images/other/character.png" />
+  </div>
+
+  <div class="tab-chooser">
+    <input type="radio" id="jogador" name="tab" checked>
+    <input type="radio" id="mestre" name="tab">
+    <label for="jogador">Jogador</label>
+    <label for="mestre">Mestre</label>
+    <div class="slider"></div>
+  </div>
+
+  <div class="cards">
+    <div class="card">
+      <h4>Crie seu Visual</h4>
+      <p>
+        Crie seu personagem de forma visual, escolhendo aparência, roupas e itens. Veja animações de uso de rituais,
+        magias, equipamentos, ataques, e muito mais!
+        <br /><br />
+        Fique à vontado para equipar ou desequipar itens durante a partida.
+      </p>
+    </div>
+
+    <div class="card">
+      <h4>Ficha Exclusiva</h4>
+      <p>
+        Tenha uma ficha específica para o RPG que estiver jogando. Aqui temos rituais, mecânicas e equipamentos
+        específicos, prontos para usar.
+        <br /><br />
+        Chega de decorar regras.
+      </p>
+    </div>
+
+    <div class="card">
+      <h4>Inventário e Rituais</h4>
+      <p>
+        Tudo o que você precisa saber sobre seus itens, magias e rituais. A plataforma cuida da rolagem de acerto,
+        dano, animações e efeitos de som.
+        <br /><br />
+        Uma experiência verdadeiramente imersiva, sem perder a essência do RPG.
+      </p>
+    </div>
+
+    <div class="card">
+      <h4>Mapas Interativos</h4>
+      <p>
+        Caminhe pelo mapa, seja alertado de áreas de interesse para um “teste de investigação”, veja efeitos de dano,
+        rituais e magias, e use as réguas que precisar para fazer suas medições. Tudo sincronizado em tempo real com
+        seus amigos.
+        <br /><br />
+        Tudo o que um mapa precisa.
+      </p>
+    </div>
+  </div>
+
+  <svg class="path" width="1312" height="292" viewBox="0 0 1312 292" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path
+      d="M1228.5 0C1214.5 1.5 1192.5 50 1190 67C1187.5 84 1190 101 1214.5 115C1239 129 1261.5 119.5 1292.5 128.5C1323.5 137.5 1309 185 1298.5 203.5C1288 222 1265 248 1214.5 264C1164 280 1131 243 1116 222C1101 201 998.5 143.5 969.5 115C940.5 86.5 849 49 755.5 41.5C662 34 437.5 115 399.5 143.5C361.5 172 285.5 281 162.5 289.5C39.5 298 39 281 12.5 253.5C-14 226 6.50001 149.5 29 121"
+      stroke="white" stroke-width="3" stroke-dasharray="10 10" />
+  </svg>
+
+  <div class="realtime">
+    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <g>
+        <path
+          d="M19.1666 3.33331V8.33331M19.1666 8.33331H14.1666M19.1666 8.33331L15.3 4.69998C14.4044 3.80391 13.2963 3.14932 12.0793 2.79729C10.8623 2.44527 9.5759 2.40727 8.34022 2.68686C7.10453 2.96645 5.95981 3.55451 5.01287 4.39616C4.06592 5.23782 3.34762 6.30564 2.92498 7.49998M0.833313 16.6666V11.6666M0.833313 11.6666H5.83331M0.833313 11.6666L4.69998 15.3C5.5956 16.1961 6.70362 16.8506 7.92065 17.2027C9.13768 17.5547 10.4241 17.5927 11.6597 17.3131C12.8954 17.0335 14.0401 16.4455 14.9871 15.6038C15.934 14.7621 16.6523 13.6943 17.075 12.5"
+          stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+      </g>
+    </svg>
+    <p>Tudo em tempo real com seus amigos!</p>
+  </div>
+</section>

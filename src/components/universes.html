@@ -1,0 +1,223 @@
+<style>
+  section.universes {
+    width: 100%;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: relative;
+  }
+
+  section.universes .universe {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    width: 100%;
+    max-width: 1200px;
+    margin: 8rem auto 16rem;
+  }
+
+  section.universes .universe:nth-child(odd) {
+    flex-direction: row-reverse;
+  }
+
+  section.universes .universe:nth-child(even) {
+    flex-direction: row;
+  }
+
+  section.universes .universe .creature .blur-effect {
+    position: absolute;
+    width: 800px;
+    height: 800px;
+    filter: blur(50px);
+    z-index: 0;
+    top: -14rem;
+    left: -18rem;
+  }
+
+  section.universes .universe .creature .blur-effect.red {
+    background: radial-gradient(circle, var(--btn-red-layer-top), transparent 70%);
+  }
+
+  section.universes .universe .creature .blur-effect.purple {
+    background: radial-gradient(circle, var(--btn-purple-layer-top), transparent 70%);
+  }
+
+  section.universes .universe .creature .blur-effect.green {
+    background: radial-gradient(circle, var(--btn-green-layer-top), transparent 70%);
+  }
+
+  section.universes .universe .creature .blur-effect.yellow {
+    background: radial-gradient(circle, var(--btn-yellow-layer-top), transparent 70%);
+  }
+
+  section.universes .universe .creature {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  section.universes .universe .creature img {
+    z-index: 1;
+    position: relative;
+  }
+
+  section.universes .universe .creature .credits {
+    z-index: 1;
+    position: relative;
+    text-align: center;
+    font-weight: 400;
+    font-size: .8rem;
+  }
+
+  section.universes .universe .content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 3rem;
+    width: 100%;
+    max-width: 600px;
+    text-align: center;
+    position: relative;
+    z-index: 3;
+  }
+</style>
+
+
+<section class="universes">
+  <h2>Escolha o universo de sua campanha</h2>
+
+  <div class="universe">
+    <div class="creature">
+      <div class="blur-effect red"></div>
+      <img src="/assets/images/creatures/blood-zombie.png" style="transform: scaleX(-1);" alt="Zumbi de Sangue">
+      <p class="credits">Créditos: Enigma do Medo (Jogo)</p>
+    </div>
+    <div class="content">
+      <img class="logo" src="/assets/images/logos/ordem-paranormal-logo.png" alt="Logo de Ordem paranormal">
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+        magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+        consequat.
+      </p>
+      <div class="pixel-btn red">
+        <div class="layer-bottom">
+          <div class="rect-b1"></div>
+          <div class="rect-b2"></div>
+          <div class="rect-b3"></div>
+        </div>
+        <div class="layer-middle">
+          <div class="rect-m1"></div>
+          <div class="rect-m2"></div>
+          <div class="rect-m3"></div>
+        </div>
+        <div class="layer-top">
+          <div class="rect-t1"></div>
+          <div class="rect-t2"></div>
+        </div>
+        <div class="btn-text" onclick="scrollToCTA()">Jogar</div>
+      </div>
+    </div>
+  </div>
+  <div class="universe">
+    <div class="creature">
+      <div class="blur-effect purple"></div>
+      <img src="/assets/images/creatures/beholder.png" alt="Beholder">
+    </div>
+    <div class="content">
+      <img class="logo" src="/assets/images/logos/dnd-logo.png" alt="Logo de Dungeons and Dragons">
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+        magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+        consequat.
+      </p>
+      <div class="pixel-btn purple">
+        <div class="layer-bottom">
+          <div class="rect-b1"></div>
+          <div class="rect-b2"></div>
+          <div class="rect-b3"></div>
+        </div>
+        <div class="layer-middle">
+          <div class="rect-m1"></div>
+          <div class="rect-m2"></div>
+          <div class="rect-m3"></div>
+        </div>
+        <div class="layer-top">
+          <div class="rect-t1"></div>
+          <div class="rect-t2"></div>
+        </div>
+        <div class="btn-text" onclick="scrollToCTA()">Jogar</div>
+      </div>
+    </div>
+  </div>
+  <div class="universe">
+    <div class="creature">
+      <div class="blur-effect green"></div>
+      <img src="/assets/images/creatures/cthulhu.png" alt="Cthulhu">
+      <p class="credits">Créditos: @chierit no Itch.io</p>
+    </div>
+    <div class="content">
+      <img class="logo" src="/assets/images/logos/call-of-cthulhu-logo.png" alt="Logo de Call of Cthulhu">
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+        magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+        consequat.
+      </p>
+      <div class="pixel-btn green">
+        <div class="layer-bottom">
+          <div class="rect-b1"></div>
+          <div class="rect-b2"></div>
+          <div class="rect-b3"></div>
+        </div>
+        <div class="layer-middle">
+          <div class="rect-m1"></div>
+          <div class="rect-m2"></div>
+          <div class="rect-m3"></div>
+        </div>
+        <div class="layer-top">
+          <div class="rect-t1"></div>
+          <div class="rect-t2"></div>
+        </div>
+        <div class="btn-text" onclick="scrollToCTA()">Jogar</div>
+      </div>
+    </div>
+  </div>
+  <div class="universe">
+    <div class="creature">
+      <div class="blur-effect yellow"></div>
+      <img src="/assets/images/creatures/tormenta-creature.png" alt="Criatura de Tormenta RPG">
+    </div>
+    <div class="content">
+      <img class="logo" src="/assets/images/logos/tormenta-logo.png" alt="Logo de Tormenta RPG">
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+        magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+        consequat.
+      </p>
+      <div class="pixel-btn yellow">
+        <div class="layer-bottom">
+          <div class="rect-b1"></div>
+          <div class="rect-b2"></div>
+          <div class="rect-b3"></div>
+        </div>
+        <div class="layer-middle">
+          <div class="rect-m1"></div>
+          <div class="rect-m2"></div>
+          <div class="rect-m3"></div>
+        </div>
+        <div class="layer-top">
+          <div class="rect-t1"></div>
+          <div class="rect-t2"></div>
+        </div>
+        <div class="btn-text" onclick="scrollToCTA()">Jogar</div>
+      </div>
+    </div>
+  </div>
+
+</section>

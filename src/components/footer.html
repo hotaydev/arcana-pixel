@@ -1,0 +1,229 @@
+<style>
+  footer {
+    width: 100%;
+    position: relative;
+    overflow-y: hidden;
+  }
+
+  /* Background */
+  footer .background {
+    position: relative;
+  }
+
+  footer .background div {
+    width: 100%;
+    height: 40px;
+  }
+
+  footer .background .bg-layer-1 {
+    height: 300px;
+    background-color: var(--footer-bg-color-1);
+    z-index: 5;
+  }
+
+  footer .background .bg-layer-2 {
+    background-color: var(--footer-bg-color-2);
+    z-index: 4;
+  }
+
+  footer .background .bg-layer-3 {
+    background-color: var(--footer-bg-color-3);
+    z-index: 3;
+  }
+
+  footer .background .bg-layer-4 {
+    background-color: var(--footer-bg-color-4);
+    z-index: 2;
+  }
+
+  footer .background .bg-layer-5 {
+    background-color: var(--footer-bg-color-5);
+    z-index: 1;
+  }
+
+  /* Content */
+  footer .content {
+    position: absolute;
+    top: 40%;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.2rem;
+  }
+
+  /* Logo */
+  footer .content .logo {
+    text-align: center;
+    color: var(--text-color);
+    user-select: none;
+    cursor: pointer;
+  }
+
+  footer .content .logo .arcana {
+    font-weight: 600;
+    font-size: 2rem;
+  }
+
+  footer .content .logo .pixel {
+    font-family: var(--font-family-pixel);
+    font-weight: 400;
+    font-style: normal;
+  }
+
+  footer .content .social-icons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+
+    margin: 2rem auto 1rem;
+  }
+
+  footer .content .social-icons a {
+    cursor: pointer;
+    transition: all .3s ease;
+  }
+
+  footer .content .social-icons a:hover {
+    transform: translateY(-3px);
+  }
+
+  footer .content .copy,
+  footer .content .copy a {
+    font-weight: 600;
+    text-decoration: none;
+    color: var(--text-color);
+  }
+
+  /* Cats */
+  footer .cats img {
+    position: absolute;
+    top: 90%;
+    width: 80px;
+  }
+
+
+  footer .cats img.cat-1 {
+    right: 20%;
+  }
+
+  footer .cats img.cat-2 {
+    left: 20%;
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+  }
+
+  footer .stars img {
+    position: absolute;
+    z-index: 1;
+  }
+
+  footer .stars .star-1 {
+    top: 45%;
+    left: 75%;
+  }
+
+  footer .stars .star-2 {
+    top: 70%;
+    left: 85%;
+    transform: scale(.6);
+  }
+
+  footer .stars .star-3 {
+    top: 50%;
+    left: 10%;
+  }
+
+  footer .stars .star-4 {
+    top: 65%;
+    left: 25%;
+    transform: scale(.5);
+  }
+
+  footer .stars .star-5 {
+    top: 45%;
+    left: 35%;
+    transform: scale(.3);
+  }
+
+  footer .stars .star-6 {
+    top: 70%;
+    left: 65%;
+    transform: scale(.3);
+  }
+</style>
+<footer>
+  <div class="background">
+    <div class="bg-layer-5"></div>
+    <div class="bg-layer-4"></div>
+    <div class="bg-layer-3"></div>
+    <div class="bg-layer-2"></div>
+    <div class="bg-layer-1"></div>
+  </div>
+
+  <div class="stars">
+    <img class="star-1" src="/assets/images/other/star.svg" />
+    <img class="star-2" src="/assets/images/other/star.svg" />
+    <img class="star-3" src="/assets/images/other/star.svg" />
+    <img class="star-4" src="/assets/images/other/star.svg" />
+    <img class="star-5" src="/assets/images/other/star.svg" />
+    <img class="star-6" src="/assets/images/other/star.svg" />
+  </div>
+
+  <div class="content">
+    <div class="logo">
+      <div class="arcana">ARCANA</div>
+      <div class="pixel">Pixel</div>
+    </div>
+
+    <p class="subtitle">
+      A plataforma definitiva para rodar seu RPG.<br />
+      Orgulhosamente de Código livre!
+    </p>
+
+    <div class="social-icons">
+      <a href="#" target="_blank"><svg width="24" height="20" viewBox="0 0 24 20" fill="none"
+          xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M20.3303 2.22781C18.7767 1.50093 17.1156 0.972672 15.3789 0.671875C15.1656 1.05749 14.9164 1.57614 14.7446 1.98873C12.8985 1.71109 11.0693 1.71109 9.25716 1.98873C9.08539 1.57614 8.83055 1.05749 8.61536 0.671875C6.87681 0.972672 5.21376 1.50287 3.66019 2.23166C0.526643 6.96686 -0.322811 11.5845 0.101917 16.1365C2.18025 17.6885 4.19441 18.6313 6.17457 19.2483C6.66349 18.5754 7.09953 17.8601 7.47518 17.1063C6.75975 16.8344 6.07453 16.499 5.42707 16.1095C5.59884 15.9822 5.76686 15.8492 5.92918 15.7123C9.87819 17.5594 14.1689 17.5594 18.0707 15.7123C18.235 15.8492 18.403 15.9822 18.5728 16.1095C17.9235 16.5009 17.2364 16.8363 16.521 17.1082C16.8966 17.8601 17.3308 18.5774 17.8216 19.2502C19.8036 18.6333 21.8197 17.6905 23.898 16.1365C24.3964 10.8595 23.0467 6.28434 20.3303 2.22781ZM8.01318 13.337C6.82772 13.337 5.85555 12.2303 5.85555 10.8826C5.85555 9.53497 6.80696 8.42636 8.01318 8.42636C9.21942 8.42636 10.1916 9.53303 10.1708 10.8826C10.1727 12.2303 9.21942 13.337 8.01318 13.337ZM15.9867 13.337C14.8013 13.337 13.8291 12.2303 13.8291 10.8826C13.8291 9.53497 14.7805 8.42636 15.9867 8.42636C17.193 8.42636 18.1651 9.53303 18.1444 10.8826C18.1444 12.2303 17.193 13.337 15.9867 13.337Z"
+            fill="#ffffff" />
+        </svg></a>
+      <a href="#" target="_blank"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+          xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M12.492 0.77168C13.7198 0.75293 14.9385 0.76268 16.1565 0.75293C16.197 2.27618 16.815 3.64718 17.7983 4.66268L17.7968 4.66118C18.855 5.61443 20.232 6.23243 21.75 6.33743L21.771 6.33893V10.1159C20.337 10.0799 18.9885 9.74918 17.7728 9.18068L17.8343 9.20618C17.2463 8.92343 16.749 8.63318 16.2765 8.30918L16.3155 8.33468C16.3065 11.0714 16.3245 13.8082 16.2968 16.5352C16.2195 17.9249 15.7575 19.1924 15.0165 20.2507L15.0315 20.2274C13.7925 22.0019 11.7855 23.1667 9.50325 23.2357H9.49275C9.4005 23.2402 9.29176 23.2424 9.18225 23.2424C7.88476 23.2424 6.67201 22.8809 5.6385 22.2532L5.66851 22.2704C3.78751 21.1387 2.49 19.2022 2.25 16.9499L2.247 16.9192C2.22825 16.4504 2.21925 15.9817 2.238 15.5227C2.6055 11.9384 5.60851 9.16568 9.25876 9.16568C9.66901 9.16568 10.071 9.20093 10.4618 9.26768L10.4198 9.26168C10.4385 10.6484 10.3823 12.0359 10.3823 13.4227C10.065 13.3079 9.69901 13.2412 9.31726 13.2412C7.91625 13.2412 6.72451 14.1367 6.28351 15.3869L6.27676 15.4094C6.17701 15.7297 6.11926 16.0979 6.11926 16.4789C6.11926 16.6334 6.12901 16.7864 6.14701 16.9364L6.14551 16.9184C6.39451 18.4529 7.71001 19.6109 9.29626 19.6109C9.34201 19.6109 9.38701 19.6102 9.432 19.6079H9.42526C10.5225 19.5749 11.475 18.9847 12.0135 18.1124L12.021 18.0989C12.2213 17.8199 12.3585 17.4824 12.4043 17.1157L12.405 17.1052C12.4988 15.4274 12.4613 13.7594 12.4703 12.0817C12.4793 8.30468 12.4613 4.53668 12.489 0.76943L12.492 0.77168Z"
+            fill="#ffffff" />
+        </svg></a>
+      <a href="#" target="_blank"><svg width="24" height="18" viewBox="0 0 24 18" fill="none"
+          xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" clip-rule="evenodd"
+            d="M9.58613 12.1034V5.36926C11.9768 6.49417 13.8283 7.58086 16.0181 8.75246C14.212 9.75411 11.9768 10.878 9.58613 12.1034ZM22.9092 2.02004C22.4968 1.47673 21.794 1.0538 21.0457 0.913788C18.8463 0.496128 5.12518 0.49494 2.92698 0.913788C2.32693 1.02628 1.7926 1.29818 1.3336 1.72062C-0.600435 3.5157 0.00559941 13.1421 0.471777 14.7015C0.667809 15.3764 0.921228 15.8632 1.24038 16.1827C1.65157 16.6052 2.21456 16.896 2.86123 17.0265C4.67214 17.4011 14.0016 17.6105 21.0074 17.0827C21.6529 16.9702 22.2243 16.67 22.6749 16.2296C24.4631 14.4417 24.3412 4.27466 22.9092 2.02004Z"
+            fill="#ffffff" />
+        </svg></a>
+      <a href="#" target="_blank"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+          xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M16.19 2H7.81C4.17 2 2 4.17 2 7.81V16.18C2 19.83 4.17 22 7.81 22H16.18C19.82 22 21.99 19.83 21.99 16.19V7.81C22 4.17 19.83 2 16.19 2ZM12 15.88C9.86 15.88 8.12 14.14 8.12 12C8.12 9.86 9.86 8.12 12 8.12C14.14 8.12 15.88 9.86 15.88 12C15.88 14.14 14.14 15.88 12 15.88ZM17.92 6.88C17.87 7 17.8 7.11 17.71 7.21C17.61 7.3 17.5 7.37 17.38 7.42C17.26 7.47 17.13 7.5 17 7.5C16.73 7.5 16.48 7.4 16.29 7.21C16.2 7.11 16.13 7 16.08 6.88C16.03 6.76 16 6.63 16 6.5C16 6.37 16.03 6.24 16.08 6.12C16.13 5.99 16.2 5.89 16.29 5.79C16.52 5.56 16.87 5.45 17.19 5.52C17.26 5.53 17.32 5.55 17.38 5.58C17.44 5.6 17.5 5.63 17.56 5.67C17.61 5.7 17.66 5.75 17.71 5.79C17.8 5.89 17.87 5.99 17.92 6.12C17.97 6.24 18 6.37 18 6.5C18 6.63 17.97 6.76 17.92 6.88Z"
+            fill="#ffffff" />
+        </svg></a>
+      <a href="#" target="_blank"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+          xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" clip-rule="evenodd"
+            d="M12 0C18.6276 0 24 5.50792 24 12.3035C24 17.7383 20.5656 22.3487 15.8004 23.9771C15.192 24.0983 14.976 23.7141 14.976 23.3865C14.976 22.9809 14.9904 21.6562 14.9904 20.0098C14.9904 18.8626 14.6064 18.1138 14.1756 17.7322C16.848 17.4274 19.656 16.3869 19.656 11.6613C19.656 10.3173 19.1904 9.22058 18.42 8.35898C18.5448 8.04818 18.9564 6.79674 18.3024 5.10234C18.3024 5.10234 17.2968 4.77267 15.006 6.36387C14.0472 6.09147 13.02 5.95441 12 5.94961C10.98 5.95441 9.954 6.09147 8.9964 6.36387C6.7032 4.77267 5.6952 5.10234 5.6952 5.10234C5.0436 6.79674 5.4552 8.04818 5.5788 8.35898C4.812 9.22058 4.3428 10.3173 4.3428 11.6613C4.3428 16.3749 7.1448 17.4314 9.81 17.7422C9.4668 18.0494 9.156 18.5913 9.048 19.3869C8.364 19.7013 6.6264 20.2454 5.556 18.365C5.556 18.365 4.9212 17.1829 3.7164 17.0965C3.7164 17.0965 2.5464 17.0809 3.6348 17.8441C3.6348 17.8441 4.4208 18.2221 4.9668 19.6441C4.9668 19.6441 5.6712 21.8401 9.0096 21.0961C9.0156 22.1245 9.0264 23.0937 9.0264 23.3865C9.0264 23.7117 8.8056 24.0923 8.2068 23.9783C3.438 22.3523 0 17.7395 0 12.3035C0 5.50792 5.3736 0 12 0Z"
+            fill="#ffffff" />
+        </svg></a>
+    </div>
+
+    <p class="copy">&copy; 2025 <a href="https://www.hotay.dev" target="_blank">Hotay</a> - Todos os direitos
+      reservados</p>
+  </div>
+
+  <div class="cats">
+    <img class="cat-1" src="/assets/images/cats/cat1.png" />
+    <img class="cat-2" src="/assets/images/cats/cat2.png" />
+  </div>
+</footer>

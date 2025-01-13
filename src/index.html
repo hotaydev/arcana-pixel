@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arcana Pixel</title>
+
+  <!-- Basic Style reset -->
+  <style>
+    a,
+    button,
+    input,
+    select,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      border: none;
+      text-decoration: none;
+      background: none;
+
+      -webkit-font-smoothing: antialiased;
+    }
+
+    ol,
+    ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+  </style>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Space+Grotesk:wght@300..700&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="/assets/css/general.css">
+  <link rel="stylesheet" href="/assets/css/nav-bar.css">
+  <link rel="stylesheet" href="/assets/css/landing-banner.css">
+  <link rel="stylesheet" href="/assets/css/pixel-button.css">
+  <link rel="stylesheet" href="/assets/css/blur.css">
+
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+</head>
+
+<body>
+
+  <div class="nav-menu">
+    <div class="border">
+      <span style="width: 2rem;"></span>
+      <div class="nav-content">
+        <a href="#" class="item">Sobre</a>
+        <a href="#" class="item">Ferramentas</a>
+        <div class="logo">
+          <div class="arcana">ARCANA</div>
+          <div class="pixel">Pixel</div>
+        </div>
+        <a href="#" class="item">Preços</a>
+        <a href="#" class="item">Roadmap</a>
+      </div>
+      <a href="#" class="icon">
+        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <g>
+            <path
+              d="M12 25.3333C5.33329 27.3333 5.33329 22 2.66663 21.3333M21.3333 29.3333V24.1733C21.3833 23.5375 21.2974 22.8984 21.0813 22.2984C20.8652 21.6984 20.5239 21.1512 20.08 20.6933C24.2666 20.2267 28.6666 18.64 28.6666 11.36C28.6663 9.49843 27.9502 7.70826 26.6666 6.36C27.2744 4.73134 27.2315 2.93113 26.5466 1.33333C26.5466 1.33333 24.9733 0.866665 21.3333 3.30666C18.2773 2.47843 15.0559 2.47843 12 3.30666C8.35996 0.866665 6.78663 1.33333 6.78663 1.33333C6.10179 2.93113 6.05882 4.73134 6.66663 6.36C5.37346 7.71826 4.65666 9.52462 4.66663 11.4C4.66663 18.6267 9.06663 20.2133 13.2533 20.7333C12.8146 21.1866 12.4763 21.7272 12.2604 22.3199C12.0444 22.9126 11.9557 23.5441 12 24.1733V29.3333"
+              stroke="#F3F3F3" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+          </g>
+        </svg>
+      </a>
+    </div>
+  </div>
+
+  <main class="landing-banner">
+
+    <div class="bg-blur">
+      <div class="ellipse-1"></div>
+      <div class="ellipse-2"></div>
+    </div>
+
+    <h1>Todo o seu RPG em uma<br />única plataforma</h1>
+
+    <div class="dices">
+      <img class="d4" src="/assets/images/dices/pixel-d4.png" />
+      <img class="d6" src="/assets/images/dices/pixel-d6.png" />
+      <img class="d8" src="/assets/images/dices/pixel-d8.png" />
+      <img class="d10" src="/assets/images/dices/pixel-d10.png" />
+      <img class="d12" src="/assets/images/dices/pixel-d12.png" />
+      <img class="d20" src="/assets/images/dices/pixel-d20.png" />
+    </div>
+
+    <div class="pixel-btn neon">
+      <div class="layer-bottom">
+        <div class="rect-b1"></div>
+        <div class="rect-b2"></div>
+        <div class="rect-b3"></div>
+      </div>
+      <div class="layer-middle">
+        <div class="rect-m1"></div>
+        <div class="rect-m2"></div>
+        <div class="rect-m3"></div>
+      </div>
+      <div class="layer-top">
+        <div class="rect-t1"></div>
+        <div class="rect-t2"></div>
+      </div>
+      <div class="btn-text" onclick="scrollToCTA()">Jogar</div>
+    </div>
+
+    <div class="scroll-down">
+      <svg width="40" height="48" viewBox="0 0 40 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M10 23L20 33L30 23" stroke="#ffffff" stroke-width="3.5" stroke-linecap="round"
+          stroke-linejoin="round" />
+        <path d="M10 15L20 25L30 15" stroke="#ffffff" stroke-width="3.5" stroke-linecap="round"
+          stroke-linejoin="round" />
+      </svg>
+    </div>
+
+  </main>
+
+  <arcana-component src="components/tools.html"></arcana-component>
+  <arcana-component src="components/universes.html"></arcana-component>
+  <arcana-component src="components/cta.html"></arcana-component>
+  <arcana-component src="components/footer.html"></arcana-component>
+
+  <script>
+    function scrollToCTA() {
+      const element = document.querySelector('#still-in-development');
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+
+    class MyComponent extends HTMLElement {
+      connectedCallback() {
+        const src = this.getAttribute('src');
+        if (src) {
+          fetch(src)
+            .then(response => response.text())
+            .then(html => {
+              this.innerHTML = html;
+            })
+            .catch(err => console.error(`Failed to load ${src}:`, err));
+        }
+      }
+    }
+
+    customElements.define('arcana-component', MyComponent);
+  </script>
+</body>
+
+</html>

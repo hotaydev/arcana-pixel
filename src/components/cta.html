@@ -1,0 +1,189 @@
+<style>
+  section.still-in-development {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    margin-top: 0;
+    padding: 1rem;
+  }
+
+  section.still-in-development .divider {
+    opacity: .7;
+  }
+
+  section.still-in-development .content {
+    background: url(/assets/images/other/CTABackground.svg) center center no-repeat;
+    width: 100%;
+    height: 700px;
+    max-width: 1200px;
+    padding: 4rem 8rem 4rem 10rem;
+    background-size: contain;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    flex-direction: column;
+    position: relative;
+  }
+
+  section.still-in-development .content h3 {
+    font-size: 2.5rem;
+    text-align: center;
+    font-weight: 700;
+    margin-bottom: 3rem;
+  }
+
+  section.still-in-development .content .text-content {
+    font-size: 1.45rem;
+    text-align: center;
+    font-weight: 400;
+    width: 100%;
+    max-width: 800px;
+    margin-bottom: 4rem;
+  }
+
+  section.still-in-development .content .text-content strong {
+    font-weight: 700;
+  }
+
+  section.still-in-development .content .pre-register {
+    position: absolute;
+    transform: rotate(-30deg);
+    font-size: 2.5rem;
+    text-align: center;
+    font-weight: 700;
+
+    bottom: 12%;
+    right: -3%;
+  }
+
+  section.still-in-development .content .email-input {
+    width: 100%;
+  }
+
+  section.still-in-development .content .email-input .input {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    gap: 1rem;
+    width: 100%;
+    margin-bottom: 2rem;
+  }
+
+  section.still-in-development .content .email-input .input input {
+    padding: 10px 15px;
+    border: 2px solid rgba(255, 255, 255, 0.7);
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: white;
+    font-size: 1.4rem;
+    outline: none;
+    width: 60%;
+    font-weight: 400;
+  }
+
+  section.still-in-development .content .email-input .input input::placeholder {
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.7);
+  }
+
+  section.still-in-development .content .email-input .input button {
+    padding: 10px 15px;
+    background-color: #f600ff;
+    border: 2px solid #fa7eff;
+    border-radius: 10px;
+    color: white;
+    font-size: 1.4rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: -4px 4px 8px 0px rgba(0, 0, 0, 0.25);
+  }
+
+  section.still-in-development .content .email-input .input button:hover {
+    background-color: #dc00e3;
+  }
+
+  section.still-in-development .content .email-input .no-spam {
+    font-weight: 400;
+    font-size: 1rem;
+    text-align: center;
+  }
+
+
+
+  /* Stars */
+
+  section.still-in-development .content .stars img {
+    position: absolute;
+    z-index: 1;
+  }
+
+  section.still-in-development .content .stars .star-1 {
+    top: 20%;
+    left: 88%;
+  }
+
+  section.still-in-development .content .stars .star-2 {
+    top: 65%;
+    left: 94%;
+    transform: scale(.6);
+  }
+
+  section.still-in-development .content .stars .star-3 {
+    top: 25%;
+    left: 15%;
+    transform: scale(.8);
+  }
+
+  section.still-in-development .content .stars .star-4 {
+    top: 56%;
+    left: 7%;
+  }
+
+  section.still-in-development .content .stars .star-5 {
+    top: 55%;
+    left: 75%;
+    transform: scale(.4);
+  }
+</style>
+
+
+<section class="still-in-development">
+  <img src="assets/images/other/divider.png" alt="Divisor" class="divider">
+
+  <div class="content" id="still-in-development">
+
+    <div class="stars">
+      <img class="star-1" src="assets/images/other/star.svg" />
+      <img class="star-2" src="assets/images/other/star.svg" />
+      <img class="star-3" src="assets/images/other/star.svg" />
+      <img class="star-4" src="assets/images/other/star.svg" />
+      <img class="star-5" src="assets/images/other/star.svg" />
+    </div>
+
+    <h3>Ainda estamos em desenvolvimento!</h3>
+
+    <div class="text-content">
+      Espere só mais um pouco e você poderá usar todas as funcionalidades que estamos preparando para sua campanha!
+      <br /><br />
+      Enquanto isso, <strong>que tal ficar por dentro das nossa atualizações sobre o desenvolvimento?</strong>
+      <br /><br />
+      Prometemos um presente especial para quem acompanhar o projeto já no pré-registro!
+    </div>
+
+    <div class="email-input">
+      <div class="input">
+        <input type="text" placeholder="Seu melhor e-mail...">
+        <button>Receber Atualizações!</button>
+      </div>
+      <p class="no-spam">Fique tranquilo, nós também não gostamos de Spam.</p>
+    </div>
+
+    <span class="pre-register">Pré-registro!!</span>
+  </div>
+
+</section>
