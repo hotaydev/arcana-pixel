@@ -1,74 +1,17 @@
 /* ============== Blurs =================== */
 
-.bg-blur.neon .ellipse-1 {
-  background-color: var(--btn-neon-layer-top);
-}
-
-.bg-blur.neon .ellipse-2 {
-  background-color: var(--btn-neon-layer-top);
-}
-
-.bg-blur.red .ellipse-1 {
-  background-color: var(--btn-red-layer-top);
-}
-
-.bg-blur.red .ellipse-2 {
-  background-color: var(--btn-red-layer-top);
-}
-
-.bg-blur.yellow .ellipse-1 {
-  background-color: var(--btn-yellow-layer-top);
-}
-
-.bg-blur.yellow .ellipse-2 {
-  background-color: var(--btn-yellow-layer-top);
-}
-
-.bg-blur.green .ellipse-1 {
-  background-color: var(--btn-green-layer-top);
-}
-
-.bg-blur.green .ellipse-2 {
-  background-color: var(--btn-green-layer-top);
-}
-
-.bg-blur.purple .ellipse-1 {
-  background-color: var(--btn-purple-layer-top);
-}
-
-.bg-blur.purple .ellipse-2 {
-  background-color: var(--btn-purple-layer-top);
-}
-
-/* ================= */
-
 .bg-blur {
   z-index: 0;
 }
 
-/* // TODO: Add variations of position (left/right) using the "left" or "right" % modifiers */
-
 .bg-blur .ellipse-1 {
+  background-color: var(--btn-purple-layer-top);
   position: absolute;
   border-radius: 50%;
   filter: blur(130px);
-  width: 950px;
-  height: 680px;
-  opacity: 0.4;
-}
-
-.bg-blur .ellipse-2 {
-  position: absolute;
-  border-radius: 50%;
-  filter: blur(100px);
-  width: 475px;
-  height: 340px;
-  opacity: 0.5;
-}
-
-.bg-blur.big-blur .ellipse-1 {
   width: 1100px !important;
   height: 750px !important;
+  opacity: 0.4;
   left: 0;
   right: 0;
   margin-inline: auto;
@@ -76,9 +19,14 @@
   top: 20%;
 }
 
-.bg-blur.big-blur .ellipse-2 {
+.bg-blur .ellipse-2 {
+  background-color: var(--btn-purple-layer-top);
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
   width: 600px !important;
   height: 400px !important;
+  opacity: 0.5;
   left: 0;
   right: 0;
   margin-inline: auto;
