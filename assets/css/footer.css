@@ -115,3 +115,42 @@ footer .cats img.cat-2 {
   -webkit-transform: scaleX(-1);
   transform: scaleX(-1);
 }
+
+footer .stars img {
+  position: absolute;
+  z-index: 10;
+}
+
+footer .stars .star-1 {
+  top: 45%;
+  left: 75%;
+}
+
+footer .stars .star-2 {
+  top: 70%;
+  left: 85%;
+  transform: scale(.6);
+}
+
+footer .stars .star-3 {
+  top: 50%;
+  left: 10%;
+}
+
+footer .stars .star-4 {
+  top: 65%;
+  left: 25%;
+  transform: scale(.5);
+}
+
+footer .stars .star-5 {
+  top: 45%;
+  left: 35%;
+  transform: scale(.3);
+}
+
+footer .stars .star-6 {
+  top: 70%;
+  left: 65%;
+  transform: scale(.3);
+}
