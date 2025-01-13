@@ -2,20 +2,12 @@
 
 section.tools-presentation {
   width: 100%;
-  margin: 16rem auto 10rem;
   padding: 1rem;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   position: relative;
-}
-
-section.tools-presentation h2 {
-  font-size: 3rem;
-  text-align: center;
-  font-weight: 700;
-  margin-bottom: 2rem;
 }
 
 

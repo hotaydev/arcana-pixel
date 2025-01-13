@@ -1,5 +1,5 @@
 /* ============== Navigation Menu =================== */
-section.nav-menu {
+.nav-menu {
   width: 100%;
   display: flex;
   align-items: center;
@@ -8,7 +8,7 @@ section.nav-menu {
   margin-bottom: 2rem;
 }
 
-section.nav-menu .border {
+.nav-menu .border {
   width: 100%;
   display: flex;
   align-items: center;
@@ -19,7 +19,7 @@ section.nav-menu .border {
   padding: .5rem 2rem;
 }
 
-section.nav-menu .border .nav-content {
+.nav-menu .border .nav-content {
   width: 100%;
   display: flex;
   align-items: center;
@@ -29,30 +29,30 @@ section.nav-menu .border .nav-content {
   gap: 3rem;
 }
 
-section.nav-menu .border .item {
+.nav-menu .border .item {
   color: var(--text-color);
   font-size: 1.2rem;
   transition: all 0.3s ease;
   text-decoration-color: var(--link-hover-color);
 }
 
-section.nav-menu .border .item:hover {
+.nav-menu .border .item:hover {
   font-weight: 700;
   text-decoration: underline wavy var(--link-hover-color) 2px;
   text-underline-offset: 2px;
 }
 
-section.nav-menu .border .icon {
+.nav-menu .border .icon {
   transition: all 0.3s ease;
   padding: .7rem .7rem .4rem .7rem;
   border-radius: 50px;
 }
 
-section.nav-menu .border .icon:hover {
+.nav-menu .border .icon:hover {
   background-color: var(--link-hover-color);
 }
 
-section.nav-menu .border .logo {
+.nav-menu .border .logo {
   text-align: center;
   color: var(--text-color);
   margin: auto 2rem;
@@ -60,12 +60,12 @@ section.nav-menu .border .logo {
   cursor: pointer;
 }
 
-section.nav-menu .border .logo .arcana {
+.nav-menu .border .logo .arcana {
   font-weight: 600;
   font-size: 2rem;
 }
 
-section.nav-menu .border .logo .pixel {
+.nav-menu .border .logo .pixel {
   font-family: var(--font-family-pixel);
   font-weight: 400;
   font-style: normal;
