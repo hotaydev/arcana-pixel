@@ -84,6 +84,11 @@ footer .content .social-icons {
 
 footer .content .social-icons a {
   cursor: pointer;
+  transition: all .3s ease;
+}
+
+footer .content .social-icons a:hover {
+  transform: translateY(-3px);
 }
 
 footer .content .copy,

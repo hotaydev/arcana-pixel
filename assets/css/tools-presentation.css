@@ -3,10 +3,12 @@
 section.tools-presentation {
   width: 100%;
   margin: 16rem auto 10rem;
+  padding: 1rem;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  position: relative;
 }
 
 section.tools-presentation h2 {
@@ -17,6 +19,7 @@ section.tools-presentation h2 {
 }
 
 
+/* Tab Chooser/Selector/Changer */
 .tab-chooser {
   display: flex;
   position: relative;
@@ -28,6 +31,7 @@ section.tools-presentation h2 {
   border-radius: 25px;
   overflow: hidden;
   padding: 4px;
+  margin-bottom: 4rem;
 }
 
 .tab-chooser input[type="radio"] {
@@ -57,18 +61,103 @@ section.tools-presentation h2 {
   bottom: 4px;
   left: 4px;
   width: calc(50% - 4px);
-  background-color: var(--btn-purple-layer-top);
+  background-color: var(--tab-chooser-color);
   border-radius: 25px;
   transition: transform 0.3s ease;
   z-index: 0;
 }
 
-/* When the "Jogador" tab is selected */
 .tab-chooser input#jogador:checked~.slider {
   transform: translateX(0%);
 }
 
-/* When the "Mestre" tab is selected */
 .tab-chooser input#mestre:checked~.slider {
   transform: translateX(100%);
+}
+
+/* Cards */
+section.tools-presentation .cards {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  gap: 2rem;
+  max-width: 1200px;
+}
+
+section.tools-presentation .cards .card {
+  border: 2px solid var(--tab-chooser-color);
+  padding: 16px;
+  border-radius: 20px;
+  width: 230px;
+  height: 360px;
+  background-color: var(--card-background);
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  text-align: center;
+  z-index: 2;
+}
+
+section.tools-presentation .cards .card h4 {
+  font-weight: 600;
+  font-size: 1.3rem;
+  margin-bottom: 1.2rem;
+}
+
+section.tools-presentation .cards .card p {
+  font-weight: 400;
+  font-size: 1rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  section.tools-presentation .cards {
+    gap: 1rem;
+  }
+
+  section.tools-presentation .cards .card {
+    width: 100%;
+    max-width: 300px;
+  }
+}
+
+section.tools-presentation .details {
+  position: relative;
+}
+
+section.tools-presentation svg.path {
+  position: absolute;
+  z-index: 0;
+  top: 18rem;
+}
+
+section.tools-presentation .details img.map {
+  position: absolute;
+  z-index: 0;
+  left: 32rem;
+  top: 6rem;
+  z-index: 1;
+}
+
+section.tools-presentation .details img.character {
+  position: absolute;
+  z-index: 0;
+  left: -43rem;
+  top: 10rem;
+  z-index: 1;
+}
+
+section.tools-presentation .realtime {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: .6rem;
+  margin-top: 2rem;
+}
+
+section.tools-presentation .realtime p {
+  font-weight: 500;
 }

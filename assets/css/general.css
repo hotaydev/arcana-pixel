@@ -6,6 +6,8 @@
   --text-color: #ffffff;
 
   --link-hover-color: #d041ff;
+  --card-background: #211e23;
+  --tab-chooser-color: #921ca4;
 
   --btn-neon-layer-top: #ff00c7;
   --btn-neon-layer-middle: #e400b2;
@@ -39,7 +41,7 @@ body {
   width: 100%;
   color: var(--text-color);
   /* TODO; uncomment the line below after dev finalization */
-  /* overflow-y: hidden; */
+  overflow-x: hidden;
 }
 
 body,
