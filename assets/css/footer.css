@@ -118,7 +118,7 @@ footer .cats img.cat-2 {
 
 footer .stars img {
   position: absolute;
-  z-index: 10;
+  z-index: 1;
 }
 
 footer .stars .star-1 {
