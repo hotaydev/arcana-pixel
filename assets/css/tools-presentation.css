@@ -1,0 +1,74 @@
+/* ============== Tools Presentation =================== */
+
+section.tools-presentation {
+  width: 100%;
+  margin: 16rem auto 10rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+section.tools-presentation h2 {
+  font-size: 3rem;
+  text-align: center;
+  font-weight: 700;
+  margin-bottom: 2rem;
+}
+
+
+.tab-chooser {
+  display: flex;
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+  height: 50px;
+  background-color: transparent;
+  border: 2px solid var(--text-color);
+  border-radius: 25px;
+  overflow: hidden;
+  padding: 4px;
+}
+
+.tab-chooser input[type="radio"] {
+  display: none;
+}
+
+.tab-chooser label {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: var(--text-color);
+  cursor: pointer;
+  z-index: 1;
+  transition: color 0.3s ease;
+}
+
+.tab-chooser label:first-of-type {
+  margin-right: -2px;
+}
+
+.tab-chooser .slider {
+  position: absolute;
+  top: 4px;
+  bottom: 4px;
+  left: 4px;
+  width: calc(50% - 4px);
+  background-color: var(--btn-purple-layer-top);
+  border-radius: 25px;
+  transition: transform 0.3s ease;
+  z-index: 0;
+}
+
+/* When the "Jogador" tab is selected */
+.tab-chooser input#jogador:checked~.slider {
+  transform: translateX(0%);
+}
+
+/* When the "Mestre" tab is selected */
+.tab-chooser input#mestre:checked~.slider {
+  transform: translateX(100%);
+}

@@ -26,6 +26,12 @@
   --btn-purple-layer-top: #800fb5;
   --btn-purple-layer-middle: #670d91;
   --btn-purple-layer-bottom: #420b5b;
+
+  --footer-bg-color-1: #9900cc;
+  --footer-bg-color-2: #8200ad;
+  --footer-bg-color-3: #660088;
+  --footer-bg-color-4: #4a0063;
+  --footer-bg-color-5: #340045;
 }
 
 body {
