@@ -125,6 +125,10 @@
       --footer-bg-color-5: #340045;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       background-color: var(--bg-color);
       width: 100%;
@@ -365,20 +369,21 @@
 
 <body>
 
-  <div class="nav-menu">
+  <div class="nav-menu" id="top">
     <div class="border">
       <span style="width: 2rem;"></span>
       <div class="nav-content">
-        <a href="#" class="item">Sobre</a>
-        <a href="#" class="item">Ferramentas</a>
-        <div class="logo">
+        <!-- TODO: create these pages -->
+        <a href="#still-in-development" class="item">Sobre</a>
+        <a href="#tools" class="item">Ferramentas</a>
+        <a class="logo" href="#top">
           <div class="arcana">ARCANA</div>
           <div class="pixel">Pixel</div>
-        </div>
-        <a href="#" class="item">Preços</a>
-        <a href="#" class="item">Roadmap</a>
+        </a>
+        <a href="#still-in-development" class="item">Preços</a>
+        <a href="#universes" class="item">Universos</a>
       </div>
-      <a href="#" class="icon" aria-label="Código do Projeto no GitHub">
+      <a href="https://github.com/hotaydev/" target="_blank" class="icon" aria-label="Código do Projeto no GitHub">
         <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
           <g>
             <path
