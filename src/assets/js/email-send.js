@@ -1,9 +1,9 @@
 
 let alreadySending = false;
 
-const interval = setInterval(() => {
+const intervalEmailSend = setInterval(() => {
   if (document.querySelector(".email-input button")) {
-    clearInterval(interval);
+    clearInterval(intervalEmailSend);
     registerButtonClick();
   }
 }, 200);
