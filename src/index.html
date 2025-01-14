@@ -4,7 +4,46 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Arcana Pixel</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>Arcana Pixel | Plataforma de RPG Online</title>
+  <meta name="description"
+    content="Mesa virtual de RPG completa para jogar online! Criada para campanhas de Ordem Paranormal, D&D, e outros TTRPGs. Seu RPG em uma única plataforma VTT.">
+  <link rel="canonical" href="https://www.arcanapixel.com/">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="Hotay Software Development">
+  <meta name="keywords"
+    content="RPG, Virtual TableTop, VTT, TTRPG, Jogar RPG Online, Mesa virtual de RPG, Ordem Paranormal, Ordem Paranormal RPG, D&D, Dungeons and Dragons">
+
+  <!-- Multilanguage: Start -->
+  <!--
+  <link rel="alternate" hreflang="en" href="https://www.yourwebsite.com/en">
+  <link rel="alternate" hreflang="es" href="https://www.yourwebsite.com/es">
+  -->
+  <!-- Multilanguage: End -->
+
+  <!-- Open Graph: Start -->
+  <meta property="og:title" content="Arcana Pixel | Plataforma de RPG Online" />
+  <meta property="og:type" content="website" />
+  <meta property="og:description"
+    content="Mesa virtual de RPG completa para jogar online! Criada para campanhas de Ordem Paranormal, D&D, e outros TTRPGs. Seu RPG em uma única plataforma VTT." />
+  <meta property="og:site_name" content="Arcana Pixel" />
+  <meta property="og:url" content="https://www.arcanapixel.com/" />
+  <meta property="og:image" content="https://www.arcanapixel.com/assets/images/thumbnail.jpeg" />
+  <meta property="og:locale" content="pt_BR" />
+  <!--
+  <meta property="og:locale:alternate" content="en_US" />
+  <meta property="og:locale:alternate" content="es_ES" />
+  -->
+  <!-- Open Graph: End -->
+
+  <!-- Twitter: Start -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Arcana Pixel">
+  <meta name="twitter:description"
+    content="Mesa virtual de RPG completa para jogar online! Criada para campanhas de Ordem Paranormal, D&D, e outros TTRPGs.">
+  <meta name="twitter:image" content="https://www.arcanapixel.com/assets/images/thumbnail.jpeg">
+  <!-- <meta name="twitter:site" content="@YourTwitterHandle"> -->
+  <!-- Twitter: End -->
 
   <!-- Basic Style reset -->
   <style>
@@ -41,13 +80,287 @@
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Space+Grotesk:wght@300..700&display=swap"
     rel="stylesheet">
 
-  <link rel="stylesheet" href="/assets/css/general.css">
-  <link rel="stylesheet" href="/assets/css/nav-bar.css">
-  <link rel="stylesheet" href="/assets/css/landing-banner.css">
   <link rel="stylesheet" href="/assets/css/pixel-button.css">
-  <link rel="stylesheet" href="/assets/css/blur.css">
 
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" sizes="128x115" href="/assets/images/dices/pixel-d20.png">
+
+  <!-- Styles needed till the landing page (so the page loads faster) -->
+  <!-- Other styles are placed with the components -->
+  <style>
+    :root {
+      --bg-color: #121111;
+      --font-family-normal: "Space Grotesk", serif;
+      --font-family-pixel: "Press Start 2P", serif;
+      --text-color: #ffffff;
+
+      --link-hover-color: #d041ff;
+      --card-background: #211e23;
+      --tab-chooser-color: #921ca4;
+
+      --btn-neon-layer-top: #ff00c7;
+      --btn-neon-layer-middle: #e400b2;
+      --btn-neon-layer-bottom: #7a008d;
+
+      --btn-green-layer-top: #0fac27;
+      --btn-green-layer-middle: #0a8f1e;
+      --btn-green-layer-bottom: #0a4f15;
+
+      --btn-red-layer-top: #d71a09;
+      --btn-red-layer-middle: #a2180b;
+      --btn-red-layer-bottom: #590d06;
+
+      --btn-yellow-layer-top: #bebe00;
+      --btn-yellow-layer-middle: #9d9d00;
+      --btn-yellow-layer-bottom: #4c4c01;
+
+      --btn-purple-layer-top: #800fb5;
+      --btn-purple-layer-middle: #670d91;
+      --btn-purple-layer-bottom: #420b5b;
+
+      --footer-bg-color-1: #9900cc;
+      --footer-bg-color-2: #8200ad;
+      --footer-bg-color-3: #660088;
+      --footer-bg-color-4: #4a0063;
+      --footer-bg-color-5: #340045;
+    }
+
+    body {
+      background-color: var(--bg-color);
+      width: 100%;
+      color: var(--text-color);
+      overflow-x: hidden;
+    }
+
+    body,
+    body * {
+      box-sizing: border-box;
+      font-family: var(--font-family-normal);
+      font-optical-sizing: auto;
+      font-weight: 500;
+      font-style: normal;
+      z-index: 1;
+    }
+
+    h2 {
+      font-size: 3rem;
+      text-align: center;
+      font-weight: 700;
+      margin-bottom: 2rem;
+    }
+
+    section {
+      margin: 12rem auto 5rem;
+    }
+
+    /* ============== Blurs =================== */
+
+    .bg-blur {
+      z-index: 0;
+    }
+
+    .bg-blur .ellipse-1 {
+      background-color: var(--btn-purple-layer-top);
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(130px);
+      width: 1100px !important;
+      height: 750px !important;
+      opacity: 0.4;
+      left: 0;
+      right: 0;
+      margin-inline: auto;
+      width: fit-content;
+      top: 20%;
+    }
+
+    .bg-blur .ellipse-2 {
+      background-color: var(--btn-purple-layer-top);
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(100px);
+      width: 600px !important;
+      height: 400px !important;
+      opacity: 0.5;
+      left: 0;
+      right: 0;
+      margin-inline: auto;
+      width: fit-content;
+      top: 20%;
+    }
+
+    /* ============== Navigation Menu =================== */
+    .nav-menu {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .nav-menu .border {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      border-radius: 50px;
+      border: 2px solid var(--text-color);
+      padding: .5rem 2rem;
+    }
+
+    .nav-menu .border .nav-content {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      /* TODO: Para layout mobile/tablet esse valor deve variar */
+      gap: 3rem;
+    }
+
+    .nav-menu .border .item {
+      color: var(--text-color);
+      font-size: 1.2rem;
+      transition: all 0.3s ease;
+      text-decoration-color: var(--link-hover-color);
+    }
+
+    .nav-menu .border .item:hover {
+      font-weight: 700;
+      text-decoration: underline wavy var(--link-hover-color) 2px;
+      text-underline-offset: 2px;
+    }
+
+    .nav-menu .border .icon {
+      transition: all 0.3s ease;
+      padding: .7rem .7rem .4rem .7rem;
+      border-radius: 50px;
+    }
+
+    .nav-menu .border .icon:hover {
+      background-color: var(--link-hover-color);
+    }
+
+    .nav-menu .border .logo {
+      text-align: center;
+      color: var(--text-color);
+      margin: auto 2rem;
+      user-select: none;
+      cursor: pointer;
+    }
+
+    .nav-menu .border .logo .arcana {
+      font-weight: 600;
+      font-size: 2rem;
+    }
+
+    .nav-menu .border .logo .pixel {
+      font-family: var(--font-family-pixel);
+      font-weight: 400;
+      font-style: normal;
+    }
+
+    /* ============== Landing Banner =================== */
+
+    main.landing-banner {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      width: 100%;
+    }
+
+    main.landing-banner h1 {
+      z-index: 10;
+      font-size: 4.6rem;
+      text-align: center;
+      font-weight: 700;
+
+      margin-top: 12rem;
+      margin-bottom: 6rem;
+    }
+
+    main.landing-banner .pixel-btn {
+      margin-bottom: 12rem;
+    }
+
+    main.landing-banner .scroll-down {
+      opacity: .6;
+      transition: all .3s ease;
+    }
+
+    main.landing-banner .scroll-down:hover {
+      transform: translateY(5px);
+    }
+
+    /* Dices */
+    main.landing-banner .dices img {
+      position: absolute;
+      background-size: cover;
+      background-position: center;
+      animation: float 8s ease-in-out infinite;
+      -webkit-user-drag: none;
+      user-select: none;
+      -moz-user-select: none;
+      -webkit-user-select: none;
+      -ms-user-select: none;
+    }
+
+    /* // TODO: Need to adapt the values below for different screen sizes */
+
+    main.landing-banner .dices img.d4 {
+      margin-left: 12rem;
+      margin-top: 6rem;
+      animation-delay: -0s;
+    }
+
+    main.landing-banner .dices img.d6 {
+      margin-left: -18rem;
+      margin-top: -29rem;
+      animation-delay: -1s;
+    }
+
+    main.landing-banner .dices img.d8 {
+      margin-left: -26rem;
+      margin-top: 5rem;
+      animation-delay: -2s;
+    }
+
+    main.landing-banner .dices img.d10 {
+      margin-left: 15rem;
+      margin-top: -26rem;
+      animation-delay: -3s;
+    }
+
+    main.landing-banner .dices img.d12 {
+      margin-left: -40rem;
+      margin-top: -14rem;
+      animation-delay: -4s;
+    }
+
+    main.landing-banner .dices img.d20 {
+      margin-left: 30rem;
+      margin-top: -6rem;
+      animation-delay: -5s;
+    }
+
+    /* Floating Animation */
+    @keyframes float {
+      0% {
+        transform: translateY(0%);
+      }
+
+      50% {
+        transform: translateY(20%);
+      }
+
+      100% {
+        transform: translateY(0%);
+      }
+    }
+  </style>
 </head>
 
 <body>
@@ -87,12 +400,12 @@
     <h1>Todo o seu RPG em uma<br />única plataforma</h1>
 
     <div class="dices">
-      <img class="d4" src="/assets/images/dices/pixel-d4.png" />
-      <img class="d6" src="/assets/images/dices/pixel-d6.png" />
-      <img class="d8" src="/assets/images/dices/pixel-d8.png" />
-      <img class="d10" src="/assets/images/dices/pixel-d10.png" />
-      <img class="d12" src="/assets/images/dices/pixel-d12.png" />
-      <img class="d20" src="/assets/images/dices/pixel-d20.png" />
+      <img loading="eager" class="d4" src="/assets/images/dices/pixel-d4.png" />
+      <img loading="eager" class="d6" src="/assets/images/dices/pixel-d6.png" />
+      <img loading="eager" class="d8" src="/assets/images/dices/pixel-d8.png" />
+      <img loading="eager" class="d10" src="/assets/images/dices/pixel-d10.png" />
+      <img loading="eager" class="d12" src="/assets/images/dices/pixel-d12.png" />
+      <img loading="eager" class="d20" src="/assets/images/dices/pixel-d20.png" />
     </div>
 
     <div class="pixel-btn neon">

@@ -1,0 +1,10 @@
+User-agent: *
+Allow: *
+
+Disallow: /404
+Disallow: /components/*
+Disallow: /assets/*
+Disallow: /.well-known/*
+Disallow: /cdn-cgi/*
+
+Sitemap: https://www.mecaniza.cloud/sitemap.xml
