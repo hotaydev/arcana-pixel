@@ -8,7 +8,6 @@ const interval = setInterval(() => {
   }
 }, 200);
 
-// TODO: add better user response instead of simple alerts
 function registerButtonClick() {
   const submitButton = document.querySelector(".email-input button");
 

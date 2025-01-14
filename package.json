@@ -9,7 +9,7 @@
     "minify:js": "html-minifier --minify-js true --collapse-whitespace --remove-comments --file-ext js --input-dir src --output-dir dist",
     "minify:images": "cp -r src/assets/images dist/assets/images && cp src/favicon.ico dist/favicon.ico",
     "build": "rm -rf ./dist && npm run minify:html && npm run minify:css && npm run minify:js && npm run minify:images",
-    "deploy": "vercel deploy --prod"
+    "deploy": "npm run build && vercel deploy --prod"
   },
   "keywords": [],
   "author": "Hotay",
