@@ -14,7 +14,8 @@ function registerButtonClick() {
   submitButton.addEventListener("click", async () => {
     if (alreadySending) return;
 
-    const email = document.querySelector(".email-input input[type='email']").value.trim();
+    const emailInput = document.querySelector(".email-input input[type='email']");
+    const email = emailInput.value.trim();
 
     if (!validateEmail(email)) {
       setToastMessage("Por favor, insira um e-mail válido.", "error");
