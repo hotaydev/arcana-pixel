@@ -149,6 +149,38 @@
     left: 75%;
     transform: scale(.4);
   }
+
+  .msg {
+    position: fixed;
+    top: 10%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .msg p {
+    color: var(--text-color);
+    padding: 1rem 6rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 500;
+    font-size: 1.1rem;
+    border-radius: 10px;
+    z-index: 10;
+  }
+
+  .msg.success p {
+    background-color: #00ba19;
+    box-shadow: 0 0 6px rgba(0, 255, 34, 0.4);
+    border: 2px solid #00a015;
+  }
+
+  .msg.error p {
+    background-color: #bf0000;
+    box-shadow: 0 0 6px rgba(255, 0, 0, 0.6);
+    border: 2px solid #940000;
+  }
 </style>
 
 
@@ -177,7 +209,7 @@
 
     <div class="email-input">
       <div class="input">
-        <input type="text" placeholder="Seu melhor e-mail...">
+        <input type="email" placeholder="Seu melhor e-mail...">
         <button>Receber Atualizações!</button>
       </div>
       <p class="no-spam">Fique tranquilo, nós também não gostamos de Spam.</p>
@@ -186,4 +218,5 @@
     <span class="pre-register">Pré-registro!!</span>
   </div>
 
+  <div id="message-toast" class="d-none msg"></div>
 </section>
