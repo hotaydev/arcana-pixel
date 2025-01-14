@@ -96,11 +96,11 @@
 .pixel-btn {
   position: relative;
   cursor: pointer;
+  transform: scale(1);
 }
 
-/* // TODO: Improve this hover effect */
 .pixel-btn:hover {
-  transform: translateY(-5px);
+  transform: translateY(-5px) scale(1);
 }
 
 .pixel-btn .layer-bottom,

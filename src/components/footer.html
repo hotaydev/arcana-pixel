@@ -108,11 +108,11 @@
 
 
   footer .cats img.cat-1 {
-    right: 20%;
+    right: 15%;
   }
 
   footer .cats img.cat-2 {
-    left: 20%;
+    left: 15%;
     -webkit-transform: scaleX(-1);
     transform: scaleX(-1);
   }
@@ -154,6 +154,28 @@
     top: 70%;
     left: 65%;
     transform: scale(.3);
+  }
+
+  @media (max-width: 600px) {
+    footer .cats img {
+      display: none;
+    }
+  }
+
+  @media (max-width: 900px) and (min-width: 601px) {
+    footer .cats img {
+      width: 70px !important;
+      top: 91%;
+    }
+
+
+    footer .cats img.cat-1 {
+      right: 5%;
+    }
+
+    footer .cats img.cat-2 {
+      left: 5%;
+    }
   }
 </style>
 <footer>

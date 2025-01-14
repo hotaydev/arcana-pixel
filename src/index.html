@@ -278,6 +278,7 @@
       justify-content: center;
       flex-direction: column;
       width: 100%;
+      padding: 1rem;
     }
 
     main.landing-banner h1 {
@@ -315,8 +316,6 @@
       -webkit-user-select: none;
       -ms-user-select: none;
     }
-
-    /* // TODO: Need to adapt the values below for different screen sizes */
 
     main.landing-banner .dices img.d4 {
       margin-left: 12rem;
@@ -366,6 +365,121 @@
 
       100% {
         transform: translateY(0%);
+      }
+    }
+  </style>
+
+  <!-- Responsive styles -->
+  <style>
+    @media (max-width: 700px) {
+      .nav-menu .nav-content .item {
+        display: none;
+      }
+
+      h1 {
+        font-size: 3rem !important;
+        margin-top: 10rem !important;
+      }
+
+      .pixel-btn {
+        transform: scale(.75) !important;
+      }
+
+      .pixel-btn:hover {
+        transform: translateY(-5px) scale(.75) !important;
+      }
+
+      main.landing-banner .dices img {
+        width: 60px !important;
+      }
+
+      main.landing-banner .dices img.d4 {
+        margin-left: 12rem;
+        margin-top: 6rem;
+      }
+
+      main.landing-banner .dices img.d6 {
+        margin-left: -12rem;
+        margin-top: -24rem;
+      }
+
+      main.landing-banner .dices img.d8 {
+        margin-left: -15rem;
+        margin-top: 5rem;
+      }
+
+      main.landing-banner .dices img.d10 {
+        margin-left: 10rem;
+        margin-top: -21rem;
+      }
+
+      main.landing-banner .dices img.d12 {
+        margin-left: -20rem;
+        margin-top: -8rem;
+      }
+
+      main.landing-banner .dices img.d20 {
+        margin-left: 15rem;
+        margin-top: -5rem;
+      }
+    }
+
+    @media (max-width: 1000px) and (min-width: 701px) {
+      .nav-menu .nav-content .item {
+        display: none;
+      }
+
+      h1 {
+        font-size: 3rem !important;
+        margin-top: 10rem !important;
+      }
+
+      .pixel-btn {
+        transform: scale(.75) !important;
+      }
+
+      .pixel-btn:hover {
+        transform: translateY(-5px) scale(.75) !important;
+      }
+
+      main.landing-banner .dices img {
+        width: 60px !important;
+      }
+
+      main.landing-banner .dices img.d4 {
+        margin-left: 12rem;
+        margin-top: 6rem;
+      }
+
+      main.landing-banner .dices img.d6 {
+        margin-left: -12rem;
+        margin-top: -24rem;
+      }
+
+      main.landing-banner .dices img.d8 {
+        margin-left: -15rem;
+        margin-top: 5rem;
+      }
+
+      main.landing-banner .dices img.d10 {
+        margin-left: 10rem;
+        margin-top: -21rem;
+      }
+
+      main.landing-banner .dices img.d12 {
+        margin-left: -20rem;
+        margin-top: -8rem;
+      }
+
+      main.landing-banner .dices img.d20 {
+        margin-left: 15rem;
+        margin-top: -5rem;
+      }
+    }
+
+    @media (max-width: 1300px) and (min-width: 1001px) {
+      h1 {
+        font-size: 3.6rem !important;
       }
     }
   </style>
