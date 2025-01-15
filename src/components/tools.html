@@ -103,18 +103,6 @@
     font-size: 1rem;
   }
 
-  /* Responsive adjustments */
-  @media (max-width: 768px) {
-    section.tools-presentation .cards {
-      gap: 1rem;
-    }
-
-    section.tools-presentation .cards .card {
-      width: 100%;
-      max-width: 300px;
-    }
-  }
-
   section.tools-presentation .details {
     position: relative;
   }
@@ -151,6 +139,26 @@
 
   section.tools-presentation .realtime p {
     font-weight: 500;
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    section.tools-presentation .cards {
+      gap: 1rem;
+    }
+
+    section.tools-presentation .cards .card {
+      width: 100%;
+      max-width: 300px;
+    }
+
+    section.tools-presentation svg.path {
+      display: none !important;
+    }
+
+    section.tools-presentation .details img {
+      display: none !important;
+    }
   }
 </style>
 

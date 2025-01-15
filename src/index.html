@@ -133,7 +133,7 @@
       background-color: var(--bg-color);
       width: 100%;
       color: var(--text-color);
-      overflow-x: hidden;
+      overflow-x: hidden !important;
     }
 
     body,
@@ -371,13 +371,13 @@
 
   <!-- Responsive styles -->
   <style>
-    @media (max-width: 700px) {
+    @media (max-width: 550px) {
       .nav-menu .nav-content .item {
         display: none;
       }
 
       .bg-blur .ellipse-1 {
-        width: 900px !important;
+        width: 800px !important;
         height: 600px !important;
       }
 
@@ -404,8 +404,75 @@
       }
 
       main.landing-banner .dices img.d4 {
-        margin-left: 12rem;
-        margin-top: 6rem;
+        margin-left: 8rem;
+        margin-top: -2rem;
+      }
+
+      main.landing-banner .dices img.d6 {
+        margin-left: -10rem;
+        margin-top: -31rem;
+      }
+
+      main.landing-banner .dices img.d8 {
+        margin-left: -13rem;
+        margin-top: 1rem;
+      }
+
+      main.landing-banner .dices img.d10 {
+        margin-left: 3rem;
+        margin-top: -30rem;
+      }
+
+      main.landing-banner .dices img.d12 {
+        margin-left: -12rem;
+        margin-top: -14rem;
+      }
+
+      main.landing-banner .dices img.d20 {
+        margin-left: 8rem;
+        margin-top: -16rem;
+      }
+
+      h2 {
+        font-size: 2rem;
+      }
+    }
+
+    @media (max-width: 700px) and (min-width: 551px) {
+      .nav-menu .nav-content .item {
+        display: none;
+      }
+
+      .bg-blur .ellipse-1 {
+        width: 900px !important;
+        height: 600px !important;
+      }
+
+      .bg-blur .ellipse-2 {
+        width: 500px !important;
+        height: 300px !important;
+      }
+
+      h1 {
+        font-size: 3rem !important;
+        margin-top: 10rem !important;
+      }
+
+      .pixel-btn {
+        transform: scale(.75) !important;
+      }
+
+      .pixel-btn:hover {
+        transform: translateY(-5px) scale(.75) !important;
+      }
+
+      main.landing-banner .dices img {
+        width: 60px !important;
+      }
+
+      main.landing-banner .dices img.d4 {
+        margin-left: 10rem;
+        margin-top: 4rem;
       }
 
       main.landing-banner .dices img.d6 {
@@ -414,13 +481,13 @@
       }
 
       main.landing-banner .dices img.d8 {
-        margin-left: -15rem;
-        margin-top: 5rem;
+        margin-left: -13rem;
+        margin-top: 1rem;
       }
 
       main.landing-banner .dices img.d10 {
         margin-left: 10rem;
-        margin-top: -21rem;
+        margin-top: -23rem;
       }
 
       main.landing-banner .dices img.d12 {
@@ -431,6 +498,10 @@
       main.landing-banner .dices img.d20 {
         margin-left: 15rem;
         margin-top: -5rem;
+      }
+
+      h2 {
+        font-size: 2rem;
       }
     }
 
@@ -440,13 +511,13 @@
       }
 
       .bg-blur .ellipse-1 {
-        width: 900px !important;
-        height: 600px !important;
+        width: 1000px !important;
+        height: 800px !important;
       }
 
       .bg-blur .ellipse-2 {
-        width: 400px !important;
-        height: 200px !important;
+        width: 500px !important;
+        height: 300px !important;
       }
 
       h1 {
@@ -467,8 +538,8 @@
       }
 
       main.landing-banner .dices img.d4 {
-        margin-left: 12rem;
-        margin-top: 6rem;
+        margin-left: 10rem;
+        margin-top: 4rem;
       }
 
       main.landing-banner .dices img.d6 {
@@ -477,13 +548,13 @@
       }
 
       main.landing-banner .dices img.d8 {
-        margin-left: -15rem;
-        margin-top: 5rem;
+        margin-left: -13rem;
+        margin-top: 1rem;
       }
 
       main.landing-banner .dices img.d10 {
         margin-left: 10rem;
-        margin-top: -21rem;
+        margin-top: -23rem;
       }
 
       main.landing-banner .dices img.d12 {
@@ -495,11 +566,20 @@
         margin-left: 15rem;
         margin-top: -5rem;
       }
+
+
+      h2 {
+        font-size: 2rem;
+      }
     }
 
     @media (max-width: 1300px) and (min-width: 1001px) {
       h1 {
         font-size: 3.6rem !important;
+      }
+
+      h2 {
+        font-size: 2.5rem;
       }
     }
   </style>
