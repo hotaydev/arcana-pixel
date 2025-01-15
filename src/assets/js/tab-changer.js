@@ -3,11 +3,11 @@ let cards;
 const intervalTabChanger = setInterval(() => {
   if (document.querySelector(".tab-chooser #jogador")) {
     clearInterval(intervalTabChanger);
-    registerButtonClick();
+    registerTabChangeClick();
   }
 }, 200);
 
-function registerButtonClick() {
+function registerTabChangeClick() {
   const playerButton = document.querySelector(".tab-chooser #jogador");
   const masterButton = document.querySelector(".tab-chooser #mestre");
 
