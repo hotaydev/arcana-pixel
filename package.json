@@ -4,7 +4,7 @@
   "scripts": {
     "dev": "serve src/",
     "start": "serve dist/",
-    "minify:html": "html-minifier --minify-css true --minify-js true --collapse-whitespace --remove-comments --file-ext html --input-dir src --output-dir dist",
+    "minify:html": "html-minifier --minify-css true --minify-js true --collapse-whitespace --remove-comments --keep-closing-slash --file-ext html --input-dir src --output-dir dist",
     "minify:css": "html-minifier --minify-css true --collapse-whitespace --remove-comments --file-ext css --input-dir src --output-dir dist",
     "minify:js": "html-minifier --minify-js true --collapse-whitespace --remove-comments --file-ext js --input-dir src --output-dir dist",
     "minify:images": "cp -r src/assets/images dist/assets/images && cp src/favicon.ico dist/favicon.ico",
