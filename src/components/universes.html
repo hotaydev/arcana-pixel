@@ -59,7 +59,6 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    gap: 1rem;
   }
 
   section.universes .universe .creature img {
@@ -95,12 +94,35 @@
     max-width: 30rem;
   }
 
+  @media (max-width: 600px) {
+    section.universes .universe .creature .blur-effect {
+      left: -25vw !important;
+      top: -25vh;
+    }
+  }
+
+
+  @media (max-width: 800px) {
+    section.universes .universe .creature .blur-effect {
+      left: -35vw !important;
+      top: -25vh;
+    }
+  }
+
 
   @media (max-width: 1000px) {
     section.universes .universe {
       flex-direction: column-reverse !important;
       flex-wrap: wrap !important;
       gap: 12rem;
+      margin: 8rem auto;
+    }
+
+    section.universes .universe .creature .blur-effect {
+      width: 100vw;
+      height: 75vh;
+      left: -45vw;
+      top: -25vh;
     }
   }
 </style>
