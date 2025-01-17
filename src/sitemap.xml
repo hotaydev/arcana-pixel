@@ -3,7 +3,12 @@
   xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
   <url>
     <loc>https://www.arcanapixel.com/</loc>
-    <lastmod>2025-01-15T19:23:00+03:00</lastmod>
+    <lastmod>2025-01-17T18:02:02+03:00</lastmod>
     <priority>1.00</priority>
+  </url>
+  <url>
+    <loc>https://www.arcanapixel.com/planos/</loc>
+    <lastmod>2025-01-17T18:02:02+03:00</lastmod>
+    <priority>0.80</priority>
   </url>
 </urlset>

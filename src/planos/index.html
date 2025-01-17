@@ -5,10 +5,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <title>Arcana Pixel | Plataforma de RPG Online</title>
+  <title>Arcana Pixel | Planos disponíveis</title>
   <meta name="description"
-    content="Mesa virtual de RPG completa para jogar online! Criada para campanhas de Ordem Paranormal, D&D, e outros TTRPGs. Seu RPG em uma única plataforma VTT.">
-  <link rel="canonical" href="https://www.arcanapixel.com/">
+    content="Planos disponíveis na plataforma Arcana Pixel. Plano gratuito para VTT TTRPG para jogar Ordem Paranormal RPG com amigs. Preços variados para campanhas de RPG em diferentes universos.">
+  <link rel="canonical" href="https://www.arcanapixel.com/planos/">
   <meta name="robots" content="index, follow">
   <meta name="author" content="Hotay Software Development">
   <meta name="keywords"
@@ -22,12 +22,12 @@
   <!-- Multilanguage: End -->
 
   <!-- Open Graph: Start -->
-  <meta property="og:title" content="Arcana Pixel | Plataforma de RPG Online" />
+  <meta property="og:title" content="Arcana Pixel | Planos disponíveis" />
   <meta property="og:type" content="website" />
   <meta property="og:description"
-    content="Mesa virtual de RPG completa para jogar online! Criada para campanhas de Ordem Paranormal, D&D, e outros TTRPGs. Seu RPG em uma única plataforma VTT." />
+    content="Planos disponíveis na plataforma Arcana Pixel. Plano gratuito para VTT TTRPG para jogar Ordem Paranormal RPG com amigs. Preços variados para campanhas de RPG em diferentes universos." />
   <meta property="og:site_name" content="Arcana Pixel" />
-  <meta property="og:url" content="https://www.arcanapixel.com/" />
+  <meta property="og:url" content="https://www.arcanapixel.com/planos/" />
   <meta property="og:image" content="https://www.arcanapixel.com/assets/images/thumbnail.jpeg" />
   <meta property="og:locale" content="pt_BR" />
   <!--
@@ -40,7 +40,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Arcana Pixel">
   <meta name="twitter:description"
-    content="Mesa virtual de RPG completa para jogar online! Criada para campanhas de Ordem Paranormal, D&D, e outros TTRPGs.">
+    content="Preços da mesa virtual de RPG completa para jogar online! Criada para campanhas de Ordem Paranormal, D&D, e outros TTRPGs.">
   <meta name="twitter:image" content="https://www.arcanapixel.com/assets/images/thumbnail.jpeg">
   <!-- <meta name="twitter:site" content="@YourTwitterHandle"> -->
   <!-- Twitter: End -->
@@ -80,9 +80,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Space+Grotesk:wght@300..700&display=swap"
     rel="stylesheet">
 
-  <link rel="stylesheet" href="/assets/css/pixel-button.css">
-
-  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
   <link rel="apple-touch-icon" sizes="128x115" href="/assets/images/dices/pixel-d20.webp">
 
   <!-- Styles needed till the landing page (so the page loads faster) -->
@@ -155,6 +153,13 @@
       margin-bottom: 2rem;
     }
 
+    h1 {
+      font-size: 4rem;
+      text-align: center;
+      font-weight: 700;
+      margin-bottom: 2rem;
+    }
+
     section {
       margin: 12rem auto 5rem;
     }
@@ -190,6 +195,7 @@
       opacity: 0.5;
       left: 0;
     }
+
 
     /* ============== Navigation Menu =================== */
     .nav-menu {
@@ -262,102 +268,122 @@
       font-style: normal;
     }
 
-    /* ============== Landing Banner =================== */
-
-    main.landing-banner {
+    /* ============== Pricing and Plans Area =================== */
+    main.pricing {
+      width: 100%;
       display: flex;
       align-items: center;
       justify-content: center;
       flex-direction: column;
+      gap: 1rem;
+      padding: 2rem;
+    }
+
+    main.pricing abbr {
+      cursor: help;
+    }
+
+    main.pricing .description {
       width: 100%;
-      padding: 1rem;
-    }
-
-    main.landing-banner h1 {
-      z-index: 10;
-      font-size: 4.6rem;
+      max-width: 700px;
       text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    main.pricing h1 {
+      max-width: 800px;
+    }
+
+    main.pricing .plans {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    main.pricing .plans .plan {
+      width: 100%;
+      height: 380px;
+      max-width: 300px;
+      display: flex;
+      align-items: start;
+      justify-content: start;
+      flex-direction: column;
+      gap: 1rem;
+      padding: 1rem 2rem 1.5rem;
+      background-color: var(--card-background);
+      border: 2px solid var(--footer-bg-color-1);
+      border-radius: 20px;
+      transition: all 0.3s ease;
+    }
+
+    main.pricing .plans .plan h3 {
+      font-size: 1.5rem;
+    }
+
+    main.pricing .plans .plan ul {
+      list-style-type: disc;
+
+    }
+
+    main.pricing .plans .plan ul li {
+      margin: 10px 0;
+    }
+
+    main.pricing .plans .plan ul li::marker {
+      color: var(--link-hover-color);
+    }
+
+    main.pricing .plans .plan .final {
+      height: 100%;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: end;
+      flex-direction: column;
+    }
+
+    main.pricing .plans .plan .final .explanation {
+      font-size: .8rem;
+      margin-bottom: 5px;
+      font-weight: 400;
+    }
+
+    main.pricing .plans .plan .final button {
+      padding: 6px 15px;
+      width: 100%;
+      background-color: #f600ff;
+      border: 2px solid #fa7eff;
+      border-radius: 10px;
+      color: white;
+      font-size: 1.4rem;
       font-weight: 700;
-
-      margin-top: 12rem;
-      margin-bottom: 6rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: -4px 4px 8px 0px rgba(0, 0, 0, 0.25);
     }
 
-    main.landing-banner .pixel-btn {
-      margin-bottom: 12rem;
+    main.pricing .plans .plan .final button:hover {
+      background-color: #dc00e3;
     }
 
-    main.landing-banner .scroll-down {
-      opacity: .6;
-      transition: all .3s ease;
+    main.pricing .eggs {
+      font-size: .8rem;
+      margin-bottom: 2rem;
     }
 
-    main.landing-banner .scroll-down:hover {
-      transform: translateY(5px);
-    }
-
-    /* Dices */
-    main.landing-banner .dices img {
-      position: absolute;
-      background-size: cover;
-      background-position: center;
-      animation: float 8s ease-in-out infinite;
-      -webkit-user-drag: none;
-      user-select: none;
-      -moz-user-select: none;
-      -webkit-user-select: none;
-      -ms-user-select: none;
-    }
-
-    main.landing-banner .dices img.d4 {
-      margin-left: 12rem;
-      margin-top: 6rem;
-      animation-delay: -0s;
-    }
-
-    main.landing-banner .dices img.d6 {
-      margin-left: -18rem;
-      margin-top: -29rem;
-      animation-delay: -1s;
-    }
-
-    main.landing-banner .dices img.d8 {
-      margin-left: -26rem;
-      margin-top: 5rem;
-      animation-delay: -2s;
-    }
-
-    main.landing-banner .dices img.d10 {
-      margin-left: 15rem;
-      margin-top: -26rem;
-      animation-delay: -3s;
-    }
-
-    main.landing-banner .dices img.d12 {
-      margin-left: -40rem;
-      margin-top: -14rem;
-      animation-delay: -4s;
-    }
-
-    main.landing-banner .dices img.d20 {
-      margin-left: 30rem;
-      margin-top: -6rem;
-      animation-delay: -5s;
-    }
-
-    /* Floating Animation */
-    @keyframes float {
-      0% {
-        transform: translateY(0%);
-      }
-
-      50% {
-        transform: translateY(20%);
-      }
-
-      100% {
-        transform: translateY(0%);
-      }
+    main.pricing .self-host {
+      width: 100%;
+      text-align: center;
+      max-width: 700px;
+      font-weight: 400;
+      font-size: 1rem;
+      cursor: pointer;
+      color: var(--text-color);
     }
   </style>
 
@@ -370,53 +396,15 @@
 
       h1 {
         font-size: 3rem !important;
-        margin-top: 10rem !important;
-      }
-
-      .pixel-btn {
-        transform: scale(.75) !important;
-      }
-
-      .pixel-btn:hover {
-        transform: translateY(-5px) scale(.75) !important;
-      }
-
-      main.landing-banner .dices img {
-        width: 60px !important;
-      }
-
-      main.landing-banner .dices img.d4 {
-        margin-left: 8rem;
-        margin-top: -2rem;
-      }
-
-      main.landing-banner .dices img.d6 {
-        margin-left: -10rem;
-        margin-top: -31rem;
-      }
-
-      main.landing-banner .dices img.d8 {
-        margin-left: -13rem;
-        margin-top: 1rem;
-      }
-
-      main.landing-banner .dices img.d10 {
-        margin-left: 3rem;
-        margin-top: -30rem;
-      }
-
-      main.landing-banner .dices img.d12 {
-        margin-left: -12rem;
-        margin-top: -14rem;
-      }
-
-      main.landing-banner .dices img.d20 {
-        margin-left: 8rem;
-        margin-top: -16rem;
+        margin-top: 2rem !important;
       }
 
       h2 {
         font-size: 2rem;
+      }
+
+      main.pricing .plans .plan {
+        max-width: 400px;
       }
     }
 
@@ -427,53 +415,15 @@
 
       h1 {
         font-size: 3rem !important;
-        margin-top: 10rem !important;
-      }
-
-      .pixel-btn {
-        transform: scale(.75) !important;
-      }
-
-      .pixel-btn:hover {
-        transform: translateY(-5px) scale(.75) !important;
-      }
-
-      main.landing-banner .dices img {
-        width: 60px !important;
-      }
-
-      main.landing-banner .dices img.d4 {
-        margin-left: 10rem;
-        margin-top: 4rem;
-      }
-
-      main.landing-banner .dices img.d6 {
-        margin-left: -12rem;
-        margin-top: -24rem;
-      }
-
-      main.landing-banner .dices img.d8 {
-        margin-left: -13rem;
-        margin-top: 1rem;
-      }
-
-      main.landing-banner .dices img.d10 {
-        margin-left: 10rem;
-        margin-top: -23rem;
-      }
-
-      main.landing-banner .dices img.d12 {
-        margin-left: -20rem;
-        margin-top: -8rem;
-      }
-
-      main.landing-banner .dices img.d20 {
-        margin-left: 15rem;
-        margin-top: -5rem;
+        margin-top: 2rem !important;
       }
 
       h2 {
         font-size: 2rem;
+      }
+
+      main.pricing .plans .plan {
+        max-width: 400px;
       }
     }
 
@@ -484,51 +434,8 @@
 
       h1 {
         font-size: 3rem !important;
-        margin-top: 10rem !important;
+        margin-top: 4rem !important;
       }
-
-      .pixel-btn {
-        transform: scale(.75) !important;
-      }
-
-      .pixel-btn:hover {
-        transform: translateY(-5px) scale(.75) !important;
-      }
-
-      main.landing-banner .dices img {
-        width: 60px !important;
-      }
-
-      main.landing-banner .dices img.d4 {
-        margin-left: 10rem;
-        margin-top: 4rem;
-      }
-
-      main.landing-banner .dices img.d6 {
-        margin-left: -12rem;
-        margin-top: -24rem;
-      }
-
-      main.landing-banner .dices img.d8 {
-        margin-left: -13rem;
-        margin-top: 1rem;
-      }
-
-      main.landing-banner .dices img.d10 {
-        margin-left: 10rem;
-        margin-top: -23rem;
-      }
-
-      main.landing-banner .dices img.d12 {
-        margin-left: -20rem;
-        margin-top: -8rem;
-      }
-
-      main.landing-banner .dices img.d20 {
-        margin-left: 15rem;
-        margin-top: -5rem;
-      }
-
 
       h2 {
         font-size: 2rem;
@@ -561,14 +468,14 @@
     <div class="border">
       <span style="width: 2rem;"></span>
       <div class="nav-content">
-        <a href="#still-in-development" class="item">Sobre</a>
-        <a href="#tools" class="item">Ferramentas</a>
-        <a class="logo" href="#top">
+        <a href="/#still-in-development" class="item">Sobre</a>
+        <a href="/#tools" class="item">Ferramentas</a>
+        <a class="logo" href="/">
           <div class="arcana">ARCANA</div>
           <div class="pixel">Pixel</div>
         </a>
-        <a href="/planos" class="item">Preços</a>
-        <a href="#universes" class="item">Universos</a>
+        <a href="#" class="item">Preços</a>
+        <a href="/#universes" class="item">Universos</a>
       </div>
       <a href="https://github.com/hotaydev/arcanapixel.com" target="_blank" class="icon"
         aria-label="Código do Projeto no GitHub">
@@ -583,61 +490,96 @@
     </div>
   </div>
 
-  <main class="landing-banner">
+  <main class="pricing">
 
     <div class="bg-blur">
       <div class="ellipse-1"></div>
       <div class="ellipse-2"></div>
     </div>
 
-    <h1>Todo o seu RPG em uma<br />única plataforma</h1>
+    <h1>Preços e planos do <abbr title="Virtual Table Top">VTT</abbr> Arcana Pixel</h1>
+    <p class="description">
+      Vamos sempre ter um plano gratuito, mas se você quiser jogar muitas campanhas, temos opções mais avançadas que
+      podem ser úteis para você!
+    </p>
 
-    <div class="dices">
-      <img loading="eager" alt="Dado de RPG de 4 faces" class="d4" src="/assets/images/dices/pixel-d4.webp" />
-      <img loading="eager" alt="Dado de RPG de 6 faces" class="d6" src="/assets/images/dices/pixel-d6.webp" />
-      <img loading="eager" alt="Dado de RPG de 8 faces" class="d8" src="/assets/images/dices/pixel-d8.webp" />
-      <img loading="eager" alt="Dado de RPG de 10 faces" class="d10" src="/assets/images/dices/pixel-d10.webp" />
-      <img loading="eager" alt="Dado de RPG de 12 faces" class="d12" src="/assets/images/dices/pixel-d12.webp" />
-      <img loading="eager" alt="Dado de RPG de 20 faces" class="d20" src="/assets/images/dices/pixel-d20.webp" />
+    <div class="plans">
+      <div class="plan">
+        <h3>Agente Recruta</h3>
+        <ul>
+          <li>Todas as ferramentas do VTT</li>
+          <li>Partidas em tempo real</li>
+          <li>Até 6 jogadores por partida</li>
+          <li>Até 4 personagens</li>
+          <li>Até 1 campanha ativa por vez</li>
+        </ul>
+
+        <div class="final"><button>Gratuito</button></div>
+      </div>
+
+      <div class="plan">
+        <h3>Agente Especial</h3>
+        <ul>
+          <li>Todas as ferramentas do VTT</li>
+          <li>Partidas em tempo real</li>
+          <li>Até 6 jogadores por partida</li>
+          <li>Até 25 personagens</li>
+          <li>Até 3 campanhas ativas</li>
+          <li>Mapas exclusivos</li>
+        </ul>
+
+        <div class="final">
+          <button>R$5/mês</button>
+        </div>
+      </div>
+
+      <div class="plan">
+        <h3>Equipe de Agentes</h3>
+        <ul>
+          <li>Plano de 6 "Agentes Especiais"</li>
+          <li>Divisão do valor entre agentes</li>
+          <li>Dê uma olhada no plano "Agente Especial"</li>
+        </ul>
+
+        <div class="final">
+          <p class="explanation">R$3 por jogador</p>
+          <button>R$18/mês</button>
+        </div>
+      </div>
+
+      <div class="plan">
+        <h3>Agente de Elite</h3>
+        <ul>
+          <li>Todas as ferramentas do VTT</li>
+          <li>Partidas em tempo real</li>
+          <li>Permite até 10 jogadores por partida</li>
+          <li>Até 100 personagens</li>
+          <li>Até 10 campanhas ativas</li>
+          <li>Mapas exclusivos</li>
+        </ul>
+
+        <div class="final"><button>R$25/mês</button></div>
+      </div>
+
     </div>
 
-    <div class="pixel-btn neon">
-      <div class="layer-bottom">
-        <div class="rect-b1"></div>
-        <div class="rect-b2"></div>
-        <div class="rect-b3"></div>
-      </div>
-      <div class="layer-middle">
-        <div class="rect-m1"></div>
-        <div class="rect-m2"></div>
-        <div class="rect-m3"></div>
-      </div>
-      <div class="layer-top">
-        <div class="rect-t1"></div>
-        <div class="rect-t2"></div>
-      </div>
-      <div class="btn-text">Jogar</div>
-    </div>
+    <p class="eggs">
+      Nos mapas do jogo, você pode encontrar itens misteriosos que oferecem bônus, como meses de planos avançados ou
+      outros benefícios.
+    </p>
 
-    <div class="scroll-down">
-      <svg width="40" height="48" viewBox="0 0 40 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M10 23L20 33L30 23" stroke="#ffffff" stroke-width="3.5" stroke-linecap="round"
-          stroke-linejoin="round" />
-        <path d="M10 15L20 25L30 15" stroke="#ffffff" stroke-width="3.5" stroke-linecap="round"
-          stroke-linejoin="round" />
-      </svg>
-    </div>
-
+    <a class="self-host" href="https://github.com/hotaydev/arcanapixel.com" target="_blank">Também temos um plano
+      "Hacker", para quem quiser hospedar sua prória versão da plataforma.
+      Aliás, somos de Código Livre.
+    </a>
   </main>
 
-  <arcana-component src="/components/tools.html"></arcana-component>
-  <arcana-component src="/components/universes.html"></arcana-component>
   <arcana-component src="/components/cta.html"></arcana-component>
   <arcana-component src="/components/footer.html"></arcana-component>
 
   <script src="/assets/js/main.js"></script>
+  <script src="/assets/js/plans.js" defer async></script>
   <script src="/assets/js/email-send.js" defer async></script>
-  <script src="/assets/js/tab-changer.js" defer async></script>
 </body>
 
 </html>
