@@ -3,12 +3,18 @@ class MyComponent extends HTMLElement {
     const src = this.getAttribute('src');
     if (src) {
       fetch(src)
-        .then(response => response.text())
+        .then(response => {
+          if (!response.url.startsWith("http://localhost:") && !response.url.startsWith("https://www.arcanapixel.com/")) {
+            throw new Error('Cannot open components from external sources!');
+          }
+
+          return response.text();
+        })
         .then(html => {
           this.innerHTML = html;
           addEventListenerToPlayButtons();
         })
-        .catch(err => console.error(`Failed to load ${src}:`, err));
+        .catch(err => console.error('Failed to load arcana-component: ', err));
     }
   }
 }
