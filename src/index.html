@@ -266,6 +266,11 @@
       width: 2rem;
     }
 
+    .nav-menu .border .nav-spacer svg {
+      cursor: pointer;
+      display: none;
+    }
+
     /* ============== Landing Banner =================== */
 
     main.landing-banner {
@@ -372,6 +377,10 @@
         display: none;
       }
 
+      .nav-menu .border .nav-spacer svg {
+        display: flex;
+      }
+
       h1 {
         font-size: 3rem !important;
         margin-top: 10rem !important;
@@ -429,6 +438,10 @@
         display: none;
       }
 
+      .nav-menu .border .nav-spacer svg {
+        display: flex;
+      }
+
       h1 {
         font-size: 3rem !important;
         margin-top: 10rem !important;
@@ -484,6 +497,10 @@
     @media (max-width: 1000px) and (min-width: 701px) {
       .nav-menu .nav-content .item {
         display: none;
+      }
+
+      .nav-menu .border .nav-spacer svg {
+        display: flex;
       }
 
       h1 {
@@ -563,7 +580,12 @@
 
   <div class="nav-menu" id="top">
     <div class="border">
-      <span class="nav-spacer"></span>
+      <span class="nav-spacer">
+        <svg width="32" height="32" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" fill="none">
+          <path fill="white" fill-rule="evenodd"
+            d="M19 4a1 1 0 01-1 1H2a1 1 0 010-2h16a1 1 0 011 1zm0 6a1 1 0 01-1 1H2a1 1 0 110-2h16a1 1 0 011 1zm-1 7a1 1 0 100-2H2a1 1 0 100 2h16z" />
+        </svg>
+      </span>
       <div class="nav-content">
         <a href="#still-in-development" class="item">Sobre</a>
         <a href="#tools" class="item">Ferramentas</a>
@@ -574,7 +596,7 @@
         <a href="/planos" class="item">Preços</a>
         <a href="#universes" class="item">Universos</a>
       </div>
-      <a href="https://github.com/hotaydev/arcanapixel.com" target="_blank" class="icon"
+      <a href="https://github.com/hotaydev/arcanapixel.com" target="_blank" rel="noopener noreferrer" class="icon"
         aria-label="Código do Projeto no GitHub">
         <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
           <g>
@@ -638,8 +660,11 @@
   <arcana-component src="/components/universes.html"></arcana-component>
   <arcana-component src="/components/cta.html"></arcana-component>
   <arcana-component src="/components/footer.html"></arcana-component>
+  <arcana-component src="/components/mobile-menu-popup.html"></arcana-component>
 
   <script src="/assets/js/main.js"></script>
+  <script src="/assets/js/scroll-page-async.js" defer async></script>
+  <script src="/assets/js/mobile-menu.js" defer async></script>
   <script src="/assets/js/email-send.js" defer async></script>
   <script src="/assets/js/tab-changer.js" defer async></script>
 </body>
