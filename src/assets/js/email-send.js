@@ -41,7 +41,7 @@ function registerButtonClick() {
       setToastMessage("Pronto! Assim que tivermos novidades você ficará sabendo :)", "success");
       emailInput.value = "";
     } catch (error) {
-      console.error("Erro:", error);
+      console.error("Error:", error);
       setToastMessage("Algo do nosso lado deu errado. Por favor, tente novamente mais tarde.", "error");
     }
 

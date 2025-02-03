@@ -1,15 +1,15 @@
 let cards;
 
 const intervalTabChanger = setInterval(() => {
-  if (document.querySelector(".tab-chooser #jogador")) {
+  if (document.querySelector(".tab-chooser #player")) {
     clearInterval(intervalTabChanger);
     registerTabChangeClick();
   }
 }, 200);
 
 function registerTabChangeClick() {
-  const playerButton = document.querySelector(".tab-chooser #jogador");
-  const masterButton = document.querySelector(".tab-chooser #mestre");
+  const playerButton = document.querySelector(".tab-chooser #player");
+  const masterButton = document.querySelector(".tab-chooser #master");
 
   cards = document.querySelectorAll(".cards .card");
 
@@ -20,10 +20,10 @@ function registerTabChangeClick() {
 function onTabChecked(event) {
   if (!event.target.checked) return;
 
-  if (event.target.id === "jogador") {
+  if (event.target.id === "player") {
     toggleCardVisibility("player");
   }
-  else if (event.target.id === "mestre") {
+  else if (event.target.id === "master") {
     toggleCardVisibility("master");
   }
 }
