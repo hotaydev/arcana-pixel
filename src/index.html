@@ -1,46 +1,37 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="%lang%">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <title>Arcana Pixel | Plataforma de RPG Online</title>
-  <meta name="description"
-    content="Mesa virtual de RPG completa para jogar online! Criada para campanhas de Ordem Paranormal, D&D, e outros TTRPGs. Seu RPG em uma única plataforma VTT.">
-  <link rel="canonical" href="https://www.arcanapixel.com/">
+  <title>%title%</title>
+  <meta name="description" content="%description%">
+  <link rel="canonical" href="https://www.arcanapixel.com/%canonical%">
   <meta name="robots" content="index, follow">
   <meta name="author" content="Hotay Software Development">
-  <meta name="keywords"
-    content="RPG, Virtual TableTop, VTT, TTRPG, Jogar RPG Online, Mesa virtual de RPG, Ordem Paranormal, Ordem Paranormal RPG, D&D, Dungeons and Dragons">
+  <meta name="keywords" content="%keywords%">
 
   <!-- Multilanguage: Start -->
-  <!--
-  <link rel="alternate" hreflang="en" href="https://www.yourwebsite.com/en">
-  <link rel="alternate" hreflang="es" href="https://www.yourwebsite.com/es">
-  -->
+  <link rel="alternate" hreflang="pt-br" href="https://www.arcanapixel.com/">
+  <link rel="alternate" hreflang="en-us" href="https://www.arcanapixel.com/en">
   <!-- Multilanguage: End -->
 
   <!-- Open Graph: Start -->
-  <meta property="og:title" content="Arcana Pixel | Plataforma de RPG Online" />
+  <meta property="og:title" content="%title%" />
   <meta property="og:type" content="website" />
-  <meta property="og:description"
-    content="Mesa virtual de RPG completa para jogar online! Criada para campanhas de Ordem Paranormal, D&D, e outros TTRPGs. Seu RPG em uma única plataforma VTT." />
+  <meta property="og:description" content="%description%" />
   <meta property="og:site_name" content="Arcana Pixel" />
-  <meta property="og:url" content="https://www.arcanapixel.com/" />
+  <meta property="og:url" content="https://www.arcanapixel.com/%canonical%" />
   <meta property="og:image" content="https://www.arcanapixel.com/assets/images/thumbnail.jpeg" />
-  <meta property="og:locale" content="pt_BR" />
-  <!--
-  <meta property="og:locale:alternate" content="en_US" />
-  <meta property="og:locale:alternate" content="es_ES" />
-  -->
+  <meta property="og:locale" content="%og.main_lang%" />
+  <meta property="og:locale:alternate" content="%og.alternate_lang1%" />
   <!-- Open Graph: End -->
 
   <!-- Twitter: Start -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Arcana Pixel">
-  <meta name="twitter:description"
-    content="Mesa virtual de RPG completa para jogar online! Criada para campanhas de Ordem Paranormal, D&D, e outros TTRPGs.">
+  <meta name="twitter:description" content="%description%">
   <meta name="twitter:image" content="https://www.arcanapixel.com/assets/images/thumbnail.jpeg">
   <!-- <meta name="twitter:site" content="@YourTwitterHandle"> -->
   <!-- Twitter: End -->
@@ -82,7 +73,7 @@
 
   <link rel="stylesheet" href="/assets/css/pixel-button.css">
 
-  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
   <link rel="apple-touch-icon" sizes="128x115" href="/assets/images/dices/pixel-d20.webp">
 
   <!-- Styles needed till the landing page (so the page loads faster) -->
@@ -575,29 +566,29 @@
 
 <body>
   <noscript>
-    To see all the content from this page you need to enable JavaScript.
+    %noscript%
   </noscript>
 
   <div class="nav-menu" id="top">
     <div class="border">
       <span class="nav-spacer">
-        <svg width="32" height="32" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" fill="none">
+        <svg width="32" height="32" title="menu" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" fill="none">
           <path fill="white" fill-rule="evenodd"
             d="M19 4a1 1 0 01-1 1H2a1 1 0 010-2h16a1 1 0 011 1zm0 6a1 1 0 01-1 1H2a1 1 0 110-2h16a1 1 0 011 1zm-1 7a1 1 0 100-2H2a1 1 0 100 2h16z" />
         </svg>
       </span>
       <div class="nav-content">
-        <a href="#still-in-development" class="item">Sobre</a>
-        <a href="#tools" class="item">Ferramentas</a>
+        <a href="#still-in-development" class="item">%navbar.about%</a>
+        <a href="#tools" class="item">%navbar.tools%</a>
         <a class="logo" href="#top">
           <div class="arcana">ARCANA</div>
           <div class="pixel">Pixel</div>
         </a>
-        <a href="/planos" class="item">Preços</a>
-        <a href="#universes" class="item">Universos</a>
+        <a href="%base%/tiers" class="item">%navbar.prices%</a>
+        <a href="#universes" class="item">%navbar.universes%</a>
       </div>
       <a href="https://github.com/hotaydev/arcanapixel.com" target="_blank" rel="noopener noreferrer" class="icon"
-        aria-label="Código do Projeto no GitHub">
+        aria-label="%navbar.github%">
         <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
           <g>
             <path
@@ -616,15 +607,15 @@
       <div class="ellipse-2"></div>
     </div>
 
-    <h1>Todo o seu RPG em uma<br />única plataforma</h1>
+    <h1>%main.title%</h1>
 
     <div class="dices">
-      <img loading="eager" alt="Dado de RPG de 4 faces" class="d4" src="/assets/images/dices/pixel-d4.webp" />
-      <img loading="eager" alt="Dado de RPG de 6 faces" class="d6" src="/assets/images/dices/pixel-d6.webp" />
-      <img loading="eager" alt="Dado de RPG de 8 faces" class="d8" src="/assets/images/dices/pixel-d8.webp" />
-      <img loading="eager" alt="Dado de RPG de 10 faces" class="d10" src="/assets/images/dices/pixel-d10.webp" />
-      <img loading="eager" alt="Dado de RPG de 12 faces" class="d12" src="/assets/images/dices/pixel-d12.webp" />
-      <img loading="eager" alt="Dado de RPG de 20 faces" class="d20" src="/assets/images/dices/pixel-d20.webp" />
+      <img loading="eager" alt="%main.rpg_dice%" class="d4" src="/assets/images/dices/pixel-d4.webp" />
+      <img loading="eager" alt="%main.rpg_dice%" class="d6" src="/assets/images/dices/pixel-d6.webp" />
+      <img loading="eager" alt="%main.rpg_dice%" class="d8" src="/assets/images/dices/pixel-d8.webp" />
+      <img loading="eager" alt="%main.rpg_dice%" class="d10" src="/assets/images/dices/pixel-d10.webp" />
+      <img loading="eager" alt="%main.rpg_dice%" class="d12" src="/assets/images/dices/pixel-d12.webp" />
+      <img loading="eager" alt="%main.rpg_dice%" class="d20" src="/assets/images/dices/pixel-d20.webp" />
     </div>
 
     <div class="pixel-btn neon">
@@ -642,7 +633,7 @@
         <div class="rect-t1"></div>
         <div class="rect-t2"></div>
       </div>
-      <div class="btn-text">Jogar</div>
+      <div class="btn-text">%main.play_button%</div>
     </div>
 
     <div class="scroll-down">
@@ -656,11 +647,11 @@
 
   </main>
 
-  <arcana-component src="/components/tools.html"></arcana-component>
-  <arcana-component src="/components/universes.html"></arcana-component>
-  <arcana-component src="/components/cta.html"></arcana-component>
-  <arcana-component src="/components/footer.html"></arcana-component>
-  <arcana-component src="/components/mobile-menu-popup.html"></arcana-component>
+  <arcana-component src="%base%/components/tools.html"></arcana-component>
+  <arcana-component src="%base%/components/universes.html"></arcana-component>
+  <arcana-component src="%base%/components/cta.html"></arcana-component>
+  <arcana-component src="%base%/components/footer.html"></arcana-component>
+  <arcana-component src="%base%/components/mobile-menu-popup.html"></arcana-component>
 
   <script src="/assets/js/main.js"></script>
   <script src="/assets/js/scroll-page-async.js" defer async></script>

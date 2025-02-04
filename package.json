@@ -2,14 +2,9 @@
   "name": "arcanapixel.com",
   "version": "1.0.0",
   "scripts": {
-    "dev": "serve src/",
+    "dev": "node scripts/watcher.js",
     "start": "serve dist/",
-    "minify:html": "html-minifier --minify-css true --minify-js true --collapse-whitespace --remove-comments --keep-closing-slash --file-ext html --input-dir src --output-dir dist",
-    "minify:css": "html-minifier --minify-css true --collapse-whitespace --remove-comments --file-ext css --input-dir src --output-dir dist",
-    "minify:js": "html-minifier --minify-js true --collapse-whitespace --remove-comments --file-ext js --input-dir src --output-dir dist",
-    "minify:images": "cp -r src/assets/images dist/assets/images && cp src/favicon.ico dist/favicon.ico",
-    "copy:data": "cp src/sitemap.xml dist/sitemap.xml && cp src/robots.txt dist/robots.txt",
-    "build": "rm -rf ./dist && npm run minify:html && npm run minify:css && npm run minify:js && npm run minify:images && npm run copy:data",
+    "build": "node scripts/builder.js",
     "deploy": "npm run build && vercel deploy --prod"
   },
   "keywords": [],
@@ -17,7 +12,10 @@
   "license": "AGPL-3.0",
   "description": "",
   "devDependencies": {
+    "chokidar": "^4.0.3",
+    "glob": "^11.0.1",
     "html-minifier": "^4.0.0",
     "serve": "^14.2.4"
-  }
+  },
+  "type": "module"
 }

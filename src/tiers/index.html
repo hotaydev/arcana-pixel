@@ -1,46 +1,37 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="%lang%">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <title>Arcana Pixel | Planos disponíveis</title>
-  <meta name="description"
-    content="Planos disponíveis na plataforma Arcana Pixel. Plano gratuito para VTT TTRPG para jogar Ordem Paranormal RPG com amigs. Preços variados para campanhas de RPG em diferentes universos.">
-  <link rel="canonical" href="https://www.arcanapixel.com/planos/">
+  <title>%title%</title>
+  <meta name="description" content="%description%">
+  <link rel="canonical" href="https://www.arcanapixel.com/%canonical%">
   <meta name="robots" content="index, follow">
   <meta name="author" content="Hotay Software Development">
-  <meta name="keywords"
-    content="RPG, Virtual TableTop, VTT, TTRPG, Jogar RPG Online, Mesa virtual de RPG, Ordem Paranormal, Ordem Paranormal RPG, D&D, Dungeons and Dragons">
+  <meta name="keywords" content="%keywords%">
 
   <!-- Multilanguage: Start -->
-  <!--
-  <link rel="alternate" hreflang="en" href="https://www.yourwebsite.com/en">
-  <link rel="alternate" hreflang="es" href="https://www.yourwebsite.com/es">
-  -->
+  <link rel="alternate" hreflang="pt-br" href="https://www.arcanapixel.com/">
+  <link rel="alternate" hreflang="en-us" href="https://www.arcanapixel.com/en">
   <!-- Multilanguage: End -->
 
   <!-- Open Graph: Start -->
-  <meta property="og:title" content="Arcana Pixel | Planos disponíveis" />
+  <meta property="og:title" content="%title%" />
   <meta property="og:type" content="website" />
-  <meta property="og:description"
-    content="Planos disponíveis na plataforma Arcana Pixel. Plano gratuito para VTT TTRPG para jogar Ordem Paranormal RPG com amigs. Preços variados para campanhas de RPG em diferentes universos." />
+  <meta property="og:description" content="%description%" />
   <meta property="og:site_name" content="Arcana Pixel" />
-  <meta property="og:url" content="https://www.arcanapixel.com/planos/" />
+  <meta property="og:url" content="https://www.arcanapixel.com/%canonical%" />
   <meta property="og:image" content="https://www.arcanapixel.com/assets/images/thumbnail.jpeg" />
-  <meta property="og:locale" content="pt_BR" />
-  <!--
-  <meta property="og:locale:alternate" content="en_US" />
-  <meta property="og:locale:alternate" content="es_ES" />
-  -->
+  <meta property="og:locale" content="%og.main_lang%" />
+  <meta property="og:locale:alternate" content="%og.alternate_lang1%" />
   <!-- Open Graph: End -->
 
   <!-- Twitter: Start -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Arcana Pixel">
-  <meta name="twitter:description"
-    content="Preços da mesa virtual de RPG completa para jogar online! Criada para campanhas de Ordem Paranormal, D&D, e outros TTRPGs.">
+  <meta name="twitter:description" content="%description%">
   <meta name="twitter:image" content="https://www.arcanapixel.com/assets/images/thumbnail.jpeg">
   <!-- <meta name="twitter:site" content="@YourTwitterHandle"> -->
   <!-- Twitter: End -->
@@ -482,7 +473,7 @@
 
 <body>
   <noscript>
-    To see all the content from this page you need to enable JavaScript.
+    %noscript%
   </noscript>
 
   <div class="nav-menu" id="top">
@@ -494,17 +485,17 @@
         </svg>
       </span>
       <div class="nav-content">
-        <a href="/#still-in-development" class="item">Sobre</a>
-        <a href="/#tools" class="item">Ferramentas</a>
+        <a href="/#still-in-development" class="item">%navbar.about%</a>
+        <a href="/#tools" class="item">%navbar.tools%</a>
         <a class="logo" href="/">
           <div class="arcana">ARCANA</div>
           <div class="pixel">Pixel</div>
         </a>
-        <a href="#" class="item">Preços</a>
-        <a href="/#universes" class="item">Universos</a>
+        <a href="#" class="item">%navbar.prices%</a>
+        <a href="/#universes" class="item">%navbar.universes%</a>
       </div>
       <a href="https://github.com/hotaydev/arcanapixel.com" rel="noopener noreferrer" target="_blank" class="icon"
-        aria-label="Código do Projeto no GitHub">
+        aria-label="%navbar.github%">
         <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
           <g>
             <path
@@ -523,10 +514,9 @@
       <div class="ellipse-2"></div>
     </div>
 
-    <h1>Preços e planos do <abbr title="Virtual Table Top">VTT</abbr> Arcana Pixel</h1>
+    <h1>%prices.title%</h1>
     <p class="description">
-      Vamos sempre ter um plano gratuito, mas se você quiser jogar muitas campanhas, temos opções mais avançadas que
-      podem ser úteis para você!
+      %prices.description%
     </p>
 
     <div class="plans">
@@ -590,19 +580,17 @@
     </div>
 
     <p class="eggs">
-      Nos mapas do jogo, você pode encontrar itens misteriosos que oferecem bônus, como meses de planos avançados ou
-      outros benefícios.
+      %prices.eggs%
     </p>
 
-    <a class="self-host" href="https://github.com/hotaydev/arcanapixel.com" target="_blank">Também temos um plano
-      "Hacker", para quem quiser hospedar sua prória versão da plataforma.
-      Aliás, somos de Código Livre.
+    <a class="self-host" href="https://github.com/hotaydev/arcanapixel.com" target="_blank">
+      %prices.selfhost%
     </a>
   </main>
 
-  <arcana-component src="/components/cta.html"></arcana-component>
-  <arcana-component src="/components/footer.html"></arcana-component>
-  <arcana-component src="/components/mobile-menu-popup.html"></arcana-component>
+  <arcana-component src="%base%/components/cta.html"></arcana-component>
+  <arcana-component src="%base%/components/footer.html"></arcana-component>
+  <arcana-component src="%base%/components/mobile-menu-popup.html"></arcana-component>
 
   <script src="/assets/js/main.js"></script>
   <script src="/assets/js/scroll-page-async.js" defer async></script>
