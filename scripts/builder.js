@@ -17,7 +17,7 @@ for (const file of files) {
   await handleChangeOnPath(file);
 }
 
-async function handleChangeOnPath(path) {
+export default async function handleChangeOnPath(path) {
   const extension = extname(path);
   if (!extension) return;
 
@@ -67,9 +67,13 @@ async function handleChangeOnPath(path) {
     await fs.mkdir(dirname(newPathName), { recursive: true });
     await fs.writeFile(newPathName, minified);
   } else {
-    // Static file, copy it
-    await fs.mkdir(dirname(path.replace(devFolder, distFolder)), { recursive: true });
-    await fs.copyFile(path, path.replace(devFolder, distFolder));
+    try {
+      await fs.stat(path); // Will throw error if the file doesn't exist
+      await fs.mkdir(dirname(path.replace(devFolder, distFolder)), { recursive: true });
+      await fs.copyFile(path, path.replace(devFolder, distFolder));
+    } catch (_) {
+      await fs.rm(path.replace(devFolder, distFolder), { recursive: true, force: true });
+    }
   }
 }
 

@@ -10,5 +10,23 @@ export default [
     "lang": "en-us",
     "name": "English",
     "file": "english.js"
+  },
+  {
+    "path": "/es",
+    "lang": "es-es",
+    "name": "Español",
+    "file": "spanish.js"
+  },
+  {
+    "path": "/it",
+    "lang": "it-it",
+    "name": "Italiano",
+    "file": "italian.js"
+  },
+  {
+    "path": "/fr",
+    "lang": "fr-fr",
+    "name": "Français",
+    "file": "french.js"
   }
 ]

@@ -64,10 +64,35 @@
     display: flex;
     flex-direction: column;
     gap: 1rem;
-    align-items: start;
+    align-items: center;
     justify-content: center;
     width: 100%;
     padding: 2rem 1rem;
+  }
+
+  #mobile-menu .content .items .language-change {
+    margin-top: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+
+  #mobile-menu .content .items .language-change a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 5px;
+    padding: 0.6rem 0.2rem 0.2rem !important;
+    width: 20%;
+  }
+
+  #mobile-menu .content .items .language-change a img {
+    width: 30px;
+    height: 30px;
   }
 
   #mobile-menu .content .items .item {
@@ -109,6 +134,28 @@
         <a href="/#tools" class="item">%navbar.tools%</a>
         <a href="%base%/tiers" class="item">%navbar.prices%</a>
         <a href="/#universes" class="item">%navbar.universes%</a>
+        <div class="language-change">
+          <a href="/en" class="item">
+            <img src="/assets/images/flags/usa.png" alt="United States">
+            EN
+          </a>
+          <a href="/" class="item">
+            <img src="/assets/images/flags/brazil.png" alt="Brazil">
+            PT
+          </a>
+          <a href="/es" class="item">
+            <img src="/assets/images/flags/spain.png" alt="Spain">
+            ES
+          </a>
+          <a href="/it" class="item">
+            <img src="/assets/images/flags/italy.png" alt="Italy">
+            IT
+          </a>
+          <a href="/fr" class="item">
+            <img src="/assets/images/flags/france.png" alt="France">
+            FR
+          </a>
+        </div>
       </div>
       <div class="final-message">
         <p>%navbar.proudly_opensource%</p>

@@ -15,6 +15,9 @@
   <!-- Multilanguage: Start -->
   <link rel="alternate" hreflang="pt-br" href="https://www.arcanapixel.com/">
   <link rel="alternate" hreflang="en-us" href="https://www.arcanapixel.com/en">
+  <link rel="alternate" hreflang="it-it" href="https://www.arcanapixel.com/it">
+  <link rel="alternate" hreflang="es-es" href="https://www.arcanapixel.com/es">
+  <link rel="alternate" hreflang="fr-fr" href="https://www.arcanapixel.com/fr">
   <!-- Multilanguage: End -->
 
   <!-- Open Graph: Start -->
@@ -26,6 +29,9 @@
   <meta property="og:image" content="https://www.arcanapixel.com/assets/images/thumbnail.jpeg" />
   <meta property="og:locale" content="%og.main_lang%" />
   <meta property="og:locale:alternate" content="%og.alternate_lang1%" />
+  <meta property="og:locale:alternate" content="%og.alternate_lang2%" />
+  <meta property="og:locale:alternate" content="%og.alternate_lang3%" />
+  <meta property="og:locale:alternate" content="%og.alternate_lang4%" />
   <!-- Open Graph: End -->
 
   <!-- Twitter: Start -->
@@ -262,6 +268,12 @@
       display: none;
     }
 
+    .nav-menu .border .nav-spacer img {
+      width: 30px;
+      height: 30px;
+      cursor: pointer;
+    }
+
     /* ============== Landing Banner =================== */
 
     main.landing-banner {
@@ -372,6 +384,11 @@
         display: flex;
       }
 
+
+      .nav-menu .border .nav-spacer img {
+        display: none;
+      }
+
       h1 {
         font-size: 3rem !important;
         margin-top: 10rem !important;
@@ -433,6 +450,10 @@
         display: flex;
       }
 
+      .nav-menu .border .nav-spacer img {
+        display: none;
+      }
+
       h1 {
         font-size: 3rem !important;
         margin-top: 10rem !important;
@@ -492,6 +513,10 @@
 
       .nav-menu .border .nav-spacer svg {
         display: flex;
+      }
+
+      .nav-menu .border .nav-spacer img {
+        display: none;
       }
 
       h1 {
@@ -576,6 +601,7 @@
           <path fill="white" fill-rule="evenodd"
             d="M19 4a1 1 0 01-1 1H2a1 1 0 010-2h16a1 1 0 011 1zm0 6a1 1 0 01-1 1H2a1 1 0 110-2h16a1 1 0 011 1zm-1 7a1 1 0 100-2H2a1 1 0 100 2h16z" />
         </svg>
+        <img src="/assets/images/flags/%country_flag%.png" alt="%navbar.language%">
       </span>
       <div class="nav-content">
         <a href="#still-in-development" class="item">%navbar.about%</a>
