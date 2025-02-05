@@ -25,7 +25,7 @@ export default {
   main: {
     title: "Todo tu RPG en<br />una sola plataforma",
     rpg_dice: "Dados RPG",
-    play_button: "¡Jugar!"
+    play_button: "Jugar"
   },
   prices: {
     title: "Precios y Planes para el <abbr title=\"Virtual Table Top\">VTT</abbr> Arcana Pixel",
