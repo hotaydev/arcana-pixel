@@ -44,31 +44,31 @@ async function rollDice(value) {
       break;
   }
 
-  console.log(value, color);
-
   const Box = new DiceBox(".dice-area", {
     assetPath: "/assets/dice-box/",
     gravity: 1,
     container: document.querySelector(".dice-area"),
     mass: 1,
     friction: 0.8,
-    restitution: 0,
-    angularDamping: 0.4,
+    restitution: 0.3,
+    angularDamping: 0.1,
     linearDamping: 0.4,
-    spinForce: 4,
-    throwForce: 5,
-    startingHeight: 8,
+    spinForce: 7,
+    throwForce: 6,
+    startingHeight: 12,
     settleTimeout: 5000,
-    lightIntensity: 1,
+    lightIntensity: 2,
     theme: 'default',
     themeColor: color,
     scale: value == "1d6" ? 5 : 6,
     onRollComplete: (result) => {
-      console.log(result);
-
       if (result[0].value === result[0].sides) {
         success();
       }
+
+      setTimeout(() => {
+        Box.remove({ groupId: 0, rollId: 0 });
+      }, 2 * 1000);
     }
   });
 
@@ -81,6 +81,7 @@ function success() {
   var duration = 8 * 1000;
   var animationEnd = Date.now() + duration;
   var defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 0 };
+  const currentCanvas = document.querySelectorAll("canvas");
 
   const randomInRange = (min, max) => Math.random() * (max - min) + min;
 
@@ -94,6 +95,6 @@ function success() {
 
   setTimeout(() => {
     clearInterval(confettiInterval);
-    document.querySelectorAll("canvas").forEach(canvas => canvas.remove());
+    currentCanvas.forEach(canvas => canvas.remove());
   }, duration);
 }
