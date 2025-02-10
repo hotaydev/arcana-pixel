@@ -29,7 +29,7 @@
         },
         {
           "key": "Content-Security-Policy",
-          "value": "default-src 'self'; style-src 'self' 'unsafe-inline' fonts.googleapis.com vercel.live; img-src 'self' blob: data: https:; media-src 'none'; connect-src 'self' https://insights.hotay.dev https://n8n.hotay.dev; font-src 'self' fonts.gstatic.com use.typekit.net data:; script-src 'self' us-assets.i.posthog.com insights.hotay.dev vercel.live 'sha256-qS5hf0AWdrLvX2VxhrWnUujUwPwmVlnqK2YKCCTe3jA='; frame-ancestors 'none';"
+          "value": "default-src 'self'; style-src 'self' 'unsafe-inline' fonts.googleapis.com vercel.live; img-src 'self' blob: data: https:; media-src 'none'; connect-src 'self' https://insights.hotay.dev https://n8n.hotay.dev; font-src 'self' fonts.gstatic.com use.typekit.net data:; script-src 'self' us-assets.i.posthog.com insights.hotay.dev vercel.live 'sha256-qS5hf0AWdrLvX2VxhrWnUujUwPwmVlnqK2YKCCTe3jA=' 'sha256-P1DVIr8kd/brSRUPL3kM4nhiz1CW6fYi8ie+71YQo68=' 'wasm-unsafe-eval'; frame-ancestors 'none'; worker-src 'self' blob: data:;"
         },
         {
           "key": "Access-Control-Allow-Origin",

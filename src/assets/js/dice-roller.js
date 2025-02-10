@@ -1,4 +1,4 @@
-import DiceBox from "https://unpkg.com/@3d-dice/dice-box@1.1.3/dist/dice-box.es.min.js";
+import DiceBox from "/assets/js/dice-box/dice-box.es.min.js";
 
 document.querySelector(".d4").addEventListener("click", async () => {
   await rollDice("1d4");
@@ -82,7 +82,7 @@ async function rollDice(value) {
 function success() {
   var duration = 8 * 1000;
   var animationEnd = Date.now() + duration;
-  var defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 0 };
+  var defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 0, disableForReducedMotion: true };
   const currentCanvas = document.querySelectorAll("canvas");
 
   const randomInRange = (min, max) => Math.random() * (max - min) + min;
