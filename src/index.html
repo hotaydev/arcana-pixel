@@ -207,6 +207,7 @@
       border-radius: 50px;
       border: 2px solid var(--text-color);
       padding: .5rem 2rem;
+      z-index: 10;
     }
 
     .nav-menu .border .nav-content {
@@ -355,6 +356,20 @@
       margin-left: 30rem;
       margin-top: -6rem;
       animation-delay: -5s;
+    }
+
+    .dice-area {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+    }
+
+    .dice-area canvas {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
     }
 
     /* Floating Animation */
@@ -637,6 +652,8 @@
 
     <h1>%main.title%</h1>
 
+    <div class="dice-area"></div>
+
     <div class="dices">
       <img loading="eager" alt="%main.rpg_dice%" class="d4" src="/assets/images/dices/pixel-d4.webp" />
       <img loading="eager" alt="%main.rpg_dice%" class="d6" src="/assets/images/dices/pixel-d6.webp" />
@@ -690,6 +707,8 @@
   <script src="/assets/js/email-send.js" defer async></script>
   <script src="/assets/js/tab-changer.js" defer async></script>
   <script src="/assets/js/tooltips.js" defer async></script>
+  <script type="module" src="/assets/js/dice-roller.js" defer async></script>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js" defer async></script>
 </body>
 
 </html>

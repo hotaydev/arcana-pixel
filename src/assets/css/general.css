@@ -7,4 +7,5 @@
   font-size: 12px;
   display: none;
   white-space: nowrap;
+  z-index: 1000;
 }
