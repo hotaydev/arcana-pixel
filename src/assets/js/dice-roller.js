@@ -44,6 +44,8 @@ async function rollDice(value) {
       break;
   }
 
+  const sizeScaleFactorForMobile = window.screen.width <= 1050 ? 0.75 : 1;
+
   const Box = new DiceBox(".dice-area", {
     assetPath: "/assets/dice-box/",
     gravity: 1,
@@ -60,15 +62,15 @@ async function rollDice(value) {
     lightIntensity: 2,
     theme: 'default',
     themeColor: color,
-    scale: value == "1d6" ? 5 : 6,
+    scale: (value == "1d6" ? 5 : 6) * sizeScaleFactorForMobile,
     onRollComplete: (result) => {
       if (result[0].value === result[0].sides) {
         success();
+      } else {
+        setTimeout(() => {
+          Box.remove({ groupId: 0, rollId: 0 });
+        }, 2 * 1000);
       }
-
-      setTimeout(() => {
-        Box.remove({ groupId: 0, rollId: 0 });
-      }, 2 * 1000);
     }
   });
 

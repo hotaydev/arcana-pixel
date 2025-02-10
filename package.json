@@ -15,7 +15,8 @@
     "chokidar": "^4.0.3",
     "glob": "^11.0.1",
     "html-minifier": "^4.0.0",
-    "serve": "^14.2.4"
+    "serve": "^14.2.4",
+    "uglify-js": "^3.19.3"
   },
   "type": "module"
 }

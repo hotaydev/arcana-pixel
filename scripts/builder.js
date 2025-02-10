@@ -2,6 +2,7 @@ import fs from "node:fs/promises";
 import { extname, dirname } from "node:path";
 import { minify } from "html-minifier";
 import { glob } from "glob";
+import * as UglifyJS from "uglify-js";
 
 import i18nConfig from "../i18n/config.js";
 
@@ -53,12 +54,12 @@ export default async function handleChangeOnPath(path) {
       await fs.mkdir(dirname(newPathName), { recursive: true });
       await fs.writeFile(newPathName, minified);
     });
-  } else if ([".css", ".js"].includes(extension)) {
+  } else if (extension === ".css") {
     const fileContent = await fs.readFile(path, "utf-8");
     const minified = minify(fileContent, {
       removeComments: true,
       collapseWhitespace: true,
-      minifyJS: true,
+      minifyJS: false,
       minifyCSS: true,
       keepClosingSlash: true,
     });
@@ -66,6 +67,13 @@ export default async function handleChangeOnPath(path) {
     const newPathName = path.replace(devFolder, distFolder);
     await fs.mkdir(dirname(newPathName), { recursive: true });
     await fs.writeFile(newPathName, minified);
+  } else if (extension === ".js") {
+    const fileContent = await fs.readFile(path, "utf-8");
+    const minified = UglifyJS.minify(fileContent);
+
+    const newPathName = path.replace(devFolder, distFolder);
+    await fs.mkdir(dirname(newPathName), { recursive: true });
+    await fs.writeFile(newPathName, minified.code);
   } else {
     try {
       await fs.stat(path); // Will throw error if the file doesn't exist
