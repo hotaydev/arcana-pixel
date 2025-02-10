@@ -124,8 +124,15 @@ export default {
     dnd_description: "Venture into magical realms filled with dragons, dungeons, and epic challenges. Create legends with your friends in stories that only your imagination can shape.",
     cthulhu_description: "Investigate dark secrets that can drive you insane and challenge your sanity. Face cults and cosmic horrors while trying to survive the unknown.",
     tormenta_description: "Defend Arton from epic dangers and battle the forces of the Tormenta. Be a hero or villain in a world full of battles, intrigue, and unforgettable adventures.",
-    zombie_alt: "Blood Zombie",
-    beholder_alt: "Beholder, a creature from Dungeons & Dragons",
-    tormenta_creature_alt: "Creature from Tormenta RPG"
+  },
+  tooltips: {
+    blood_zombie: "AAAAGHHHHHH!!!",
+    beholder: "Do you dare to face my eyes?",
+    cthulhu: "Ph’nglui mglw’nafh Cthulhu R’lyeh wgah’nagl fhtagn.",
+    tormenta: "You already belong to us.",
+    cat1: "Hi, I'm Pandora",
+    cat2: "Hi, I'm Aiko",
+    github: "We are Open Source",
+    d20: "Feeling lucky today?",
   }
 }

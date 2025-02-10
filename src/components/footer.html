@@ -2,7 +2,7 @@
   footer {
     width: 100%;
     position: relative;
-    overflow-y: hidden;
+    overflow: hidden;
   }
 
   /* Background */
@@ -163,18 +163,16 @@
   }
 
   @media (max-width: 900px) and (min-width: 601px) {
-    footer .cats img {
-      width: 70px !important;
-      top: 91%;
-    }
-
-
     footer .cats img.cat-1 {
       right: 5%;
+      top: 91%;
+      width: 70px !important;
     }
 
     footer .cats img.cat-2 {
       left: 5%;
+      top: 90%;
+      width: 50px !important;
     }
   }
 </style>
@@ -253,7 +251,8 @@
   </div>
 
   <div class="cats">
-    <img class="cat-1" alt="%footer.cat_walking%" title="meow, by Pandora" src="/assets/images/cats/cat2.webp" />
-    <img class="cat-2" alt="%footer.cat_walking%" title="meow, by Aiko" src="/assets/images/cats/cat1.webp" />
+    <img class="cat-1" alt="%footer.cat_walking%" data-tooltip="%tooltips.cat1%" data-tooltip-inverted="true"
+      src="/assets/images/cats/cat2.webp" />
+    <img class="cat-2" alt="%footer.cat_walking%" data-tooltip="%tooltips.cat2%" src="/assets/images/cats/cat1.webp" />
   </div>
 </footer>

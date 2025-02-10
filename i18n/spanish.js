@@ -124,8 +124,15 @@ export default {
     dnd_description: "Aventúrate en reinos mágicos llenos de dragones, mazmorras y desafíos épicos. Crea leyendas con tus amigos en historias que solo tu imaginación puede dar forma.",
     cthulhu_description: "Investiga secretos oscuros que pueden llevarte a la locura y desafía tu cordura. Enfréntate a cultos y horrores cósmicos mientras intentas sobrevivir a lo desconocido.",
     tormenta_description: "Defiende Arton de peligros épicos y combate las fuerzas de la Tormenta. Sé un héroe o un villano en un mundo lleno de batallas, intrigas y aventuras inolvidables.",
-    zombie_alt: "Zombi sangriento",
-    beholder_alt: "Beholder, una criatura de Dungeons & Dragons",
-    tormenta_creature_alt: "Criatura de Tormenta RPG"
+  },
+  tooltips: {
+    blood_zombie: "AAAAGHHHHHH!!!",
+    beholder: "¿Te atreves a mirar mis ojos?",
+    cthulhu: "Ph’nglui mglw’nafh Cthulhu R’lyeh wgah’nagl fhtagn.",
+    tormenta: "Ya nos perteneces.",
+    cat1: "Hola, soy Pandora",
+    cat2: "Hola, soy Aiko",
+    github: "Somos de Código Abierto",
+    d20: "¿Te sientes con suerte hoy?",
   }
 }

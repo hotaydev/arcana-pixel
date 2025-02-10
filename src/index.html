@@ -583,6 +583,8 @@
     }
   </style>
 
+  <link rel="stylesheet" href="/assets/css/general.css">
+
   <!-- htmlmin:ignore -->
   <script
     integrity="sha256-qS5hf0AWdrLvX2VxhrWnUujUwPwmVlnqK2YKCCTe3jA=">!function (t, e) { var o, n, p, r; e.__SV || (window.posthog = e, e._i = [], e.init = function (i, s, a) { function g(t, e) { var o = e.split("."); 2 == o.length && (t = t[o[0]], e = o[1]), t[e] = function () { t.push([e].concat(Array.prototype.slice.call(arguments, 0))) } } (p = t.createElement("script")).type = "text/javascript", p.crossOrigin = "anonymous", p.async = !0, p.src = s.api_host.replace(".i.posthog.com", "-assets.i.posthog.com") + "/static/array.js", (r = t.getElementsByTagName("script")[0]).parentNode.insertBefore(p, r); var u = e; for (void 0 !== a ? u = e[a] = [] : a = "posthog", u.people = u.people || [], u.toString = function (t) { var e = "posthog"; return "posthog" !== a && (e += "." + a), t || (e += " (stub)"), e }, u.people.toString = function () { return u.toString(1) + ".people (stub)" }, o = "init capture register register_once register_for_session unregister unregister_for_session getFeatureFlag getFeatureFlagPayload isFeatureEnabled reloadFeatureFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSessionId getSurveys getActiveMatchingSurveys renderSurvey canRenderSurvey getNextSurveyStep identify setPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException loadToolbar get_property getSessionProperty createPersonProfile opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing clear_opt_in_out_capturing debug".split(" "), n = 0; n < o.length; n++)g(u, o[n]); e._i.push([i, s, a]) }, e.__SV = 1) }(document, window.posthog || []); posthog.init('phc_JBYFh2Ew3kdz3hfD8IIxV62Ml7ipQnAINBYflUv2608', { api_host: 'https://insights.hotay.dev' })</script>
@@ -614,7 +616,7 @@
         <a href="#universes" class="item">%navbar.universes%</a>
       </div>
       <a href="https://github.com/hotaydev/arcanapixel.com" target="_blank" rel="noopener noreferrer" class="icon"
-        aria-label="%navbar.github%">
+        aria-label="%navbar.github%" data-tooltip="%tooltips.github%" data-tooltip-inverted="true">
         <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
           <g>
             <path
@@ -641,7 +643,8 @@
       <img loading="eager" alt="%main.rpg_dice%" class="d8" src="/assets/images/dices/pixel-d8.webp" />
       <img loading="eager" alt="%main.rpg_dice%" class="d10" src="/assets/images/dices/pixel-d10.webp" />
       <img loading="eager" alt="%main.rpg_dice%" class="d12" src="/assets/images/dices/pixel-d12.webp" />
-      <img loading="eager" alt="%main.rpg_dice%" class="d20" src="/assets/images/dices/pixel-d20.webp" />
+      <img loading="eager" alt="%main.rpg_dice%" class="d20" src="/assets/images/dices/pixel-d20.webp"
+        data-tooltip="Se sentindo com sorte hoje?" />
     </div>
 
     <div class="pixel-btn neon">
@@ -679,11 +682,14 @@
   <arcana-component src="%base%/components/footer.html"></arcana-component>
   <arcana-component src="%base%/components/mobile-menu-popup.html"></arcana-component>
 
+  <div id="tooltip"></div>
+
   <script src="/assets/js/main.js"></script>
   <script src="/assets/js/scroll-page-async.js" defer async></script>
   <script src="/assets/js/mobile-menu.js" defer async></script>
   <script src="/assets/js/email-send.js" defer async></script>
   <script src="/assets/js/tab-changer.js" defer async></script>
+  <script src="/assets/js/tooltips.js" defer async></script>
 </body>
 
 </html>
