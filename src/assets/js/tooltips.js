@@ -1,5 +1,5 @@
 const intervalTooltipRegister = setInterval(() => {
-  if (document.querySelector("footer") && document.querySelector("#universes")) {
+  if (document.querySelector("footer")) {
     clearInterval(intervalTooltipRegister);
     registerTooltips();
   }

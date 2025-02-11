@@ -319,11 +319,11 @@
 
     main.pricing .plans .plan {
       width: 100%;
-      height: 380px;
+      min-height: 400px;
       max-width: 300px;
       display: flex;
       align-items: start;
-      justify-content: start;
+      justify-content: space-between;
       flex-direction: column;
       gap: 1rem;
       padding: 1.5rem 2rem;
@@ -337,6 +337,7 @@
       font-size: 1.5rem;
       text-align: center;
       width: 100%;
+      margin-bottom: 1rem;
     }
 
     main.pricing .plans .plan ul {
@@ -550,28 +551,32 @@
 
     <div class="plans">
       <div class="plan">
-        <h3>%price_plans.plan1_title%</h3>
-        <ul>
-          <li>%price_plans.plan1_item1%</li>
-          <li>%price_plans.plan1_item2%</li>
-          <li>%price_plans.plan1_item3%</li>
-          <li>%price_plans.plan1_item4%</li>
-          <li>%price_plans.plan1_item5%</li>
-        </ul>
+        <div>
+          <h3>%price_plans.plan1_title%</h3>
+          <ul>
+            <li>%price_plans.plan1_item1%</li>
+            <li>%price_plans.plan1_item2%</li>
+            <li>%price_plans.plan1_item3%</li>
+            <li>%price_plans.plan1_item4%</li>
+            <li>%price_plans.plan1_item5%</li>
+          </ul>
+        </div>
 
         <div class="final"><button>%price_plans.plan1_price%</button></div>
       </div>
 
       <div class="plan">
-        <h3>%price_plans.plan2_title%</h3>
-        <ul>
-          <li>%price_plans.plan2_item1%</li>
-          <li>%price_plans.plan2_item2%</li>
-          <li>%price_plans.plan2_item3%</li>
-          <li>%price_plans.plan2_item4%</li>
-          <li>%price_plans.plan2_item5%</li>
-          <li>%price_plans.plan2_item6%</li>
-        </ul>
+        <div>
+          <h3>%price_plans.plan2_title%</h3>
+          <ul>
+            <li>%price_plans.plan2_item1%</li>
+            <li>%price_plans.plan2_item2%</li>
+            <li>%price_plans.plan2_item3%</li>
+            <li>%price_plans.plan2_item4%</li>
+            <li>%price_plans.plan2_item5%</li>
+            <li>%price_plans.plan2_item6%</li>
+          </ul>
+        </div>
 
         <div class="final">
           <button>%price_plans.plan2_price%</button>
@@ -579,12 +584,14 @@
       </div>
 
       <div class="plan">
-        <h3>%price_plans.plan3_title%</h3>
-        <ul>
-          <li>%price_plans.plan3_item1%</li>
-          <li>%price_plans.plan3_item2%</li>
-          <li>%price_plans.plan3_item3%</li>
-        </ul>
+        <div>
+          <h3>%price_plans.plan3_title%</h3>
+          <ul>
+            <li>%price_plans.plan3_item1%</li>
+            <li>%price_plans.plan3_item2%</li>
+            <li>%price_plans.plan3_item3%</li>
+          </ul>
+        </div>
 
         <div class="final">
           <p class="explanation">%price_plans.plan3_item4%</p>
@@ -593,15 +600,17 @@
       </div>
 
       <div class="plan">
-        <h3>%price_plans.plan4_title%</h3>
-        <ul>
-          <li>%price_plans.plan4_item1%</li>
-          <li>%price_plans.plan4_item2%</li>
-          <li>%price_plans.plan4_item3%</li>
-          <li>%price_plans.plan4_item4%</li>
-          <li>%price_plans.plan4_item5%</li>
-          <li>%price_plans.plan4_item6%</li>
-        </ul>
+        <div>
+          <h3>%price_plans.plan4_title%</h3>
+          <ul>
+            <li>%price_plans.plan4_item1%</li>
+            <li>%price_plans.plan4_item2%</li>
+            <li>%price_plans.plan4_item3%</li>
+            <li>%price_plans.plan4_item4%</li>
+            <li>%price_plans.plan4_item5%</li>
+            <li>%price_plans.plan4_item6%</li>
+          </ul>
+        </div>
 
         <div class="final"><button>%price_plans.plan4_price%</button></div>
       </div>
@@ -628,6 +637,7 @@
   <script src="/assets/js/mobile-menu.js" defer async></script>
   <script src="/assets/js/plans.js" defer async></script>
   <script src="/assets/js/email-send.js" defer async></script>
+  <script src="/assets/js/tooltips.js" defer async></script>
 </body>
 
 </html>
