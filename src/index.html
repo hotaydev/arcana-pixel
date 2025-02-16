@@ -242,7 +242,10 @@
     }
   </style>
 
-  <link rel="stylesheet" href="/assets/css/pixel-button.css">
+  <link rel="preload" href="/assets/css/pixel-button.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript>
+    <link rel="stylesheet" href="/assets/css/pixel-button.css">
+  </noscript>
 </head>
 
 <body>

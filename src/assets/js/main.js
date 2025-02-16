@@ -19,7 +19,9 @@ class MyComponent extends HTMLElement {
   }
 }
 
-customElements.define('arcana-component', MyComponent);
+document.addEventListener('DOMContentLoaded', () => {
+  customElements.define('arcana-component', MyComponent);
+});
 
 function scrollToCTA() {
   const element = document.querySelector('#still-in-development');

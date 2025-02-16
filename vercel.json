@@ -25,7 +25,7 @@
         },
         {
           "key": "Cache-Control",
-          "value": "public, max-age=5184000, must-revalidate"
+          "value": "public, max-age=1209600, must-revalidate"
         },
         {
           "key": "Content-Security-Policy",
@@ -38,11 +38,11 @@
       ]
     },
     {
-      "source": "/(.*\\.(?:js|css))",
+      "source": "/(.*\\.(?:wasm|json))",
       "headers": [
         {
           "key": "Cache-Control",
-          "value": "public, max-age=1209600, must-revalidate"
+          "value": "public, max-age=5184000, must-revalidate"
         }
       ]
     },
@@ -51,7 +51,7 @@
       "headers": [
         {
           "key": "Cache-Control",
-          "value": "public, max-age=5184000, immutable"
+          "value": "public, max-age=31536000, immutable"
         },
         {
           "key": "Access-Control-Allow-Origin",
