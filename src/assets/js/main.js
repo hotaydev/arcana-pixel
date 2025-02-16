@@ -21,6 +21,14 @@ class MyComponent extends HTMLElement {
 
 document.addEventListener('DOMContentLoaded', () => {
   customElements.define('arcana-component', MyComponent);
+
+  if (document.querySelector('main.landing-banner')) {
+    // Main page
+    let link = document.createElement('link');
+    link.setAttribute('rel', 'stylesheet');
+    link.setAttribute('href', '/assets/css/pixel-button.css');
+    document.head.appendChild(link);
+  }
 });
 
 function scrollToCTA() {
