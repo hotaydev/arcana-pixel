@@ -200,3 +200,13 @@
   left: -60px;
   user-select: none;
 }
+
+@media (max-width: 1000px) {
+  .pixel-btn {
+    transform: scale(.75) !important;
+  }
+
+  .pixel-btn:hover {
+    transform: translateY(-5px) scale(.75) !important;
+  }
+}

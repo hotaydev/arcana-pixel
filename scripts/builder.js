@@ -28,39 +28,49 @@ for (const file of files) {
 
 export default async function handleChangeOnPath(path) {
   const extension = extname(path);
+
   if (!extension) return;
+  if (path.includes('builder-components/')) return;
 
   if ([".html"].includes(extension)) {
+    let fileContent = await fs.readFile(path, "utf-8");
+    const componentsToInclude = [...fileContent.matchAll(/<!--\s*include:builder-components\/([\w-]+\.html)\s*-->/g)].map(match => match[1]);
+
+    for (const component of componentsToInclude) {
+      const componentContent = await fs.readFile(`${devFolder}/builder-components/${component}`, "utf-8");
+      fileContent = fileContent.replaceAll(`<!-- include:builder-components/${component} -->`, componentContent);
+    }
+
+    let minified = minify(fileContent, {
+      removeComments: true,
+      collapseWhitespace: true,
+      minifyJS: true,
+      minifyCSS: true,
+      keepClosingSlash: true,
+    });
+
     i18nConfig.forEach(async (lang) => {
       const translations = await import(`../i18n/${lang.file}`);
-
-      const fileContent = await fs.readFile(path, "utf-8");
-      let minified = minify(fileContent, {
-        removeComments: true,
-        collapseWhitespace: true,
-        minifyJS: true,
-        minifyCSS: true,
-        keepClosingSlash: true,
-      });
+      let finalHTML = minified;
 
       for (const key of Object.keys(translations.default)) {
         if (typeof translations.default[key] === "string") {
-          minified = minified.replaceAll(`%${key}%`, translations.default[key]);
+          finalHTML = finalHTML.replaceAll(`%${key}%`, translations.default[key]);
         } else {
           for (const subkey of Object.keys(translations.default[key])) {
-            minified = minified.replaceAll(`%${key}.${subkey}%`, translations.default[key][subkey]);
+            finalHTML = finalHTML.replaceAll(`%${key}.${subkey}%`, translations.default[key][subkey]);
           }
         }
       }
 
       const newPathName = path.replace(devFolder, `${distFolder}${lang.path}`);
-      if (!newPathName.includes('/components')) {
+      if (!newPathName.includes('/web-components')) {
         const canonical = dirname(newPathName).replace(distFolder, '');
-        minified = minified.replaceAll('/%canonical%', canonical + "/");
+        finalHTML = finalHTML.replaceAll('/%canonical%', canonical + "/");
       }
 
       await fs.mkdir(dirname(newPathName), { recursive: true });
-      await fs.writeFile(newPathName, minified);
+      await fs.writeFile(newPathName, finalHTML);
     });
   } else if (extension === ".css") {
     const fileContent = await fs.readFile(path, "utf-8");

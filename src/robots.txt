@@ -2,7 +2,7 @@ User-agent: *
 Allow: *
 
 Disallow: /404
-Disallow: /components/*
+Disallow: /web-components/*
 Disallow: /assets/*
 Disallow: /.well-known/*
 Disallow: /cdn-cgi/*

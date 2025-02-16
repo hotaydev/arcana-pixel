@@ -14,7 +14,7 @@ export default {
     alternate_lang4: "en_US"
   },
   navbar: {
-    about: "Chi siamo",
+    about: "Scopo",
     tools: "Strumenti",
     prices: "Prezzi",
     universes: "Universi",
@@ -114,7 +114,7 @@ export default {
     master_tool_3_description: "Crea PNG unici con informazioni dettagliate, aspetto, attacchi, rituali e altro! Genera alleati, nemici o creature.<br /><br />I tuoi giocatori avranno un PNG pronto in pochi minuti (o secondi)!",
 
     master_tool_4_title: "Wiki Completa",
-    master_tool_5_description: "Non devi memorizzare equipaggiamenti, incantesimi, rituali, creature o regole.<br /><br />Accedi a tutte queste informazioni con descrizioni brevi per consultazioni rapide e descrizioni dettagliate per approfondimenti.",
+    master_tool_4_description: "Non devi memorizzare equipaggiamenti, incantesimi, rituali, creature o regole.<br /><br />Accedi a tutte queste informazioni con descrizioni brevi per consultazioni rapide e descrizioni dettagliate per approfondimenti.",
   },
   universes: {
     title: "Scegli l'universo della tua campagna",

@@ -14,7 +14,7 @@ export default {
     alternate_lang4: "fr_FR"
   },
   navbar: {
-    about: "Sobre",
+    about: "Missão",
     tools: "Ferramentas",
     prices: "Preços",
     universes: "Universos",
@@ -114,7 +114,7 @@ export default {
     master_tool_3_description: "Crie NPCs criativos, contando com informações detalhadas, aparência, ataques, rituais, e muito mais! Crie aliados, inimigos ou criaturas.<br /><br />Seus personagens terão um NPC criado em minutos (ou segundos)!",
 
     master_tool_4_title: "Wiki completa",
-    master_tool_5_description: "Você não precisa decorar equipamentos, magias, rituais, criaturas e nem regras.<br /><br />Tenha acesso a qualquer uma dessas informações, com descrições breves para momentos corridos e descrições longas para se aprofundar.",
+    master_tool_4_description: "Você não precisa decorar equipamentos, magias, rituais, criaturas e nem regras.<br /><br />Tenha acesso a qualquer uma dessas informações, com descrições breves para momentos corridos e descrições longas para se aprofundar.",
   },
   universes: {
     title: "Escolha o universo de sua campanha",

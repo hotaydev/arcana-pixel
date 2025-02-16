@@ -2,281 +2,25 @@
 <html lang="%lang%">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <title>%title%</title>
   <meta name="description" content="%description%">
-  <link rel="canonical" href="https://www.arcanapixel.com/%canonical%">
-  <meta name="robots" content="index, follow">
-  <meta name="author" content="Hotay Software Development">
   <meta name="keywords" content="%keywords%">
 
-  <!-- Multilanguage: Start -->
-  <link rel="alternate" hreflang="pt-br" href="https://www.arcanapixel.com/">
-  <link rel="alternate" hreflang="en-us" href="https://www.arcanapixel.com/en">
-  <link rel="alternate" hreflang="it-it" href="https://www.arcanapixel.com/it">
-  <link rel="alternate" hreflang="es-es" href="https://www.arcanapixel.com/es">
-  <link rel="alternate" hreflang="fr-fr" href="https://www.arcanapixel.com/fr">
-  <!-- Multilanguage: End -->
+  <!-- include:builder-components/head.html -->
+  <!-- include:builder-components/global-styles.html -->
 
   <!-- Open Graph: Start -->
   <meta property="og:title" content="%title%" />
-  <meta property="og:type" content="website" />
   <meta property="og:description" content="%description%" />
-  <meta property="og:site_name" content="Arcana Pixel" />
-  <meta property="og:url" content="https://www.arcanapixel.com/%canonical%" />
-  <meta property="og:image" content="https://www.arcanapixel.com/assets/images/thumbnail.jpeg" />
-  <meta property="og:locale" content="%og.main_lang%" />
-  <meta property="og:locale:alternate" content="%og.alternate_lang1%" />
-  <meta property="og:locale:alternate" content="%og.alternate_lang2%" />
-  <meta property="og:locale:alternate" content="%og.alternate_lang3%" />
-  <meta property="og:locale:alternate" content="%og.alternate_lang4%" />
   <!-- Open Graph: End -->
 
   <!-- Twitter: Start -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Arcana Pixel">
   <meta name="twitter:description" content="%description%">
-  <meta name="twitter:image" content="https://www.arcanapixel.com/assets/images/thumbnail.jpeg">
-  <!-- <meta name="twitter:site" content="@YourTwitterHandle"> -->
   <!-- Twitter: End -->
-
-  <!-- Basic Style reset -->
-  <style>
-    a,
-    button,
-    input,
-    select,
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      border: none;
-      text-decoration: none;
-      background: none;
-
-      -webkit-font-smoothing: antialiased;
-    }
-
-    ol,
-    ul {
-      list-style-type: none;
-      margin: 0;
-      padding: 0;
-    }
-  </style>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Space+Grotesk:wght@300..700&display=swap"
-    rel="stylesheet">
-
-  <link rel="stylesheet" href="/assets/css/pixel-button.css">
-
-  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
-  <link rel="apple-touch-icon" sizes="128x115" href="/assets/images/dices/pixel-d20.webp">
-
   <!-- Styles needed till the landing page (so the page loads faster) -->
   <!-- Other styles are placed with the components -->
   <style>
-    :root {
-      --bg-color: #121111;
-      --font-family-normal: "Space Grotesk", serif;
-      --font-family-pixel: "Press Start 2P", serif;
-      --text-color: #ffffff;
-
-      --link-hover-color: #d041ff;
-      --card-background: #211e23;
-      --tab-chooser-color: #921ca4;
-
-      --btn-neon-layer-top: #ff00c7;
-      --btn-neon-layer-middle: #e400b2;
-      --btn-neon-layer-bottom: #7a008d;
-
-      --btn-green-layer-top: #0fac27;
-      --btn-green-layer-middle: #0a8f1e;
-      --btn-green-layer-bottom: #0a4f15;
-
-      --btn-red-layer-top: #d71a09;
-      --btn-red-layer-middle: #a2180b;
-      --btn-red-layer-bottom: #590d06;
-
-      --btn-yellow-layer-top: #b95b0e;
-      --btn-yellow-layer-middle: #924200;
-      --btn-yellow-layer-bottom: #4d280a;
-
-      --btn-purple-layer-top: #800fb5;
-      --btn-purple-layer-middle: #670d91;
-      --btn-purple-layer-bottom: #420b5b;
-
-      --footer-bg-color-1: #9900cc;
-      --footer-bg-color-2: #8200ad;
-      --footer-bg-color-3: #660088;
-      --footer-bg-color-4: #4a0063;
-      --footer-bg-color-5: #340045;
-    }
-
-    html {
-      scroll-behavior: smooth;
-      overflow-x: hidden !important;
-    }
-
-    body {
-      background-color: var(--bg-color);
-      width: 100%;
-      color: var(--text-color);
-      overflow-x: hidden;
-      position: relative
-    }
-
-    body,
-    body * {
-      box-sizing: border-box;
-      font-family: var(--font-family-normal);
-      font-optical-sizing: auto;
-      font-weight: 500;
-      font-style: normal;
-      z-index: 1;
-    }
-
-    h2 {
-      font-size: 3rem;
-      text-align: center;
-      font-weight: 700;
-      margin-bottom: 2rem;
-    }
-
-    section {
-      margin: 12rem auto 5rem;
-    }
-
-    .d-none {
-      display: none !important;
-    }
-
-    /* ============== Blurs =================== */
-
-    .bg-blur {
-      z-index: 0;
-    }
-
-    .bg-blur .ellipse-1 {
-      background-color: var(--btn-purple-layer-top);
-      position: absolute;
-      border-radius: 50%;
-      filter: blur(130px);
-      width: 100%;
-      height: 75vh;
-      opacity: 0.4;
-      left: 0;
-    }
-
-    .bg-blur .ellipse-2 {
-      background-color: var(--btn-purple-layer-top);
-      position: absolute;
-      border-radius: 50%;
-      filter: blur(100px);
-      width: 100%;
-      height: 75vh;
-      opacity: 0.5;
-      left: 0;
-    }
-
-    /* ============== Navigation Menu =================== */
-    .nav-menu {
-      width: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 1rem 2rem;
-      margin-bottom: 2rem;
-    }
-
-    .nav-menu .border {
-      width: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      border-radius: 50px;
-      border: 2px solid var(--text-color);
-      padding: .5rem 2rem;
-      z-index: 10;
-    }
-
-    .nav-menu .border .nav-content {
-      width: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 3rem;
-    }
-
-    .nav-menu .border .item {
-      color: var(--text-color);
-      font-size: 1.2rem;
-      transition: all 0.3s ease;
-      text-decoration-color: var(--link-hover-color);
-    }
-
-    .nav-menu .border .item:hover {
-      font-weight: 700;
-      text-decoration: underline wavy var(--link-hover-color) 2px;
-      text-underline-offset: 2px;
-    }
-
-    .nav-menu .border .icon {
-      transition: all 0.3s ease;
-      padding: .7rem .7rem .4rem .7rem;
-      border-radius: 50px;
-    }
-
-    .nav-menu .border .icon:hover {
-      background-color: var(--link-hover-color);
-    }
-
-    .nav-menu .border .logo {
-      text-align: center;
-      color: var(--text-color);
-      margin: auto 2rem;
-      user-select: none;
-      cursor: pointer;
-    }
-
-    .nav-menu .border .logo .arcana {
-      font-weight: 600;
-      font-size: 2rem;
-    }
-
-    .nav-menu .border .logo .pixel {
-      font-family: var(--font-family-pixel);
-      font-weight: 400;
-      font-style: normal;
-    }
-
-    .nav-menu .border .nav-spacer {
-      width: 2rem;
-    }
-
-    .nav-menu .border .nav-spacer svg {
-      cursor: pointer;
-      display: none;
-    }
-
-    .nav-menu .border .nav-spacer img {
-      width: 30px;
-      height: 30px;
-      cursor: pointer;
-    }
-
     /* ============== Landing Banner =================== */
-
     main.landing-banner {
       display: flex;
       align-items: center;
@@ -390,32 +134,6 @@
   <!-- Responsive styles -->
   <style>
     @media (max-width: 550px) {
-      .nav-menu .nav-content .item {
-        display: none;
-      }
-
-      .nav-menu .border .nav-spacer svg {
-        display: flex;
-      }
-
-
-      .nav-menu .border .nav-spacer img {
-        display: none;
-      }
-
-      h1 {
-        font-size: 3rem !important;
-        margin-top: 10rem !important;
-      }
-
-      .pixel-btn {
-        transform: scale(.75) !important;
-      }
-
-      .pixel-btn:hover {
-        transform: translateY(-5px) scale(.75) !important;
-      }
-
       main.landing-banner .dices img {
         width: 60px !important;
       }
@@ -449,38 +167,9 @@
         margin-left: 8rem;
         margin-top: -16rem;
       }
-
-      h2 {
-        font-size: 2rem;
-      }
     }
 
     @media (max-width: 700px) and (min-width: 551px) {
-      .nav-menu .nav-content .item {
-        display: none;
-      }
-
-      .nav-menu .border .nav-spacer svg {
-        display: flex;
-      }
-
-      .nav-menu .border .nav-spacer img {
-        display: none;
-      }
-
-      h1 {
-        font-size: 3rem !important;
-        margin-top: 10rem !important;
-      }
-
-      .pixel-btn {
-        transform: scale(.75) !important;
-      }
-
-      .pixel-btn:hover {
-        transform: translateY(-5px) scale(.75) !important;
-      }
-
       main.landing-banner .dices img {
         width: 60px !important;
       }
@@ -513,39 +202,10 @@
       main.landing-banner .dices img.d20 {
         margin-left: 15rem;
         margin-top: -5rem;
-      }
-
-      h2 {
-        font-size: 2rem;
       }
     }
 
     @media (max-width: 1000px) and (min-width: 701px) {
-      .nav-menu .nav-content .item {
-        display: none;
-      }
-
-      .nav-menu .border .nav-spacer svg {
-        display: flex;
-      }
-
-      .nav-menu .border .nav-spacer img {
-        display: none;
-      }
-
-      h1 {
-        font-size: 3rem !important;
-        margin-top: 10rem !important;
-      }
-
-      .pixel-btn {
-        transform: scale(.75) !important;
-      }
-
-      .pixel-btn:hover {
-        transform: translateY(-5px) scale(.75) !important;
-      }
-
       main.landing-banner .dices img {
         width: 60px !important;
       }
@@ -579,68 +239,14 @@
         margin-left: 15rem;
         margin-top: -5rem;
       }
-
-
-      h2 {
-        font-size: 2rem;
-      }
-    }
-
-    @media (max-width: 1300px) and (min-width: 1001px) {
-      h1 {
-        font-size: 3.6rem !important;
-      }
-
-      h2 {
-        font-size: 2.5rem;
-      }
     }
   </style>
 
-  <link rel="stylesheet" href="/assets/css/general.css">
-
-  <!-- htmlmin:ignore -->
-  <script
-    integrity="sha256-qS5hf0AWdrLvX2VxhrWnUujUwPwmVlnqK2YKCCTe3jA=">!function (t, e) { var o, n, p, r; e.__SV || (window.posthog = e, e._i = [], e.init = function (i, s, a) { function g(t, e) { var o = e.split("."); 2 == o.length && (t = t[o[0]], e = o[1]), t[e] = function () { t.push([e].concat(Array.prototype.slice.call(arguments, 0))) } } (p = t.createElement("script")).type = "text/javascript", p.crossOrigin = "anonymous", p.async = !0, p.src = s.api_host.replace(".i.posthog.com", "-assets.i.posthog.com") + "/static/array.js", (r = t.getElementsByTagName("script")[0]).parentNode.insertBefore(p, r); var u = e; for (void 0 !== a ? u = e[a] = [] : a = "posthog", u.people = u.people || [], u.toString = function (t) { var e = "posthog"; return "posthog" !== a && (e += "." + a), t || (e += " (stub)"), e }, u.people.toString = function () { return u.toString(1) + ".people (stub)" }, o = "init capture register register_once register_for_session unregister unregister_for_session getFeatureFlag getFeatureFlagPayload isFeatureEnabled reloadFeatureFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSessionId getSurveys getActiveMatchingSurveys renderSurvey canRenderSurvey getNextSurveyStep identify setPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException loadToolbar get_property getSessionProperty createPersonProfile opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing clear_opt_in_out_capturing debug".split(" "), n = 0; n < o.length; n++)g(u, o[n]); e._i.push([i, s, a]) }, e.__SV = 1) }(document, window.posthog || []); posthog.init('phc_JBYFh2Ew3kdz3hfD8IIxV62Ml7ipQnAINBYflUv2608', { api_host: 'https://insights.hotay.dev' })</script>
-  <!-- htmlmin:ignore -->
+  <link rel="stylesheet" href="/assets/css/pixel-button.css">
 </head>
 
 <body>
-  <noscript>
-    %noscript%
-  </noscript>
-
-  <div class="nav-menu" id="top">
-    <div class="border">
-      <span class="nav-spacer">
-        <svg width="32" height="32" title="menu" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" fill="none">
-          <path fill="white" fill-rule="evenodd"
-            d="M19 4a1 1 0 01-1 1H2a1 1 0 010-2h16a1 1 0 011 1zm0 6a1 1 0 01-1 1H2a1 1 0 110-2h16a1 1 0 011 1zm-1 7a1 1 0 100-2H2a1 1 0 100 2h16z" />
-        </svg>
-        <img src="/assets/images/flags/%country_flag%.png" alt="%navbar.language%">
-      </span>
-      <div class="nav-content">
-        <a href="#still-in-development" class="item">%navbar.about%</a>
-        <a href="#tools" class="item">%navbar.tools%</a>
-        <a class="logo" href="#top">
-          <div class="arcana">ARCANA</div>
-          <div class="pixel">Pixel</div>
-        </a>
-        <a href="%base%/tiers" class="item">%navbar.prices%</a>
-        <a href="#universes" class="item">%navbar.universes%</a>
-      </div>
-      <a href="https://github.com/hotaydev/arcanapixel.com" target="_blank" rel="noopener noreferrer" class="icon"
-        aria-label="%navbar.github%" data-tooltip="%tooltips.github%" data-tooltip-inverted="true">
-        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <g>
-            <path
-              d="M12 25.3333C5.33329 27.3333 5.33329 22 2.66663 21.3333M21.3333 29.3333V24.1733C21.3833 23.5375 21.2974 22.8984 21.0813 22.2984C20.8652 21.6984 20.5239 21.1512 20.08 20.6933C24.2666 20.2267 28.6666 18.64 28.6666 11.36C28.6663 9.49843 27.9502 7.70826 26.6666 6.36C27.2744 4.73134 27.2315 2.93113 26.5466 1.33333C26.5466 1.33333 24.9733 0.866665 21.3333 3.30666C18.2773 2.47843 15.0559 2.47843 12 3.30666C8.35996 0.866665 6.78663 1.33333 6.78663 1.33333C6.10179 2.93113 6.05882 4.73134 6.66663 6.36C5.37346 7.71826 4.65666 9.52462 4.66663 11.4C4.66663 18.6267 9.06663 20.2133 13.2533 20.7333C12.8146 21.1866 12.4763 21.7272 12.2604 22.3199C12.0444 22.9126 11.9557 23.5441 12 24.1733V29.3333"
-              stroke="#F3F3F3" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
-          </g>
-        </svg>
-      </a>
-    </div>
-  </div>
+  <!-- include:builder-components/navbar.html -->
 
   <main class="landing-banner">
 
@@ -692,13 +298,11 @@
 
   </main>
 
-  <arcana-component src="%base%/components/tools.html"></arcana-component>
-  <arcana-component src="%base%/components/universes.html"></arcana-component>
-  <arcana-component src="%base%/components/cta.html"></arcana-component>
-  <arcana-component src="%base%/components/footer.html"></arcana-component>
-  <arcana-component src="%base%/components/mobile-menu-popup.html"></arcana-component>
-
-  <div id="tooltip"></div>
+  <arcana-component src="%base%/web-components/tools.html"></arcana-component>
+  <arcana-component src="%base%/web-components/universes.html"></arcana-component>
+  <arcana-component src="%base%/web-components/cta.html"></arcana-component>
+  <arcana-component src="%base%/web-components/footer.html"></arcana-component>
+  <arcana-component src="%base%/web-components/mobile-menu-popup.html"></arcana-component>
 
   <script src="/assets/js/main.js"></script>
   <script src="/assets/js/scroll-page-async.js" defer async></script>

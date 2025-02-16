@@ -14,7 +14,7 @@ export default {
     alternate_lang4: "fr_FR"
   },
   navbar: {
-    about: "About",
+    about: "Our Mission",
     tools: "Tools",
     prices: "Prices",
     universes: "Universes",
@@ -114,7 +114,7 @@ export default {
     master_tool_3_description: "Create unique NPCs with detailed information, appearance, attacks, rituals, and more! Generate allies, enemies, or creatures.<br /><br />Your characters will have an NPC ready in minutes (or seconds)!",
 
     master_tool_4_title: "Complete Wiki",
-    master_tool_5_description: "No need to memorize equipment, spells, rituals, creatures, or rules.<br /><br />Access any of this information with short descriptions for quick moments and longer descriptions for deep dives.",
+    master_tool_4_description: "No need to memorize equipment, spells, rituals, creatures, or rules.<br /><br />Access any of this information with short descriptions for quick moments and longer descriptions for deep dives.",
   },
   universes: {
     title: "Choose Your Campaign Universe",

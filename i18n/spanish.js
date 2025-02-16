@@ -14,7 +14,7 @@ export default {
     alternate_lang4: "en_US"
   },
   navbar: {
-    about: "Acerca de",
+    about: "Objetivo",
     tools: "Herramientas",
     prices: "Precios",
     universes: "Universos",
@@ -114,7 +114,7 @@ export default {
     master_tool_3_description: "Crea PNJ únicos con información detallada, apariencia, ataques, rituales y más. Genera aliados, enemigos o criaturas.<br /><br />Tus jugadores tendrán un PNJ listo en minutos (¡o segundos!).",
 
     master_tool_4_title: "Wiki Completa",
-    master_tool_5_description: "No necesitas memorizar equipo, hechizos, rituales, criaturas o reglas.<br /><br />Accede a toda esta información con descripciones breves para momentos rápidos y descripciones más largas para exploraciones profundas.",
+    master_tool_4_description: "No necesitas memorizar equipo, hechizos, rituales, criaturas o reglas.<br /><br />Accede a toda esta información con descripciones breves para momentos rápidos y descripciones más largas para exploraciones profundas.",
   },
   universes: {
     title: "Elige el universo de tu campaña",
