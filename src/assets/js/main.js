@@ -22,13 +22,20 @@ class MyComponent extends HTMLElement {
 document.addEventListener('DOMContentLoaded', () => {
   customElements.define('arcana-component', MyComponent);
 
-  if (document.querySelector('main.landing-banner')) {
-    // Main page
-    let link = document.createElement('link');
-    link.setAttribute('rel', 'stylesheet');
-    link.setAttribute('href', '/assets/css/pixel-button.css');
-    document.head.appendChild(link);
-  }
+  // Load Pixel Button Async
+  let link = document.createElement('link');
+  link.setAttribute('rel', 'stylesheet');
+  link.setAttribute('href', '/assets/css/pixel-button.css');
+  document.head.appendChild(link);
+
+  // Scroll to up
+  const scrollBtn = document.querySelector(".scroll-to-up");
+  window.addEventListener("scroll", () => {
+    scrollBtn.style.display = window.scrollY > 150 ? "block" : "none";
+  });
+  scrollBtn.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
 });
 
 function scrollToCTA() {
