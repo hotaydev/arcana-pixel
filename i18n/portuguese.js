@@ -42,12 +42,12 @@ export default {
   cta: {
     divider: "Divisor",
     visual_effect: "Efeito visual de estrela",
-    title: "Ainda estamos em desenvolvimento!",
+    title: "Estamos Quase Lá!",
     your_best_email: "Seu melhor e-mail...",
-    button: "Receber Atualizações!",
+    button: "Receber Novidades!",
     nospam: "Fique tranquilo, nós também não gostamos de Spam.",
     pre_register: "Pré-registro!!",
-    content: "Espere só mais um pouco e você poderá usar todas as funcionalidades que estamos preparando para sua campanha (teremos uma versão gratuita)!<br/><br/>Enquanto isso, <strong>que tal ficar por dentro das nossa atualizações sobre o desenvolvimento?</strong><br/><br/>Prometemos um presente especial para quem acompanhar o projeto já no pré-registro!"
+    content: "Em breve, você vai poder jogar no nosso Table Top virtual com versão gratuita e funcionalidades incríveis para suas campanhas.<br/><br/>Cadastre seu e-mail, acompanhe as novidades e garanta um presente especial!"
   },
   tools: {
     title: "Ferramentas pensadas para facilitar",
