@@ -1,0 +1,176 @@
+<style>
+  /* ============== Pixel Button Colors =================== */
+  /* Neon is defined in builder-components/pixel-button-styles-main.html */
+
+  /* Colors - Neon */
+  .pixel-btn.neon .layer-bottom .rect-b1,
+  .pixel-btn.neon .layer-bottom .rect-b2,
+  .pixel-btn.neon .layer-bottom .rect-b3 {
+    background: var(--btn-neon-layer-bottom);
+  }
+
+  .pixel-btn.neon .layer-middle .rect-m1,
+  .pixel-btn.neon .layer-middle .rect-m2,
+  .pixel-btn.neon .layer-middle .rect-m3 {
+    background: var(--btn-neon-layer-middle);
+  }
+
+  .pixel-btn.neon .layer-top .rect-t1,
+  .pixel-btn.neon .layer-top .rect-t2 {
+    background: var(--btn-neon-layer-top);
+  }
+
+  /* Other colors are defined in ./pixel-button-styles-colors.html */
+
+  /* ============== Pixel Button Sizes =================== */
+
+  .pixel-btn {
+    position: relative;
+    cursor: pointer;
+    transform: scale(1);
+  }
+
+  .pixel-btn:hover {
+    transform: translateY(-5px) scale(1);
+  }
+
+  .pixel-btn .layer-bottom,
+  .pixel-btn .layer-middle,
+  .pixel-btn .layer-top {
+    position: absolute;
+    top: 0;
+    left: -105px;
+  }
+
+  /* Bottom */
+  .pixel-btn .layer-bottom .rect-b1 {
+    width: 200px;
+    height: 50px;
+    position: absolute;
+    top: 20px;
+    left: 0;
+    z-index: 1;
+  }
+
+  .pixel-btn.small .layer-bottom .rect-b1 {
+    width: 100px !important;
+  }
+
+  .pixel-btn .layer-bottom .rect-b2 {
+    width: 180px;
+    height: 70px;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 1;
+  }
+
+  .pixel-btn.small .layer-bottom .rect-b2 {
+    width: 80px !important;
+  }
+
+  .pixel-btn .layer-bottom .rect-b3 {
+    width: 160px;
+    height: 90px;
+    position: absolute;
+    top: 0;
+    left: 20px;
+    z-index: 1;
+  }
+
+  .pixel-btn.small .layer-bottom .rect-b3 {
+    width: 60px !important;
+  }
+
+  /* Middle */
+  .pixel-btn .layer-middle .rect-m1 {
+    width: 190px;
+    height: 40px;
+    position: absolute;
+    top: 20px;
+    left: 10px;
+    z-index: 2;
+  }
+
+  .pixel-btn.small .layer-middle .rect-m1 {
+    width: 90px !important;
+  }
+
+  .pixel-btn .layer-middle .rect-m2 {
+    width: 170px;
+    height: 60px;
+    position: absolute;
+    top: 10px;
+    left: 20px;
+    z-index: 2;
+  }
+
+  .pixel-btn.small .layer-middle .rect-m2 {
+    width: 70px !important;
+  }
+
+  .pixel-btn .layer-middle .rect-m3 {
+    width: 150px;
+    height: 80px;
+    position: absolute;
+    top: 0;
+    left: 30px;
+    z-index: 2;
+  }
+
+  .pixel-btn.small .layer-middle .rect-m3 {
+    width: 50px !important;
+  }
+
+  /* Top */
+  .pixel-btn .layer-top .rect-t1 {
+    width: 170px;
+    height: 40px;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 3;
+  }
+
+  .pixel-btn.small .layer-top .rect-t1 {
+    width: 70px !important;
+  }
+
+  .pixel-btn .layer-top .rect-t2 {
+    width: 150px;
+    height: 60px;
+    position: absolute;
+    top: 10px;
+    left: 30px;
+    z-index: 3;
+  }
+
+  .pixel-btn.small .layer-top .rect-t2 {
+    width: 50px !important;
+  }
+
+
+  /* ============== Pixel Button Text =================== */
+  .pixel-btn .btn-text {
+    color: var(--text-color);
+    font-size: 24px;
+    font-family: var(--font-family-pixel);
+    font-weight: 400;
+    font-style: normal;
+    position: absolute;
+    z-index: 4;
+    top: 25px;
+    left: -60px;
+    user-select: none;
+  }
+
+  @media (max-width: 1000px) {
+    .pixel-btn {
+      transform: scale(.75) !important;
+    }
+
+    .pixel-btn:hover {
+      transform: translateY(-5px) scale(.75) !important;
+    }
+  }
+</style>

@@ -1,0 +1,76 @@
+/* ============== Pixel Button Colors =================== */
+
+/* Colors - Neon */
+
+
+/* Colors - Red */
+.pixel-btn.red .layer-bottom .rect-b1,
+.pixel-btn.red .layer-bottom .rect-b2,
+.pixel-btn.red .layer-bottom .rect-b3 {
+  background: var(--btn-red-layer-bottom);
+}
+
+.pixel-btn.red .layer-middle .rect-m1,
+.pixel-btn.red .layer-middle .rect-m2,
+.pixel-btn.red .layer-middle .rect-m3 {
+  background: var(--btn-red-layer-middle);
+}
+
+.pixel-btn.red .layer-top .rect-t1,
+.pixel-btn.red .layer-top .rect-t2 {
+  background: var(--btn-red-layer-top);
+}
+
+/* Colors - Yellow */
+.pixel-btn.yellow .layer-bottom .rect-b1,
+.pixel-btn.yellow .layer-bottom .rect-b2,
+.pixel-btn.yellow .layer-bottom .rect-b3 {
+  background: var(--btn-yellow-layer-bottom);
+}
+
+.pixel-btn.yellow .layer-middle .rect-m1,
+.pixel-btn.yellow .layer-middle .rect-m2,
+.pixel-btn.yellow .layer-middle .rect-m3 {
+  background: var(--btn-yellow-layer-middle);
+}
+
+.pixel-btn.yellow .layer-top .rect-t1,
+.pixel-btn.yellow .layer-top .rect-t2 {
+  background: var(--btn-yellow-layer-top);
+}
+
+/* Colors - Purple */
+.pixel-btn.purple .layer-bottom .rect-b1,
+.pixel-btn.purple .layer-bottom .rect-b2,
+.pixel-btn.purple .layer-bottom .rect-b3 {
+  background: var(--btn-purple-layer-bottom);
+}
+
+.pixel-btn.purple .layer-middle .rect-m1,
+.pixel-btn.purple .layer-middle .rect-m2,
+.pixel-btn.purple .layer-middle .rect-m3 {
+  background: var(--btn-purple-layer-middle);
+}
+
+.pixel-btn.purple .layer-top .rect-t1,
+.pixel-btn.purple .layer-top .rect-t2 {
+  background: var(--btn-purple-layer-top);
+}
+
+/* Colors - Green */
+.pixel-btn.green .layer-bottom .rect-b1,
+.pixel-btn.green .layer-bottom .rect-b2,
+.pixel-btn.green .layer-bottom .rect-b3 {
+  background: var(--btn-green-layer-bottom);
+}
+
+.pixel-btn.green .layer-middle .rect-m1,
+.pixel-btn.green .layer-middle .rect-m2,
+.pixel-btn.green .layer-middle .rect-m3 {
+  background: var(--btn-green-layer-middle);
+}
+
+.pixel-btn.green .layer-top .rect-t1,
+.pixel-btn.green .layer-top .rect-t2 {
+  background: var(--btn-green-layer-top);
+}

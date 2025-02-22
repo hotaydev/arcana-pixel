@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Load Pixel Button Async
   let link = document.createElement('link');
   link.setAttribute('rel', 'stylesheet');
-  link.setAttribute('href', '/assets/css/pixel-button.css');
+  link.setAttribute('href', '/assets/css/pixel-button-colors.css'); // Load the remanescent colors. The main file need to be included using <!-- include:builder-components/pixel-button-styles-main.html -->
   document.head.appendChild(link);
 
   // Scroll to up
