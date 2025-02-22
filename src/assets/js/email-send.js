@@ -25,13 +25,15 @@ function registerButtonClick() {
     alreadySending = true;
     submitButton.textContent = "Enviando...";
 
+    const lang = getCurrentLanguage(); // getCurrentLanguage is defined in utils.js
+
     try {
       const response = await fetch("https://n8n.hotay.dev/webhook/arcanapixel-subscribe", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ email }),
+        body: JSON.stringify({ email, lang }),
       });
 
       if (!response.ok) {

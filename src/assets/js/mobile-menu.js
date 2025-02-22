@@ -1,7 +1,5 @@
 const mobileNavMenuIcon = document.querySelector(".nav-menu .nav-spacer");
 
-const availableLanguages = ["en", "fr", "es", "it"];
-
 mobileNavMenuIcon.addEventListener("click", () => {
   const overlay = document.querySelector(".overlay");
   const menu = document.querySelector("#mobile-menu");
@@ -36,6 +34,7 @@ function sendLanguageChangeToSamePage() {
     const pathSegments = currentPath.split("/").filter(Boolean);
     let newPath;
 
+    // availableLanguages is defined in utils.js
     if (!availableLanguages.includes(pathSegments[0])) {
       newPath = currentPath;
     } else {
