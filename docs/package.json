@@ -16,9 +16,6 @@
     "@types/node": "^18.11.17"
   },
   "pnpm": {
-    "onlyBuiltDependencies": [
-      "@biomejs/biome",
-      "core-js"
-    ]
+    "onlyBuiltDependencies": ["@biomejs/biome", "core-js"]
   }
 }

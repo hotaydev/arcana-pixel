@@ -6,7 +6,7 @@
     "start": "serve dist/",
     "build": "node scripts/builder.js",
     "deploy": "pnpm run build && vercel deploy --prod",
-    "prepare": "git config --local core.hooksPath .hooks/"
+    "prepare": "if [ -d .git ] || [ -d ../.git ]; then git config --local core.hooksPath .hooks/; fi"
   },
   "keywords": [],
   "author": "Hotay",
