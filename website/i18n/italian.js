@@ -20,7 +20,7 @@ export default {
     universes: "Universi",
     github: "Codice del progetto su GitHub",
     language: "Lingua",
-    proudly_opensource: "Siamo fieramente <a href=\"https://github.com/hotaydev/arcanapixel.com\" target=\"_blank\" rel=\"noopener noreferrer\">Open Source</a>!"
+    proudly_opensource: "Siamo fieramente <a href=\"https://github.com/hotaydev/arcana-pixel\" target=\"_blank\" rel=\"noopener noreferrer\">Open Source</a>!"
   },
   main: {
     title: "Tutto il tuo RPG in<br />un'unica piattaforma",
