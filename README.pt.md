@@ -4,13 +4,14 @@
 
 <div align="center">
   <strong><a href="https://www.arcanapixel.com">www.arcanapixel.com</a></strong>
-</div>
-<div align="center">
+  <br/><br/>
   <span>Português</span> | <a href="./README.md">English</a> | <a href="./README.it.md">Italiano</a>
+  <br/><br/>
+  <img alt="GitHub License" src="https://img.shields.io/github/license/hotaydev/arcana-pixel?color=1ad56f">
+  <img alt="GitHub commit activity" src="https://img.shields.io/github/commit-activity/m/hotaydev/arcana-pixel">
+  <img alt="Website" src="https://img.shields.io/website?url=https%3A%2F%2Fwww.arcanapixel.com">
+  <br/><br/>
 </div>
-&nbsp;
-
-![GitHub License](https://img.shields.io/github/license/hotaydev/arcana-pixel?color=1ad56f)
 
 ---
 
