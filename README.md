@@ -1,12 +1,16 @@
-# Arcana Pixel
+<div align="center">
+  <h1>Arcana Pixel</h1>
+</div>
 
 <div align="center">
   <strong><a href="https://www.arcanapixel.com">www.arcanapixel.com</a></strong>
 </div>
 <div align="center">
-  <p>English</p> | <a href="./README.pt.md">Português</a> | <a href="./README.it.md">Italiano</a>
+  <span>English</span> | <a href="./README.pt.md">Português</a> | <a href="./README.it.md">Italiano</a>
 </div>
 &nbsp;
+
+![GitHub License](https://img.shields.io/github/license/hotaydev/arcana-pixel?color=1ad56f)
 
 ---
 
