@@ -1,0 +1,226 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "$schema": {
+      "type": "string",
+      "const": "https://raw.githubusercontent.com/hotaydev/arcana-pixel/main/shared/schemas/compiled/map_definitions.json",
+      "description": "Schema definition for the map definitions to be loaded on Arcana Pixel"
+    },
+    "config": {
+      "type": "object",
+      "properties": {
+        "minZoom": {
+          "type": "number",
+          "description": "Minimum posible zoom on the map"
+        },
+        "minNativeZoom": {
+          "type": "number",
+          "description": "Minimum zoom level of the folder of the sliced map. Take a look at Leaflet's documentation to understand how it works: https://leafletjs.com/reference.html#gridlayer-minnativezoom"
+        },
+        "maxZoom": {
+          "type": "number",
+          "description": "Maximum posible zoom on the map"
+        },
+        "maxNativeZoom": {
+          "type": "number",
+          "description": "Maximum zoom level of the folder of the sliced map. Take a look at Leaflet's documentation to understand how it works: https://leafletjs.com/reference.html#gridlayer-maxnativezoom"
+        },
+        "sizeChangeFactor": {
+          "type": "number",
+          "description": "Used o manipulate the distances in the map to make them longer (increasing this value) or shorter (decresing this value). Usefull for changing travel time in games such as D&D"
+        },
+        "bounds": {
+          "type": "object",
+          "properties": {
+            "southWest": {
+              "type": "object",
+              "properties": {
+                "lat": {
+                  "type": "number",
+                  "description": "Latitude of the coordinate"
+                },
+                "lng": {
+                  "type": "number",
+                  "description": "Longitude of the coordinate"
+                }
+              },
+              "required": [
+                "lat",
+                "lng"
+              ],
+              "additionalProperties": false,
+              "description": "Southwest maximum point coordinate"
+            },
+            "northEast": {
+              "type": "object",
+              "properties": {
+                "lat": {
+                  "type": "number",
+                  "description": "Latitude of the coordinate"
+                },
+                "lng": {
+                  "type": "number",
+                  "description": "Longitude of the coordinate"
+                }
+              },
+              "required": [
+                "lat",
+                "lng"
+              ],
+              "additionalProperties": false,
+              "description": "Northeast maximum point coordinate"
+            }
+          },
+          "required": [
+            "southWest",
+            "northEast"
+          ],
+          "additionalProperties": false,
+          "description": "Limits of the map, used to avoid loading and seeing tiles out of bounds For smaller maps this can turn to be difficult to navigate in the map, so it's optional."
+        },
+        "center": {
+          "type": "object",
+          "properties": {
+            "lat": {
+              "type": "number",
+              "description": "Latitude of the coordinate"
+            },
+            "lng": {
+              "type": "number",
+              "description": "Longitude of the coordinate"
+            }
+          },
+          "required": [
+            "lat",
+            "lng"
+          ],
+          "additionalProperties": false,
+          "description": "Coordinate pair of the center of the map (start position)"
+        }
+      },
+      "required": [
+        "minZoom",
+        "maxZoom",
+        "center"
+      ],
+      "additionalProperties": false,
+      "description": "Map configuration, such as zoom, center, bounds, etc."
+    },
+    "titles": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "lat": {
+            "type": "number",
+            "description": "Latitude of the coordinate"
+          },
+          "lng": {
+            "type": "number",
+            "description": "Longitude of the coordinate"
+          },
+          "title": {
+            "type": "string",
+            "description": "Title of the location"
+          },
+          "size": {
+            "type": "number",
+            "description": "Size of the title Usually something between 150 (large) and 30 (small)"
+          }
+        },
+        "required": [
+          "lat",
+          "lng",
+          "size",
+          "title"
+        ],
+        "additionalProperties": false
+      },
+      "description": "List of titles to be displayed on the map (usually for continents and larger areas)"
+    },
+    "locations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "lat": {
+            "type": "number",
+            "description": "Latitude of the coordinate"
+          },
+          "lng": {
+            "type": "number",
+            "description": "Longitude of the coordinate"
+          },
+          "category": {
+            "type": "string",
+            "description": "Category of the location, used to group similar markers into a single \"layer\". This is usefull for toggling the visibility of the markers by it's categoy/type/layer."
+          },
+          "markerColor": {
+            "type": "string",
+            "enum": [
+              "red",
+              "darkred",
+              "lightred",
+              "orange",
+              "beige",
+              "green",
+              "darkgreen",
+              "lightgreen",
+              "blue",
+              "darkblue",
+              "lightblue",
+              "purple",
+              "darkpurple",
+              "pink",
+              "cadetblue",
+              "white",
+              "gray",
+              "lightgray",
+              "black"
+            ],
+            "description": "Color of the location marker"
+          },
+          "icon": {
+            "type": "string",
+            "description": "Icon to show in the marker. Is the name of the marker from FontAwesome, search for your icon at https://fontawesome.com/search?ic=free Only free icons are supported (we are looking t change to a Open Source free alternative in the near future)"
+          },
+          "isVisible": {
+            "type": "boolean",
+            "description": "Toggle the visibility of the location. his can be changed later while using the map (only the master can change it)"
+          },
+          "text": {
+            "type": "string",
+            "description": "Text to show in the marker's tooltip"
+          },
+          "description": {
+            "type": "string",
+            "description": "Description shown in the sidebar after clicking the marker"
+          },
+          "master_description": {
+            "type": "string",
+            "description": "Description shown in the sidebar after clicking the marker that is visible ONLY for the master of the game"
+          }
+        },
+        "required": [
+          "category",
+          "description",
+          "lat",
+          "lng",
+          "text"
+        ],
+        "additionalProperties": false
+      },
+      "description": "List of location markers (pins) to be displayed on the map"
+    }
+  },
+  "required": [
+    "$schema",
+    "config",
+    "titles",
+    "locations"
+  ],
+  "additionalProperties": false,
+  "description": "Schema definition for maps that will be loaded on Arcana Pixel",
+  "definitions": {}
+}

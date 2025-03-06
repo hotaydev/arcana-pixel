@@ -1,0 +1,87 @@
+:root {
+	--background-color-level-0: #121111;
+	--background-color-level-1: #242424;
+	--background-color-level-2: #464646;
+	--background-color-level-3: #5d5d5d;
+	--background-color-level-4: #848484;
+
+	--border-color: #9d9d9d;
+	--divider-color: #4f4f4f;
+
+	--title-color: #ffffff;
+	--text-color: #e4e4e4;
+	--text-color-dim: #aeaeae;
+
+	--life-bar: #00ca80;
+	--xp-bar: #008fe7;
+}
+
+@font-face {
+	font-family: SpaceGrotesk;
+	src: url(/assets/fonts/SpaceGrotesk-Light.ttf);
+	font-weight: 300;
+}
+
+@font-face {
+	font-family: SpaceGrotesk;
+	src: url(/assets/fonts/SpaceGrotesk-Regular.ttf);
+	font-weight: 400;
+}
+
+@font-face {
+	font-family: SpaceGrotesk;
+	src: url(/assets/fonts/SpaceGrotesk-Medium.ttf);
+	font-weight: 500;
+}
+
+@font-face {
+	font-family: SpaceGrotesk;
+	src: url(/assets/fonts/SpaceGrotesk-SemiBold.ttf);
+	font-weight: 600;
+}
+
+@font-face {
+	font-family: SpaceGrotesk;
+	src: url(/assets/fonts/SpaceGrotesk-Bold.ttf);
+	font-weight: 700;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+
+	font-family: "SpaceGrotesk", sans-serif;
+	font-weight: 400;
+}
+
+html,
+body {
+	width: 100vw;
+	height: 100vh;
+	background-color: var(--background-color-level-0);
+}
+
+/* General global CSS classes */
+
+.card {
+	display: flex;
+	align-items: center;
+	justify-content: start;
+	flex-direction: column;
+	border-radius: 20px;
+	background-color: var(--background-color-level-1);
+	padding: 1rem;
+}
+
+.dice-box-canvas {
+	width: 100vw;
+	height: 100vh;
+	overflow: hidden;
+}
+
+@media (max-width: 1200px) {
+	.card {
+		padding: 1rem 0.8rem;
+	}
+}

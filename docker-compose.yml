@@ -1,0 +1,36 @@
+include:
+  - infra/docker-compose.yaml
+
+services:
+  arcana:
+    build: ./application
+    container_name: arcanapixel_app
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - infra/Caddyfile:/etc/caddy/Caddyfile
+      - caddy_data:/data
+      - caddy_config:/config
+    depends_on:
+      - server
+    restart: unless-stopped
+    env_file:
+      - .env
+    environment:
+      - APP_DOMAIN=${APP_DOMAIN:-:80}  # Use HTTPS if set, otherwise fallback to HTTP
+
+  server:
+    build: ./server
+    container_name: arcanapixel_server
+    ports:
+      - 3000:3000
+    depends_on:
+      - database
+    restart: unless-stopped
+    env_file:
+      - .env
+
+volumes:
+  caddy_data:
+  caddy_config:

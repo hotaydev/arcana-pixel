@@ -5,7 +5,8 @@
     "dev": "node scripts/watcher.js",
     "start": "serve dist/",
     "build": "node scripts/builder.js",
-    "deploy": "npm run build && vercel deploy --prod"
+    "deploy": "pnpm run build && vercel deploy --prod",
+    "prepare": "git config --local core.hooksPath .hooks/"
   },
   "keywords": [],
   "author": "Hotay",

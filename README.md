@@ -1,56 +1,71 @@
 # Arcana Pixel
 
-Bem-vindo ao repositório do **Arcana Pixel**! Este é o reposiório do site oficial do projeto, uma plataforma inovadora para jogar campanhas de RPG online com amigos.
-
-🌐 **Acesse agora:** [www.arcanapixel.com](https://www.arcanapixel.com)
-
----
-
-## Sobre o Projeto
-
-O **Arcana Pixel** é uma plataforma para jogar RPG de mesa de forma digital, oferecendo ferramentas incríveis para mestres e jogadores. Inicialmente, focaremos em **Ordem Paranormal**, mas com planos de expansão para **Dungeons and Dragons**, **Call of Cthulhu**, **Tormenta**, e outros sistemas no futuro.
-
-🔒 As funcionalidades do Arcana Pixel estão em desenvolvimento e, atualmente, apenas o site está público. A plataforma completa será lançada com uma versão beta inicial em **junho/julho de 2025**, disponível para quem realizar o pré-registro [pelo site](https://www.arcanapixel.com).
-
-Em breve, adicionaremos um link para acompanhar nosso **Roadmap** de desenvolvimento neste repositório.
-
-Manteremos todas as partes do projeto sob licença [AGPL-3.0](./LICENSE), **garantindo que seja de código livre para sempre**.
+<div align="center">
+  <strong><a href="https://www.arcanapixel.com">www.arcanapixel.com</a></strong>
+</div>
+<div align="center">
+  <p>English</p> | <a href="./README.pt.md">Português</a> | <a href="./README.it.md">Italiano</a>
+</div>
+&nbsp;
 
 ---
 
-## Funcionalidades Planejadas
-
-- 🎲 Rolagem de dados integrada.
-- 👤 Criação visual de personagens.
-- 📋 Ferramentas facilitadas para criação de fichas de personagem.
-- 🛠️ Gerador de NPCs e criaturas.
-- 📚 Wiki de regras.
-- 🗺️ Mapas interativos com locomoção retro.
-- 🕹️ Movimentação em tempo real pelo mapa compartilhado.
-- ⚙️ Configuração personalizada de regras (oficiais e opcionais).
-- 🎨 Pixel art com efeitos sonoros e visuais para equipamentos, criaturas, magias e rituais.
+Welcome, dear adventurers and fellow creators!
+Thank you for visiting the **Arcana Pixel** repository. We are thrilled to have you join us on this exciting journey toward building a community-driven, 100% Open Source *Virtual Table Top* (VTT) platform. Every line of code and creative idea here is shared under the [AGPL-3.0 license](./LICENSE), ensuring that our project remains free and accessible for everyone — forever.
 
 ---
 
-## Quem Somos
+## Our Open Source Philosophy
 
-O **Arcana Pixel** é desenvolvido pela [Hotay](https://hotay.dev), uma empresa dedicada ao software livre e criadora da popular extensão [D&D Beyond Kit](https://dnd-beyond-kit.hotay.dev).
+At Arcana Pixel, we believe that collaboration is the magic behind every great adventure. By keeping our project Open Source, we empower developers, gamers, and enthusiasts alike to contribute ideas, improvements, and customizations. Your input helps shape the future of this platform, making it a true community effort.
 
----
-
-## Contribua com o Projeto
-
-Embora a plataforma esteja em desenvolvimento privado, ficamos felizes em receber feedback sobre o site e ideias para o futuro. Fique à vontade para [abrir **issues**](https://github.com/hotaydev/arcanapixel.com/issues/new) ou contribuir com melhorias no repositório.
+Our project was envisioned and is led by [@TaylorHo](https://github.om/TaylorHo/). His vision is to create a space where creativity meets technology, and where every adventurer can contribute to the epic tale of Arcana Pixel, helping to keep it Open Source.
 
 ---
 
-## Contato
+## Repository Structure
 
-- Website: [www.arcanapixel.com](https://www.arcanapixel.com)
-- E-mail: [contato@arcanapixel.com](mailto:contato@arcanapixel.com)
-- LinkedIn: [/company/hotay](https://www.linkedin.com/company/hotay/)
-- Idealizador: [/in/hoffmann-taylor](https://www.linkedin.com/in/hoffmann-taylor/)
+To keep everything organized as we grow, our repository is structured as follows:
 
-<sub>Em breve com mais redes sociais</sub>
+- `.hooks/`: Git hooks for automated tasks like linting during pre-commit cycles.
+- `application/`: Contains the web version of our VTT application.
+- `docs/`: Comprehensive documentation covering every aspect of the project.
+- `infra/`: Infrastructure resources including database setups, tracing tools, server configurations, and more.
+- `server/`: The central backend powering the platform.
+- `shared/`: Shared assets such as JSON schemas, TypeScript interfaces, and other resources used between the UI and backend.
+- `website/`: The official website of Arcana Pixel.
 
-Obrigado por visitar o repositório do **Arcana Pixel**! Que suas aventuras sejam épicas e cheias de pixel art! 🚀
+---
+
+## Join the Adventure
+
+We’re excited to announce that pre-registration for Arcana Pixel is now open! Visit our [official website](https://www.arcanapixel.com) to secure your spot and be among the first to experience our beta launch scheduled for June/July 2025.
+
+Stay informed about our progress and upcoming features by checking our [Roadmap](https://github.com/orgs/hotaydev/projects/7). We warmly invite you to review our plans, open issues, and contribute ideas—together, we can create something truly legendary.
+
+---
+
+## Official Maps Repository
+
+Our journey also continues in our maps repository, where you’ll find our official collection of game maps. Explore the [Arcana Pixel Official Maps](https://github.com/hotaydev/arcana-pixel-official-maps) repository and stay tuned for more updates.
+
+---
+
+## Community & Future Plans
+
+We’re just getting started! Soon, we’ll provide detailed guidelines on:
+- How you can use and extend our VTT platform.
+- Adding support for new RPG universes and systems.
+- Integrating homebrew content, custom maps, monsters, and more.
+
+Your passion and contributions are the heart of this project. Whether you’re a developer, a game master, or an enthusiastic player, we welcome you with open arms to help shape the future of Arcana Pixel.
+
+---
+
+## Contact & Social Media
+
+- **Website & Pre-registration:** [www.arcanapixel.com](https://www.arcanapixel.com)
+- **Email:** [contact@arcanapixel.com](mailto:contact@arcanapixel.com)
+- **LinkedIn:** [Hotay](https://www.linkedin.com/company/hotay/)
+
+Thank you for being part of our adventure. We can’t wait to see where your creativity takes us—all the best and happy questing!

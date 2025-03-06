@@ -1,0 +1,58 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "$schema": {
+      "type": "string",
+      "const": "https://raw.githubusercontent.com/hotaydev/arcana-pixel/main/shared/schemas/compiled/maps_index.json",
+      "description": "Schema definition for the maps index used to parse official and community maps"
+    },
+    "maps": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "path": {
+            "type": "string",
+            "description": "Path of the map in the full format, including official prefix like https://raw.githubusercontent.com/hotaydev/arcana-pixel-official-maps/refs/heads/main/<map-folder>"
+          },
+          "name": {
+            "type": "string",
+            "description": "Name of the map, shown in the maps gallery"
+          },
+          "version": {
+            "type": "string",
+            "description": "Version of the map (optional)"
+          },
+          "games": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "dnd",
+                "ordemparanormal",
+                "cthulhu",
+                "tormenta"
+              ]
+            },
+            "description": "List of supported games (more to come official in the future)"
+          }
+        },
+        "required": [
+          "path",
+          "name",
+          "games"
+        ],
+        "additionalProperties": false
+      },
+      "description": "Array of available maps"
+    }
+  },
+  "required": [
+    "$schema",
+    "maps"
+  ],
+  "additionalProperties": false,
+  "description": "Schema definition for the index o maps that will be used to load official and community maps on Arcana Pixel",
+  "definitions": {}
+}
