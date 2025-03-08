@@ -23,7 +23,8 @@
 		"rules": {
 			"all": true,
 			"correctness": {
-				"noNodejsModules": "off"
+				"noNodejsModules": "off",
+				"useImportExtensions": "off"
 			},
 			"suspicious": {
 				"noExplicitAny": "warn"

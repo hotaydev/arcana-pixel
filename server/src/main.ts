@@ -2,8 +2,13 @@ import { VersioningType } from "@nestjs/common";
 import { NestFactory } from "@nestjs/core";
 import { DocumentBuilder, SwaggerModule } from "@nestjs/swagger";
 import { AppModule } from "./app.module";
+import { initializeTracing } from "./tracing";
 
 async function bootstrap() {
+  if (process.env.TELEMETRY_ENDPOINT) {
+    initializeTracing();
+  }
+
   const app = await NestFactory.create(AppModule);
 
   if (process.env.NODE_ENV !== "production") {
