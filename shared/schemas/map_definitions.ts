@@ -13,6 +13,11 @@ export interface MapDefinitions {
   config: Config;
 
   /**
+   * URL of the map's preview image
+   */
+  preview: string;
+
+  /**
    * List of titles to be displayed on the map (usually for continents and larger areas)
    */
   titles: Title[];

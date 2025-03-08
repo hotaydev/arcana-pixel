@@ -1,6 +1,6 @@
 services:
   database:
-    image: postgres:14-alpine3.21
+    image: postgres:17-alpine3.21
     restart: unless-stopped
     container_name: arcana_database
     expose:

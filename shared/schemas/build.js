@@ -14,6 +14,7 @@ fs.readdir(__dirname, (err, files) => {
 
   // Loop over the filtered files
   tsFiles.forEach(file => {
+    if (file === "index.ts") return;
     console.log('Building schema for: ', file);
 
     const schema = tsj.createGenerator({

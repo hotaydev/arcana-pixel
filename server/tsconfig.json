@@ -17,10 +17,5 @@
     "noImplicitAny": false,
     "strictBindCallApply": false,
     "noFallthroughCasesInSwitch": false,
-    "paths": {
-      "@shared/*": [
-        "../shared/*"
-      ]
-    }
   }
 }

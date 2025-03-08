@@ -21,11 +21,9 @@ async function bootstrap() {
     SwaggerModule.setup("swagger", app, documentFactory);
   }
 
-  app.enableVersioning({
-    type: VersioningType.URI,
-    defaultVersion: "1",
-  });
+  app.enableVersioning({ type: VersioningType.URI, defaultVersion: "1" });
 
   await app.listen(process.env.PORT ?? 3000);
 }
+// eslint-disable-next-line @typescript-eslint/no-floating-promises
 bootstrap();
