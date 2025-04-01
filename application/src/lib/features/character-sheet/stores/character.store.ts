@@ -1,8 +1,8 @@
 import { writable, type Writable } from "svelte/store";
-import type { ICharacter } from "../models/character.model";
+import type { IPlayerDnD } from "@shared/schemas/player_dnd";
 
-export const character: Writable<ICharacter> = writable();
+export const character: Writable<IPlayerDnD> = writable();
 
-export const setCharacter = (value: ICharacter) => {
+export const setCharacter = (value: IPlayerDnD) => {
 	character.update(() => value);
 };

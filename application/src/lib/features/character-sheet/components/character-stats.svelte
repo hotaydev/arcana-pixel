@@ -29,7 +29,7 @@
 	let cha = $character?.stats.cha;
 
 	let initiative = $character?.initiative;
-	let defense = $character?.defense;
+	let defense = $character?.ac;
 	let speed = $character?.speed;
 	let proficiency = $character?.proficiency_bonus;
 </script>

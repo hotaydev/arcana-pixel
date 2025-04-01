@@ -1,0 +1,137 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "definitions": {
+    "DndPlayerSource": {
+      "type": "string",
+      "enum": [
+        "dnd_beyond",
+        "pdf_character_sheet",
+        "arcana_pixel"
+      ],
+      "description": "Definition of available character sources"
+    },
+    "ProgressionBar": {
+      "type": "object",
+      "properties": {
+        "current": {
+          "type": "number",
+          "description": "Current value"
+        },
+        "max": {
+          "type": "number",
+          "description": "Max value"
+        }
+      },
+      "required": [
+        "current",
+        "max"
+      ],
+      "additionalProperties": false,
+      "description": "Schema definition for a simple progression bar, with current and max values"
+    },
+    "Stats": {
+      "type": "object",
+      "properties": {
+        "str": {
+          "type": "number",
+          "description": "Strength"
+        },
+        "dex": {
+          "type": "number",
+          "description": "Dexterity"
+        },
+        "con": {
+          "type": "number",
+          "description": "Constitution"
+        },
+        "int": {
+          "type": "number",
+          "description": "Intelligence"
+        },
+        "wis": {
+          "type": "number",
+          "description": "Wisdom"
+        },
+        "cha": {
+          "type": "number",
+          "description": "Charisma"
+        }
+      },
+      "required": [
+        "str",
+        "dex",
+        "con",
+        "int",
+        "wis",
+        "cha"
+      ],
+      "additionalProperties": false,
+      "description": "Schema definition for character stats"
+    },
+    "Skill": {
+      "type": "object",
+      "properties": {
+        "skill": {
+          "$ref": "#/definitions/SkillsType",
+          "description": "Skill identifier"
+        },
+        "stat": {
+          "$ref": "#/definitions/StatsType",
+          "description": "Skill stat used (based on character stats)"
+        },
+        "modifier": {
+          "type": "number",
+          "description": "Skill stat used (based on character stats)"
+        },
+        "isProficient": {
+          "type": "boolean",
+          "description": "Indicates if the character is proficient in the skill"
+        }
+      },
+      "required": [
+        "skill",
+        "stat",
+        "modifier",
+        "isProficient"
+      ],
+      "additionalProperties": false,
+      "description": "Schema definition for a single skill"
+    },
+    "SkillsType": {
+      "type": "string",
+      "enum": [
+        "acrobatics",
+        "animal_handling",
+        "arcana",
+        "athletics",
+        "deception",
+        "history",
+        "insight",
+        "intimidation",
+        "investigation",
+        "medicine",
+        "nature",
+        "perception",
+        "performance",
+        "persuasion",
+        "religion",
+        "sleight_of_hand",
+        "stealth",
+        "survival"
+      ],
+      "description": "Definition of available Skills identifiers"
+    },
+    "StatsType": {
+      "type": "string",
+      "enum": [
+        "str",
+        "dex",
+        "con",
+        "int",
+        "wis",
+        "cha"
+      ],
+      "description": "Definition of available Stats identifiers"
+    }
+  }
+}

@@ -219,7 +219,6 @@
     }
   },
   "required": [
-    "$schema",
     "config",
     "preview",
     "titles",

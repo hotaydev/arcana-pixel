@@ -27,7 +27,13 @@
 	// let cha = $character?.stats.cha;
 </script>
 
-<div class="skills"></div>
+<div class="skills">
+	<div class="skill">
+		<strong>DES</strong>
+		<p>Acrobacia</p>
+		<div class="skill-modifier">+2</div>
+	</div>
+</div>
 
 <style>
 </style>

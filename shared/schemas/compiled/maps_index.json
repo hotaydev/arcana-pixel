@@ -49,7 +49,6 @@
     }
   },
   "required": [
-    "$schema",
     "maps"
   ],
   "additionalProperties": false,
