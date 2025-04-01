@@ -9,11 +9,11 @@
     "preview": "rspress preview"
   },
   "dependencies": {
-    "rspress": "^1.40.2"
+    "rspress": "^1.43.10"
   },
   "devDependencies": {
     "@biomejs/biome": "^1.9.4",
-    "@types/node": "^18.11.17"
+    "@types/node": "^22.13.17"
   },
   "pnpm": {
     "onlyBuiltDependencies": ["@biomejs/biome", "core-js"]
