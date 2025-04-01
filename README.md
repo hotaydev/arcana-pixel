@@ -15,6 +15,10 @@
 </div>
 
 ---
+> [!WARNING]
+> This project is in active development and has not yet had an initial release.
+> To stay updated on releases and progress, subscribe to our [pre-registration page](https://www.arcanapixel.com/en/#still-in-development).
+---
 
 Welcome, dear adventurers and fellow creators!
 Thank you for visiting the **Arcana Pixel** repository. We are thrilled to have you join us on this exciting journey toward building a community-driven, 100% Open Source *Virtual Table Top* (VTT) platform. Every line of code and creative idea here is shared under the [AGPL-3.0 license](./LICENSE), ensuring that our project remains free and accessible for everyone — forever.
