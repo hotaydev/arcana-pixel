@@ -1,0 +1,24 @@
+{
+  "name": "@arcana-pixel/monorepo",
+  "version": "0.0.0",
+  "author": "Hotay <hi@hotay.dev>",
+  "contributors": [
+    "Taylor Hoffmann <taylor@hotay.dev>"
+  ],
+  "license": "AGPL-3.0",
+  "scripts": {
+    "build": "turbo build",
+    "build:schemas": "turbo build --filter=@arcana-pixel/schemas",
+    "dev": "turbo dev --filter=@arcana-pixel/server --filter=@arcana-pixel/application",
+    "dev:full": "turbo dev",
+    "format": "turbo format",
+    "prepare": "git config --local core.hooksPath .hooks/"
+  },
+  "packageManager": "pnpm@10.7.1",
+  "devDependencies": {
+    "turbo": "^2.4.4"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

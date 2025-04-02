@@ -1,0 +1,24 @@
+{
+  "name": "@arcana-pixel/website",
+  "version": "0.0.0",
+  "author": "Hotay <hi@hotay.dev>",
+  "contributors": [
+    "Taylor Hoffmann <taylor@hotay.dev>"
+  ],
+  "license": "AGPL-3.0",
+  "scripts": {
+    "dev": "node scripts/watcher.js",
+    "start": "serve dist/ -p 3003",
+    "build": "node scripts/builder.js",
+    "deploy": "pnpm run build && vercel deploy --prod"
+  },
+  "description": "",
+  "devDependencies": {
+    "chokidar": "^4.0.3",
+    "glob": "^11.0.1",
+    "html-minifier": "^4.0.0",
+    "serve": "^14.2.4",
+    "uglify-js": "^3.19.3"
+  },
+  "type": "module"
+}

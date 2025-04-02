@@ -1,0 +1,40 @@
+{
+	"name": "@arcana-pixel/application",
+	"version": "0.0.0",
+	"author": "Hotay <hi@hotay.dev>",
+	"contributors": [
+		"Taylor Hoffmann <taylor@hotay.dev>"
+	],
+	"license": "AGPL-3.0",
+	"type": "module",
+	"scripts": {
+		"dev": "vite dev",
+		"build": "svelte-kit sync && vite build",
+		"preview": "vite preview",
+		"prepare": "svelte-kit sync || echo ''",
+		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
+		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
+		"format": "prettier --write ."
+	},
+	"devDependencies": {
+		"@arcana-pixel/schemas": "workspace:*",
+		"@sveltejs/adapter-static": "^3.0.8",
+		"@sveltejs/kit": "^2.20.2",
+		"@sveltejs/vite-plugin-svelte": "^5.0.0",
+		"@tauri-apps/cli": "^2.4.1",
+		"@types/leaflet": "^1.9.17",
+		"globals": "^16.0.0",
+		"prettier": "^3.5.3",
+		"prettier-plugin-svelte": "^3.3.3",
+		"svelte": "^5.25.6",
+		"svelte-check": "^4.1.5",
+		"typescript": "^5.8.2",
+		"vite": "^6.2.4"
+	},
+	"dependencies": {
+		"@3d-dice/dice-box": "^1.1.4",
+		"leaflet": "^1.9.4",
+		"lucide-svelte": "^0.486.0",
+		"svelte-5-french-toast": "^2.0.4"
+	}
+}

@@ -1,0 +1,18 @@
+{
+  "name": "@arcana-pixel/docs",
+  "version": "0.0.0",
+  "author": "Hotay <hi@hotay.dev>",
+  "contributors": ["Taylor Hoffmann <taylor@hotay.dev>"],
+  "license": "AGPL-3.0",
+  "scripts": {
+    "build": "rspress build",
+    "dev": "rspress dev --port 3005",
+    "format": "biome format --write",
+    "preview": "rspress preview"
+  },
+  "devDependencies": {
+    "rspress": "^1.43.10",
+    "@biomejs/biome": "^1.9.4",
+    "@types/node": "^22.13.17"
+  }
+}

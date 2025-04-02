@@ -2,23 +2,7 @@
 
 set -e # Exit on error
 
-ROOT_DIR=$(pwd) # Initial position
+pnpm format
+pnpm build:schemas
 
-## Formating Application (UI) files
-cd "$ROOT_DIR/application"
-pnpm run format
-
-## Formating Server files
-cd "$ROOT_DIR/server"
-pnpm run format
-
-## Formating Documentation files
-cd "$ROOT_DIR/docs"
-pnpm run format
-
-## Generating the latest possible schema definitions
-cd "$ROOT_DIR/shared/schemas"
-pnpm run build
-
-cd "$ROOT_DIR"
 git add .

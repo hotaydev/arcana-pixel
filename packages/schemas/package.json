@@ -1,0 +1,21 @@
+{
+  "name": "@arcana-pixel/schemas",
+  "version": "0.0.0",
+  "description": "Arcana Pixel global schemas for official systems and for community content",
+  "scripts": {
+    "build": "node build.js"
+  },
+  "author": "Hotay <hi@hotay.dev>",
+  "contributors": [
+    "Taylor Hoffmann <taylor@hotay.dev>"
+  ],
+  "license": "AGPL-3.0",
+  "devDependencies": {
+    "ts-json-schema-generator": "^2.3.0"
+  },
+  "exports": {
+    "./map_definitions": "./map_definitions.ts",
+    "./maps_index": "./maps_index.ts",
+    "./player_dnd": "./player_dnd.ts"
+  }
+}
