@@ -134,5 +134,20 @@ export default {
     cat2: "Oi, eu sou a Aiko",
     github: "Somos de Código Livre",
     d20: "Se sentindo com sorte hoje?",
+  },
+  our_mission: {
+    title: "Nossa Missão",
+    by: "Por",
+    text1: "Eu e meus amigos sempre jogamos one-shots, aventuras de RPG que duram apenas uma sessão. Então decidimos iniciar uma campanha mais longa, com várias sessões e objetivos. Como mestre, criei um mundo inteiro, organizei NPCs, inimigos, mapas e lore. Porém, uma semana antes do início, a plataforma que usaríamos anunciou o encerramento de seus serviços – sem nenhum aviso prévio!",
+    text2: "Com pouco tempo para encontrar uma alternativa, comecei a busca por outras opções. A maioria era paga, oferendo versões gratuitas muito limitadas. Outras pareciam promissoras, mas faltavam funcionalidades essenciais para um RPG, exigindo várias ferramentas externas para notas, mapas, fichas de personagens, combates e comunicação.",
+    text3: "É impressionante como muitas plataformas <abbr title=\"Virtual Table Top\">VTT</abbr> deixam de lado funcionalidades básicas, forçando os jogadores a recorrerem a várias ferramentas para organizar suas sessões.",
+    text4: "Decidimos mudar isso! Começamos a desenvolver uma ferramenta <strong>100% de código aberto</strong>, garantindo que nunca mais precisaríamos depender de uma plataforma que pudesse simplesmente deixar de existir. Nosso objetivo é reunir tudo o que é essencial para uma sessão de RPG, com suporte total à personalização e modularidade, permitindo que qualquer pessoa traga seu sistema, suas regras, mapas, conteúdos homebrew e muito mais.",
+    text5: "Para facilitar a vida de mestres e jogadores, estamos criando automações opcionais para rolagens de combate, magias, equipamentos, efeitos sonoros, tempo de viagem e muito mais. Além disso, a plataforma será extensível, permitindo que a comunidade desenvolva novos módulos, regras, automações e conteúdos personalizados.",
+    text6: "Assim nasceu o <strong>Arcana Pixel</strong>! Já estamos testando a plataforma e, em breve, lançaremos uma versão aberta e um servidor no Discord para sugestões e melhorias colaborativas. Queremos que seja acessível e construída em conjunto com a comunidade.",
+    text7: "Planejamos oferecer \"importadores\" para facilitar a migração de campanhas e personagens. Já estamos desenvolvendo processos para <strong>D&D Beyond, Roll20 e Alchemy</strong>!",
+    text8: "Nos comprometemos a JAMAIS utilizar nenhuma imagem gerada por IA em nossa plataforma, em respeito aos talentosíssimos artistas que temos na nossa comunidade. Todo o material utilizado sempre contará com atribuições de direitos autorais.",
+    text9: "Nosso objetivo é claro: uma plataforma <abbr title=\"Virtual Table Top\">VTT</abbr> <strong>100% de Código Livre</strong>, capaz de rodar qualquer RPG sem depender de múltiplas ferramentas, garantindo simplicidade para mestres e jogadores.",
+    text10: "Se você quer fazer parte dessa comunidade criativa e aberta, <strong><a href=\"%base%/#still-in-development\">junte-se a nós</a></strong>! O pré-registro já está disponível e, em breve, teremos mais novidades sobre o desenvolvimento da plataforma.",
+    text11: "Até breve, viajante!",
   }
 }

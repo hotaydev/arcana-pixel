@@ -134,5 +134,20 @@ export default {
     cat2: "Salut, je suis Aiko",
     github: "Nous sommes Open Source",
     d20: "Tu te sens chanceux aujourd’hui ?",
+  },
+  our_mission: {
+    title: "Notre Mission",
+    by: "Par",
+    text1: "Mes amis et moi jouons toujours à des one-shots, des aventures de JDR qui ne durent qu'une séance. Nous avons ensuite décidé de commencer une campagne plus longue, avec plusieurs séances et objectifs. En tant que maître du jeu, j'ai créé un monde entier, organisé des PNJ, des ennemis, des cartes et un contexte. Cependant, une semaine avant le début, la plateforme que nous allions utiliser a annoncé l'arrêt de ses services – sans aucun préavis !",
+    text2: "Avec peu de temps pour trouver une alternative, j'ai commencé à chercher d'autres options. La plupart étaient payantes, offrant des versions gratuites très limitées. D'autres semblaient prometteuses, mais manquaient de fonctionnalités essentielles pour un JDR, nécessitant divers outils externes pour les notes, les cartes, les fiches de personnages, les combats et la communication.",
+    text3: "Il est impressionnant de voir combien de plateformes <abbr title=\"Virtual Table Top\">VTT</abbr> négligent les fonctionnalités de base, forçant les joueurs à utiliser plusieurs outils pour organiser leurs séances.",
+    text4: "Nous avons décidé de changer cela ! Nous avons commencé à développer un outil <strong>100% open source</strong>, nous assurant de ne plus jamais dépendre d'une plateforme qui pourrait simplement cesser d'exister. Notre objectif est de réunir tout ce qui est essentiel pour une séance de JDR, avec un support complet pour la personnalisation et la modularité, permettant à chacun d'apporter son système, ses règles, ses cartes, son contenu fait maison et bien plus encore.",
+    text5: "Pour faciliter la vie des maîtres du jeu et des joueurs, nous créons des automatisations optionnelles pour les jets de combat, les sorts, l'équipement, les effets sonores, le temps de voyage et bien plus encore. De plus, la plateforme sera extensible, permettant à la communauté de développer de nouveaux modules, règles, automatisations et contenus personnalisés.",
+    text6: "Ainsi est né <strong>Arcana Pixel</strong> ! Nous testons déjà la plateforme et lancerons bientôt une version ouverte et un serveur Discord pour des suggestions et des améliorations collaboratives. Nous voulons qu'elle soit accessible et construite avec la communauté.",
+    text7: "Nous prévoyons d'offrir des \"importateurs\" pour faciliter la migration des campagnes et des personnages. Nous développons déjà des processus pour <strong>D&D Beyond, Roll20 et Alchemy</strong> !",
+    text8: "Nous nous engageons à NE JAMAIS utiliser d'images générées par IA sur notre plateforme, par respect pour les artistes incroyablement talentueux de notre communauté. Tout le matériel utilisé inclura toujours des attributions de droits d'auteur.",
+    text9: "Notre objectif est clair : une plateforme <abbr title=\"Virtual Table Top\">VTT</abbr> <strong>100% Open Source</strong>, capable d'exécuter n'importe quel JDR sans dépendre de multiples outils, garantissant la simplicité pour les maîtres du jeu et les joueurs.",
+    text10: "Si vous voulez faire partie de cette communauté créative et ouverte, <strong><a href=\"%base%/#still-in-development\">rejoignez-nous</a></strong> ! La pré-inscription est déjà disponible et nous aurons bientôt plus de nouvelles sur le développement de la plateforme.",
+    text11: "À bientôt, voyageur !",
   }
 }
