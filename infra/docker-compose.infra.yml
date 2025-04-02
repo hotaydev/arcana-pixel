@@ -1,0 +1,22 @@
+services:
+  database:
+    image: postgres:17-alpine3.21
+    restart: unless-stopped
+    container_name: arcana_database
+    expose:
+      - 5432:5432
+    env_file:
+      - ../.env
+    volumes:
+      - arcana_pg_data:/var/lib/postgresql/data
+
+  jaeger:
+    image: jaegertracing/all-in-one:latest
+    container_name: arcana_jaeger
+    ports:
+      - "8080:16686" # Jaeger UI
+      - "4317:4317"   # OTLP gRPC
+      - "4318:4318"   # OTLP HTTP
+
+volumes:
+  arcana_pg_data:
