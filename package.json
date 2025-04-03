@@ -8,7 +8,6 @@
   "license": "AGPL-3.0",
   "scripts": {
     "build": "turbo build",
-    "build:schemas": "turbo build --filter=@arcana-pixel/schemas",
     "dev": "turbo dev --filter=@arcana-pixel/server --filter=@arcana-pixel/application",
     "dev:full": "turbo dev",
     "format": "turbo format",

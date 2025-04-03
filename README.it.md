@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="./apps/website/src/assets/static/pixel-d20.png" alt="d20" width="80" />
+  <a href="https://www.arcanapixel.com"><img src="./apps/website/src/assets/static/pixel-d20.png" alt="d20" width="80" /></a>
   <h1>Arcana Pixel</h1>
 </div>
 

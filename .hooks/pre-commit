@@ -2,7 +2,20 @@
 
 set -e # Exit on error
 
-pnpm format
-pnpm build:schemas
+if [ -n "$(git diff --staged --name-only -- apps/application/)" ]; then
+  pnpx turbo format --filter=@arcana-pixel/application
+fi
+
+if [ -n "$(git diff --staged --name-only -- apps/server/)" ]; then
+  pnpx turbo format --filter=@arcana-pixel/server
+fi
+
+if [ -n "$(git diff --staged --name-only -- apps/docs/)" ]; then
+  pnpx turbo format --filter=@arcana-pixel/docs
+fi
+
+if [ -n "$(git diff --staged --name-only -- packages/schemas/)" ]; then
+  pnpx turbo build --filter=@arcana-pixel/schemas
+fi
 
 git add .
