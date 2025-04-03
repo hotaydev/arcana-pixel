@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="./website/src/assets/static/pixel-d20.png" alt="d20" width="80" />
+  <img src="./apps/website/src/assets/static/pixel-d20.png" alt="d20" width="80" />
   <h1>Arcana Pixel</h1>
 </div>
 
