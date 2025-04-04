@@ -1,25 +1,28 @@
-# To use HTTPS instead of HTTP, just change the values of APP_DOMAIN and APP_SSL_EMAIL in the .env file.
-
-# Support email for SSL certificate issuing
 {
-	email {$APP_SSL_EMAIL}
+	auto_https off
 }
 
-# HTTPS
-{$APP_DOMAIN} {
+http://localhost {
 	root * /usr/share/caddy
 	file_server
 
 	encode gzip
 
+	# SPA config:
+	# try_files {path} /index.html
+
 	header {
 		# Security headers
-		Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
 		X-Frame-Options "DENY"
 		X-Content-Type-Options "nosniff"
 		Referrer-Policy "strict-origin-when-cross-origin"
-		Content-Security-Policy "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self' data:"
 		Permissions-Policy "geolocation=(), microphone=(), camera=()"
+
+		# CSP currently disabled till we can configure it better
+		# Content-Security-Policy "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self' data:"
+
+		# HSTS used to ensure HTTPS (not used in localhost)
+		# Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
 
 		# Caching headers
 		Cache-Control "public, max-age=5184000, must-revalidate"

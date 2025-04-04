@@ -17,8 +17,6 @@ services:
     restart: unless-stopped
     env_file:
       - .env
-    environment:
-      - APP_DOMAIN=${APP_DOMAIN:-:80}  # Use HTTPS if set, otherwise fallback to HTTP
 
   server:
     build: ../apps/server
