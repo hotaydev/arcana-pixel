@@ -1,0 +1,28 @@
+FROM node:22-alpine3.21 AS builder
+
+WORKDIR /app
+
+COPY ../apps/application/package.json ./apps/application/
+COPY ../apps/application/svelte.config.js ./apps/application/
+COPY ../apps/application/vite.config.ts ./apps/application/
+COPY ../apps/application/tsconfig.json ./apps/application/
+COPY ../apps/application/static/ ./apps/application/static/
+COPY ../apps/application/src/ ./apps/application/src/
+COPY ../packages/ ./packages/
+COPY ../pnpm-lock.yaml ./
+COPY ../pnpm-workspace.yaml ./
+COPY ../package.json ./
+COPY ../turbo.json ./
+
+# Used to build the PUBLIC_ variables into the application's static build
+COPY ../infra/.env.production ./infra/.env.production
+
+RUN npm i -g pnpm
+RUN pnpm i --ignore-scripts
+RUN pnpx turbo build --filter=@arcana-pixel/application
+
+FROM caddy:2.9-alpine
+
+COPY --from=builder /app/apps/application/build /usr/share/caddy
+
+EXPOSE 80 443

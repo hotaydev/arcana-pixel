@@ -5,11 +5,12 @@
 http://localhost {
 	root * /usr/share/caddy
 	file_server
-
 	encode gzip
 
 	# SPA config:
 	# try_files {path} /index.html
+
+	reverse_proxy /api/* server:3000
 
 	header {
 		# Security headers

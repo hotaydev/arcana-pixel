@@ -1,33 +1,34 @@
 include:
-  - docker-compose.infra.yaml
+  - ./docker-compose.infra.yml
 
 services:
   arcana:
-    build: ../apps/application
+    build:
+      context: ..
+      dockerfile: ./infra/Dockerfile.application
     container_name: arcanapixel_app
     ports:
       - "80:80"
       - "443:443"
     volumes:
-      - Caddyfile:/etc/caddy/Caddyfile
+      - ./Caddyfile:/etc/caddy/Caddyfile
       - caddy_data:/data
       - caddy_config:/config
     depends_on:
       - server
     restart: unless-stopped
-    env_file:
-      - .env
 
   server:
-    build: ../apps/server
+    build:
+      context: ..
+      dockerfile: ./infra/Dockerfile.server
     container_name: arcanapixel_server
-    ports:
-      - 3000:3000
+    # ports: # Don't need ports, this is proxied through /api endpoint in the frontend
     depends_on:
       - database
     restart: unless-stopped
     env_file:
-      - .env
+      - .env.production
 
 volumes:
   caddy_data:

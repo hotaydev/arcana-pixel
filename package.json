@@ -11,7 +11,11 @@
     "dev": "turbo dev --filter=@arcana-pixel/server --filter=@arcana-pixel/application",
     "dev:full": "turbo dev",
     "format": "turbo format",
-    "prepare": "git config --local core.hooksPath .hooks/"
+    "prepare": "git config --local core.hooksPath .hooks/",
+    "setup": "pnpm infra:database",
+    "infra:database": "docker compose -f infra/docker-compose.yml up -d database",
+    "infra:build": "docker compose -f infra/docker-compose.yml build",
+    "infra:up": "docker compose -f infra/docker-compose.yml up -d"
   },
   "packageManager": "pnpm@10.7.1",
   "devDependencies": {

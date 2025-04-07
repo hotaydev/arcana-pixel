@@ -1,6 +1,7 @@
 import { toast } from "svelte-5-french-toast";
 import { setCharacter } from "../stores/character.store";
 import type { IPlayerDnD } from "@arcana-pixel/schemas/player_dnd";
+import { PUBLIC_API_URL } from "$env/static/public";
 
 export default async function loadCharacter() {
 	const url = localStorage.getItem("characterURL");
@@ -11,7 +12,7 @@ export default async function loadCharacter() {
 }
 
 async function getCharacterFromDnDBeyond(url: string): Promise<IPlayerDnD | null> {
-	const SERVER_URL = "http://localhost:3000/v1";
+	const SERVER_URL = `${PUBLIC_API_URL}/v1`.replaceAll("\/\/v1", "\/v1"); // The replace is used to avoid doubleslashes
 	const characterId = url.replace("https://www.dndbeyond.com/characters/", "");
 
 	return await fetch(`${SERVER_URL}/characters/import/dnd?id=${characterId}&source=dnd_beyond`)

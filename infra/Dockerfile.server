@@ -1,0 +1,39 @@
+FROM node:22-alpine3.21 AS builder
+
+WORKDIR /app
+
+COPY ../apps/server/package.json ./apps/server/
+COPY ../apps/server/nest-cli.json ./apps/server/
+COPY ../apps/server/tsconfig.json ./apps/server/
+COPY ../apps/server/tsconfig.build.json ./apps/server/
+COPY ../apps/server/src/ ./apps/server/src/
+COPY ../packages/ ./packages/
+COPY ../pnpm-lock.yaml ./
+COPY ../pnpm-workspace.yaml ./
+COPY ../package.json ./
+COPY ../turbo.json ./
+
+RUN npm i -g pnpm
+RUN pnpm i --ignore-scripts
+RUN pnpx turbo build --filter=@arcana-pixel/server
+
+# Removing dependencies used only for development from "workspace:*", so we can install it using npm in the next stage
+RUN sed -i '/workspace:\*/d' ./apps/server/package.json
+
+FROM alpine:3.21
+
+WORKDIR /app
+
+COPY --from=builder /app/apps/server/dist ./dist
+COPY --from=builder /app/apps/server/package.json ./
+
+# Só falta aqui o erro do workspace:*
+RUN apk add --upgrade --no-cache nodejs npm && \
+    npm install --omit=dev --ignore-scripts && \
+    addgroup -S nonroot && adduser -S nonroot -G nonroot && \
+    chown nonroot:nonroot /app
+
+USER nonroot
+
+EXPOSE 3000
+ENTRYPOINT ["node", "dist/main"]

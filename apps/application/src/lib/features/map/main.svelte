@@ -1,5 +1,8 @@
 <script lang="ts">
 	import "leaflet/dist/leaflet.css";
+	import "leaflet-defaulticon-compatibility/dist/leaflet-defaulticon-compatibility.css";
+	import "leaflet-defaulticon-compatibility";
+
 	import { toggleWiki } from "$lib/features/wiki-bar/stores/wiki.store";
 	import { map } from "$lib/features/map/stores/map.store";
 
