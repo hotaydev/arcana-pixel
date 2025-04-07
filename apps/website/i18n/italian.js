@@ -157,6 +157,6 @@ export default {
   },
   not_found: {
     title: "Pagina Non Trovata",
-    go_back: "Indietro",
+    go_back: "Inizio",
   }
 }

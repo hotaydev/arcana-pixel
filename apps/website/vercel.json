@@ -3,6 +3,24 @@
   "outputDirectory": "dist",
   "cleanUrls": true,
   "trailingSlash": true,
+  "rewrites": [
+    {
+      "source": "/en/(.*)",
+      "destination": "/en/404"
+    },
+    {
+      "source": "/es/(.*)",
+      "destination": "/es/404"
+    },
+    {
+      "source": "/it/(.*)",
+      "destination": "/it/404"
+    },
+    {
+      "source": "/fr/(.*)",
+      "destination": "/fr/404"
+    }
+  ],
   "headers": [
     {
       "source": "/(.*)",
