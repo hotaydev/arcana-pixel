@@ -17,6 +17,11 @@
     <priority>0.80</priority>
   </url>
   <url>
+    <loc>https://www.arcanapixel.com/404/</loc>
+    <lastmod>2025-07-03T10:20:00+03:00</lastmod>
+    <priority>0.00</priority>
+  </url>
+  <url>
     <loc>https://www.arcanapixel.com/en/</loc>
     <lastmod>2025-02-05T11:45:00+03:00</lastmod>
     <priority>0.80</priority>
@@ -30,6 +35,11 @@
     <loc>https://www.arcanapixel.com/en/mission/</loc>
     <lastmod>2025-04-02T15:45:00+03:00</lastmod>
     <priority>0.60</priority>
+  </url>
+  <url>
+    <loc>https://www.arcanapixel.com/en/404/</loc>
+    <lastmod>2025-07-03T10:20:00+03:00</lastmod>
+    <priority>0.00</priority>
   </url>
   <url>
     <loc>https://www.arcanapixel.com/es/</loc>
@@ -47,6 +57,11 @@
     <priority>0.60</priority>
   </url>
   <url>
+    <loc>https://www.arcanapixel.com/es/404/</loc>
+    <lastmod>2025-07-03T10:20:00+03:00</lastmod>
+    <priority>0.00</priority>
+  </url>
+  <url>
     <loc>https://www.arcanapixel.com/it/</loc>
     <lastmod>2025-02-05T11:45:00+03:00</lastmod>
     <priority>0.80</priority>
@@ -62,6 +77,11 @@
     <priority>0.60</priority>
   </url>
   <url>
+    <loc>https://www.arcanapixel.com/it/404/</loc>
+    <lastmod>2025-07-03T10:20:00+03:00</lastmod>
+    <priority>0.00</priority>
+  </url>
+  <url>
     <loc>https://www.arcanapixel.com/fr/</loc>
     <lastmod>2025-02-05T11:45:00+03:00</lastmod>
     <priority>0.80</priority>
@@ -75,5 +95,10 @@
     <loc>https://www.arcanapixel.com/fr/mission/</loc>
     <lastmod>2025-04-02T15:45:00+03:00</lastmod>
     <priority>0.60</priority>
+  </url>
+  <url>
+    <loc>https://www.arcanapixel.com/fr/404/</loc>
+    <lastmod>2025-07-03T10:20:00+03:00</lastmod>
+    <priority>0.00</priority>
   </url>
 </urlset>

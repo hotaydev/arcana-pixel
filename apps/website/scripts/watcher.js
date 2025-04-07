@@ -23,5 +23,5 @@ chokidar.watch(devFolder, { ignoreInitial: true }).on("all", async (event, path)
   await handleChangeOnPath(path);
 });
 
-console.log(`🟢 Project up on http://localhost:3000`);
-exec("npm start");
+console.log(`🟢 Project up on http://localhost:3003`);
+exec("pnpm start");

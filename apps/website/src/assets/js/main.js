@@ -30,12 +30,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Scroll to up
   const scrollBtn = document.querySelector(".scroll-to-up");
-  window.addEventListener("scroll", () => {
-    scrollBtn.style.display = window.scrollY > 150 ? "block" : "none";
-  });
-  scrollBtn.addEventListener("click", () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  });
+  if (scrollBtn) {
+    window.addEventListener("scroll", () => {
+      scrollBtn.style.display = window.scrollY > 150 ? "block" : "none";
+    });
+    scrollBtn.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+  }
 });
 
 function scrollToCTA() {

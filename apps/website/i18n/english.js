@@ -2,10 +2,15 @@ export default {
   base: "/en",
   lang: "en-us",
   country_flag: "usa",
-  title: "Arcana Pixel | Online RPG Platform",
   description: "A complete virtual RPG table to play online! Created for Paranormal Order campaigns, D&D, and other TTRPGs. Your RPG in a single VTT platform.",
   keywords: "RPG, Virtual TableTop, VTT, TTRPG, Play RPG Online, Virtual RPG Table, Paranormal Order, Paranormal Order RPG, D&D, Dungeons and Dragons",
   noscript: "To see all the content on this page, you need to enable JavaScript.",
+  title: {
+    index: "Arcana Pixel | Online RPG Platform",
+    mission: "Our Mission | Arcana Pixel",
+    tiers: "Plans and Pricing | Arcana Pixel",
+    not_found: "404 - Page Not Found | Arcana Pixel",
+  },
   og: {
     main_lang: "en_US",
     alternate_lang1: "pt_BR",
@@ -149,5 +154,9 @@ export default {
     text9: "Our goal is clear: a <strong>100% Open Source</strong> <abbr title=\"Virtual Table Top\">VTT</abbr> platform, capable of running any RPG without relying on multiple tools, ensuring simplicity for game masters and players.",
     text10: "If you want to be part of this creative and open community, <strong><a href=\"%base%/#still-in-development\">join us</a></strong>! Pre-registration is already available, and soon we'll have more news about the platform's development.",
     text11: "See you soon, traveler!",
+  },
+  not_found: {
+    title: "Page Not Found",
+    go_back: "Go Back",
   }
 }

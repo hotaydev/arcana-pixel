@@ -1,5 +1,5 @@
 const intervalTooltipRegister = setInterval(() => {
-  if (document.querySelector("footer")) {
+  if (document.querySelector("footer") || window.location.href.includes("/404")) {
     clearInterval(intervalTooltipRegister);
     registerTooltips();
   }

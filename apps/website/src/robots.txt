@@ -1,7 +1,7 @@
 User-agent: *
 Allow: *
 
-Disallow: /404
+Disallow: /404/
 Disallow: /web-components/*
 Disallow: /assets/*
 Disallow: /.well-known/*
