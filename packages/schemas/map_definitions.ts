@@ -5,7 +5,7 @@ export interface IMapDefinitions {
   /**
    * Schema definition for the map definitions to be loaded on Arcana Pixel
    */
-  $schema?: "https://raw.githubusercontent.com/hotaydev/arcana-pixel/main/shared/schemas/compiled/map_definitions.json";
+  $schema?: "https://raw.githubusercontent.com/hotaydev/arcana-pixel/main/packages/schemas/compiled/map_definitions.json";
 
   /**
    * Map configuration, such as zoom, center, bounds, etc.

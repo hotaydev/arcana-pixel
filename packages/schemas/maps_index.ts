@@ -5,7 +5,7 @@ export interface IMapsIndex {
   /**
    * Schema definition for the maps index used to parse official and community maps
    */
-  $schema?: "https://raw.githubusercontent.com/hotaydev/arcana-pixel/main/shared/schemas/compiled/maps_index.json";
+  $schema?: "https://raw.githubusercontent.com/hotaydev/arcana-pixel/main/packages/schemas/compiled/maps_index.json";
 
   /**
    * Array of available maps

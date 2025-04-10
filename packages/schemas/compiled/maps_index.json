@@ -4,7 +4,7 @@
   "properties": {
     "$schema": {
       "type": "string",
-      "const": "https://raw.githubusercontent.com/hotaydev/arcana-pixel/main/shared/schemas/compiled/maps_index.json",
+      "const": "https://raw.githubusercontent.com/hotaydev/arcana-pixel/main/packages/schemas/compiled/maps_index.json",
       "description": "Schema definition for the maps index used to parse official and community maps"
     },
     "maps": {

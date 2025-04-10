@@ -4,7 +4,7 @@
   "properties": {
     "$schema": {
       "type": "string",
-      "const": "https://raw.githubusercontent.com/hotaydev/arcana-pixel/main/shared/schemas/compiled/map_definitions.json",
+      "const": "https://raw.githubusercontent.com/hotaydev/arcana-pixel/main/packages/schemas/compiled/map_definitions.json",
       "description": "Schema definition for the map definitions to be loaded on Arcana Pixel"
     },
     "config": {

@@ -5,7 +5,7 @@ export interface IPlayerDnD {
   /**
    * Schema definition for the single D&D character definitions to be loaded on Arcana Pixel
    */
-  $schema?: "https://raw.githubusercontent.com/hotaydev/arcana-pixel/main/shared/schemas/compiled/player_dnd.json";
+  $schema?: "https://raw.githubusercontent.com/hotaydev/arcana-pixel/main/packages/schemas/compiled/player_dnd.json";
 
   /**
    * Identifier of the character in the source origin platform.
@@ -117,7 +117,7 @@ export interface Skill {
 /**
  * Schema definition for character stats
  */
-export interface  Stats {
+export interface Stats {
   /**
    * Strength
    */
