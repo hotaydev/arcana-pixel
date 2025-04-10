@@ -30,6 +30,12 @@ export interface IMapDefinitions {
 
 interface Config {
   /**
+   * Url of the tiles layer following Leaflet's Tile Layer URL Format.
+   * See https://leafletjs.com/reference.html#tilelayer-url-template
+   */
+  tilesUrl: string;
+
+  /**
    * Minimum posible zoom on the map
    */
   minZoom: number;

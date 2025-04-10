@@ -1,16 +1,9 @@
 import L from "leaflet";
-import {
-	biggestMapFolderZoom,
-	biggestZoom,
-	lowestZoom,
-	mainMapNorthEast,
-	mainMapSouthWest,
-	mapCenter,
-	shortestMapFolderZoom,
-} from "./map-details";
 import { setMap } from "$lib/features/map/stores/map.store";
+import type { IMapDefinitions } from "@arcana-pixel/schemas/map_definitions";
 
-export default () => {
+export default (mapData: IMapDefinitions) => {
+	const doesBoundsExist = mapData.config.bounds?.southWest && mapData.config.bounds?.northEast;
 	var map = L.map("arcana-map", {
 		crs: L.CRS.Simple,
 		attributionControl: false,
@@ -19,15 +12,17 @@ export default () => {
 		// wheelDebounceTime: 25,
 		zoomControl: false,
 		maxBoundsViscosity: 1.0,
-		maxBounds: new L.LatLngBounds(mainMapSouthWest, mainMapNorthEast),
-	}).setView(mapCenter, lowestZoom);
+		maxBounds: doesBoundsExist
+			? new L.LatLngBounds(mapData.config.bounds!.southWest, mapData.config.bounds!.northEast)
+			: undefined,
+	}).setView(mapData.config.center, mapData.config.minZoom);
 
-	L.tileLayer(`https://rpg-map.vercel.app/map/{z}/{x}/{y}.png`, {
+	L.tileLayer(mapData.config.tilesUrl, {
 		noWrap: true,
-		minZoom: lowestZoom,
-		maxZoom: biggestZoom,
-		maxNativeZoom: biggestMapFolderZoom,
-		minNativeZoom: shortestMapFolderZoom,
+		minZoom: mapData.config.minZoom,
+		maxZoom: mapData.config.maxZoom,
+		maxNativeZoom: mapData.config.maxNativeZoom,
+		minNativeZoom: mapData.config.minNativeZoom,
 	}).addTo(map);
 
 	setMap(map);
