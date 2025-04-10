@@ -19,7 +19,7 @@ export default {
     alternate_lang4: "en_US"
   },
   navbar: {
-    about: "Scopo",
+    about: "Missione",
     tools: "Strumenti",
     prices: "Prezzi",
     universes: "Universi",
@@ -59,7 +59,7 @@ export default {
     map_effect: "Mappa del tesoro in Pixel Art",
     player_effect: "Personaggio RPG in Pixel Art",
     player: "Giocatore",
-    master: "Game Master",
+    master: "Dungeon Master",
     realtime: "Tutto in tempo reale con i tuoi amici!"
   },
   price_plans: {
@@ -78,14 +78,14 @@ export default {
     plan2_item4: "Fino a 50 personaggi",
     plan2_item5: "Fino a 3 campagne attive",
     plan2_item6: "Mappe esclusive",
-    plan2_price: "5$/mese",
+    plan2_price: "5€/mese",
 
     plan3_title: "Squadra di Agenti",
     plan3_item1: "Piano per 6 'Agenti Speciali'",
     plan3_item2: "Costo diviso tra gli agenti",
     plan3_item3: "Include il piano 'Agente Speciale'",
-    plan3_item4: "3$ per giocatore",
-    plan3_price: "18$/mese",
+    plan3_item4: "3€ per giocatore",
+    plan3_price: "18€/mese",
 
     plan4_title: "Agente Élite",
     plan4_item1: "Tutti gli strumenti VTT",
@@ -94,7 +94,7 @@ export default {
     plan4_item4: "Personaggi illimitati",
     plan4_item5: "Fino a 10 campagne attive",
     plan4_item6: "Mappe esclusive",
-    plan4_price: "25$/mese",
+    plan4_price: "25€/mese",
   },
   tools_description: {
     player_tool_1_title: "Crea il tuo aspetto",
@@ -115,8 +115,8 @@ export default {
     master_tool_2_title: "Regole Modulari",
     master_tool_2_description: "Tutte le regole ufficiali categorizzate per universo RPG, ma non è detto che la tua campagna debba usarle tutte.<br /><br />Scegli quali regole ufficiali o opzionali abilitare e quali escludere!",
 
-    master_tool_3_title: "Generatore di PNG",
-    master_tool_3_description: "Crea PNG unici con informazioni dettagliate, aspetto, attacchi, rituali e altro! Genera alleati, nemici o creature.<br /><br />I tuoi giocatori avranno un PNG pronto in pochi minuti (o secondi)!",
+    master_tool_3_title: "Generatore di NPC",
+    master_tool_3_description: "Crea NPC unici con informazioni dettagliate, aspetto, attacchi, rituali e altro! Genera alleati, nemici o creature.<br /><br />I tuoi giocatori avranno un NPC pronto in pochi minuti (o secondi)!",
 
     master_tool_4_title: "Wiki Completa",
     master_tool_4_description: "Non devi memorizzare equipaggiamenti, incantesimi, rituali, creature o regole.<br /><br />Accedi a tutte queste informazioni con descrizioni brevi per consultazioni rapide e descrizioni dettagliate per approfondimenti.",
@@ -143,7 +143,7 @@ export default {
   our_mission: {
     title: "La Nostra Missione",
     by: "Di",
-    text1: "I miei amici ed io giochiamo sempre one-shot, avventure di RPG che durano solo una sessione. Poi abbiamo deciso di iniziare una campagna più lunga, con più sessioni e obiettivi. Come master, ho creato un intero mondo, organizzato PNG, nemici, mappe e ambientazione. Tuttavia, una settimana prima dell'inizio, la piattaforma che avremmo usato ha annunciato la chiusura dei suoi servizi – senza alcun preavviso!",
+    text1: "I miei amici ed io giochiamo sempre one-shot, avventure di RPG che durano solo una sessione. Poi abbiamo deciso di iniziare una campagna più lunga, con più sessioni e obiettivi. Come master, ho creato un intero mondo, organizzato NPC, nemici, mappe e ambientazione. Tuttavia, una settimana prima dell'inizio, la piattaforma che avremmo usato ha annunciato la chiusura dei suoi servizi – senza alcun preavviso!",
     text2: "Con poco tempo per trovare un'alternativa, ho iniziato a cercare altre opzioni. La maggior parte erano a pagamento, con versioni gratuite molto limitate. Altre sembravano promettenti, ma mancavano di funzionalità essenziali per un RPG, richiedendo vari strumenti esterni per note, mappe, schede personaggio, combattimenti e comunicazione.",
     text3: "È impressionante come molte piattaforme <abbr title=\"Virtual Table Top\">VTT</abbr> trascurino funzionalità di base, costringendo i giocatori a utilizzare diversi strumenti per organizzare le loro sessioni.",
     text4: "Abbiamo deciso di cambiare questo! Abbiamo iniziato a sviluppare uno strumento <strong>100% open source</strong>, assicurandoci di non dover più dipendere da una piattaforma che potrebbe semplicemente smettere di esistere. Il nostro obiettivo è riunire tutto ciò che è essenziale per una sessione di RPG, con pieno supporto per personalizzazione e modularità, permettendo a chiunque di portare il proprio sistema, regole, mappe, contenuti homebrew e molto altro.",

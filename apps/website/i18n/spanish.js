@@ -78,14 +78,14 @@ export default {
     plan2_item4: "Hasta 50 personajes",
     plan2_item5: "Hasta 3 campañas activas",
     plan2_item6: "Mapas exclusivos",
-    plan2_price: "5$/mes",
+    plan2_price: "5€/mes",
 
     plan3_title: "Escuadrón de Agentes",
     plan3_item1: "Plan para 6 'Agentes Especiales'",
     plan3_item2: "Costo dividido entre los agentes",
     plan3_item3: "Incluye el plan 'Agente Especial'",
-    plan3_item4: "3$ por jugador",
-    plan3_price: "18$/mes",
+    plan3_item4: "3€ por jugador",
+    plan3_price: "18€/mes",
 
     plan4_title: "Agente Élite",
     plan4_item1: "Todas las herramientas VTT",
@@ -94,7 +94,7 @@ export default {
     plan4_item4: "Personajes ilimitados",
     plan4_item5: "Hasta 10 campañas activas",
     plan4_item6: "Mapas exclusivos",
-    plan4_price: "25$/mes",
+    plan4_price: "25€/mes",
   },
   tools_description: {
     player_tool_1_title: "Crea tu apariencia",
@@ -115,8 +115,8 @@ export default {
     master_tool_2_title: "Reglas Modulares",
     master_tool_2_description: "Todas las reglas oficiales categorizadas por universo RPG, pero tu campaña no tiene por qué usarlas todas.<br /><br />Elige qué reglas oficiales u opcionales habilitar y cuáles ignorar.",
 
-    master_tool_3_title: "Generador de PNJ",
-    master_tool_3_description: "Crea PNJ únicos con información detallada, apariencia, ataques, rituales y más. Genera aliados, enemigos o criaturas.<br /><br />Tus jugadores tendrán un PNJ listo en minutos (¡o segundos!).",
+    master_tool_3_title: "Generador de NPC",
+    master_tool_3_description: "Crea NPC únicos con información detallada, apariencia, ataques, rituales y más. Genera aliados, enemigos o criaturas.<br /><br />Tus jugadores tendrán un NPC listo en minutos (¡o segundos!).",
 
     master_tool_4_title: "Wiki Completa",
     master_tool_4_description: "No necesitas memorizar equipo, hechizos, rituales, criaturas o reglas.<br /><br />Accede a toda esta información con descripciones breves para momentos rápidos y descripciones más largas para exploraciones profundas.",
