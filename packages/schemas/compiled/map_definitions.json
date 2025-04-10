@@ -10,7 +10,7 @@
     "config": {
       "type": "object",
       "properties": {
-        "tilesUrl": {
+        "url": {
           "type": "string",
           "description": "Url of the tiles layer following Leaflet's Tile Layer URL Format. See https://leafletjs.com/reference.html#tilelayer-url-template"
         },
@@ -104,7 +104,7 @@
         }
       },
       "required": [
-        "tilesUrl",
+        "url",
         "minZoom",
         "maxZoom",
         "center"

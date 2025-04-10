@@ -33,7 +33,7 @@ interface Config {
    * Url of the tiles layer following Leaflet's Tile Layer URL Format.
    * See https://leafletjs.com/reference.html#tilelayer-url-template
    */
-  tilesUrl: string;
+  url: string;
 
   /**
    * Minimum posible zoom on the map
