@@ -132,6 +132,35 @@
         "cha"
       ],
       "description": "Definition of available Stats identifiers"
+    },
+    "Currencies": {
+      "type": "object",
+      "properties": {
+        "cp": {
+          "type": "number"
+        },
+        "sp": {
+          "type": "number"
+        },
+        "gp": {
+          "type": "number"
+        },
+        "ep": {
+          "type": "number"
+        },
+        "pp": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "cp",
+        "sp",
+        "gp",
+        "ep",
+        "pp"
+      ],
+      "additionalProperties": false,
+      "description": "Current character's money divided into game's currencies"
     }
   }
 }

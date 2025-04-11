@@ -40,12 +40,24 @@ export class CharactersService {
     const proficiencyBonus = this.getProficiencyBonus(playerLevel);
 
     const baseStats: Stats = {
-      str: dndBeyondData.stats[0].value,
-      dex: dndBeyondData.stats[1].value,
-      con: dndBeyondData.stats[2].value,
-      int: dndBeyondData.stats[3].value,
-      wis: dndBeyondData.stats[4].value,
-      cha: dndBeyondData.stats[5].value,
+      str:
+        dndBeyondData.overrideStats[0].value ??
+        dndBeyondData.stats[0].value + (dndBeyondData.bonusStats[0]?.value || 0),
+      dex:
+        dndBeyondData.overrideStats[1].value ??
+        dndBeyondData.stats[1].value + (dndBeyondData.bonusStats[1]?.value || 0),
+      con:
+        dndBeyondData.overrideStats[2].value ??
+        dndBeyondData.stats[2].value + (dndBeyondData.bonusStats[2]?.value || 0),
+      int:
+        dndBeyondData.overrideStats[3].value ??
+        dndBeyondData.stats[3].value + (dndBeyondData.bonusStats[3]?.value || 0),
+      wis:
+        dndBeyondData.overrideStats[4].value ??
+        dndBeyondData.stats[4].value + (dndBeyondData.bonusStats[4]?.value || 0),
+      cha:
+        dndBeyondData.overrideStats[5].value ??
+        dndBeyondData.stats[5].value + (dndBeyondData.bonusStats[5]?.value || 0),
     };
 
     return {
@@ -55,7 +67,7 @@ export class CharactersService {
       avatar: dndBeyondData.decorations.avatarUrl,
       classes: arrayOfClasses,
       level: playerLevel,
-      ac: 12, // TODO: get defense
+      ac: 12, // TODO: get real total defense
       xp: {
         current: dndBeyondData.currentXp,
         max: this.getNextLevelExperience(dndBeyondData.currentXp),
@@ -68,6 +80,13 @@ export class CharactersService {
       speed: this.feetsToMeters(dndBeyondData.race?.weightSpeeds?.normal?.walk || 30),
       proficiency_bonus: proficiencyBonus,
       stats: baseStats,
+      currencies: {
+        cp: dndBeyondData.currencies.cp,
+        sp: dndBeyondData.currencies.sp,
+        gp: dndBeyondData.currencies.gp,
+        ep: dndBeyondData.currencies.ep,
+        pp: dndBeyondData.currencies.pp,
+      },
 
       // TODO: some of these need the proficiency_bonus bonus to be added
       saving_throws: baseStats,

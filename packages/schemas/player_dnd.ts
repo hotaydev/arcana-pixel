@@ -87,6 +87,11 @@ export interface IPlayerDnD {
    * List of skills
    */
   skills: Skill[];
+
+  /**
+   * Character's money
+   */
+  currencies: Currencies;
 }
 
 /**
@@ -178,3 +183,14 @@ export type StatsType = "str" | "dex" | "con" | "int" | "wis" | "cha";
  * Definition of available character sources
  */
 export type DndPlayerSource = "dnd_beyond" | "pdf_character_sheet" | "arcana_pixel";
+
+/**
+ * Current character's money divided into game's currencies
+ */
+export interface Currencies {
+  cp: number;
+  sp: number;
+  gp: number;
+  ep: number;
+  pp: number;
+}

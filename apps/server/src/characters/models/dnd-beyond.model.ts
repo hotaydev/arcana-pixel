@@ -8,41 +8,41 @@ export interface IDndBeyondCharacter {
   readonlyUrl: string;
   decorations: Decorations;
   name: string;
-  socialName: unknown;
-  gender: unknown;
+  socialName?: unknown;
+  gender?: unknown;
   faith: string;
-  age: unknown;
-  hair: unknown;
-  eyes: unknown;
-  skin: unknown;
-  height: unknown;
-  weight: unknown;
+  age?: unknown;
+  hair?: unknown;
+  eyes?: unknown;
+  skin?: unknown;
+  height?: unknown;
+  weight?: unknown;
   inspiration: boolean;
   baseHitPoints: number;
   bonusHitPoints: number;
-  overrideHitPoints: unknown;
+  overrideHitPoints?: unknown;
   removedHitPoints: number;
   temporaryHitPoints: number;
   currentXp: number;
   alignmentId: number;
   lifestyleId: number;
   stats: Stat[];
-  bonusStats: BonusStat[];
-  overrideStats: OverrideStat[];
+  bonusStats: Stat[];
+  overrideStats: Stat[];
   background: Background;
   race: Race;
-  raceDefinitionId: unknown;
-  raceDefinitionTypeId: unknown;
+  raceDefinitionId?: unknown;
+  raceDefinitionTypeId?: unknown;
   notes: Notes;
   traits: Traits;
   preferences: Preferences;
   configuration: Configuration;
-  lifestyle: unknown;
+  lifestyle?: unknown;
   inventory: Inventory[];
   currencies: Currencies;
   classes: Class[];
   feats: unknown[];
-  features: unknown;
+  features?: unknown;
   customDefenseAdjustments: unknown[];
   customSenses: unknown[];
   customSpeeds: unknown[];
@@ -51,7 +51,7 @@ export interface IDndBeyondCharacter {
   characterValues: unknown[];
   conditions: unknown[];
   deathSaves: DeathSaves;
-  adjustmentXp: unknown;
+  adjustmentXp?: unknown;
   spellSlots: SpellSlot[];
   pactMagic: PactMagic[];
   activeSourceCategories: number[];
@@ -62,7 +62,7 @@ export interface IDndBeyondCharacter {
   modifiers: Modifiers;
   classSpells: ClassSpell[];
   customItems: unknown[];
-  campaign: unknown;
+  campaign?: unknown;
   creatures: unknown[];
   optionalOrigins: unknown[];
   optionalClassFeatures: unknown[];
@@ -70,31 +70,31 @@ export interface IDndBeyondCharacter {
   providedFrom: string;
   canEdit: boolean;
   status: number;
-  statusSlug: unknown;
-  campaignSetting: unknown;
+  statusSlug?: unknown;
+  campaignSetting?: unknown;
 }
 
 interface Decorations {
   avatarUrl: string;
-  frameAvatarUrl: unknown;
-  backdropAvatarUrl: unknown;
-  smallBackdropAvatarUrl: unknown;
-  largeBackdropAvatarUrl: unknown;
-  thumbnailBackdropAvatarUrl: unknown;
+  frameAvatarUrl?: unknown;
+  backdropAvatarUrl?: unknown;
+  smallBackdropAvatarUrl?: unknown;
+  largeBackdropAvatarUrl?: unknown;
+  thumbnailBackdropAvatarUrl?: unknown;
   defaultBackdrop: DefaultBackdrop;
   avatarId: number;
   portraitDecorationKey: string;
-  frameAvatarDecorationKey: unknown;
-  frameAvatarId: unknown;
-  backdropAvatarDecorationKey: unknown;
-  backdropAvatarId: unknown;
+  frameAvatarDecorationKey?: unknown;
+  frameAvatarId?: unknown;
+  backdropAvatarDecorationKey?: unknown;
+  backdropAvatarId?: unknown;
   smallBackdropAvatarDecorationKey: string;
-  smallBackdropAvatarId: unknown;
+  smallBackdropAvatarId?: unknown;
   largeBackdropAvatarDecorationKey: string;
-  largeBackdropAvatarId: unknown;
+  largeBackdropAvatarId?: unknown;
   thumbnailBackdropAvatarDecorationKey: string;
-  thumbnailBackdropAvatarId: unknown;
-  themeColor: unknown;
+  thumbnailBackdropAvatarId?: unknown;
+  themeColor?: unknown;
 }
 
 interface DefaultBackdrop {
@@ -106,26 +106,14 @@ interface DefaultBackdrop {
 
 interface Stat {
   id: number;
-  name: unknown;
+  name?: string;
   value: number;
-}
-
-interface BonusStat {
-  id: number;
-  name: unknown;
-  value: unknown;
-}
-
-interface OverrideStat {
-  id: number;
-  name: unknown;
-  value: unknown;
 }
 
 interface Background {
   hasCustomBackground: boolean;
   definition: Definition;
-  definitionId: unknown;
+  definitionId?: unknown;
   customBackground: CustomBackground;
 }
 
@@ -143,12 +131,12 @@ interface Definition {
   equipmentDescription: string;
   featureName: string;
   featureDescription: string;
-  avatarUrl: unknown;
-  largeAvatarUrl: unknown;
+  avatarUrl?: unknown;
+  largeAvatarUrl?: unknown;
   suggestedCharacteristicsDescription: string;
-  suggestedProficiencies: unknown;
-  suggestedLanguages: unknown;
-  organization: unknown;
+  suggestedProficiencies?: unknown;
+  suggestedLanguages?: unknown;
+  organization?: unknown;
   contractsDescription: string;
   spellsPreDescription: string;
   spellsPostDescription: string;
@@ -159,7 +147,7 @@ interface Definition {
   isHomebrew: boolean;
   sources: Source[];
   spellListIds: unknown[];
-  featList: unknown;
+  featList?: unknown;
   grantedFeats: unknown[];
 }
 
@@ -189,20 +177,20 @@ interface Flaw {
 
 interface Source {
   sourceId: number;
-  pageNumber: unknown;
+  pageNumber?: unknown;
   sourceType: number;
 }
 
 interface CustomBackground {
   id: number;
   entityTypeId: number;
-  name: unknown;
-  description: unknown;
-  featuresBackground: unknown;
-  characteristicsBackground: unknown;
-  featuresBackgroundDefinitionId: unknown;
-  characteristicsBackgroundDefinitionId: unknown;
-  backgroundType: unknown;
+  name?: unknown;
+  description?: unknown;
+  featuresBackground?: unknown;
+  characteristicsBackground?: unknown;
+  featuresBackgroundDefinitionId?: unknown;
+  characteristicsBackgroundDefinitionId?: unknown;
+  backgroundType?: unknown;
 }
 
 interface Race {
@@ -223,13 +211,13 @@ interface Race {
   isLegacy: boolean;
   groupIds: number[];
   type: number;
-  supportsSubrace: unknown;
-  subRaceShortName: unknown;
+  supportsSubrace?: unknown;
+  subRaceShortName?: unknown;
   baseName: string;
   racialTraits: RacialTrait[];
   weightSpeeds: WeightSpeeds;
   featIds: unknown[];
-  size: unknown;
+  size?: unknown;
   sizeId: number;
   sources: Source3[];
 }
@@ -248,7 +236,7 @@ interface Definition2 {
   snippet?: string;
   hideInBuilder: boolean;
   hideInSheet: boolean;
-  activation: unknown;
+  activation?: unknown;
   sourceId: number;
   sourcePageNumber: number;
   creatureRules: unknown[];
@@ -262,7 +250,7 @@ interface Definition2 {
   entityRaceId: number;
   entityRaceTypeId: number;
   displayConfiguration: DisplayConfiguration;
-  requiredLevel: unknown;
+  requiredLevel?: unknown;
   categories: Category[];
 }
 
@@ -290,10 +278,10 @@ interface Category {
 
 interface WeightSpeeds {
   normal: Normal;
-  encumbered: unknown;
-  heavilyEncumbered: unknown;
-  pushDragLift: unknown;
-  override: unknown;
+  encumbered?: unknown;
+  heavilyEncumbered?: unknown;
+  pushDragLift?: unknown;
+  override?: unknown;
 }
 
 interface Normal {
@@ -311,21 +299,21 @@ interface Source3 {
 }
 
 interface Notes {
-  allies: unknown;
+  allies?: unknown;
   personalPossessions: string;
-  otherHoldings: unknown;
-  organizations: unknown;
-  enemies: unknown;
-  backstory: unknown;
+  otherHoldings?: unknown;
+  organizations?: unknown;
+  enemies?: unknown;
+  backstory?: unknown;
   otherNotes: string;
 }
 
 interface Traits {
-  personalityTraits: unknown;
-  ideals: unknown;
-  bonds: unknown;
-  flaws: unknown;
-  appearance: unknown;
+  personalityTraits?: unknown;
+  ideals?: unknown;
+  bonds?: unknown;
+  flaws?: unknown;
+  appearance?: unknown;
 }
 
 interface Preferences {
@@ -361,18 +349,18 @@ interface Inventory {
   definition: Definition3;
   definitionId: number;
   definitionTypeId: number;
-  displayAsAttack: unknown;
+  displayAsAttack?: unknown;
   quantity: number;
   isAttuned: boolean;
   equipped: boolean;
   equippedEntityTypeId?: number;
   equippedEntityId?: number;
   chargesUsed: number;
-  limitedUse: unknown;
+  limitedUse?: unknown;
   containerEntityId: number;
   containerEntityTypeId: number;
   containerDefinitionKey: string;
-  currency: unknown;
+  currency?: unknown;
 }
 
 interface Definition3 {
@@ -383,7 +371,7 @@ interface Definition3 {
   canEquip: boolean;
   magic: boolean;
   name: string;
-  snippet: unknown;
+  snippet?: unknown;
   weight: number;
   weightMultiplier: number;
   capacity?: string;
@@ -391,16 +379,16 @@ interface Definition3 {
   type: string;
   description: string;
   canAttune: boolean;
-  attunementDescription: unknown;
+  attunementDescription?: unknown;
   rarity: string;
   isHomebrew: boolean;
-  version: unknown;
-  sourceId: unknown;
-  sourcePageNumber: unknown;
+  version?: unknown;
+  sourceId?: unknown;
+  sourcePageNumber?: unknown;
   stackable: boolean;
   bundleSize: number;
-  avatarUrl: unknown;
-  largeAvatarUrl: unknown;
+  avatarUrl?: unknown;
+  largeAvatarUrl?: unknown;
   filterType: string;
   cost: number;
   isPack: boolean;
@@ -410,24 +398,24 @@ interface Definition3 {
   isConsumable: boolean;
   weaponBehaviors: unknown[];
   baseItemId?: number;
-  baseArmorName: unknown;
-  strengthRequirement: unknown;
-  armorClass: unknown;
-  stealthCheck: unknown;
+  baseArmorName?: unknown;
+  strengthRequirement?: unknown;
+  armorClass?: unknown;
+  stealthCheck?: unknown;
   damage?: Damage;
   damageType?: string;
-  fixedDamage: unknown;
+  fixedDamage?: unknown;
   properties?: Property[];
   attackType?: number;
   categoryId?: number;
   range?: number;
   longRange?: number;
   isMonkWeapon: boolean;
-  levelInfusionGranted: unknown;
+  levelInfusionGranted?: unknown;
   sources: Source4[];
-  armorTypeId: unknown;
+  armorTypeId?: unknown;
   gearTypeId?: number;
-  groupedId: unknown;
+  groupedId?: unknown;
   canBeAddedToInventory: boolean;
   isContainer: boolean;
   isCustomItem: boolean;
@@ -437,8 +425,8 @@ interface Definition3 {
 interface Damage {
   diceCount: number;
   diceValue: number;
-  diceMultiplier: unknown;
-  fixedValue: unknown;
+  diceMultiplier?: unknown;
+  fixedValue?: unknown;
   diceString: string;
 }
 
@@ -446,12 +434,12 @@ interface Property {
   id: number;
   name: string;
   description: string;
-  notes: unknown;
+  notes?: unknown;
 }
 
 interface Source4 {
   sourceId: number;
-  pageNumber: unknown;
+  pageNumber?: unknown;
   sourceType: number;
 }
 
@@ -470,7 +458,7 @@ interface Class {
   isStartingClass: boolean;
   hitDiceUsed: number;
   definitionId: number;
-  subclassDefinitionId: unknown;
+  subclassDefinitionId?: unknown;
   definition: Definition4;
   subclassDefinition: SubclassDefinition;
   classFeatures: ClassFeature3[];
@@ -482,7 +470,7 @@ interface Definition4 {
   name: string;
   description: string;
   equipmentDescription: string;
-  parentClassId: unknown;
+  parentClassId?: unknown;
   avatarUrl: string;
   largeAvatarUrl: string;
   portraitAvatarUrl: string;
@@ -494,11 +482,11 @@ interface Definition4 {
   wealthDice: WealthDice;
   canCastSpells: boolean;
   knowsAllSpells: boolean;
-  spellPrepareType: unknown;
-  spellCastingLearningStyle: unknown;
-  spellContainerName: unknown;
+  spellPrepareType?: unknown;
+  spellCastingLearningStyle?: unknown;
+  spellContainerName?: unknown;
   sourcePageNumber: number;
-  subclassDefinition: unknown;
+  subclassDefinition?: unknown;
   isHomebrew: boolean;
   primaryAbilities: number[];
   spellRules: SpellRules;
@@ -514,7 +502,7 @@ interface Source5 {
 interface ClassFeature {
   id: number;
   name: string;
-  prerequisite: unknown;
+  prerequisite?: unknown;
   description: string;
   requiredLevel: number;
   displayOrder: number;
@@ -524,7 +512,7 @@ interface WealthDice {
   diceCount: number;
   diceValue: number;
   diceMultiplier: number;
-  fixedValue: unknown;
+  fixedValue?: unknown;
   diceString: string;
 }
 
@@ -560,28 +548,28 @@ interface SubclassDefinition {
   definitionKey: string;
   name: string;
   description: string;
-  equipmentDescription: unknown;
+  equipmentDescription?: unknown;
   parentClassId: number;
-  avatarUrl: unknown;
-  largeAvatarUrl: unknown;
-  portraitAvatarUrl: unknown;
+  avatarUrl?: unknown;
+  largeAvatarUrl?: unknown;
+  portraitAvatarUrl?: unknown;
   moreDetailsUrl: string;
   spellCastingAbilityId: number;
   sources: Source6[];
   classFeatures: ClassFeature2[];
   hitDice: number;
-  wealthDice: unknown;
+  wealthDice?: unknown;
   canCastSpells: boolean;
   knowsAllSpells: boolean;
-  spellPrepareType: unknown;
-  spellCastingLearningStyle: unknown;
-  spellContainerName: unknown;
+  spellPrepareType?: unknown;
+  spellCastingLearningStyle?: unknown;
+  spellContainerName?: unknown;
   sourcePageNumber: number;
-  subclassDefinition: unknown;
+  subclassDefinition?: unknown;
   isHomebrew: boolean;
-  primaryAbilities: unknown;
-  spellRules: unknown;
-  prerequisites: unknown;
+  primaryAbilities?: unknown;
+  spellRules?: unknown;
+  prerequisites?: unknown;
 }
 
 interface Source6 {
@@ -593,7 +581,7 @@ interface Source6 {
 interface ClassFeature2 {
   id: number;
   name: string;
-  prerequisite: unknown;
+  prerequisite?: unknown;
   description: string;
   requiredLevel: number;
   displayOrder: number;
@@ -601,7 +589,7 @@ interface ClassFeature2 {
 
 interface ClassFeature3 {
   definition: Definition5;
-  levelScale: unknown;
+  levelScale?: unknown;
 }
 
 interface Definition5 {
@@ -612,7 +600,7 @@ interface Definition5 {
   name: string;
   description: string;
   snippet: string;
-  activation: unknown;
+  activation?: unknown;
   multiClassDescription: string;
   requiredLevel: number;
   isSubClassFeature: boolean;
@@ -635,7 +623,7 @@ interface Definition5 {
 }
 
 interface LimitedUse {
-  level: unknown;
+  level?: unknown;
   uses: number;
 }
 
@@ -646,8 +634,8 @@ interface Source7 {
 }
 
 interface DeathSaves {
-  failCount: unknown;
-  successCount: unknown;
+  failCount?: unknown;
+  successCount?: unknown;
   isStabilized: boolean;
 }
 
@@ -666,13 +654,13 @@ interface PactMagic {
 interface Spells {
   race: Race2[];
   class: unknown[];
-  background: unknown;
+  background?: unknown;
   item: unknown[];
   feat: unknown[];
 }
 
 interface Race2 {
-  overrideSaveDc: unknown;
+  overrideSaveDc?: unknown;
   limitedUse?: LimitedUse2;
   id: number;
   entityTypeId: number;
@@ -685,32 +673,32 @@ interface Race2 {
   alwaysPrepared: boolean;
   restriction: string;
   spellCastingAbilityId: number;
-  displayAsAttack: unknown;
-  additionalDescription: unknown;
+  displayAsAttack?: unknown;
+  additionalDescription?: unknown;
   castOnlyAsRitual: boolean;
-  ritualCastingType: unknown;
+  ritualCastingType?: unknown;
   range: Range2;
   activation: Activation2;
   baseLevelAtWill: boolean;
-  atWillLimitedUseLevel: unknown;
-  isSignatureSpell: unknown;
+  atWillLimitedUseLevel?: unknown;
+  isSignatureSpell?: unknown;
   componentId: number;
   componentTypeId: number;
-  spellListId: unknown;
+  spellListId?: unknown;
 }
 
 interface LimitedUse2 {
-  name: unknown;
-  statModifierUsesId: unknown;
+  name?: unknown;
+  statModifierUsesId?: unknown;
   resetType: number;
   numberUsed: number;
-  minNumberConsumed: unknown;
+  minNumberConsumed?: unknown;
   maxNumberConsumed: number;
   maxUses: number;
   operator: number;
   useProficiencyBonus: boolean;
   proficiencyBonusOperator: number;
-  resetDice: unknown;
+  resetDice?: unknown;
 }
 
 interface Definition6 {
@@ -727,19 +715,19 @@ interface Definition6 {
   snippet: string;
   concentration: boolean;
   ritual: boolean;
-  rangeArea: unknown;
-  damageEffect: unknown;
+  rangeArea?: unknown;
+  damageEffect?: unknown;
   components: number[];
   componentsDescription: string;
   saveDcAbilityId?: number;
-  healing: unknown;
+  healing?: unknown;
   healingDice: unknown[];
   tempHpDice: unknown[];
-  attackType: unknown;
+  attackType?: unknown;
   canCastAtHigherLevel: boolean;
   isHomebrew: boolean;
-  version: unknown;
-  sourceId: unknown;
+  version?: unknown;
+  sourceId?: unknown;
   sourcePageNumber: number;
   requiresSavingThrow: boolean;
   requiresAttackRoll: boolean;
@@ -785,30 +773,30 @@ interface AtHigherLevels {
 }
 
 interface Modifier {
-  fixedValue: unknown;
+  fixedValue?: unknown;
   id: string;
-  entityId: unknown;
-  entityTypeId: unknown;
+  entityId?: unknown;
+  entityTypeId?: unknown;
   type: string;
   subType: string;
-  dice: unknown;
+  dice?: unknown;
   restriction: string;
-  statId: unknown;
+  statId?: unknown;
   requiresAttunement: boolean;
-  duration: unknown;
+  duration?: unknown;
   friendlyTypeName: string;
   friendlySubtypeName: string;
   isGranted: boolean;
   bonusTypes: unknown[];
-  value: unknown;
-  availableToMulticlass: unknown;
+  value?: unknown;
+  availableToMulticlass?: unknown;
   modifierTypeId: number;
   modifierSubTypeId: number;
   componentId: number;
   componentTypeId: number;
   die: Die;
   count: number;
-  durationUnit: unknown;
+  durationUnit?: unknown;
   usePrimaryStat: boolean;
   atHigherLevels: AtHigherLevels2;
 }
@@ -816,8 +804,8 @@ interface Modifier {
 interface Die {
   diceCount: number;
   diceValue: number;
-  diceMultiplier: unknown;
-  fixedValue: unknown;
+  diceMultiplier?: unknown;
+  fixedValue?: unknown;
   diceString: string;
 }
 
@@ -837,14 +825,14 @@ interface HigherLevelDefinition {
   level: number;
   typeId: number;
   dice: Dice;
-  value: unknown;
+  value?: unknown;
   details: string;
 }
 
 interface Dice {
   diceCount: number;
   diceValue: number;
-  diceMultiplier: unknown;
+  diceMultiplier?: unknown;
   fixedValue: number;
   diceString: string;
 }
@@ -870,8 +858,8 @@ interface Activation2 {
 interface Options {
   race: unknown[];
   class: Class2[];
-  background: unknown;
-  item: unknown;
+  background?: unknown;
+  item?: unknown;
   feat: unknown[];
 }
 
@@ -887,9 +875,9 @@ interface Definition7 {
   name: string;
   description: string;
   snippet: string;
-  activation: unknown;
+  activation?: unknown;
   sourceId: number;
-  sourcePageNumber: unknown;
+  sourcePageNumber?: unknown;
   creatureRules: unknown[];
   spellListIds: unknown[];
 }
@@ -898,10 +886,10 @@ interface Choices {
   race: unknown[];
   class: Class3[];
   background: Background2[];
-  item: unknown;
+  item?: unknown;
   feat: unknown[];
   choiceDefinitions: ChoiceDefinition[];
-  definitionKeyNameMap: unknown;
+  definitionKeyNameMap?: unknown;
 }
 
 interface Class3 {
@@ -926,7 +914,7 @@ interface Background2 {
   componentId: number;
   componentTypeId: number;
   id: string;
-  parentChoiceId: unknown;
+  parentChoiceId?: unknown;
   type: number;
   subType: number;
   optionValue: number;
@@ -934,7 +922,7 @@ interface Background2 {
   isOptional: boolean;
   isInfinite: boolean;
   defaultSubtypes: string[];
-  displayOrder: unknown;
+  displayOrder?: unknown;
   options: unknown[];
   optionIds: number[];
   tagConstraints: unknown[];
@@ -949,14 +937,14 @@ interface Option {
   id: number;
   label: string;
   description?: string;
-  sourceId: unknown;
+  sourceId?: unknown;
 }
 
 interface Actions {
   race: unknown[];
   class: Class4[];
-  background: unknown;
-  item: unknown;
+  background?: unknown;
+  item?: unknown;
   feat: unknown[];
 }
 
@@ -969,32 +957,32 @@ interface Class4 {
   name: string;
   description: string;
   snippet: string;
-  abilityModifierStatId: unknown;
+  abilityModifierStatId?: unknown;
   onMissDescription: string;
   saveFailDescription: string;
   saveSuccessDescription: string;
-  saveStatId: unknown;
-  fixedSaveDc: unknown;
-  attackTypeRange: unknown;
+  saveStatId?: unknown;
+  fixedSaveDc?: unknown;
+  attackTypeRange?: unknown;
   actionType: number;
-  attackSubtype: unknown;
-  dice: unknown;
-  value: unknown;
-  damageTypeId: unknown;
+  attackSubtype?: unknown;
+  dice?: unknown;
+  value?: unknown;
+  damageTypeId?: unknown;
   isMartialArts: boolean;
   isProficient: boolean;
-  spellRangeType: unknown;
-  displayAsAttack: unknown;
+  spellRangeType?: unknown;
+  displayAsAttack?: unknown;
   range: Range3;
   activation: Activation3;
-  numberOfTargets: unknown;
-  fixedToHit: unknown;
-  ammunition: unknown;
+  numberOfTargets?: unknown;
+  fixedToHit?: unknown;
+  ammunition?: unknown;
 }
 
 interface LimitedUse3 {
-  name: unknown;
-  statModifierUsesId: unknown;
+  name?: unknown;
+  statModifierUsesId?: unknown;
   resetType: number;
   numberUsed: number;
   minNumberConsumed: number;
@@ -1003,16 +991,16 @@ interface LimitedUse3 {
   operator: number;
   useProficiencyBonus: boolean;
   proficiencyBonusOperator: number;
-  resetDice: unknown;
+  resetDice?: unknown;
 }
 
 interface Range3 {
-  range: unknown;
-  longRange: unknown;
-  aoeType: unknown;
-  aoeSize: unknown;
+  range?: unknown;
+  longRange?: unknown;
+  aoeType?: unknown;
+  aoeSize?: unknown;
   hasAoeSpecialDescription: boolean;
-  minimumRange: unknown;
+  minimumRange?: unknown;
 }
 
 interface Activation3 {
@@ -1036,11 +1024,11 @@ interface Race3 {
   entityTypeId: number;
   type: string;
   subType: string;
-  dice: unknown;
+  dice?: unknown;
   restriction: string;
-  statId: unknown;
+  statId?: unknown;
   requiresAttunement: boolean;
-  duration: unknown;
+  duration?: unknown;
   friendlyTypeName: string;
   friendlySubtypeName: string;
   isGranted: boolean;
@@ -1061,11 +1049,11 @@ interface Class5 {
   entityTypeId?: number;
   type: string;
   subType: string;
-  dice: unknown;
+  dice?: unknown;
   restriction?: string;
-  statId: unknown;
+  statId?: unknown;
   requiresAttunement: boolean;
-  duration: unknown;
+  duration?: unknown;
   friendlyTypeName: string;
   friendlySubtypeName: string;
   isGranted: boolean;
@@ -1080,22 +1068,22 @@ interface Class5 {
 }
 
 interface Background3 {
-  fixedValue: unknown;
+  fixedValue?: unknown;
   id: string;
   entityId: number;
   entityTypeId: number;
   type: string;
   subType: string;
-  dice: unknown;
+  dice?: unknown;
   restriction: string;
-  statId: unknown;
+  statId?: unknown;
   requiresAttunement: boolean;
-  duration: unknown;
+  duration?: unknown;
   friendlyTypeName: string;
   friendlySubtypeName: string;
   isGranted: boolean;
   bonusTypes: unknown[];
-  value: unknown;
+  value?: unknown;
   availableToMulticlass: boolean;
   modifierTypeId: number;
   modifierSubTypeId: number;
@@ -1111,8 +1099,8 @@ interface ClassSpell {
 }
 
 interface Spell {
-  overrideSaveDc: unknown;
-  limitedUse: unknown;
+  overrideSaveDc?: unknown;
+  limitedUse?: unknown;
   id: number;
   entityTypeId: number;
   definition: Definition8;
@@ -1120,22 +1108,22 @@ interface Spell {
   prepared: boolean;
   countsAsKnownSpell: boolean;
   usesSpellSlot: boolean;
-  castAtLevel: unknown;
+  castAtLevel?: unknown;
   alwaysPrepared: boolean;
-  restriction: unknown;
-  spellCastingAbilityId: unknown;
-  displayAsAttack: unknown;
-  additionalDescription: unknown;
+  restriction?: unknown;
+  spellCastingAbilityId?: unknown;
+  displayAsAttack?: unknown;
+  additionalDescription?: unknown;
   castOnlyAsRitual: boolean;
-  ritualCastingType: unknown;
+  ritualCastingType?: unknown;
   range: Range5;
   activation: Activation5;
   baseLevelAtWill: boolean;
-  atWillLimitedUseLevel: unknown;
-  isSignatureSpell: unknown;
+  atWillLimitedUseLevel?: unknown;
+  isSignatureSpell?: unknown;
   componentId: number;
   componentTypeId: number;
-  spellListId: unknown;
+  spellListId?: unknown;
 }
 
 interface Definition8 {
@@ -1152,19 +1140,19 @@ interface Definition8 {
   snippet: string;
   concentration: boolean;
   ritual: boolean;
-  rangeArea: unknown;
-  damageEffect: unknown;
+  rangeArea?: unknown;
+  damageEffect?: unknown;
   components: number[];
   componentsDescription: string;
   saveDcAbilityId?: number;
-  healing: unknown;
+  healing?: unknown;
   healingDice: unknown[];
   tempHpDice: unknown[];
   attackType?: number;
   canCastAtHigherLevel: boolean;
   isHomebrew: boolean;
-  version: unknown;
-  sourceId: unknown;
+  version?: unknown;
+  sourceId?: unknown;
   sourcePageNumber: number;
   requiresSavingThrow: boolean;
   requiresAttackRoll: boolean;
@@ -1193,8 +1181,8 @@ interface Activation4 {
 interface Range4 {
   origin: string;
   rangeValue?: number;
-  aoeType: unknown;
-  aoeValue: unknown;
+  aoeType?: unknown;
+  aoeValue?: unknown;
 }
 
 interface AtHigherLevels3 {
@@ -1210,38 +1198,38 @@ interface AtHigherLevels3 {
 }
 
 interface HigherLevelDefinition2 {
-  level: unknown;
+  level?: unknown;
   typeId: number;
-  dice: unknown;
+  dice?: unknown;
   value: number;
   details: string;
 }
 
 interface Modifier2 {
-  fixedValue: unknown;
+  fixedValue?: unknown;
   id: string;
-  entityId: unknown;
-  entityTypeId: unknown;
+  entityId?: unknown;
+  entityTypeId?: unknown;
   type: string;
   subType: string;
-  dice: unknown;
+  dice?: unknown;
   restriction: string;
-  statId: unknown;
+  statId?: unknown;
   requiresAttunement: boolean;
-  duration: unknown;
+  duration?: unknown;
   friendlyTypeName: string;
   friendlySubtypeName: string;
   isGranted: boolean;
   bonusTypes: unknown[];
-  value: unknown;
-  availableToMulticlass: unknown;
+  value?: unknown;
+  availableToMulticlass?: unknown;
   modifierTypeId: number;
   modifierSubTypeId: number;
   componentId: number;
   componentTypeId: number;
   die: Die2;
   count: number;
-  durationUnit: unknown;
+  durationUnit?: unknown;
   usePrimaryStat: boolean;
   atHigherLevels: AtHigherLevels4;
 }
@@ -1249,7 +1237,7 @@ interface Modifier2 {
 interface Die2 {
   diceCount?: number;
   diceValue?: number;
-  diceMultiplier: unknown;
+  diceMultiplier?: unknown;
   fixedValue?: number;
   diceString?: string;
 }
@@ -1277,7 +1265,7 @@ interface HigherLevelDefinition3 {
 interface Dice2 {
   diceCount: number;
   diceValue: number;
-  diceMultiplier: unknown;
+  diceMultiplier?: unknown;
   fixedValue: number;
   diceString: string;
 }
@@ -1291,8 +1279,8 @@ interface Source9 {
 interface Range5 {
   origin: string;
   rangeValue?: number;
-  aoeType: unknown;
-  aoeValue: unknown;
+  aoeType?: unknown;
+  aoeValue?: unknown;
 }
 
 interface Activation5 {
