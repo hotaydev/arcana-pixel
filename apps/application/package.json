@@ -33,9 +33,9 @@
 	},
 	"dependencies": {
 		"@3d-dice/dice-box": "^1.1.4",
+		"@lucide/svelte": "^0.487.0",
 		"leaflet": "^1.9.4",
 		"leaflet-defaulticon-compatibility": "^0.1.2",
-		"lucide-svelte": "^0.486.0",
 		"svelte-5-french-toast": "^2.0.4"
 	}
 }

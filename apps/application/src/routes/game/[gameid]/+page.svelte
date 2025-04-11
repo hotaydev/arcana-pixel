@@ -3,7 +3,6 @@
 	import CharacterSheet from "$lib/features/character-sheet/main.svelte";
 	import WikiSidebar from "$lib/features/wiki-bar/main.svelte";
 	import { Toaster } from "svelte-5-french-toast";
-	import "../../../global.css";
 
 	import { showWiki } from "$lib/features/wiki-bar/stores/wiki.store";
 	import DiceArea from "$lib/features/dice/main.svelte";

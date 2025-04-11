@@ -6,7 +6,7 @@
 	import { character } from "$lib/features/character-sheet/stores/character.store";
 	import { getStatModifier } from "$lib/features/character-sheet/services/character-parser";
 	import { get } from "svelte/store";
-	import { EyeOff } from "lucide-svelte";
+	import { EyeOff } from "@lucide/svelte";
 
 	let hideExtraStats = $state(false); // TODO: save this state to a local store
 	let currentRollingDiceTimeout: number;

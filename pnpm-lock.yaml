@@ -17,15 +17,15 @@ importers:
       '@3d-dice/dice-box':
         specifier: ^1.1.4
         version: 1.1.4(babylonjs-gltf2interface@5.57.1)
+      '@lucide/svelte':
+        specifier: ^0.487.0
+        version: 0.487.0(svelte@5.25.6)
       leaflet:
         specifier: ^1.9.4
         version: 1.9.4
       leaflet-defaulticon-compatibility:
         specifier: ^0.1.2
         version: 0.1.2
-      lucide-svelte:
-        specifier: ^0.486.0
-        version: 0.486.0(svelte@5.25.6)
       svelte-5-french-toast:
         specifier: ^2.0.4
         version: 2.0.4(svelte@5.25.6)
@@ -989,6 +989,11 @@ packages:
     engines: {node: '>=10.0'}
     peerDependencies:
       tslib: '2'
+
+  '@lucide/svelte@0.487.0':
+    resolution: {integrity: sha512-27b/wUzWrqDJu97+1iSV2X8L2JGRWH/mAWAjHgazWxhGxVu/kS0p3SbNu6w3skNmQNEku33EKU1v44IVwULzbw==}
+    peerDependencies:
+      svelte: ^5
 
   '@lukeed/csprng@1.1.0':
     resolution: {integrity: sha512-Z7C/xXCiGWsg0KuKsHTKJxbWhpI3Vs5GwLfOean7MGyVFGqdRgBbAjOCh6u4bbjPc/8MJ2pZmK/0DLdCbivLDA==}
@@ -4374,11 +4379,6 @@ packages:
   lru-cache@5.1.1:
     resolution: {integrity: sha512-KpNARQA3Iwv+jTA0utUVVbrh+Jlrr1Fv0e56GGzAFOXN7dk/FviaDW8LHmK52DlcH4WP2n6gI8vN1aesBFgo9w==}
 
-  lucide-svelte@0.486.0:
-    resolution: {integrity: sha512-NehCMb9tJ7XD8e0X85RtdcD4R7/z+2J93XTIsUvhwZB11hVhb9fXCSbnUCtTNifZj5d5ftkkCrmIPMP7DsdWyA==}
-    peerDependencies:
-      svelte: ^3 || ^4 || ^5.0.0-next.42
-
   magic-string@0.30.17:
     resolution: {integrity: sha512-sNPKHvyjVf7gyjwS4xGTaW/mCnF8wnjtifKBEhxfZ7E/S8tQ0rssrwGNn6q8JH/ohItJfSQp9mBtQYuTlH5QnA==}
 
@@ -7103,6 +7103,10 @@ snapshots:
   '@jsonjoy.com/util@1.5.0(tslib@2.8.1)':
     dependencies:
       tslib: 2.8.1
+
+  '@lucide/svelte@0.487.0(svelte@5.25.6)':
+    dependencies:
+      svelte: 5.25.6
 
   '@lukeed/csprng@1.1.0': {}
 
@@ -11052,10 +11056,6 @@ snapshots:
   lru-cache@5.1.1:
     dependencies:
       yallist: 3.1.1
-
-  lucide-svelte@0.486.0(svelte@5.25.6):
-    dependencies:
-      svelte: 5.25.6
 
   magic-string@0.30.17:
     dependencies:

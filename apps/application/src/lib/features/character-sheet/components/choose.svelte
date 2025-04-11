@@ -1,5 +1,5 @@
 <script>
-	import { Plus } from "lucide-svelte";
+	import { Plus } from "@lucide/svelte";
 	import Modal from "./modal.svelte";
 	let showModal = $state(false);
 </script>
