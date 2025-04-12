@@ -8,8 +8,8 @@
 	// import L from "leaflet";
 
 	import { onMount } from "svelte";
-	import loadMap from "./services/loadMap";
-	import getMapData from "./services/get-map-data";
+	import loadMap from "../../../features/map/services/loadMap";
+	import getMapData from "../../../features/map/services/get-map-data";
 
 	onMount(async () => {
 		const mapData = await getMapData();

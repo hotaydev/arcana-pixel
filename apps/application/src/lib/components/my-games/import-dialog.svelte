@@ -56,7 +56,7 @@
 
 	.modal {
 		background-color: var(--background-color-level-1);
-		border-radius: 12px;
+		border-radius: var(--border-radius);
 		width: 100%;
 		max-width: 500px;
 		box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
@@ -120,7 +120,7 @@
 
 	.file-drop-area {
 		border: 2px dashed var(--background-color-level-3);
-		border-radius: 8px;
+		border-radius: calc(var(--border-radius) - 4px);
 		padding: 2rem;
 		display: flex;
 		flex-direction: column;
@@ -168,7 +168,7 @@
 	.secondary-button,
 	.primary-button {
 		padding: 0.65rem 1.25rem;
-		border-radius: 6px;
+		border-radius: calc(var(--border-radius) - 6px);
 		font-weight: 500;
 		cursor: pointer;
 		transition: all 0.2s ease;

@@ -2,13 +2,13 @@
 	import { Settings } from "@lucide/svelte";
 	import CharacterInfo from "./components/character-info.svelte";
 	import ChooseCharacter from "./components/choose.svelte";
-	import { character } from "./stores/character.store";
 	import { onMount } from "svelte";
-	import loadCharacter, { isValidBeyondURL } from "./services/character-parser";
 	import Loading from "$lib/components/common/loading.svelte";
 	import { fade } from "svelte/transition";
 	import CharacterStats from "./components/character-stats.svelte";
 	import Modal from "./components/modal.svelte";
+	import loadCharacter, { isValidBeyondURL } from "$lib/services/character/character-parser";
+	import { character } from "$lib/stores/character.store";
 
 	let showModal = $state(false);
 	let ready = $state(false);

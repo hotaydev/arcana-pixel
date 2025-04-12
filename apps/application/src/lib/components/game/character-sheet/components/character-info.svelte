@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { character } from "$lib/features/character-sheet/stores/character.store";
+	import { character } from "$lib/stores/character.store";
 
 	const formatNumberWithDots = (num: number): string => {
 		return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
@@ -144,14 +144,14 @@
 	.progress-bar {
 		width: 100%;
 		background-color: var(--background-color-level-3);
-		border-radius: 8px;
+		border-radius: calc(var(--border-radius) - 4px);
 		flex: 1;
 	}
 
 	.progress-bar-fill {
 		display: block;
 		height: 8px;
-		border-radius: 8px;
+		border-radius: calc(var(--border-radius) - 4px);
 		transition: width 500ms ease-in-out;
 	}
 

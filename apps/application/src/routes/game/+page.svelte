@@ -1,7 +1,7 @@
 <script lang="ts">
 	// This page is just an example!
 
-	import ArcanaMap from "$lib/features/map/main.svelte";
+	import ArcanaMap from "$lib/components/game/map/arcana-map.svelte";
 	import { Toaster } from "svelte-5-french-toast";
 	import { showWiki } from "$lib/features/wiki-bar/stores/wiki.store";
 	import { fade, fly } from "svelte/transition";

@@ -125,7 +125,7 @@
 	/* Game Card Styles */
 	.game-card {
 		background-color: var(--background-color-level-1);
-		border-radius: 12px;
+		border-radius: var(--border-radius);
 		overflow: hidden;
 		border: 1px solid transparent;
 		transition: all 0.3s ease;

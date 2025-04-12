@@ -132,7 +132,7 @@
 		right: 2rem;
 		width: 250px;
 		background: #1e1e2e;
-		border-radius: 12px;
+		border-radius: calc(var(--border-radius) - 4px);
 		box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
 		overflow: hidden;
 		z-index: 89;

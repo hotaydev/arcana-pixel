@@ -14,6 +14,8 @@
 
 	--life-bar: #00ca80;
 	--xp-bar: #008fe7;
+
+	--border-radius: 12px;
 }
 
 @font-face {
@@ -69,7 +71,7 @@ body {
 	align-items: center;
 	justify-content: start;
 	flex-direction: column;
-	border-radius: 20px;
+	border-radius: var(--border-radius);
 	background-color: var(--background-color-level-1);
 	padding: 1rem;
 }

@@ -1,6 +1,6 @@
 <script>
+	import loadCharacter, { isValidBeyondURL } from "$lib/services/character/character-parser";
 	import toast from "svelte-5-french-toast";
-	import loadCharacter, { isValidBeyondURL } from "../services/character-parser";
 
 	let { showModal = $bindable() } = $props();
 
@@ -54,7 +54,7 @@
 	dialog {
 		max-width: 32rem;
 		width: 100%;
-		border-radius: 20px;
+		border-radius: var(--border-radius);
 		border: none;
 		padding: 0;
 		background-color: var(--background-color-level-2);
@@ -88,7 +88,7 @@
 		cursor: text;
 		background-color: var(--background-color-level-3);
 		color: var(--title-color);
-		border-radius: 10px;
+		border-radius: calc(var(--border-radius) - 4px);
 		padding: 0.5rem 1rem;
 		margin: 1rem auto;
 		border: none;
@@ -105,7 +105,7 @@
 		cursor: pointer;
 		background-color: var(--background-color-level-3);
 		color: var(--title-color);
-		border-radius: 10px;
+		border-radius: calc(var(--border-radius) - 6px);
 		padding: 0.5rem 2rem;
 		border: none;
 		font-size: 1rem;

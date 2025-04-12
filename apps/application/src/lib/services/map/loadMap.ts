@@ -1,5 +1,5 @@
 import L from "leaflet";
-import { setMap } from "$lib/features/map/stores/map.store";
+import { setMap } from "$lib/stores/map.store";
 import type { IMapDefinitions } from "@arcana-pixel/schemas/map_definitions";
 
 export default (mapData: IMapDefinitions) => {

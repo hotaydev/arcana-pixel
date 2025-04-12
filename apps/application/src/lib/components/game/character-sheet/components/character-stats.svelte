@@ -3,13 +3,13 @@
 
 <script lang="ts">
 	import { diceBox } from "$lib/features/dice/stores/dice.store";
-	import { character } from "$lib/features/character-sheet/stores/character.store";
-	import { getStatModifier } from "$lib/features/character-sheet/services/character-parser";
+	import { character } from "$lib/stores/character.store";
 	import { get } from "svelte/store";
 	import { EyeOff } from "@lucide/svelte";
+	import { getStatModifier } from "$lib/services/character/character-parser";
 
 	let hideExtraStats = $state(false); // TODO: save this state to a local store
-	let currentRollingDiceTimeout: number;
+	let currentRollingDiceTimeout: NodeJS.Timeout;
 
 	const rollStatDice = (modifier: number) => {
 		if (currentRollingDiceTimeout) clearTimeout(currentRollingDiceTimeout);
@@ -135,7 +135,7 @@
 		gap: 6px;
 		background-color: var(--background-color-level-2);
 		border: 2px solid var(--border-color);
-		border-radius: 15px;
+		border-radius: var(--border-radius);
 		cursor: pointer;
 	}
 

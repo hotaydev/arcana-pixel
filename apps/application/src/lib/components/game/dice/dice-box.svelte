@@ -1,7 +1,7 @@
 <script lang="ts">
+	import { setDiceBox } from "$lib/stores/dice.store";
 	import DiceBox from "@3d-dice/dice-box";
 	import { onMount } from "svelte";
-	import { setDiceBox } from "./stores/dice.store";
 
 	onMount(async () => {
 		const Box = new DiceBox(".dice-area", {

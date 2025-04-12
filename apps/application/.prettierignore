@@ -1,5 +1,8 @@
 pnpm-lock.yaml
-
 node_modules/
 .svelte-kit/
 .gitignore
+src-tauri/
+static/
+.turbo/
+build/

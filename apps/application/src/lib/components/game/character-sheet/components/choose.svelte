@@ -36,7 +36,7 @@
 		font-size: 1rem;
 		text-align: center;
 		padding: 1rem 3rem;
-		border-radius: 10px;
+		border-radius: calc(var(--border-radius) - 6px);
 		border: none;
 		cursor: pointer;
 

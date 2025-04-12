@@ -3,7 +3,7 @@
 	import GoogleIcon from "$lib/components/icons/google.svelte";
 	import GithubIcon from "$lib/components/icons/github.svelte";
 	import ArcanaLogo from "$lib/components/common/logo.svelte";
-	import { loginWithEmailMagicLink, loginWithGithub, loginWithGoogle } from "$lib/features/auth";
+	import { loginWithEmailMagicLink, loginWithGithub, loginWithGoogle } from "$lib/services/auth";
 	import { CircleCheck } from "@lucide/svelte";
 
 	// State for login/register toggle

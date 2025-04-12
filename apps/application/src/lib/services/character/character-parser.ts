@@ -1,5 +1,5 @@
 import { toast } from "svelte-5-french-toast";
-import { setCharacter } from "../stores/character.store";
+import { setCharacter } from "../../stores/character.store";
 import type { IPlayerDnD } from "@arcana-pixel/schemas/player_dnd";
 import { PUBLIC_API_URL } from "$env/static/public";
 
