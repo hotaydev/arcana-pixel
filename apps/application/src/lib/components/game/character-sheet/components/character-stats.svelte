@@ -2,7 +2,7 @@
 <!-- svelte-ignore a11y_no_static_element_interactions -->
 
 <script lang="ts">
-	import { diceBox } from "$lib/features/dice/stores/dice.store";
+	import { diceBox } from "$lib/stores/dice.store";
 	import { character } from "$lib/stores/character.store";
 	import { get } from "svelte/store";
 	import { EyeOff } from "@lucide/svelte";

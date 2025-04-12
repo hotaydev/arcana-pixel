@@ -2,9 +2,21 @@
 	import { fade } from "svelte/transition";
 	import ArcanaLogo from "$lib/components/common/logo.svelte";
 	import HelpButton from "$lib/components/common/help-button.svelte";
-	import GameCard from "$lib/components/my-games/game-card.svelte";
-	import ImportDialog from "$lib/components/my-games/import-dialog.svelte";
-	import { ChevronDown, Download, LogOut, Plus, Search, Settings, User } from "@lucide/svelte";
+	import {
+		ChevronDown,
+		Download,
+		LogOut,
+		Search,
+		Settings,
+		User,
+		BookOpen,
+		Package,
+		Gamepad2,
+	} from "@lucide/svelte";
+	import Avatar from "$lib/components/icons/avatar.svelte";
+	import MyGames from "$lib/components/my-games/my-games.svelte";
+	import MyCharacters from "$lib/components/my-characters/my-characters.svelte";
+	import MyExpansions from "$lib/components/my-expansions/my-expansions.svelte";
 
 	// Mock data for games
 	const games = [
@@ -42,13 +54,8 @@
 
 	// UI state
 	let showUserMenu = false;
-	let showImportDialog = false;
 	let searchQuery = "";
-
-	// Toggle user dropdown menu
-	function toggleUserMenu() {
-		showUserMenu = !showUserMenu;
-	}
+	let activeSection = "games"; // New state for tracking active section
 
 	function handleDocumentClick(event: MouseEvent) {
 		if (!event.composedPath().includes(document.querySelector(".user-profile")!)) {
@@ -56,16 +63,6 @@
 		}
 	}
 	document.addEventListener("click", handleDocumentClick);
-
-	// Open import dialog
-	function toggleImportDialog() {
-		showImportDialog = !showImportDialog;
-	}
-
-	// Handle create new game
-	function createNewGame() {
-		console.log("Creating new game");
-	}
 
 	// Filter games based on search query
 	$: filteredGames = games.filter(
@@ -87,38 +84,19 @@
 				color="var(--text-color-dim)"
 				style="position: absolute; left: 12px; top: 50%; transform: translateY(-50%);"
 			/>
-			<input type="text" placeholder="Procurar campanhas..." bind:value={searchQuery} />
+			<input type="text" placeholder="Procurar na biblioteca" bind:value={searchQuery} />
 		</div>
 
 		<div class="nav-actions">
-			<button class="import-button" on:click={toggleImportDialog}>
-				<Download size={20} />
-				<span>Importar</span>
-			</button>
-
 			<!-- svelte-ignore a11y_click_events_have_key_events -->
 			<!-- svelte-ignore a11y_no_static_element_interactions -->
-			<div class="user-profile" on:click={toggleUserMenu}>
-				<div class="avatar">
-					<!-- Fallback avatar if image fails to load -->
-					<svg
-						width="40"
-						height="40"
-						viewBox="0 0 24 24"
-						fill="none"
-						xmlns="http://www.w3.org/2000/svg"
-					>
-						<circle cx="12" cy="12" r="10" fill="var(--background-color-level-3)" />
-						<path
-							d="M12 12C14.2091 12 16 10.2091 16 8C16 5.79086 14.2091 4 12 4C9.79086 4 8 5.79086 8 8C8 10.2091 9.79086 12 12 12Z"
-							fill="var(--background-color-level-4)"
-						/>
-						<path
-							d="M18 20C18 16.6863 15.3137 14 12 14C8.68629 14 6 16.6863 6 20"
-							fill="var(--background-color-level-4)"
-						/>
-					</svg>
-				</div>
+			<div
+				class="user-profile"
+				on:click={() => {
+					showUserMenu = !showUserMenu;
+				}}
+			>
+				<Avatar />
 				<span class="username">Taylor Hoffmann</span>
 				<ChevronDown size={16} />
 
@@ -152,38 +130,49 @@
 		</div>
 	</nav>
 
-	<!-- Main content area -->
-	<div class="content-container">
-		<header class="page-header">
-			<h1>Meus jogos</h1>
-			<p>Gerencie suas sessões e campanhas</p>
-		</header>
-
-		<!-- Games grid -->
-		<div class="games-grid">
-			<!-- Create new game card -->
-			<!-- svelte-ignore a11y_click_events_have_key_events -->
-			<!-- svelte-ignore a11y_no_static_element_interactions -->
-			<div class="game-card new-game" on:click={createNewGame}>
-				<div class="new-game-content">
-					<Plus size={48} color="var(--text-color-dim)" />
-					<p>Criar novo jogo</p>
-				</div>
-			</div>
-
-			<!-- Game cards -->
-			{#each filteredGames as game, index}
-				<GameCard {game} {index} />
-			{/each}
+	<!-- Section Navigation -->
+	<div class="section-navigation">
+		<div class="section-nav-container">
+			<button
+				class={activeSection === "games" ? "active" : ""}
+				on:click={() => {
+					activeSection = "games";
+				}}
+			>
+				<Gamepad2 size={18} />
+				<span>Meus Jogos</span>
+			</button>
+			<button
+				class={activeSection === "characters" ? "active" : ""}
+				on:click={() => {
+					activeSection = "characters";
+				}}
+			>
+				<BookOpen size={18} />
+				<span>Meus Personagens</span>
+			</button>
+			<button
+				class={activeSection === "expansions" ? "active" : ""}
+				on:click={() => {
+					activeSection = "expansions";
+				}}
+			>
+				<Package size={18} />
+				<span>Minhas Expansões</span>
+			</button>
 		</div>
 	</div>
 
-	<HelpButton />
-
-	<!-- Import game dialog -->
-	{#if showImportDialog}
-		<ImportDialog {toggleImportDialog} />
+	<!-- Main content area -->
+	{#if activeSection === "games"}
+		<MyGames games={filteredGames} />
+	{:else if activeSection === "characters"}
+		<MyCharacters />
+	{:else if activeSection === "expansions"}
+		<MyExpansions />
 	{/if}
+
+	<HelpButton />
 </main>
 
 <style>
@@ -207,6 +196,51 @@
 		position: sticky;
 		top: 0;
 		z-index: 10;
+	}
+
+	/* Section Navigation */
+	.section-navigation {
+		background-color: var(--background-color-level-0);
+		border-bottom: 1px solid var(--divider-color);
+		padding: 0 2rem;
+	}
+
+	.section-nav-container {
+		max-width: 1600px;
+		margin: 0 auto;
+		display: flex;
+		gap: 0.5rem;
+		overflow-x: auto;
+		scrollbar-width: none; /* Firefox */
+	}
+
+	.section-nav-container::-webkit-scrollbar {
+		display: none; /* Chrome, Safari, Opera */
+	}
+
+	.section-nav-container button {
+		padding: 1rem 1.5rem;
+		background: none;
+		border: none;
+		border-bottom: 3px solid transparent;
+		color: var(--text-color-dim);
+		font-weight: 500;
+		cursor: pointer;
+		display: flex;
+		align-items: center;
+		gap: 0.75rem;
+		transition: all 0.2s ease;
+		white-space: nowrap;
+	}
+
+	.section-nav-container button:hover {
+		color: var(--text-color);
+		background-color: var(--background-color-level-1);
+	}
+
+	.section-nav-container button.active {
+		color: var(--xp-bar);
+		border-bottom-color: var(--xp-bar);
 	}
 
 	.search-bar {
@@ -243,24 +277,6 @@
 		gap: 1.5rem;
 	}
 
-	.import-button {
-		display: flex;
-		align-items: center;
-		gap: 0.5rem;
-		padding: 0.5rem 1rem;
-		border-radius: 6px;
-		border: 1px solid var(--background-color-level-3);
-		background-color: var(--background-color-level-0);
-		color: var(--text-color);
-		cursor: pointer;
-		transition: all 0.2s ease;
-	}
-
-	.import-button:hover {
-		background-color: var(--background-color-level-1);
-		border-color: var(--background-color-level-4);
-	}
-
 	.user-profile {
 		display: flex;
 		align-items: center;
@@ -274,17 +290,6 @@
 
 	.user-profile:hover {
 		background-color: var(--background-color-level-0);
-	}
-
-	.avatar {
-		width: 40px;
-		height: 40px;
-		border-radius: 50%;
-		overflow: hidden;
-		background-color: var(--background-color-level-1);
-		display: flex;
-		align-items: center;
-		justify-content: center;
 	}
 
 	.username {
@@ -337,106 +342,6 @@
 		color: #ff6b6b;
 	}
 
-	/* Main Content Area */
-	.content-container {
-		flex: 1;
-		padding: 2rem;
-		max-width: 1600px;
-		margin: 0 auto;
-		width: 100%;
-	}
-
-	.page-header {
-		margin-bottom: 2rem;
-	}
-
-	.page-header h1 {
-		font-size: 2rem;
-		font-weight: 600;
-		color: var(--title-color);
-		margin-bottom: 0.5rem;
-	}
-
-	.page-header p {
-		color: var(--text-color-dim);
-		font-size: 1.1rem;
-	}
-
-	/* Games Grid */
-	.games-grid {
-		display: grid;
-		grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-		gap: 1.5rem;
-	}
-
-	/* Game Card Styles */
-	.game-card {
-		background-color: var(--background-color-level-1);
-		border-radius: 12px;
-		overflow: hidden;
-		border: 1px solid transparent;
-		transition: all 0.3s ease;
-		cursor: pointer;
-		height: 100%;
-		display: flex;
-		flex-direction: column;
-	}
-
-	.game-card:hover {
-		transform: translateY(-5px);
-		border-color: var(--xp-bar);
-		box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-	}
-
-	/* Create New Game Card */
-	.new-game {
-		border: 2px dashed var(--background-color-level-3);
-		background-color: rgba(255, 255, 255, 0.02);
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		aspect-ratio: auto;
-		min-height: 240px;
-	}
-
-	.new-game:hover {
-		border-color: var(--xp-bar);
-		background-color: rgba(0, 143, 231, 0.05);
-	}
-
-	.new-game-content {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		gap: 1rem;
-		color: var(--text-color-dim);
-		padding: 2rem;
-		text-align: center;
-	}
-
-	.new-game-content p {
-		font-weight: 500;
-	}
-
-	/* Animation for the cards */
-	.game-card {
-		opacity: 0;
-		transform: translateY(20px);
-		animation: card-appear 0.4s ease-out forwards;
-	}
-
-	@keyframes card-appear {
-		to {
-			opacity: 1;
-			transform: translateY(0);
-		}
-	}
-
-	/* Stagger card animations */
-	.game-card {
-		animation-delay: 0.05s;
-	}
-
 	/* Transitions for UI elements */
 	.user-menu {
 		transition:
@@ -457,14 +362,12 @@
 			max-width: 100%;
 			width: 100%;
 		}
-
-		.content-container {
-			padding: 1.5rem 1rem;
+		.section-navigation {
+			padding: 0 1rem;
 		}
 
-		.games-grid {
-			grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-			gap: 1rem;
+		.section-nav-container button {
+			padding: 0.75rem 1rem;
 		}
 	}
 
@@ -473,20 +376,16 @@
 			gap: 0.75rem;
 		}
 
-		.import-button span {
-			display: none;
-		}
-
-		.import-button {
-			padding: 0.5rem;
-		}
-
 		.username {
 			max-width: 80px;
 		}
 
-		.games-grid {
-			grid-template-columns: 1fr;
+		.section-nav-container button span {
+			display: none;
+		}
+
+		.section-nav-container button {
+			padding: 0.75rem;
 		}
 	}
 </style>

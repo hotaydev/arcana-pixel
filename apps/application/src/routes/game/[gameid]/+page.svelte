@@ -1,11 +1,10 @@
 <script lang="ts">
 	import ArcanaMap from "$lib/components/game/map/arcana-map.svelte";
 	import CharacterSheet from "$lib/components/game/character-sheet/main.svelte";
-	import WikiSidebar from "$lib/features/wiki-bar/main.svelte";
 	import { Toaster } from "svelte-5-french-toast";
-
-	import { showWiki } from "$lib/features/wiki-bar/stores/wiki.store";
-	import DiceArea from "$lib/features/dice/main.svelte";
+	import WikiSidebar from "$lib/components/game/wiki-sidebar/wiki-sidebar.svelte";
+	import { showWiki } from "$lib/stores/wiki-sidebar.store";
+	import DiceBox from "$lib/components/game/dice/dice-box.svelte";
 </script>
 
 <main>
@@ -25,7 +24,7 @@
 	</section>
 
 	<Toaster />
-	<DiceArea />
+	<DiceBox />
 </main>
 
 <style>
