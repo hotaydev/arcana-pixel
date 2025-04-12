@@ -4,7 +4,6 @@
 	import HelpButton from "$lib/components/common/help-button.svelte";
 	import {
 		ChevronDown,
-		Download,
 		LogOut,
 		Search,
 		Settings,
@@ -12,11 +11,13 @@
 		BookOpen,
 		Package,
 		Gamepad2,
+		ShoppingBag,
 	} from "@lucide/svelte";
 	import Avatar from "$lib/components/icons/avatar.svelte";
 	import MyGames from "$lib/components/my-games/my-games.svelte";
 	import MyCharacters from "$lib/components/my-characters/my-characters.svelte";
 	import MyExpansions from "$lib/components/my-expansions/my-expansions.svelte";
+	import ExpansionsMarket from "$lib/components/expansions-market/expansions-market.svelte";
 
 	// Mock data for games
 	const games = [
@@ -71,6 +72,29 @@
 			game.universe.toLowerCase().includes(searchQuery.toLowerCase()) ||
 			game.description.toLowerCase().includes(searchQuery.toLowerCase())
 	);
+
+	const tabs = [
+		{
+			id: "games",
+			title: "Meus Jogos",
+			icon: Gamepad2,
+		},
+		{
+			id: "characters",
+			title: "Meus Personagens",
+			icon: BookOpen,
+		},
+		{
+			id: "expansions",
+			title: "Minhas Expansões",
+			icon: Package,
+		},
+		{
+			id: "marketplace",
+			title: "Descobrir Expansões",
+			icon: ShoppingBag,
+		},
+	];
 </script>
 
 <main>
@@ -133,33 +157,17 @@
 	<!-- Section Navigation -->
 	<div class="section-navigation">
 		<div class="section-nav-container">
-			<button
-				class={activeSection === "games" ? "active" : ""}
-				on:click={() => {
-					activeSection = "games";
-				}}
-			>
-				<Gamepad2 size={18} />
-				<span>Meus Jogos</span>
-			</button>
-			<button
-				class={activeSection === "characters" ? "active" : ""}
-				on:click={() => {
-					activeSection = "characters";
-				}}
-			>
-				<BookOpen size={18} />
-				<span>Meus Personagens</span>
-			</button>
-			<button
-				class={activeSection === "expansions" ? "active" : ""}
-				on:click={() => {
-					activeSection = "expansions";
-				}}
-			>
-				<Package size={18} />
-				<span>Minhas Expansões</span>
-			</button>
+			{#each tabs as tab}
+				<button
+					class={activeSection === tab.id ? "active" : ""}
+					on:click={() => {
+						activeSection = tab.id;
+					}}
+				>
+					<svelte:component this={tab.icon} size={18} />
+					<span>{tab.title}</span>
+				</button>
+			{/each}
 		</div>
 	</div>
 
@@ -170,6 +178,8 @@
 		<MyCharacters />
 	{:else if activeSection === "expansions"}
 		<MyExpansions />
+	{:else if activeSection === "marketplace"}
+		<ExpansionsMarket />
 	{/if}
 
 	<HelpButton />
