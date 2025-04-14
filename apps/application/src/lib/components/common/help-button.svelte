@@ -1,7 +1,8 @@
 <script lang="ts">
 	import { CircleHelp, Book, Github, MessageCircle, X } from "@lucide/svelte";
-	import { fade, scale } from "svelte/transition";
+	import { scale } from "svelte/transition";
 	import { onMount } from "svelte";
+	import variables from "$lib/variables";
 
 	let showMenu: boolean = false;
 	let menuRef: HTMLDivElement;
@@ -63,13 +64,13 @@
 		</div>
 
 		<div class="help-menu-items">
-			<a href="https://docs.arcanapixel.com" class="help-menu-item" role="menuitem">
+			<a href={variables.documentation} class="help-menu-item" role="menuitem">
 				<Book size={18} color="#e2e2e2" />
 				<span>Documentation</span>
 			</a>
 
 			<a
-				href="https://github.com/hotaydev/arcana-pixel"
+				href={variables.github}
 				class="help-menu-item"
 				role="menuitem"
 				target="_blank"
@@ -80,7 +81,7 @@
 			</a>
 
 			<a
-				href="https://discord.gg/cvWUW2yMPM"
+				href={variables.discord}
 				class="help-menu-item"
 				role="menuitem"
 				target="_blank"
