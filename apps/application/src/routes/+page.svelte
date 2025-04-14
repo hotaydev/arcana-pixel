@@ -12,12 +12,15 @@
 		Package,
 		Gamepad2,
 		ShoppingBag,
+		Moon,
+		Sun,
 	} from "@lucide/svelte";
 	import Avatar from "$lib/components/icons/avatar.svelte";
 	import MyGames from "$lib/components/my-games/my-games.svelte";
 	import MyCharacters from "$lib/components/my-characters/my-characters.svelte";
 	import MyExpansions from "$lib/components/my-expansions/my-expansions.svelte";
 	import ExpansionsMarket from "$lib/components/expansions-market/expansions-market.svelte";
+	import { onMount } from "svelte";
 
 	// Mock data for games
 	const games = [
@@ -101,6 +104,7 @@
 	let showUserMenu = false;
 	let searchQuery = "";
 	let activeSection = "games"; // New state for tracking active section
+	let currentTheme = "dark";
 
 	function handleDocumentClick(event: MouseEvent) {
 		if (!event.composedPath().includes(document.querySelector(".user-profile")!)) {
@@ -108,6 +112,22 @@
 		}
 	}
 	document.addEventListener("click", handleDocumentClick);
+
+	// Theme toggle function
+	function toggleTheme() {
+		currentTheme = currentTheme === "dark" ? "light" : "dark";
+		document.documentElement.setAttribute("data-theme", currentTheme);
+		localStorage.setItem("theme", currentTheme);
+	}
+
+	onMount(() => {
+		// Check if user has saved theme preference
+		const savedTheme = localStorage.getItem("theme");
+		if (savedTheme) {
+			currentTheme = savedTheme;
+			document.documentElement.setAttribute("data-theme", currentTheme);
+		}
+	});
 
 	// Filter games based on search query
 	$: filteredGames = games.filter(
@@ -175,6 +195,16 @@
 							<li>
 								<User size={16} />
 								<span>Perfil</span>
+							</li>
+							<!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
+							<li on:click={toggleTheme}>
+								{#if currentTheme === "dark"}
+									<Sun size={16} />
+									<span>Tema Claro</span>
+								{:else}
+									<Moon size={16} />
+									<span>Tema Escuro</span>
+								{/if}
 							</li>
 							<li>
 								<Settings size={16} />

@@ -65,7 +65,7 @@
 
 		<div class="help-menu-items">
 			<a href={variables.documentation} class="help-menu-item" role="menuitem">
-				<Book size={18} color="#e2e2e2" />
+				<Book size={18} />
 				<span>Documentation</span>
 			</a>
 
@@ -76,7 +76,7 @@
 				target="_blank"
 				rel="noopener noreferrer"
 			>
-				<Github size={18} color="#e2e2e2" />
+				<Github size={18} />
 				<span>GitHub Repository</span>
 			</a>
 
@@ -87,7 +87,7 @@
 				target="_blank"
 				rel="noopener noreferrer"
 			>
-				<MessageCircle size={18} color="#e2e2e2" />
+				<MessageCircle size={18} />
 				<span>Discord Community</span>
 			</a>
 		</div>
@@ -132,7 +132,7 @@
 		bottom: 6rem;
 		right: 2rem;
 		width: 250px;
-		background: #1e1e2e;
+		background: var(--background-color-level-1);
 		border-radius: calc(var(--border-radius) - 4px);
 		box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
 		overflow: hidden;
@@ -160,14 +160,14 @@
 		align-items: center;
 		gap: 12px;
 		padding: 12px 16px;
-		color: #e2e2e2;
+		color: var(--text-color);
 		text-decoration: none;
 		transition: background-color 0.2s;
 		cursor: pointer;
 	}
 
 	.help-menu-item:hover {
-		background-color: #2a2a3a;
+		background-color: var(--background-color-level-2);
 	}
 
 	.help-menu-item span {
