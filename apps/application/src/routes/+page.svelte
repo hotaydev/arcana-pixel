@@ -137,6 +137,13 @@
 			game.description.toLowerCase().includes(searchQuery.toLowerCase())
 	);
 
+	$: filteredCharacters = exampleCharacters.filter(
+		(character) =>
+			character.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+			character.class.toLowerCase().includes(searchQuery.toLowerCase()) ||
+			character.description.toLowerCase().includes(searchQuery.toLowerCase())
+	);
+
 	const tabs = [
 		{
 			id: "games",
@@ -148,16 +155,18 @@
 			title: "Meus Personagens",
 			icon: BookOpen,
 		},
-		{
-			id: "expansions",
-			title: "Minhas Expansões",
-			icon: Package,
-		},
-		{
-			id: "marketplace",
-			title: "Descobrir Expansões",
-			icon: ShoppingBag,
-		},
+		// TODO: These pages are (statically) ready, but since this isn't the focus right now,
+		// we're hiding them.
+		// {
+		// 	id: "expansions",
+		// 	title: "Minhas Expansões",
+		// 	icon: Package,
+		// },
+		// {
+		// 	id: "marketplace",
+		// 	title: "Descobrir Expansões",
+		// 	icon: ShoppingBag,
+		// },
 	];
 </script>
 
@@ -249,7 +258,7 @@
 	{#if activeSection === "games"}
 		<MyGames games={filteredGames} />
 	{:else if activeSection === "characters"}
-		<MyCharacters characters={exampleCharacters} />
+		<MyCharacters characters={filteredCharacters} />
 	{:else if activeSection === "expansions"}
 		<MyExpansions />
 	{:else if activeSection === "marketplace"}
