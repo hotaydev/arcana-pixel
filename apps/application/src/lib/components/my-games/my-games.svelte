@@ -4,7 +4,9 @@
 
 	export let games;
 
-	function createNewGame() {}
+	function createNewGame() {
+		window.location.href = "/game/new";
+	}
 </script>
 
 <!-- Main content area -->
