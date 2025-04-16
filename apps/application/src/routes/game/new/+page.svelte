@@ -1,7 +1,10 @@
 <script lang="ts">
 	import HelpButton from "$lib/components/common/help-button.svelte";
 	import Navbar from "$lib/components/common/navbar.svelte";
-	import { Plus, Bookmark, ChevronDown, ChevronUp } from "@lucide/svelte";
+	import CustomSelect from "$lib/components/common/custom-select.svelte";
+	import { Plus, Bookmark, ChevronDown, ChevronUp, ExternalLink } from "@lucide/svelte";
+	import variables from "$lib/variables";
+	import { goto } from "$app/navigation";
 
 	// RPG systems for dropdown
 	const rpgSystems = [
@@ -16,7 +19,7 @@
 	let formData = {
 		title: "",
 		description: "",
-		system: rpgSystems[0],
+		system: "",
 		customSystem: "",
 	};
 
@@ -55,11 +58,15 @@
 		return isValid;
 	}
 
+	function handleSystemChange(value: string) {
+		formData.system = value;
+	}
+
 	function handleSubmit() {
 		if (validateForm()) {
 			// Process form data
 			console.log("Submitting:", formData);
-			window.location.href = "/";
+			goto("/");
 		}
 	}
 </script>
@@ -93,24 +100,6 @@
 					</div>
 
 					<div class="form-group">
-						<label for="system">Sistema <span class="required">*</span></label>
-						<select id="system" bind:value={formData.system}>
-							{#each rpgSystems as system}
-								<option value={system}>{system}</option>
-							{/each}
-						</select>
-						{#if formData.system === "Outro"}
-							<input
-								type="text"
-								id="customSystem"
-								bind:value={formData.customSystem}
-								placeholder="Especifique o sistema"
-								class="mt-2"
-							/>
-						{/if}
-					</div>
-
-					<div class="form-group">
 						<label for="description">Descrição <span class="required">*</span></label>
 						<textarea
 							id="description"
@@ -121,6 +110,17 @@
 						></textarea>
 						{#if errors.description}
 							<p class="error-message">{errors.description}</p>
+						{/if}
+					</div>
+
+					<div class="form-group">
+						<label for="system">Sistema <span class="required">*</span></label>
+						<CustomSelect id="system" options={rpgSystems} bind:value={formData.system} />
+						{#if variables.expansionsEnabled}
+							<p class="expansions-message">
+								Você pode adicionar mais sistemas pelas
+								<a href="/?tab=marketplace">expansões da comunidade <ExternalLink size={14} /></a>
+							</p>
 						{/if}
 					</div>
 				</div>
@@ -239,7 +239,6 @@
 	}
 
 	input[type="text"],
-	select,
 	textarea {
 		padding: 0.75rem 1rem;
 		border-radius: 8px;
@@ -247,11 +246,9 @@
 		background-color: var(--background-color-level-1);
 		color: var(--text-color);
 		font-size: 1rem;
-		transition: all 0.2s ease-in-out;
 	}
 
 	input[type="text"]:focus,
-	select:focus,
 	textarea:focus {
 		outline: none;
 		border-color: var(--xp-bar);
@@ -402,8 +399,22 @@
 		margin-bottom: 0.5rem;
 	}
 
-	.mt-2 {
-		margin-top: 0.5rem;
+	.expansions-message {
+		color: var(--text-color-dim);
+		font-size: 0.875rem;
+		margin-top: 0;
+		margin-left: 4px;
+		display: flex;
+		align-items: center;
+		gap: 4px;
+	}
+
+	.expansions-message a {
+		color: var(--text-color);
+		text-decoration: none;
+		display: flex;
+		align-items: center;
+		gap: 4px;
 	}
 
 	/* Media Queries */

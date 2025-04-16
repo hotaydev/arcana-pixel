@@ -1,11 +1,11 @@
 <script lang="ts">
 	import GameCard from "$lib/components/my-games/game-card.svelte";
 	import { Gamepad2, Plus } from "@lucide/svelte";
-
+	import { goto } from "$app/navigation";
 	export let games;
 
 	function createNewGame() {
-		window.location.href = "/game/new";
+		goto("/game/new");
 	}
 </script>
 

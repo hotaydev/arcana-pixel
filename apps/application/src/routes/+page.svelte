@@ -1,12 +1,17 @@
 <script lang="ts">
 	import HelpButton from "$lib/components/common/help-button.svelte";
 	import Navbar from "$lib/components/common/navbar.svelte";
-	import { Search, BookOpen, Gamepad2 } from "@lucide/svelte";
+	import { Search, BookOpen, Gamepad2, Package, ShoppingBag } from "@lucide/svelte";
 	import MyGames from "$lib/components/my-games/my-games.svelte";
 	import MyCharacters from "$lib/components/my-characters/my-characters.svelte";
 	import MyExpansions from "$lib/components/my-expansions/my-expansions.svelte";
 	import ExpansionsMarket from "$lib/components/expansions-market/expansions-market.svelte";
+	import variables from "$lib/variables";
+	import { page } from "$app/state";
+	import { goto } from "$app/navigation";
+	import { onMount } from "svelte";
 
+	// TODO: We can persist the searchQuery between page reloads
 	// Mock data for games
 	const games = [
 		{
@@ -87,7 +92,53 @@
 
 	// UI state
 	let searchQuery = "";
-	let activeSection = "games"; // New state for tracking active section
+	let activeSection = "";
+	let defaultSection = "games";
+
+	// Update activeSection based on query parameter
+	onMount(() => {
+		const tab = page.url.searchParams.get("tab");
+		if (tab && tabs.some((t) => t.id === tab)) {
+			activeSection = tab;
+		} else {
+			activeSection = defaultSection;
+		}
+	});
+
+	// Update URL when tab changes
+	function setActiveSection(tabId: string) {
+		activeSection = tabId;
+		const url = new URL(window.location.href);
+		url.searchParams.set("tab", tabId);
+		goto(url.toString(), { replaceState: true });
+	}
+
+	const tabs = [
+		{
+			id: "games",
+			title: "Meus Jogos",
+			icon: Gamepad2,
+		},
+		{
+			id: "characters",
+			title: "Meus Personagens",
+			icon: BookOpen,
+		},
+	];
+
+	// TODO: These pages are ready, but since this isn't the focus right now, we're hiding them.
+	if (variables.expansionsEnabled) {
+		tabs.push({
+			id: "expansions",
+			title: "Minhas Expansões",
+			icon: Package,
+		});
+		tabs.push({
+			id: "marketplace",
+			title: "Descobrir Expansões",
+			icon: ShoppingBag,
+		});
+	}
 
 	// Filter games based on search query
 	$: filteredGames = games.filter(
@@ -103,31 +154,6 @@
 			character.class.toLowerCase().includes(searchQuery.toLowerCase()) ||
 			character.description.toLowerCase().includes(searchQuery.toLowerCase())
 	);
-
-	const tabs = [
-		{
-			id: "games",
-			title: "Meus Jogos",
-			icon: Gamepad2,
-		},
-		{
-			id: "characters",
-			title: "Meus Personagens",
-			icon: BookOpen,
-		},
-		// TODO: These pages are (statically) ready, but since this isn't the focus right now,
-		// we're hiding them.
-		// {
-		// 	id: "expansions",
-		// 	title: "Minhas Expansões",
-		// 	icon: Package,
-		// },
-		// {
-		// 	id: "marketplace",
-		// 	title: "Descobrir Expansões",
-		// 	icon: ShoppingBag,
-		// },
-	];
 </script>
 
 <main>
@@ -149,9 +175,7 @@
 			{#each tabs as tab}
 				<button
 					class={activeSection === tab.id ? "active" : ""}
-					on:click={() => {
-						activeSection = tab.id;
-					}}
+					on:click={() => setActiveSection(tab.id)}
 				>
 					<svelte:component this={tab.icon} size={18} />
 					<span>{tab.title}</span>

@@ -24,6 +24,7 @@
 	}
 
 	import { onMount } from "svelte";
+	import { goto } from "$app/navigation";
 
 	onMount(() => {
 		// Check if user has saved theme preference
@@ -82,7 +83,7 @@
 						<li
 							class="logout"
 							on:click={() => {
-								window.location.href = "/auth";
+								goto("/auth");
 							}}
 						>
 							<LogOut size={16} />

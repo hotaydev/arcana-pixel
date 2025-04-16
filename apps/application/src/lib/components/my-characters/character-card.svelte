@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { Book, PersonStanding } from "@lucide/svelte";
 	import MyCard from "../common/my-card.svelte";
+	// import { goto } from "$app/navigation";
 
 	export let character;
 	export let index: number;
@@ -8,7 +9,7 @@
 	// Handle open character
 	function openCharacter(characterId: string) {
 		console.log("Open character", characterId);
-		// window.location.href = `/character/${characterId}`;
+		// goto(`/character/${characterId}`);
 	}
 </script>
 

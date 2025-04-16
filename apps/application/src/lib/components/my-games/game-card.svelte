@@ -1,13 +1,13 @@
 <script lang="ts">
 	import { Swords, Users } from "@lucide/svelte";
 	import MyCard from "../common/my-card.svelte";
-
+	import { goto } from "$app/navigation";
 	export let game;
 	export let index: number;
 
 	// Handle open game
 	function openGame(gameId: string) {
-		window.location.href = `/game/${gameId}`;
+		goto(`/game/${gameId}`);
 	}
 </script>
 
