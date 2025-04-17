@@ -1,6 +1,6 @@
 import { toast } from "svelte-5-french-toast";
 import { setCharacter } from "../../stores/character.store";
-import type { IPlayerDnD } from "@arcana-pixel/schemas/player_dnd";
+import type { IPlayerDnD, Stat } from "@arcana-pixel/schemas/player_dnd";
 import { PUBLIC_API_URL } from "$env/static/public";
 
 export default async function loadCharacter() {
@@ -24,9 +24,9 @@ async function getCharacterFromDnDBeyond(url: string): Promise<IPlayerDnD | null
 		});
 }
 
-export function getStatModifier(statLevel: number) {
+export function getStatModifier(stat: Stat) {
 	// TODO: add other player's bonuses
-	return Math.floor((statLevel - 10) / 2);
+	return Math.floor((stat.value - 10) / 2);
 }
 export function isValidBeyondURL(url: string) {
 	return /https:\/\/www\.dndbeyond\.com\/characters\/\d+$/.test(url);

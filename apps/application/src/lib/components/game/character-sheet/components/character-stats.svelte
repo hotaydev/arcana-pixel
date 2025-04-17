@@ -29,9 +29,9 @@
 	let cha = $character?.stats.cha;
 
 	let initiative = $character?.initiative;
-	let defense = $character?.ac;
+	let defense = $character?.armorClass;
 	let speed = $character?.speed;
-	let proficiency = $character?.proficiency_bonus;
+	let proficiency = $character?.proficiencyBonus;
 </script>
 
 <div class="stats">

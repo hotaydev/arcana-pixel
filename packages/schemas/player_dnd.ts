@@ -11,7 +11,7 @@ export interface IPlayerDnD {
    * Identifier of the character in the source origin platform.
    * Ex. If the character is imported from D&D Beyond, this will be the character's ID; If it's create through Arcana Pixel, then it will be the internal indentifier.
    */
-  id: number;
+  id: string;
 
   /**
    * Source of the player's character definition, including D&D Beyond, PDF Sheet, Internal, etc.
@@ -36,10 +36,10 @@ export interface IPlayerDnD {
   /**
    * List o character classes
    */
-  classes: string[];
+  classes: Class[];
 
   /**
-   * Current character level
+   * Current character level. This is the sum of all classes levels.
    */
   level: number;
 
@@ -54,14 +54,15 @@ export interface IPlayerDnD {
   hp: ProgressionBar;
 
   /**
-   * Charcter Armor Class (Defense)
+   * Array of available spell slots, ordered by level
+   * Ex. Level 1: array position 0, Level 2: array position 1, etc.
    */
-  ac: number;
+  spellSlots: ProgressionBar[];
 
   /**
-   * Initiative bonus (Dexterity modifier)
+   * Charcter Armor Class (Defense)
    */
-  initiative: number;
+  armorClass: number;
 
   /**
    * Walking speed in meters per round
@@ -71,17 +72,17 @@ export interface IPlayerDnD {
   /**
    * Proficiency bonus (added to proficient skills)
    */
-  proficiency_bonus: number;
+  proficiencyBonus: number;
+
+  /**
+   * Initiative Bonus (Dexterity Modifier + any other bonuses)
+   */
+  initiative: number;
 
   /**
    * List of character stats
    */
   stats: Stats;
-
-  /**
-   * Saving throws based on character stats
-   */
-  saving_throws: Stats;
 
   /**
    * List of skills
@@ -92,6 +93,52 @@ export interface IPlayerDnD {
    * Character's money
    */
   currencies: Currencies;
+
+  /**
+   * Spellcasting ability.
+   * If not provided, the character is not a spellcaster.
+   */
+  spellcastingAbility?: SpellCastingAbility[];
+
+  /**
+   * List of spells
+   */
+  spells: any[];
+
+  /**
+   * List of items
+   */
+  items: any[];
+}
+
+/**
+ * Schema definition for a single character class
+ */
+export interface Class {
+  /**
+   * Class name
+   */
+  class: string;
+
+  /**
+   * Class level
+   */
+  level: number;
+}
+
+/**
+ * Schema definition for a single spellcasting ability
+ */
+export interface SpellCastingAbility {
+  /**
+   * Spellcasting ability (null when not a spellcaster)
+   */
+  stat?: StatsType;
+
+  /**
+   * Class that can cast spells using this stat
+   */
+  class: string;
 }
 
 /**
@@ -104,54 +151,74 @@ export interface Skill {
   skill: SkillsType;
 
   /**
-   * Skill stat used (based on character stats)
+   * Skill stat used
    */
-  stat: StatsType;
-
-  /**
-   * Skill stat used (based on character stats)
-   */
-  modifier: number;
+  stat: Stat;
 
   /**
    * Indicates if the character is proficient in the skill
    */
-  isProficient: boolean;
+  isProficient?: boolean;
 }
 
 /**
- * Schema definition for character stats
+ * Schema definition for a single character stat
+ */
+export interface Stat {
+  /**
+   * Stat identifier
+   */
+  stat: StatsType;
+
+  /**
+   * Stat value
+   */
+  value: number;
+
+  /**
+   * Any bonuses to the stat
+   */
+  bonus?: number;
+
+  /**
+   * Indicates if the character is proficient in the stat. Used for saving throws.
+   */
+  isProficient?: boolean;
+}
+
+/**
+ * Schema definition for all character stats
  */
 export interface Stats {
   /**
    * Strength
    */
-  str: number;
+  str: Stat;
 
   /**
    * Dexterity
    */
-  dex: number;
+  dex: Stat;
 
   /**
    * Constitution
    */
-  con: number;
+  con: Stat;
 
   /**
    * Intelligence
    */
-  int: number;
+  int: Stat;
 
   /**
    * Wisdom
    */
-  wis: number;
+  wis: Stat;
 
   /**
    * Charisma
    */
-  cha: number;
+  cha: Stat;
 }
 
 /**
@@ -172,7 +239,25 @@ export interface ProgressionBar {
 /**
  * Definition of available Skills identifiers
  */
-export type SkillsType = "acrobatics" | "animal_handling" | "arcana" | "athletics" | "deception" | "history" | "insight" | "intimidation" | "investigation" | "medicine" | "nature" | "perception" | "performance" | "persuasion" | "religion" | "sleight_of_hand" | "stealth" | "survival";
+export type SkillsType =
+  | "acrobatics"
+  | "animal_handling"
+  | "arcana"
+  | "athletics"
+  | "deception"
+  | "history"
+  | "insight"
+  | "intimidation"
+  | "investigation"
+  | "medicine"
+  | "nature"
+  | "perception"
+  | "performance"
+  | "persuasion"
+  | "religion"
+  | "sleight_of_hand"
+  | "stealth"
+  | "survival";
 
 /**
  * Definition of available Stats identifiers
@@ -182,15 +267,38 @@ export type StatsType = "str" | "dex" | "con" | "int" | "wis" | "cha";
 /**
  * Definition of available character sources
  */
-export type DndPlayerSource = "dnd_beyond" | "pdf_character_sheet" | "arcana_pixel";
+export type DndPlayerSource =
+  | "dnd_beyond"
+  | "roll20"
+  | "pdf_character_sheet"
+  | "arcana_pixel";
 
 /**
  * Current character's money divided into game's currencies
  */
 export interface Currencies {
+  /**
+   * Copper Pieces
+   */
   cp: number;
+
+  /**
+   * Silver Pieces
+   */
   sp: number;
+
+  /**
+   * Gold Pieces
+   */
   gp: number;
+
+  /**
+   * Electrum Pieces
+   */
   ep: number;
+
+  /**
+   * Platinum Pieces
+   */
   pp: number;
 }

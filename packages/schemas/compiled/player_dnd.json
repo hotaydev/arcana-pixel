@@ -5,10 +5,30 @@
       "type": "string",
       "enum": [
         "dnd_beyond",
+        "roll20",
         "pdf_character_sheet",
         "arcana_pixel"
       ],
       "description": "Definition of available character sources"
+    },
+    "Class": {
+      "type": "object",
+      "properties": {
+        "class": {
+          "type": "string",
+          "description": "Class name"
+        },
+        "level": {
+          "type": "number",
+          "description": "Class level"
+        }
+      },
+      "required": [
+        "class",
+        "level"
+      ],
+      "additionalProperties": false,
+      "description": "Schema definition for a single character class"
     },
     "ProgressionBar": {
       "type": "object",
@@ -33,27 +53,27 @@
       "type": "object",
       "properties": {
         "str": {
-          "type": "number",
+          "$ref": "#/definitions/Stat",
           "description": "Strength"
         },
         "dex": {
-          "type": "number",
+          "$ref": "#/definitions/Stat",
           "description": "Dexterity"
         },
         "con": {
-          "type": "number",
+          "$ref": "#/definitions/Stat",
           "description": "Constitution"
         },
         "int": {
-          "type": "number",
+          "$ref": "#/definitions/Stat",
           "description": "Intelligence"
         },
         "wis": {
-          "type": "number",
+          "$ref": "#/definitions/Stat",
           "description": "Wisdom"
         },
         "cha": {
-          "type": "number",
+          "$ref": "#/definitions/Stat",
           "description": "Charisma"
         }
       },
@@ -66,7 +86,46 @@
         "cha"
       ],
       "additionalProperties": false,
-      "description": "Schema definition for character stats"
+      "description": "Schema definition for all character stats"
+    },
+    "Stat": {
+      "type": "object",
+      "properties": {
+        "stat": {
+          "$ref": "#/definitions/StatsType",
+          "description": "Stat identifier"
+        },
+        "value": {
+          "type": "number",
+          "description": "Stat value"
+        },
+        "bonus": {
+          "type": "number",
+          "description": "Any bonuses to the stat"
+        },
+        "isProficient": {
+          "type": "boolean",
+          "description": "Indicates if the character is proficient in the stat. Used for saving throws."
+        }
+      },
+      "required": [
+        "stat",
+        "value"
+      ],
+      "additionalProperties": false,
+      "description": "Schema definition for a single character stat"
+    },
+    "StatsType": {
+      "type": "string",
+      "enum": [
+        "str",
+        "dex",
+        "con",
+        "int",
+        "wis",
+        "cha"
+      ],
+      "description": "Definition of available Stats identifiers"
     },
     "Skill": {
       "type": "object",
@@ -76,12 +135,8 @@
           "description": "Skill identifier"
         },
         "stat": {
-          "$ref": "#/definitions/StatsType",
-          "description": "Skill stat used (based on character stats)"
-        },
-        "modifier": {
-          "type": "number",
-          "description": "Skill stat used (based on character stats)"
+          "$ref": "#/definitions/Stat",
+          "description": "Skill stat used"
         },
         "isProficient": {
           "type": "boolean",
@@ -90,9 +145,7 @@
       },
       "required": [
         "skill",
-        "stat",
-        "modifier",
-        "isProficient"
+        "stat"
       ],
       "additionalProperties": false,
       "description": "Schema definition for a single skill"
@@ -121,35 +174,28 @@
       ],
       "description": "Definition of available Skills identifiers"
     },
-    "StatsType": {
-      "type": "string",
-      "enum": [
-        "str",
-        "dex",
-        "con",
-        "int",
-        "wis",
-        "cha"
-      ],
-      "description": "Definition of available Stats identifiers"
-    },
     "Currencies": {
       "type": "object",
       "properties": {
         "cp": {
-          "type": "number"
+          "type": "number",
+          "description": "Copper Pieces"
         },
         "sp": {
-          "type": "number"
+          "type": "number",
+          "description": "Silver Pieces"
         },
         "gp": {
-          "type": "number"
+          "type": "number",
+          "description": "Gold Pieces"
         },
         "ep": {
-          "type": "number"
+          "type": "number",
+          "description": "Electrum Pieces"
         },
         "pp": {
-          "type": "number"
+          "type": "number",
+          "description": "Platinum Pieces"
         }
       },
       "required": [
@@ -161,6 +207,24 @@
       ],
       "additionalProperties": false,
       "description": "Current character's money divided into game's currencies"
+    },
+    "SpellCastingAbility": {
+      "type": "object",
+      "properties": {
+        "stat": {
+          "$ref": "#/definitions/StatsType",
+          "description": "Spellcasting ability (null when not a spellcaster)"
+        },
+        "class": {
+          "type": "string",
+          "description": "Class that can cast spells using this stat"
+        }
+      },
+      "required": [
+        "class"
+      ],
+      "additionalProperties": false,
+      "description": "Schema definition for a single spellcasting ability"
     }
   }
 }
