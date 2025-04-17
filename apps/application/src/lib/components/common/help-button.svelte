@@ -60,13 +60,13 @@
 		role="menu"
 	>
 		<div class="help-menu-header">
-			<h3>Help & Resources</h3>
+			<h3>Ajuda e Recursos</h3>
 		</div>
 
 		<div class="help-menu-items">
 			<a href={variables.documentation} class="help-menu-item" role="menuitem">
 				<Book size={18} />
-				<span>Documentation</span>
+				<span>Documentação</span>
 			</a>
 
 			<a
@@ -77,7 +77,7 @@
 				rel="noopener noreferrer"
 			>
 				<Github size={18} />
-				<span>GitHub Repository</span>
+				<span>GitHub</span>
 			</a>
 
 			<a
@@ -88,7 +88,7 @@
 				rel="noopener noreferrer"
 			>
 				<MessageCircle size={18} />
-				<span>Discord Community</span>
+				<span>Discord</span>
 			</a>
 		</div>
 	</div>

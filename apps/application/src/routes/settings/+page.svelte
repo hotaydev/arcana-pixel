@@ -2,12 +2,12 @@
 	import HelpButton from "$lib/components/common/help-button.svelte";
 	import Navbar from "$lib/components/common/navbar.svelte";
 	import { Palette } from "@lucide/svelte";
-	import ThemeSettings from "$lib/components/settings/theme.svelte";
+	import InterfaceSettings from "$lib/components/settings/interface.svelte";
 	import { page } from "$app/state";
 	import { goto } from "$app/navigation";
 
 	// UI state
-	let defaultSection = "themes";
+	let defaultSection = "interface";
 	let activeSection = $derived(page.url.searchParams.get("tab"));
 
 	// Update URL when tab changes
@@ -20,8 +20,8 @@
 
 	const tabs = [
 		{
-			id: "themes",
-			title: "Temas",
+			id: "interface",
+			title: "Interface",
 			icon: Palette,
 		},
 	];
@@ -47,8 +47,8 @@
 	</div>
 
 	<!-- Main content area -->
-	{#if (activeSection || defaultSection) === "themes"}
-		<ThemeSettings />
+	{#if (activeSection || defaultSection) === "interface"}
+		<InterfaceSettings />
 	{/if}
 
 	<HelpButton />
