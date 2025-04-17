@@ -9,7 +9,6 @@
 	import variables from "$lib/variables";
 	import { page } from "$app/state";
 	import { goto } from "$app/navigation";
-	import { onMount } from "svelte";
 
 	// TODO: We can persist the searchQuery between page reloads
 	// Mock data for games
@@ -91,19 +90,9 @@
 	];
 
 	// UI state
-	let searchQuery = "";
-	let activeSection = "";
+	let searchQuery = $state("");
 	let defaultSection = "games";
-
-	// Update activeSection based on query parameter
-	onMount(() => {
-		const tab = page.url.searchParams.get("tab");
-		if (tab && tabs.some((t) => t.id === tab)) {
-			activeSection = tab;
-		} else {
-			activeSection = defaultSection;
-		}
-	});
+	let activeSection = $derived(page.url.searchParams.get("tab"));
 
 	// Update URL when tab changes
 	function setActiveSection(tabId: string) {
@@ -141,18 +130,22 @@
 	}
 
 	// Filter games based on search query
-	$: filteredGames = games.filter(
-		(game) =>
-			game.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-			game.universe.toLowerCase().includes(searchQuery.toLowerCase()) ||
-			game.description.toLowerCase().includes(searchQuery.toLowerCase())
+	let filteredGames = $derived(
+		games.filter(
+			(game) =>
+				game.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+				game.universe.toLowerCase().includes(searchQuery.toLowerCase()) ||
+				game.description.toLowerCase().includes(searchQuery.toLowerCase())
+		)
 	);
 
-	$: filteredCharacters = exampleCharacters.filter(
-		(character) =>
-			character.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-			character.class.toLowerCase().includes(searchQuery.toLowerCase()) ||
-			character.description.toLowerCase().includes(searchQuery.toLowerCase())
+	let filteredCharacters = $derived(
+		exampleCharacters.filter(
+			(character) =>
+				character.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+				character.class.toLowerCase().includes(searchQuery.toLowerCase()) ||
+				character.description.toLowerCase().includes(searchQuery.toLowerCase())
+		)
 	);
 </script>
 
@@ -173,11 +166,12 @@
 	<div class="section-navigation">
 		<div class="section-nav-container">
 			{#each tabs as tab}
+				{@const Component = tab.icon}
 				<button
-					class={activeSection === tab.id ? "active" : ""}
-					on:click={() => setActiveSection(tab.id)}
+					class={(activeSection || defaultSection) === tab.id ? "active" : ""}
+					onclick={() => setActiveSection(tab.id)}
 				>
-					<svelte:component this={tab.icon} size={18} />
+					<Component size={18} />
 					<span>{tab.title}</span>
 				</button>
 			{/each}
@@ -185,13 +179,13 @@
 	</div>
 
 	<!-- Main content area -->
-	{#if activeSection === "games"}
+	{#if (activeSection || defaultSection) === "games"}
 		<MyGames games={filteredGames} />
-	{:else if activeSection === "characters"}
+	{:else if (activeSection || defaultSection) === "characters"}
 		<MyCharacters characters={filteredCharacters} />
-	{:else if activeSection === "expansions"}
+	{:else if (activeSection || defaultSection) === "expansions"}
 		<MyExpansions />
-	{:else if activeSection === "marketplace"}
+	{:else if (activeSection || defaultSection) === "marketplace"}
 		<ExpansionsMarket />
 	{/if}
 

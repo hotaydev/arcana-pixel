@@ -1,10 +1,29 @@
 <script lang="ts">
 	import { BookOpen, Plus } from "@lucide/svelte";
 	import CharacterCard from "$lib/components/my-characters/character-card.svelte";
+	import CharacterCreationModal from "$lib/components/my-characters/character-creation-modal.svelte";
 
 	export let characters;
 
-	function createNewCharacter() {}
+	// Modal state
+	let showCreationModal = false;
+
+	// Open modal for new character creation
+	function createNewCharacter() {
+		showCreationModal = true;
+	}
+
+	// Handle modal close
+	function handleModalClose() {
+		showCreationModal = false;
+	}
+
+	// Handle option selection from modal
+	function handleOptionSelect(detail: { system: string; option: string }) {
+		console.log("Selected system:", detail.system);
+		console.log("Selected option:", detail.option);
+		showCreationModal = false;
+	}
 </script>
 
 <!-- Main content area -->
@@ -46,6 +65,13 @@
 			{/each}
 		</div>
 	{/if}
+
+	<!-- Character creation modal -->
+	<CharacterCreationModal
+		show={showCreationModal}
+		onClose={handleModalClose}
+		onSelect={handleOptionSelect}
+	/>
 </div>
 
 <style>

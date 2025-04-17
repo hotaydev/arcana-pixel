@@ -138,11 +138,11 @@
 	];
 
 	// UI state
-	let searchQuery = "";
-	let selectedCategories: string[] = [];
-	let selectedUniverses: string[] = [];
-	let showOnlyOfficial = false;
-	let showFilters = false;
+	let searchQuery = $state("");
+	let selectedCategories: string[] = $state([]);
+	let selectedUniverses: string[] = $state([]);
+	let showOnlyOfficial = $state(false);
+	let showFilters = $state(false);
 
 	// Handle category selection
 	function toggleCategory(categoryId: string) {
@@ -173,33 +173,35 @@
 	}
 
 	// Filter expansions based on search and selected filters
-	$: filteredPopularExpansions = popularExpansions.filter((expansion) => {
-		// Filter by search query
-		const matchesSearch =
-			searchQuery === "" ||
-			expansion.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-			expansion.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
-			expansion.universe.toLowerCase().includes(searchQuery.toLowerCase());
+	let filteredPopularExpansions = $derived(
+		popularExpansions.filter((expansion) => {
+			// Filter by search query
+			const matchesSearch =
+				searchQuery === "" ||
+				expansion.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+				expansion.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
+				expansion.universe.toLowerCase().includes(searchQuery.toLowerCase());
 
-		// Filter by selected categories
-		const matchesCategory =
-			selectedCategories.length === 0 ||
-			selectedCategories.some((catId) =>
-				expansion.type.toLowerCase().includes(catId.toLowerCase())
-			);
+			// Filter by selected categories
+			const matchesCategory =
+				selectedCategories.length === 0 ||
+				selectedCategories.some((catId) =>
+					expansion.type.toLowerCase().includes(catId.toLowerCase())
+				);
 
-		// Filter by selected universes
-		const matchesUniverse =
-			selectedUniverses.length === 0 ||
-			selectedUniverses.some((univ) =>
-				expansion.universe.toLowerCase().includes(univ.toLowerCase())
-			);
+			// Filter by selected universes
+			const matchesUniverse =
+				selectedUniverses.length === 0 ||
+				selectedUniverses.some((univ) =>
+					expansion.universe.toLowerCase().includes(univ.toLowerCase())
+				);
 
-		// Filter by official status
-		const matchesOfficial = !showOnlyOfficial || expansion.official;
+			// Filter by official status
+			const matchesOfficial = !showOnlyOfficial || expansion.official;
 
-		return matchesSearch && matchesCategory && matchesUniverse && matchesOfficial;
-	});
+			return matchesSearch && matchesCategory && matchesUniverse && matchesOfficial;
+		})
+	);
 </script>
 
 <!-- Main content area -->
@@ -222,7 +224,7 @@
 
 		<button
 			class="filter-button"
-			on:click={() => {
+			onclick={() => {
 				showFilters = !showFilters;
 			}}
 		>
@@ -242,11 +244,12 @@
 				<h3>Categorias</h3>
 				<div class="filter-options">
 					{#each categories as category}
+						{@const Component = category.icon}
 						<button
 							class="filter-tag {selectedCategories.includes(category.id) ? 'active' : ''}"
-							on:click={() => toggleCategory(category.id)}
+							onclick={() => toggleCategory(category.id)}
 						>
-							<svelte:component this={category.icon} size={16} />
+							<Component size={16} />
 							<span>{category.name}</span>
 							<span class="count">{category.count}</span>
 						</button>
@@ -260,7 +263,7 @@
 					{#each universes as universe}
 						<button
 							class="filter-tag {selectedUniverses.includes(universe.id) ? 'active' : ''}"
-							on:click={() => toggleUniverse(universe.id)}
+							onclick={() => toggleUniverse(universe.id)}
 						>
 							<span>{universe.name}</span>
 							<span class="count">{universe.count}</span>
@@ -316,10 +319,10 @@
 							</div>
 						</div>
 						<div class="featured-actions">
-							<button class="action-button save" on:click={() => saveExpansion(expansion.id)}>
+							<button class="action-button save" onclick={() => saveExpansion(expansion.id)}>
 								<Bookmark size={18} />
 							</button>
-							<button class="action-button download" on:click={() => addExpansion(expansion.id)}>
+							<button class="action-button download" onclick={() => addExpansion(expansion.id)}>
 								<Plus size={18} />
 								<span>Adicionar</span>
 							</button>
@@ -339,7 +342,7 @@
 				<p>Nenhuma expansão encontrada com os filtros selecionados.</p>
 				<button
 					class="reset-button"
-					on:click={() => {
+					onclick={() => {
 						searchQuery = "";
 						selectedCategories = [];
 						selectedUniverses = [];
@@ -374,10 +377,10 @@
 								</span>
 							</div>
 							<div class="expansion-actions">
-								<button class="icon-button" on:click={() => saveExpansion(expansion.id)}>
+								<button class="icon-button" onclick={() => saveExpansion(expansion.id)}>
 									<Bookmark size={18} />
 								</button>
-								<button class="download-button" on:click={() => addExpansion(expansion.id)}>
+								<button class="download-button" onclick={() => addExpansion(expansion.id)}>
 									<Plus size={16} />
 									<span>Adicionar</span>
 								</button>
