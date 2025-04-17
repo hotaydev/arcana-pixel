@@ -20,7 +20,6 @@
 		title: "",
 		description: "",
 		system: "",
-		customSystem: "",
 	};
 
 	// Form validation
@@ -115,7 +114,12 @@
 
 					<div class="form-group">
 						<label for="system">Sistema <span class="required">*</span></label>
-						<CustomSelect id="system" options={rpgSystems} bind:value={formData.system} />
+						<CustomSelect
+							options={rpgSystems}
+							bind:value={formData.system}
+							placeholder="Selecione um sistema"
+							searchable
+						/>
 						{#if variables.expansionsEnabled}
 							<p class="expansions-message">
 								Você pode adicionar mais sistemas pelas
@@ -251,8 +255,8 @@
 	input[type="text"]:focus,
 	textarea:focus {
 		outline: none;
-		border-color: var(--xp-bar);
-		box-shadow: 0 0 0 2px rgba(0, 143, 231, 0.2);
+		border-color: var(--primary-color);
+		box-shadow: 0 0 0 2px var(--primary-color-20);
 	}
 
 	/* Make description textarea resizable only vertically */
@@ -292,8 +296,8 @@
 	}
 
 	.image-placeholder:hover {
-		border-color: var(--xp-bar);
-		background-color: rgba(0, 143, 231, 0.05);
+		border-color: var(--primary-color);
+		background-color: var(--primary-color-5);
 	}
 
 	.image-upload input[type="file"] {
@@ -319,8 +323,8 @@
 		align-items: center;
 		gap: 0.75rem;
 		padding: 0.75rem 1.5rem;
-		background-color: var(--xp-bar);
-		color: white;
+		background-color: var(--primary-color);
+		color: var(--primary-color-contrast);
 		border: none;
 		border-radius: 8px;
 		font-weight: 500;
@@ -330,7 +334,7 @@
 	}
 
 	.action-button:hover {
-		background-color: rgba(0, 143, 231, 0.8);
+		background-color: var(--primary-color-80);
 		transform: translateY(-2px);
 	}
 

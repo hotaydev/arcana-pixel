@@ -193,7 +193,6 @@
 
 					<div class="system-options">
 						{#each rpgSystems as system}
-							{@const Component = system.icon}
 							<button
 								class="system-option"
 								onclick={() => selectSystem(system)}
@@ -201,7 +200,7 @@
 							>
 								<div class="system-option-content">
 									<div class="option-icon">
-										<Component size={24} />
+										<system.icon size={24} />
 									</div>
 									<div class="system-info">
 										<div class="system-title-row">
@@ -242,14 +241,13 @@
 
 						<div class="import-options">
 							{#each selectedSystem!.importOptions as option}
-								{@const Component = option.icon}
 								<button
 									class="import-option"
 									onclick={() => selectImportOption(option.id)}
 									disabled={option.status === "coming_soon"}
 								>
 									<div class="option-icon">
-										<Component size={24} />
+										<option.icon size={24} />
 									</div>
 									<div class="option-info">
 										<div class="option-title">
@@ -406,8 +404,8 @@
 	}
 
 	.system-option:hover:not(:disabled) {
-		background-color: rgba(0, 143, 231, 0.05);
-		border-color: var(--xp-bar);
+		background-color: var(--primary-color-5);
+		border-color: var(--primary-color);
 		transform: translateY(-2px);
 	}
 
@@ -457,8 +455,8 @@
 	}
 
 	.import-option:hover:not(:disabled) {
-		background-color: rgba(0, 143, 231, 0.05);
-		border-color: var(--xp-bar);
+		background-color: var(--primary-color-5);
+		border-color: var(--primary-color);
 		transform: translateY(-2px);
 	}
 
@@ -505,8 +503,8 @@
 	}
 
 	.badge.beta {
-		background-color: var(--xp-bar);
-		color: white;
+		background-color: var(--primary-color);
+		color: var(--primary-color-contrast);
 	}
 
 	.badge.coming-soon {
@@ -546,8 +544,8 @@
 		gap: 0.75rem;
 		width: 100%;
 		padding: 0.75rem 1.5rem;
-		background-color: var(--xp-bar);
-		color: white;
+		background-color: var(--primary-color);
+		color: var(--primary-color-contrast);
 		border: none;
 		border-radius: 8px;
 		font-weight: 500;
@@ -557,7 +555,7 @@
 	}
 
 	.create-button:hover {
-		background-color: rgba(0, 143, 231, 0.8);
+		background-color: var(--primary-color-80);
 		transform: translateY(-2px);
 	}
 

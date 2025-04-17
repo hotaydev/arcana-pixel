@@ -2,23 +2,31 @@
 	import { fade } from "svelte/transition";
 	import { ChevronDown, ChevronUp, Search } from "@lucide/svelte";
 
-	export let options: string[] = [];
-	export let value: string = "";
-	export let placeholder: string = "Selecione uma opção";
-	export let id: string = "";
-	export let searchable: boolean = true;
+	let {
+		options = [],
+		value = $bindable(),
+		placeholder = "Selecione uma opção",
+		searchable = true,
+	}: {
+		options: string[];
+		value: string;
+		placeholder?: string;
+		searchable?: boolean;
+	} = $props();
 
-	let isOpen = false;
-	let searchTerm = "";
-	let selectedIndex = -1;
-	let dropdownRef: HTMLDivElement;
-	let inputRef: HTMLInputElement;
+	let isOpen = $state(false);
+	let searchTerm = $state("");
+	let selectedIndex = $state(-1);
+	let dropdownRef: HTMLDivElement | undefined = $state(undefined);
+	let inputRef: HTMLInputElement | undefined = $state(undefined);
 
-	$: filteredOptions = searchTerm
-		? options.filter((option) => option.toLowerCase().includes(searchTerm.toLowerCase()))
-		: options;
+	let filteredOptions = $derived(
+		searchTerm
+			? options.filter((option) => option.toLowerCase().includes(searchTerm.toLowerCase()))
+			: options
+	);
 
-	$: selectedLabel = value || placeholder;
+	let selectedLabel = $derived(value || placeholder);
 
 	function toggleDropdown() {
 		isOpen = !isOpen;
@@ -73,10 +81,9 @@
 	<button
 		type="button"
 		class="select-button"
-		on:click={toggleDropdown}
+		onclick={toggleDropdown}
 		aria-haspopup="listbox"
 		aria-expanded={isOpen}
-		{id}
 	>
 		<span class={value ? "selected-value" : "placeholder"}>{selectedLabel}</span>
 		<span class="icon">
@@ -114,7 +121,7 @@
 							class:highlighted={i === selectedIndex}
 							role="option"
 							aria-selected={option === value}
-							on:click={() => selectOption(option)}
+							onclick={() => selectOption(option)}
 						>
 							{option}
 						</li>
@@ -149,8 +156,8 @@
 
 	.select-button:focus {
 		outline: none;
-		border-color: var(--xp-bar);
-		box-shadow: 0 0 0 2px rgba(0, 143, 231, 0.2);
+		border-color: var(--primary-color);
+		box-shadow: 0 0 0 2px var(--primary-color-20);
 	}
 
 	.placeholder {
@@ -239,9 +246,8 @@
 	}
 
 	.selected {
-		background-color: rgba(0, 143, 231, 0.1);
-		color: var(--xp-bar);
-		font-weight: 500;
+		background-color: var(--primary-color-10);
+		color: var(--primary-color);
 	}
 
 	.highlighted {

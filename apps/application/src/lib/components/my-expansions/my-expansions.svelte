@@ -1,5 +1,10 @@
 <script lang="ts">
 	import { BookOpen, Plus } from "@lucide/svelte";
+	import { goto } from "$app/navigation";
+
+	function createNewExpansion() {
+		goto("/?tab=marketplace");
+	}
 </script>
 
 <!-- Main content area -->
@@ -13,7 +18,7 @@
 	<div class="placeholder-content">
 		<BookOpen size={64} color="var(--text-color-dim)" />
 		<p>Aqui você encontrará conteúdo customizado, regras, NPCs, mapas e mais</p>
-		<button class="action-button">
+		<button class="action-button" on:click={createNewExpansion}>
 			<Plus size={20} />
 			<span>Adicionar nova expansão</span>
 		</button>
@@ -72,8 +77,8 @@
 		align-items: center;
 		gap: 0.75rem;
 		padding: 0.75rem 1.5rem;
-		background-color: var(--xp-bar);
-		color: white;
+		background-color: var(--primary-color);
+		color: var(--primary-color-contrast);
 		border: none;
 		border-radius: 8px;
 		font-weight: 500;
@@ -83,7 +88,7 @@
 	}
 
 	.action-button:hover {
-		background-color: rgba(0, 143, 231, 0.8);
+		background-color: var(--primary-color-80);
 		transform: translateY(-2px);
 	}
 

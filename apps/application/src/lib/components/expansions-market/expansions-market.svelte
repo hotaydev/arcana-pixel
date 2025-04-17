@@ -244,12 +244,11 @@
 				<h3>Categorias</h3>
 				<div class="filter-options">
 					{#each categories as category}
-						{@const Component = category.icon}
 						<button
 							class="filter-tag {selectedCategories.includes(category.id) ? 'active' : ''}"
 							onclick={() => toggleCategory(category.id)}
 						>
-							<Component size={16} />
+							<category.icon size={16} />
 							<span>{category.name}</span>
 							<span class="count">{category.count}</span>
 						</button>
@@ -449,8 +448,8 @@
 
 	.search-container input:focus {
 		outline: none;
-		border-color: var(--xp-bar);
-		box-shadow: 0 0 0 2px rgba(0, 143, 231, 0.2);
+		border-color: var(--primary-color);
+		box-shadow: 0 0 0 2px var(--primary-color-20);
 	}
 
 	.filter-button {
@@ -532,9 +531,9 @@
 	}
 
 	.filter-tag.active {
-		background-color: rgba(0, 143, 231, 0.1);
-		border-color: var(--xp-bar);
-		color: var(--xp-bar);
+		background-color: var(--primary-color-10);
+		border-color: var(--primary-color);
+		color: var(--primary-color);
 	}
 
 	.filter-tag .count {
@@ -547,8 +546,8 @@
 	}
 
 	.filter-tag.active .count {
-		background-color: var(--xp-bar);
-		color: white;
+		background-color: var(--primary-color);
+		color: var(--primary-color-contrast);
 	}
 
 	/* Checkbox styling */
@@ -584,8 +583,8 @@
 	}
 
 	.checkbox-container input:checked ~ .checkmark {
-		background-color: var(--xp-bar);
-		border-color: var(--xp-bar);
+		background-color: var(--primary-color);
+		border-color: var(--primary-color);
 	}
 
 	.checkmark:after {
@@ -658,7 +657,7 @@
 	.featured-card:hover {
 		transform: translateY(-5px);
 		box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-		border-color: var(--xp-bar);
+		border-color: var(--primary-color);
 	}
 
 	.featured-image {
@@ -730,8 +729,8 @@
 	}
 
 	.official-badge {
-		background-color: var(--xp-bar);
-		color: white;
+		background-color: var(--primary-color);
+		color: var(--primary-color-contrast);
 		font-size: 0.8rem;
 		font-weight: 500;
 		padding: 0.25rem 0.75rem;
@@ -764,9 +763,9 @@
 	}
 
 	.action-button.download {
-		background-color: var(--xp-bar);
-		border: 1px solid var(--xp-bar);
-		color: white;
+		background-color: var(--primary-color);
+		border: 1px solid var(--primary-color);
+		color: var(--primary-color-contrast);
 		padding: 0.5rem 1rem;
 	}
 
@@ -779,7 +778,7 @@
 	}
 
 	.action-button.download:hover {
-		background-color: rgba(0, 143, 231, 0.8);
+		background-color: var(--primary-color-80);
 	}
 
 	/* Expansions Grid */
@@ -803,7 +802,7 @@
 	.expansion-card:hover {
 		transform: translateY(-5px);
 		box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-		border-color: var(--xp-bar);
+		border-color: var(--primary-color);
 	}
 
 	.expansion-header {
@@ -822,9 +821,9 @@
 
 	.official-tag {
 		font-size: 0.75rem;
-		color: white;
+		color: var(--primary-color-contrast);
 		padding: 0.25rem 0.5rem;
-		background-color: var(--xp-bar);
+		background-color: var(--primary-color);
 		border-radius: 4px;
 		font-weight: 500;
 	}
@@ -894,9 +893,9 @@
 		gap: 0.5rem;
 		padding: 0.45rem 0.85rem;
 		border-radius: 6px;
-		background-color: var(--xp-bar);
-		border: 1px solid var(--xp-bar);
-		color: white;
+		background-color: var(--primary-color);
+		border: 1px solid var(--primary-color);
+		color: var(--primary-color-contrast);
 		font-weight: 500;
 		font-size: 0.9rem;
 		cursor: pointer;
@@ -904,7 +903,7 @@
 	}
 
 	.download-button:hover {
-		background-color: rgba(0, 143, 231, 0.8);
+		background-color: var(--primary-color-80);
 		transform: translateY(-2px);
 	}
 
@@ -1039,7 +1038,7 @@
 	.icon-button:focus,
 	.reset-button:focus,
 	.filter-button:focus {
-		outline: 2px solid var(--xp-bar);
+		outline: 2px solid var(--primary-color);
 		outline-offset: 2px;
 	}
 

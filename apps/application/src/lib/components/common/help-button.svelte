@@ -103,7 +103,7 @@
 		width: 3.5rem;
 		height: 3.5rem;
 		border-radius: 50%;
-		background-color: var(--xp-bar);
+		background-color: var(--primary-color);
 		border: none;
 		padding: 0;
 		cursor: pointer;
@@ -140,8 +140,8 @@
 	}
 
 	.help-menu-header {
-		background-color: var(--xp-bar);
-		color: white;
+		background-color: var(--primary-color);
+		color: var(--primary-color-contrast);
 		padding: 12px 16px;
 	}
 

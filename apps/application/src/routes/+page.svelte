@@ -166,12 +166,11 @@
 	<div class="section-navigation">
 		<div class="section-nav-container">
 			{#each tabs as tab}
-				{@const Component = tab.icon}
 				<button
 					class={(activeSection || defaultSection) === tab.id ? "active" : ""}
 					onclick={() => setActiveSection(tab.id)}
 				>
-					<Component size={18} />
+					<tab.icon size={18} />
 					<span>{tab.title}</span>
 				</button>
 			{/each}
@@ -243,8 +242,8 @@
 	}
 
 	.section-nav-container button.active {
-		color: var(--xp-bar);
-		border-bottom-color: var(--xp-bar);
+		color: var(--primary-color);
+		border-bottom-color: var(--primary-color);
 	}
 
 	.search-bar {
@@ -267,8 +266,8 @@
 
 	.search-bar input:focus {
 		outline: none;
-		border-color: var(--xp-bar);
-		box-shadow: 0 0 0 2px rgba(0, 143, 231, 0.2);
+		border-color: var(--primary-color);
+		box-shadow: 0 0 0 2px var(--primary-color-20);
 	}
 
 	.search-bar input::placeholder {

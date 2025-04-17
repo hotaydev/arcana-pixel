@@ -3,11 +3,13 @@
 	import ArcanaLogo from "$lib/components/common/logo.svelte";
 	import { ChevronDown, LogOut, Settings, User, Moon, Sun } from "@lucide/svelte";
 	import Avatar from "$lib/components/icons/avatar.svelte";
+	import { onMount } from "svelte";
+	import { goto } from "$app/navigation";
 
 	let showUserMenu = false;
 	let currentTheme = "dark";
 
-	export let username = "Taylor Hoffmann";
+	let username = "Taylor Hoffmann";
 
 	function handleDocumentClick(event: MouseEvent) {
 		if (!event.composedPath().includes(document.querySelector(".user-profile")!)) {
@@ -23,15 +25,11 @@
 		localStorage.setItem("theme", currentTheme);
 	}
 
-	import { onMount } from "svelte";
-	import { goto } from "$app/navigation";
-
 	onMount(() => {
 		// Check if user has saved theme preference
 		const savedTheme = localStorage.getItem("theme");
 		if (savedTheme) {
 			currentTheme = savedTheme;
-			document.documentElement.setAttribute("data-theme", currentTheme);
 		}
 	});
 </script>
@@ -74,7 +72,12 @@
 								<span>Tema Escuro</span>
 							{/if}
 						</li>
-						<li>
+						<!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
+						<li
+							on:click={() => {
+								goto("/settings");
+							}}
+						>
 							<Settings size={16} />
 							<span>Configurações</span>
 						</li>
@@ -151,7 +154,7 @@
 		position: absolute;
 		top: calc(100% + 0.5rem);
 		right: 0;
-		width: 200px;
+		width: 220px;
 		background-color: var(--background-color-level-1);
 		border-radius: 8px;
 		border: 1px solid var(--background-color-level-3);
@@ -171,6 +174,7 @@
 		padding: 0.75rem 1rem;
 		cursor: pointer;
 		transition: background-color 0.15s ease;
+		position: relative;
 	}
 
 	.user-menu li:hover {

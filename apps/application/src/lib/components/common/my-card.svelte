@@ -139,7 +139,7 @@
 
 	.my-card:hover {
 		transform: translateY(-5px);
-		border-color: var(--xp-bar);
+		border-color: var(--primary-color);
 		box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 	}
 

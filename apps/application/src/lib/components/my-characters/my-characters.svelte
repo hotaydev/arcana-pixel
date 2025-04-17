@@ -122,7 +122,7 @@
 
 	.character-card:hover {
 		transform: translateY(-5px);
-		border-color: var(--xp-bar);
+		border-color: var(--primary-color);
 		box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 	}
 
@@ -138,8 +138,8 @@
 	}
 
 	.new-character:hover {
-		border-color: var(--xp-bar);
-		background-color: rgba(0, 143, 231, 0.05);
+		border-color: var(--primary-color);
+		background-color: var(--primary-color-5);
 	}
 
 	.new-character-content {
@@ -187,8 +187,8 @@
 		align-items: center;
 		gap: 0.75rem;
 		padding: 0.75rem 1.5rem;
-		background-color: var(--xp-bar);
-		color: white;
+		background-color: var(--primary-color);
+		color: var(--primary-color-contrast);
 		border: none;
 		border-radius: 8px;
 		font-weight: 500;
@@ -198,7 +198,7 @@
 	}
 
 	.action-button:hover {
-		background-color: rgba(0, 143, 231, 0.8);
+		background-color: var(--primary-color-80);
 		transform: translateY(-2px);
 	}
 

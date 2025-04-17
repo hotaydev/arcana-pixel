@@ -291,7 +291,7 @@
 
 	.form-group input:focus {
 		outline: none;
-		border-color: var(--xp-bar);
+		border-color: var(--primary-color);
 	}
 
 	.form-group input::placeholder {
@@ -303,7 +303,7 @@
 		padding: 0.9rem;
 		border-radius: 8px;
 		border: none;
-		background: var(--xp-bar);
+		background: var(--primary-color);
 		color: white;
 		font-size: 1rem;
 		font-weight: 500;
@@ -391,7 +391,7 @@
 	.text-button {
 		background: none;
 		border: none;
-		color: var(--xp-bar);
+		color: var(--primary-color);
 		font-weight: 500;
 		cursor: pointer;
 		transition: all 0.2s ease;

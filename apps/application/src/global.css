@@ -1,5 +1,20 @@
 :root {
-	/* Dark theme (default) */
+	/* Common theme variables */
+	--border-radius: 12px;
+
+	/* Blue Theme (default) */
+	--primary-color: #008fe7;
+	--primary-color-light: #4eafef;
+	--primary-color-dark: #0072b9;
+	--primary-color-contrast: #ffffff;
+
+	/* Common opacity variants of primary color */
+	--primary-color-5: rgba(0, 143, 231, 0.05);
+	--primary-color-10: rgba(0, 143, 231, 0.1);
+	--primary-color-20: rgba(0, 143, 231, 0.2);
+	--primary-color-80: rgba(0, 143, 231, 0.8);
+
+	/* Dark mode specific variables */
 	--background-color-level-0: #121111;
 	--background-color-level-1: #242424;
 	--background-color-level-2: #464646;
@@ -16,7 +31,11 @@
 	--life-bar: #00ca80;
 	--xp-bar: #008fe7;
 
-	--border-radius: 12px;
+	--blue-primary: #008fe7;
+	--purple-primary: #9b59b6;
+	--green-primary: #27ae60;
+	--red-primary: #c0392b;
+	--amber-primary: #f39c12;
 }
 
 /* Light theme */
@@ -35,7 +54,62 @@
 	--text-color-dim: #606060;
 
 	--life-bar: #00ca80;
-	--xp-bar: #008fe7;
+}
+
+/* Purple Theme */
+[data-color-theme="purple"] {
+	--primary-color: #9b59b6;
+	--primary-color-light: #bb8ecc;
+	--primary-color-dark: #8044a8;
+	--primary-color-contrast: #ffffff;
+
+	/* Purple opacity variants */
+	--primary-color-5: rgba(155, 89, 182, 0.05);
+	--primary-color-10: rgba(155, 89, 182, 0.1);
+	--primary-color-20: rgba(155, 89, 182, 0.2);
+	--primary-color-80: rgba(155, 89, 182, 0.8);
+}
+
+/* Green Theme */
+[data-color-theme="green"] {
+	--primary-color: #27ae60;
+	--primary-color-light: #2ecc71;
+	--primary-color-dark: #1e8449;
+	--primary-color-contrast: #ffffff;
+
+	/* Green opacity variants */
+	--primary-color-5: rgba(39, 174, 96, 0.05);
+	--primary-color-10: rgba(39, 174, 96, 0.1);
+	--primary-color-20: rgba(39, 174, 96, 0.2);
+	--primary-color-80: rgba(39, 174, 96, 0.8);
+}
+
+/* Red Theme */
+[data-color-theme="red"] {
+	--primary-color: #c0392b;
+	--primary-color-light: #e74c3c;
+	--primary-color-dark: #962d22;
+	--primary-color-contrast: #ffffff;
+
+	/* Red opacity variants */
+	--primary-color-5: rgba(192, 57, 43, 0.05);
+	--primary-color-10: rgba(192, 57, 43, 0.1);
+	--primary-color-20: rgba(192, 57, 43, 0.2);
+	--primary-color-80: rgba(192, 57, 43, 0.8);
+}
+
+/* Amber Theme */
+[data-color-theme="amber"] {
+	--primary-color: #f39c12;
+	--primary-color-light: #f1c40f;
+	--primary-color-dark: #d68910;
+	--primary-color-contrast: #000000;
+
+	/* Amber opacity variants */
+	--primary-color-5: rgba(243, 156, 18, 0.05);
+	--primary-color-10: rgba(243, 156, 18, 0.1);
+	--primary-color-20: rgba(243, 156, 18, 0.2);
+	--primary-color-80: rgba(243, 156, 18, 0.8);
 }
 
 @font-face {
