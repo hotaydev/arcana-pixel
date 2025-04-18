@@ -19,6 +19,7 @@
 		PencilRuler,
 		X,
 	} from "@lucide/svelte";
+	import ArcanaMap from "$lib/components/game/map/arcana-map.svelte";
 
 	// Active tab state
 	let activeTab = $state("character");
@@ -164,43 +165,43 @@
 	<div class="columns-container">
 		<!-- Left column (game area placeholder) -->
 		<div class="left-column" style="width: {leftColumnWidth}%;">
-			<div class="content-area card">
-				<!-- Map toolbar -->
-				<div class="map-toolbar-container">
-					<div class="toolbar-open-close card">
-						<button
-							class="tool-button"
-							title="Abrir/Fechar"
-							onclick={() => (isToolbarVisible = !isToolbarVisible)}
-						>
-							{#if isToolbarVisible}
-								<X size={18} />
-							{:else}
-								<PencilRuler size={18} />
-							{/if}
-						</button>
-					</div>
+			<ArcanaMap />
 
-					{#if isToolbarVisible}
-						<div
-							class="map-toolbar card"
-							in:fly={{ x: 0, y: 20, duration: 300, opacity: 0 }}
-							out:fly={{ x: 0, y: 20, duration: 200, opacity: 0 }}
-						>
-							<div class="toolbar-tools">
-								{#each mapTools as tool}
-									<button
-										class="tool-button"
-										title={tool.title}
-										in:fade={{ delay: 100, duration: 150 }}
-									>
-										<tool.icon size={18} />
-									</button>
-								{/each}
-							</div>
-						</div>
-					{/if}
+			<!-- Map toolbar -->
+			<div class="map-toolbar-container">
+				<div class="toolbar-open-close card">
+					<button
+						class="tool-button"
+						title="Abrir/Fechar"
+						onclick={() => (isToolbarVisible = !isToolbarVisible)}
+					>
+						{#if isToolbarVisible}
+							<X size={18} />
+						{:else}
+							<PencilRuler size={18} />
+						{/if}
+					</button>
 				</div>
+
+				{#if isToolbarVisible}
+					<div
+						class="map-toolbar card"
+						in:fly={{ x: 0, y: 20, duration: 300, opacity: 0 }}
+						out:fly={{ x: 0, y: 20, duration: 200, opacity: 0 }}
+					>
+						<div class="toolbar-tools">
+							{#each mapTools as tool}
+								<button
+									class="tool-button"
+									title={tool.title}
+									in:fade={{ delay: 100, duration: 150 }}
+								>
+									<tool.icon size={18} />
+								</button>
+							{/each}
+						</div>
+					</div>
+				{/if}
 			</div>
 		</div>
 
@@ -315,14 +316,6 @@
 		background-color: var(--primary-color);
 	}
 
-	/* Content areas */
-	.content-area {
-		height: 100%;
-		padding: 1.5rem;
-		overflow-y: auto;
-		position: relative;
-	}
-
 	/* Map Toolbar */
 	.map-toolbar-container {
 		position: absolute;
@@ -342,6 +335,7 @@
 		border-radius: calc(var(--border-radius) * 0.75) !important;
 		overflow: hidden;
 		padding: 0.25rem !important;
+		z-index: 1000;
 	}
 
 	.toolbar-open-close {
@@ -351,6 +345,7 @@
 		border-radius: calc(var(--border-radius) * 0.75) !important;
 		overflow: hidden;
 		padding: 0.25rem !important;
+		z-index: 1000;
 	}
 
 	.toolbar-tools {
