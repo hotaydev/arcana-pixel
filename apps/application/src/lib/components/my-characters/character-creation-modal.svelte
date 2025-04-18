@@ -218,7 +218,7 @@
 						{/each}
 					</div>
 
-					{#if variables.expansionsEnabled}
+					{#if variables.featureFlags.expansionsEnabled}
 						<div class="divider">
 							<span>ou</span>
 						</div>

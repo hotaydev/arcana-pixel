@@ -120,7 +120,7 @@
 							placeholder="Selecione um sistema"
 							searchable
 						/>
-						{#if variables.expansionsEnabled}
+						{#if variables.featureFlags.expansionsEnabled}
 							<p class="expansions-message">
 								Você pode adicionar mais sistemas pelas
 								<a href="/?tab=marketplace">expansões da comunidade <ExternalLink size={14} /></a>

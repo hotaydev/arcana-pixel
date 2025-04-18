@@ -116,7 +116,7 @@
 	];
 
 	// TODO: These pages are ready, but since this isn't the focus right now, we're hiding them.
-	if (variables.expansionsEnabled) {
+	if (variables.featureFlags.expansionsEnabled) {
 		tabs.push({
 			id: "expansions",
 			title: "Minhas Expansões",

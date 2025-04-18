@@ -1,5 +1,11 @@
 <script lang="ts">
 	import { goto } from "$app/navigation";
+
+	let {
+		withText = true,
+		size = 40,
+		onclick,
+	}: { withText?: boolean; size?: number; onclick?: () => void } = $props();
 </script>
 
 <!-- svelte-ignore a11y_click_events_have_key_events -->
@@ -7,11 +13,17 @@
 <div
 	class="logo"
 	onclick={() => {
-		goto("/");
+		if (onclick) {
+			onclick();
+		} else {
+			goto("/");
+		}
 	}}
 >
-	<img src="/assets/images/logo.webp" alt="Arcana Pixel" width="40" height="40" />
-	<h1>Arcana Pixel</h1>
+	<img src="/assets/images/logo.webp" alt="Arcana Pixel" width="{size}px" height="{size}px" />
+	{#if withText}
+		<h1>Arcana Pixel</h1>
+	{/if}
 </div>
 
 <style>

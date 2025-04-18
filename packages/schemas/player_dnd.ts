@@ -28,6 +28,8 @@ export interface IPlayerDnD {
    */
   race: string;
 
+  // TODO: Add racial traits + class Features + subclassDefinition classFeatures
+
   /**
    * Character Avatar URL
    */
@@ -108,7 +110,12 @@ export interface IPlayerDnD {
   /**
    * List of items
    */
-  items: any[];
+  items: any[]; // It's inside data.inventory
+
+  /**
+   * Character's alignment
+   */
+  alignment?: Alignment;
 }
 
 /**
@@ -263,6 +270,17 @@ export type SkillsType =
  * Definition of available Stats identifiers
  */
 export type StatsType = "str" | "dex" | "con" | "int" | "wis" | "cha";
+
+export type Alignment =
+  | "lawful_good"
+  | "neutral_good"
+  | "chaotic_good"
+  | "lawful_neutral"
+  | "neutral"
+  | "chaotic_neutral"
+  | "lawful_evil"
+  | "neutral_evil"
+  | "chaotic_evil";
 
 /**
  * Definition of available character sources

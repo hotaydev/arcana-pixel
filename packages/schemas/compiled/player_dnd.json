@@ -225,6 +225,20 @@
       ],
       "additionalProperties": false,
       "description": "Schema definition for a single spellcasting ability"
+    },
+    "Alignment": {
+      "type": "string",
+      "enum": [
+        "lawful_good",
+        "neutral_good",
+        "chaotic_good",
+        "lawful_neutral",
+        "neutral",
+        "chaotic_neutral",
+        "lawful_evil",
+        "neutral_evil",
+        "chaotic_evil"
+      ]
     }
   }
 }
