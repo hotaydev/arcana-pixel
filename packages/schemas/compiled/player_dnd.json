@@ -226,6 +226,186 @@
       "additionalProperties": false,
       "description": "Schema definition for a single spellcasting ability"
     },
+    "InventoryItem": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "number",
+          "description": "Unique identifier for the item"
+        },
+        "name": {
+          "type": "string",
+          "description": "Name of the item"
+        },
+        "description": {
+          "type": "string",
+          "description": "Detailed description of the item"
+        },
+        "isEquiped": {
+          "type": "boolean",
+          "description": "Whether the item is currently equipped by the character"
+        },
+        "isMagic": {
+          "type": "boolean",
+          "description": "Whether the item is magical in nature"
+        },
+        "isContainer": {
+          "type": "boolean",
+          "description": "Whether the item can contain other items"
+        },
+        "isConsumable": {
+          "type": "boolean",
+          "description": "Whether the item is consumed on use"
+        },
+        "isAttuned": {
+          "type": "boolean",
+          "description": "Whether the item is currently attuned to the character"
+        },
+        "canAttune": {
+          "type": "boolean",
+          "description": "Whether the item can be attuned to"
+        },
+        "weight": {
+          "type": "number",
+          "description": "Weight of the item in kilograms"
+        },
+        "rarity": {
+          "type": "string",
+          "description": "Rarity level of the item (common, uncommon, rare, etc)"
+        },
+        "type": {
+          "anyOf": [
+            {
+              "$ref": "#/definitions/InventoryItemType"
+            },
+            {
+              "type": "string"
+            }
+          ],
+          "description": "Type of item (weapon, armor, potion, etc)"
+        },
+        "damage": {
+          "type": "number",
+          "description": "Base damage number for weapons"
+        },
+        "damageType": {
+          "$ref": "#/definitions/DamageType",
+          "description": "Type of damage dealt by the item"
+        },
+        "range": {
+          "type": "number",
+          "description": "Range in meters for ranged weapons"
+        },
+        "longRange": {
+          "type": "number",
+          "description": "Long range in meters for ranged weapons"
+        },
+        "armorClassBonus": {
+          "type": "number",
+          "description": "Bonus to armor class provided by armor or shields"
+        },
+        "capacity": {
+          "type": "number",
+          "description": "Capacity of the item"
+        },
+        "quantity": {
+          "type": "number",
+          "description": "Quantity of the item"
+        },
+        "price": {
+          "$ref": "#/definitions/Currencies",
+          "description": "Price of the item"
+        },
+        "penalty": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Penalty"
+          },
+          "description": "Penalties to the character's stats (ex. heavy armor, etc)"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "description",
+        "isEquiped",
+        "isMagic",
+        "isContainer",
+        "isConsumable",
+        "isAttuned",
+        "canAttune",
+        "weight",
+        "rarity",
+        "type",
+        "quantity",
+        "penalty"
+      ],
+      "additionalProperties": false,
+      "description": "Schema definition for a single inventory item"
+    },
+    "InventoryItemType": {
+      "type": "string",
+      "enum": [
+        "weapon",
+        "armor",
+        "potion",
+        "tool"
+      ]
+    },
+    "DamageType": {
+      "type": "string",
+      "enum": [
+        "acid",
+        "bludgeoning",
+        "cold",
+        "fire",
+        "force",
+        "lightning",
+        "necrotic",
+        "piercing",
+        "poison",
+        "psychic",
+        "radiant",
+        "slashing",
+        "thunder"
+      ],
+      "description": "Definition of available damage types"
+    },
+    "Penalty": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "$ref": "#/definitions/PenaltyType",
+          "description": "Type of penalty"
+        },
+        "penalty": {
+          "type": "number",
+          "description": "Penalty value"
+        },
+        "stat": {
+          "$ref": "#/definitions/StatsType",
+          "description": "Stat affected by the penalty"
+        },
+        "skill": {
+          "$ref": "#/definitions/SkillsType",
+          "description": "Skill affected by the penalty"
+        }
+      },
+      "required": [
+        "type",
+        "penalty"
+      ],
+      "additionalProperties": false
+    },
+    "PenaltyType": {
+      "type": "string",
+      "enum": [
+        "stat",
+        "skill",
+        "speed",
+        "armorClass"
+      ]
+    },
     "Alignment": {
       "type": "string",
       "enum": [

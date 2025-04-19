@@ -13,6 +13,7 @@ import { Injectable, NotFoundException } from "@nestjs/common";
 import { AxiosError } from "axios";
 import { catchError, firstValueFrom } from "rxjs";
 import { IDndBeyondCharacter } from "../models/dnd-beyond.model";
+import { randomUUID } from "node:crypto";
 
 // TODO: move this to a shared library, so we cna use it already as an "expansion"
 
@@ -37,82 +38,99 @@ export class DndBeyondImporterService {
 
     const dndBeyondData: IDndBeyondCharacter = data.data;
 
-    const playerClasses: Class[] = dndBeyondData.classes.map((c) => ({
-      class: c.definition.name,
-      level: c.level || 1,
+    const playerClasses: Class[] = (dndBeyondData.classes ?? []).map((c) => ({
+      class: c.definition?.name ?? "",
+      level: c.level ?? 1,
     }));
     const playerLevel = playerClasses.reduce((a, b) => a + b.level, 0);
+
+    if (!dndBeyondData.overrideStats) {
+      dndBeyondData.overrideStats = [];
+    }
+
+    if (!dndBeyondData.stats) {
+      dndBeyondData.stats = [];
+    }
+
+    if (!dndBeyondData.bonusStats) {
+      dndBeyondData.bonusStats = [];
+    }
 
     const baseStats: Stats = {
       str: {
         stat: "str",
         value:
           dndBeyondData.overrideStats[0].value ??
-          dndBeyondData.stats[0].value + (dndBeyondData.bonusStats[0]?.value || 0),
+          (dndBeyondData.stats[0].value ?? 0) + (dndBeyondData.bonusStats[0]?.value ?? 0),
         isProficient: false,
       },
       dex: {
         stat: "dex",
         value:
           dndBeyondData.overrideStats[1].value ??
-          dndBeyondData.stats[1].value + (dndBeyondData.bonusStats[1]?.value || 0),
+          (dndBeyondData.stats[1].value ?? 0) + (dndBeyondData.bonusStats[1]?.value ?? 0),
         isProficient: false,
       },
       con: {
         stat: "con",
         value:
           dndBeyondData.overrideStats[2].value ??
-          dndBeyondData.stats[2].value + (dndBeyondData.bonusStats[2]?.value || 0),
+          (dndBeyondData.stats[2].value ?? 0) + (dndBeyondData.bonusStats[2]?.value ?? 0),
         isProficient: false,
       },
       int: {
         stat: "int",
         value:
           dndBeyondData.overrideStats[3].value ??
-          dndBeyondData.stats[3].value + (dndBeyondData.bonusStats[3]?.value || 0),
+          (dndBeyondData.stats[3].value ?? 0) + (dndBeyondData.bonusStats[3]?.value ?? 0),
         isProficient: false,
       },
       wis: {
         stat: "wis",
         value:
           dndBeyondData.overrideStats[4].value ??
-          dndBeyondData.stats[4].value + (dndBeyondData.bonusStats[4]?.value || 0),
+          (dndBeyondData.stats[4].value ?? 0) + (dndBeyondData.bonusStats[4]?.value ?? 0),
         isProficient: false,
       },
       cha: {
         stat: "cha",
         value:
           dndBeyondData.overrideStats[5].value ??
-          dndBeyondData.stats[5].value + (dndBeyondData.bonusStats[5]?.value || 0),
+          (dndBeyondData.stats[5].value ?? 0) + (dndBeyondData.bonusStats[5]?.value ?? 0),
         isProficient: false,
       },
     };
 
     return {
-      id: dndBeyondData.id.toString(),
-      name: dndBeyondData.name,
-      race: dndBeyondData.race.fullName || dndBeyondData.race.baseName,
-      avatar: dndBeyondData.decorations.avatarUrl,
+      id: dndBeyondData.id?.toString() ?? randomUUID(),
+      name: dndBeyondData.name ?? "",
+      race: dndBeyondData.race?.fullName ?? dndBeyondData.race?.baseName ?? "",
+      avatar: dndBeyondData.decorations?.avatarUrl ?? undefined,
       classes: playerClasses,
-      level: playerLevel,
       armorClass: 12, // TODO: get real total defense
       xp: {
-        current: dndBeyondData.currentXp,
-        max: this.getNextLevelExperience(dndBeyondData.currentXp),
+        current: dndBeyondData.currentXp ?? 0,
+        max: this.getNextLevelExperience(dndBeyondData.currentXp ?? 0),
       },
       hp: {
-        current: dndBeyondData.baseHitPoints + dndBeyondData.bonusHitPoints + (dndBeyondData.temporaryHitPoints || 0), // Need to check other Hit Point Bonuses
-        max: dndBeyondData.baseHitPoints + dndBeyondData.bonusHitPoints - (dndBeyondData.removedHitPoints || 0),
+        current:
+          (dndBeyondData.baseHitPoints ?? 0) +
+          (dndBeyondData.bonusHitPoints ?? 0) +
+          (dndBeyondData.temporaryHitPoints ?? 0), // Need to check other Hit Point Bonuses
+        max:
+          (dndBeyondData.baseHitPoints ?? 0) +
+          (dndBeyondData.bonusHitPoints ?? 0) -
+          (dndBeyondData.removedHitPoints ?? 0),
       },
       initiative: baseStats.dex.value,
       speed: this.feetsToMeters(dndBeyondData.race?.weightSpeeds?.normal?.walk || 30),
       proficiencyBonus: this.getProficiencyBonus(playerLevel),
       currencies: {
-        cp: dndBeyondData.currencies.cp,
-        sp: dndBeyondData.currencies.sp,
-        gp: dndBeyondData.currencies.gp,
-        ep: dndBeyondData.currencies.ep,
-        pp: dndBeyondData.currencies.pp,
+        cp: dndBeyondData.currencies?.cp ?? 0,
+        sp: dndBeyondData.currencies?.sp ?? 0,
+        gp: dndBeyondData.currencies?.gp ?? 0,
+        ep: dndBeyondData.currencies?.ep ?? 0,
+        pp: dndBeyondData.currencies?.pp ?? 0,
       },
       spellcastingAbility: this.getSpellCastingAbility(dndBeyondData.classes),
 
@@ -144,10 +162,10 @@ export class DndBeyondImporterService {
   }
 
   private getSpellCastingAbility(classes: IDndBeyondCharacter["classes"]): SpellCastingAbility[] {
-    return classes
+    return (classes ?? [])
       .map((c) => ({
-        stat: this.getSpellCastingAbilityByID(c.definition.spellCastingAbilityId),
-        class: c.definition.name,
+        stat: this.getSpellCastingAbilityByID(c.definition?.spellCastingAbilityId ?? 0),
+        class: c.definition?.name ?? "",
       }))
       .filter((c) => c.stat);
   }

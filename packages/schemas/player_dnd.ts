@@ -33,17 +33,12 @@ export interface IPlayerDnD {
   /**
    * Character Avatar URL
    */
-  avatar: string;
+  avatar?: string;
 
   /**
    * List o character classes
    */
   classes: Class[];
-
-  /**
-   * Current character level. This is the sum of all classes levels.
-   */
-  level: number;
 
   /**
    * Current character experience
@@ -110,7 +105,7 @@ export interface IPlayerDnD {
   /**
    * List of items
    */
-  items: any[]; // It's inside data.inventory
+  items: InventoryItem[];
 
   /**
    * Character's alignment
@@ -320,3 +315,156 @@ export interface Currencies {
    */
   pp: number;
 }
+
+/**
+ * Schema definition for a single inventory item
+ */
+export interface InventoryItem {
+  /**
+   * Unique identifier for the item
+   */
+  id: number;
+
+  /**
+   * Name of the item
+   */
+  name: string;
+
+  /**
+   * Detailed description of the item
+   */
+  description: string;
+
+  /**
+   * Whether the item is currently equipped by the character
+   */
+  isEquiped: boolean;
+
+  /**
+   * Whether the item is magical in nature
+   */
+  isMagic: boolean;
+
+  /**
+   * Whether the item can contain other items
+   */
+  isContainer: boolean;
+
+  /**
+   * Whether the item is consumed on use
+   */
+  isConsumable: boolean;
+
+  /**
+   * Whether the item is currently attuned to the character
+   */
+  isAttuned: boolean;
+
+  /**
+   * Whether the item can be attuned to
+   */
+  canAttune: boolean;
+
+  /**
+   * Weight of the item in kilograms
+   */
+  weight: number;
+
+  /**
+   * Rarity level of the item (common, uncommon, rare, etc)
+   */
+  rarity: string;
+
+  /**
+   * Type of item (weapon, armor, potion, etc)
+   */
+  type: InventoryItemType | string;
+
+  /**
+   * Base damage number for weapons
+   */
+  damage?: number;
+
+  /**
+   * Type of damage dealt by the item
+   */
+  damageType?: DamageType;
+
+  /**
+   * Range in meters for ranged weapons
+   */
+  range?: number;
+
+  /**
+   * Long range in meters for ranged weapons
+   */
+  longRange?: number;
+
+  /**
+   * Bonus to armor class provided by armor or shields
+   */
+  armorClassBonus?: number;
+
+  /**
+   * Capacity of the item
+   */
+  capacity?: number;
+
+  /**
+   * Quantity of the item
+   */
+  quantity: number;
+
+  /**
+   * Price of the item
+   */
+  price?: Currencies;
+
+  /**
+   * Penalties to the character's stats (ex. heavy armor, etc)
+   */
+  penalty: Penalty[];
+}
+
+export interface Penalty {
+  /**
+   * Type of penalty
+   */
+  type: PenaltyType;
+
+  /**
+   * Penalty value
+   */
+  penalty: number;
+
+  /**
+   * Stat affected by the penalty
+   */
+  stat?: StatsType;
+
+  /**
+   * Skill affected by the penalty
+   */
+  skill?: SkillsType;
+}
+
+export type PenaltyType = "stat" | "skill" | "speed" | "armorClass";
+export type InventoryItemType = "weapon" | "armor" | "potion" | "tool";
+
+/**
+ * Definition of available damage types
+ */
+export type DamageType =
+  | "acid"
+  | "bludgeoning"
+  | "cold"
+  | "fire"
+  | "force"
+  | "lightning"
+  | "necrotic"
+  | "piercing"
+  | "poison"
+  | "psychic"
+  | "radiant"
+  | "slashing"
+  | "thunder";
