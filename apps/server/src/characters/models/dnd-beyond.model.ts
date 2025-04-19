@@ -1,1289 +1,1263 @@
-// Generated using https://transform.tools/json-to-typescript and a character JSON export from D&D Beyond
+// Extracted from official D&D Beyond API: https://character-service.dndbeyond.com/swagger/index.html?urls.primaryName=V5#model-Waterdeep.DataContracts.Latest.Character.CharacterContract
 
 export interface IDndBeyondCharacter {
-  id: number;
-  userId: number;
-  username: string;
-  isAssignedToPlayer: boolean;
-  readonlyUrl: string;
-  decorations: Decorations;
-  name: string;
-  socialName?: unknown;
-  gender?: unknown;
-  faith: string;
-  age?: unknown;
-  hair?: unknown;
-  eyes?: unknown;
-  skin?: unknown;
-  height?: unknown;
-  weight?: unknown;
-  inspiration: boolean;
-  baseHitPoints: number;
-  bonusHitPoints: number;
-  overrideHitPoints?: unknown;
-  removedHitPoints: number;
-  temporaryHitPoints: number;
-  currentXp: number;
-  alignmentId: number;
-  lifestyleId: number;
-  stats: Stat[];
-  bonusStats: Stat[];
-  overrideStats: Stat[];
-  background: Background;
-  race: Race;
-  raceDefinitionId?: unknown;
-  raceDefinitionTypeId?: unknown;
-  notes: Notes;
-  traits: Traits;
-  preferences: Preferences;
-  configuration: Configuration;
-  lifestyle?: unknown;
-  inventory: Inventory[];
-  currencies: Currencies;
-  classes: Class[];
-  feats: unknown[];
-  features?: unknown;
-  customDefenseAdjustments: unknown[];
-  customSenses: unknown[];
-  customSpeeds: unknown[];
-  customProficiencies: unknown[];
-  customActions: unknown[];
-  characterValues: unknown[];
-  conditions: unknown[];
-  deathSaves: DeathSaves;
-  adjustmentXp?: unknown;
-  spellSlots: SpellSlot[];
-  pactMagic: PactMagic[];
-  activeSourceCategories: number[];
-  spells: Spells;
-  options: Options;
-  choices: Choices;
-  actions: Actions;
-  modifiers: Modifiers;
-  classSpells: ClassSpell[];
-  customItems: unknown[];
-  campaign?: unknown;
-  creatures: unknown[];
-  optionalOrigins: unknown[];
-  optionalClassFeatures: unknown[];
-  dateModified: string;
-  providedFrom: string;
-  canEdit: boolean;
-  status: number;
-  statusSlug?: unknown;
-  campaignSetting?: unknown;
+  id?: number;
+  userId?: number;
+  username?: string | null;
+  isAssignedToPlayer?: boolean;
+  readonlyUrl?: string | null;
+  decorations?: CharacterDecoration;
+  name?: string | null;
+  socialName?: string | null;
+  gender?: string | null;
+  faith?: string | null;
+  age?: number | null;
+  hair?: string | null;
+  eyes?: string | null;
+  skin?: string | null;
+  height?: string | null;
+  weight?: number | null;
+  inspiration?: boolean | null;
+  baseHitPoints?: number;
+  bonusHitPoints?: number | null;
+  overrideHitPoints?: number | null;
+  removedHitPoints?: number;
+  temporaryHitPoints?: number | null;
+  currentXp?: number;
+  alignmentId?: number | null;
+  lifestyleId?: number | null;
+  stats?: Stat[] | null;
+  bonusStats?: Stat[] | null;
+  overrideStats?: Stat[] | null;
+  background?: Background;
+  race?: RaceDefinition;
+  raceDefinitionId?: number | null;
+  raceDefinitionTypeId?: number | null;
+  notes?: CharacterNotes;
+  traits?: CharacterTraits;
+  preferences?: CharacterPreferences;
+  configuration?: CharacterConfiguration;
+  lifestyle?: CharacterLifestyle;
+  inventory?: ItemBaseInventory[] | null;
+  currencies?: CharacterCurrency;
+  classes?: ClassClassDetails[] | null;
+  feats?: FeatFeatDetails[] | null;
+  features?: CharacterFeatureMapping[] | null;
+  customDefenseAdjustments?: CharacterDefenseAdjustment[] | null;
+  customSenses?: CustomSense[] | null;
+  customSpeeds?: CustomSpeed[] | null;
+  customProficiencies?: CustomProficiency[] | null;
+  customActions?: CustomAction[] | null;
+  characterValues?: CharacterValues[] | null;
+  conditions?: CharacterCondition[] | null;
+  deathSaves?: CharacterDeathSave;
+  adjustmentXp?: number | null;
+  spellSlots?: SpellSpellSlot[] | null;
+  pactMagic?: SpellSpellSlot[] | null;
+  activeSourceCategories?: number[] | null;
+  spells?: SpellSpellComponents;
+  options?: CharacterOptionComponents;
+  choices?: CharacterChoiceComponents;
+  actions?: CharacterActionComponents;
+  modifiers?: CharacterModifierComponents;
+  classSpells?: SpellClassSpellComponents[] | null;
+  customItems?: CharacterCustomItem[] | null;
+  campaign?: CharacterCampaignData;
+  creatures?: MonsterCreature[] | null;
+  optionalOrigins?: CharacterOptionalOrigin[] | null;
+  optionalClassFeatures?: CharacterOptionalClassFeature[] | null;
+  /** @format date-time */
+  dateModified?: string;
+  providedFrom?: string | null;
+  canEdit?: boolean;
+  status?: number;
+  statusSlug?: string | null;
+  campaignSetting?: CampaignSettingCharacterCampaignSetting;
 }
 
-interface Decorations {
-  avatarUrl: string;
-  frameAvatarUrl?: unknown;
-  backdropAvatarUrl?: unknown;
-  smallBackdropAvatarUrl?: unknown;
-  largeBackdropAvatarUrl?: unknown;
-  thumbnailBackdropAvatarUrl?: unknown;
-  defaultBackdrop: DefaultBackdrop;
-  avatarId: number;
-  portraitDecorationKey: string;
-  frameAvatarDecorationKey?: unknown;
-  frameAvatarId?: unknown;
-  backdropAvatarDecorationKey?: unknown;
-  backdropAvatarId?: unknown;
-  smallBackdropAvatarDecorationKey: string;
-  smallBackdropAvatarId?: unknown;
-  largeBackdropAvatarDecorationKey: string;
-  largeBackdropAvatarId?: unknown;
-  thumbnailBackdropAvatarDecorationKey: string;
-  thumbnailBackdropAvatarId?: unknown;
-  themeColor?: unknown;
+interface CharacterDecoration {
+  avatarUrl?: string | null;
+  frameAvatarUrl?: string | null;
+  backdropAvatarUrl?: string | null;
+  smallBackdropAvatarUrl?: string | null;
+  largeBackdropAvatarUrl?: string | null;
+  thumbnailBackdropAvatarUrl?: string | null;
+  defaultBackdrop?: Record<string, string>;
+  avatarId?: number | null;
+  portraitDecorationKey?: string | null;
+  frameAvatarDecorationKey?: string | null;
+  frameAvatarId?: number | null;
+  backdropAvatarDecorationKey?: string | null;
+  backdropAvatarId?: number | null;
+  smallBackdropAvatarDecorationKey?: string | null;
+  smallBackdropAvatarId?: number | null;
+  largeBackdropAvatarDecorationKey?: string | null;
+  largeBackdropAvatarId?: number | null;
+  thumbnailBackdropAvatarDecorationKey?: string | null;
+  thumbnailBackdropAvatarId?: number | null;
+  themeColor?: CharacterThemeColor;
 }
 
-interface DefaultBackdrop {
-  backdropAvatarUrl: string;
-  smallBackdropAvatarUrl: string;
-  largeBackdropAvatarUrl: string;
-  thumbnailBackdropAvatarUrl: string;
+interface CharacterThemeColor {
+  themeColorId?: number | null;
+  themeColor?: string | null;
+  backgroundColor?: string | null;
+  name?: string | null;
+  raceId?: number | null;
+  subRaceId?: number | null;
+  classId?: number | null;
+  tags?: string[] | null;
+  decorationKey?: string | null;
 }
 
 interface Stat {
-  id: number;
-  name?: string;
-  value: number;
+  id?: number;
+  name?: string | null;
+  value?: number | null;
 }
 
 interface Background {
-  hasCustomBackground: boolean;
-  definition: Definition;
-  definitionId?: unknown;
-  customBackground: CustomBackground;
+  hasCustomBackground?: boolean;
+  definition?: BackgroundDefinition;
+  definitionId?: number | null;
+  customBackground?: BackgroundCustomBackground;
 }
 
-interface Definition {
-  id: number;
-  entityTypeId: number;
-  definitionKey: string;
-  name: string;
-  description: string;
-  snippet: string;
-  shortDescription: string;
-  skillProficienciesDescription: string;
-  toolProficienciesDescription: string;
-  languagesDescription: string;
-  equipmentDescription: string;
-  featureName: string;
-  featureDescription: string;
-  avatarUrl?: unknown;
-  largeAvatarUrl?: unknown;
-  suggestedCharacteristicsDescription: string;
-  suggestedProficiencies?: unknown;
-  suggestedLanguages?: unknown;
-  organization?: unknown;
-  contractsDescription: string;
-  spellsPreDescription: string;
-  spellsPostDescription: string;
-  personalityTraits: PersonalityTrait[];
-  ideals: Ideal[];
-  bonds: Bond[];
-  flaws: Flaw[];
-  isHomebrew: boolean;
-  sources: Source[];
-  spellListIds: unknown[];
-  featList?: unknown;
-  grantedFeats: unknown[];
+interface BackgroundDefinition {
+  id?: number;
+  entityTypeId?: number;
+  definitionKey?: string | null;
+  name?: string | null;
+  description?: string | null;
+  snippet?: string | null;
+  shortDescription?: string | null;
+  skillProficienciesDescription?: string | null;
+  toolProficienciesDescription?: string | null;
+  languagesDescription?: string | null;
+  equipmentDescription?: string | null;
+  featureName?: string | null;
+  featureDescription?: string | null;
+  avatarUrl?: string | null;
+  largeAvatarUrl?: string | null;
+  suggestedCharacteristicsDescription?: string | null;
+  /** @deprecated */
+  suggestedProficiencies?: string[] | null;
+  /** @deprecated */
+  suggestedLanguages?: string[] | null;
+  organization?: BackgroundOrganization;
+  contractsDescription?: string | null;
+  spellsPreDescription?: string | null;
+  spellsPostDescription?: string | null;
+  personalityTraits?: BackgroundCharacteristic[] | null;
+  ideals?: BackgroundCharacteristic[] | null;
+  bonds?: BackgroundCharacteristic[] | null;
+  flaws?: BackgroundCharacteristic[] | null;
+  isHomebrew?: boolean;
+  sources?: SourceMapping[] | null;
+  spellListIds?: number[] | null;
+  featList?: FeatFeatList;
+  grantedFeats?: FeatFeatList[] | null;
 }
 
-interface PersonalityTrait {
-  id: number;
-  description: string;
-  diceRoll: number;
+interface BackgroundCustomBackground {
+  id?: number;
+  entityTypeId?: number;
+  name?: string | null;
+  description?: string | null;
+  featuresBackground?: BackgroundDefinition;
+  characteristicsBackground?: BackgroundDefinition;
+  featuresBackgroundDefinitionId?: number | null;
+  characteristicsBackgroundDefinitionId?: number | null;
+  backgroundType?: number | null;
 }
 
-interface Ideal {
-  id: number;
-  description: string;
-  diceRoll: number;
+interface BackgroundOrganization {
+  id?: number;
+  name?: string | null;
+  description?: string | null;
 }
 
-interface Bond {
-  id: number;
-  description: string;
-  diceRoll: number;
+interface BackgroundCharacteristic {
+  id?: number;
+  description?: string | null;
+  diceRoll?: number;
 }
 
-interface Flaw {
-  id: number;
-  description: string;
-  diceRoll: number;
+interface SourceMapping {
+  sourceId?: number;
+  pageNumber?: number | null;
+  sourceType?: WaterdeepDataContractsSourceType;
 }
 
-interface Source {
-  sourceId: number;
-  pageNumber?: unknown;
-  sourceType: number;
+/** @format int32 */
+export enum WaterdeepDataContractsSourceType {
+  Value1 = 1,
+  Value2 = 2,
+  Value3 = 3,
+}
+interface FeatFeatList {
+  id?: number;
+  name?: string | null;
+  featIds?: number[] | null;
 }
 
-interface CustomBackground {
-  id: number;
-  entityTypeId: number;
-  name?: unknown;
-  description?: unknown;
-  featuresBackground?: unknown;
-  characteristicsBackground?: unknown;
-  featuresBackgroundDefinitionId?: unknown;
-  characteristicsBackgroundDefinitionId?: unknown;
-  backgroundType?: unknown;
+interface RaceDefinition {
+  isSubRace?: boolean;
+  baseRaceName?: string | null;
+  entityRaceId?: number;
+  entityRaceTypeId?: number;
+  definitionKey?: string | null;
+  fullName?: string | null;
+  baseRaceId?: number | null;
+  baseRaceTypeId?: number | null;
+  description?: string | null;
+  avatarUrl?: string | null;
+  largeAvatarUrl?: string | null;
+  portraitAvatarUrl?: string | null;
+  moreDetailsUrl?: string | null;
+  isHomebrew?: boolean;
+  isLegacy?: boolean;
+  groupIds?: number[] | null;
+  type?: number;
+  supportsSubrace?: boolean | null;
+  subRaceShortName?: string | null;
+  baseName?: string | null;
+  racialTraits?: RaceRacialTrait[] | null;
+  weightSpeeds?: WeightSpeed;
+  featIds?: number[] | null;
+  size?: string | null;
+  sizeId?: number;
+  sources?: SourceMapping[] | null;
 }
 
-interface Race {
-  isSubRace: boolean;
-  baseRaceName: string;
-  entityRaceId: number;
-  entityRaceTypeId: number;
-  definitionKey: string;
-  fullName: string;
-  baseRaceId: number;
-  baseRaceTypeId: number;
-  description: string;
-  avatarUrl: string;
-  largeAvatarUrl: string;
-  portraitAvatarUrl: string;
-  moreDetailsUrl: string;
-  isHomebrew: boolean;
-  isLegacy: boolean;
-  groupIds: number[];
-  type: number;
-  supportsSubrace?: unknown;
-  subRaceShortName?: unknown;
-  baseName: string;
-  racialTraits: RacialTrait[];
-  weightSpeeds: WeightSpeeds;
-  featIds: unknown[];
-  size?: unknown;
-  sizeId: number;
-  sources: Source3[];
+interface RaceRacialTrait {
+  definition?: RaceRacialTraitDefinition;
 }
 
-interface RacialTrait {
-  definition: Definition2;
-}
-
-interface Definition2 {
-  id: number;
-  definitionKey: string;
-  entityTypeId: number;
-  displayOrder: number;
-  name: string;
-  description: string;
-  snippet?: string;
-  hideInBuilder: boolean;
-  hideInSheet: boolean;
-  activation?: unknown;
-  sourceId: number;
-  sourcePageNumber: number;
-  creatureRules: unknown[];
-  spellListIds: unknown[];
-  featureType: number;
-  sources: Source2[];
-  affectedFeatureDefinitionKeys: unknown[];
-  isCalledOut: boolean;
-  entityType: string;
-  entityID: string;
-  entityRaceId: number;
-  entityRaceTypeId: number;
-  displayConfiguration: DisplayConfiguration;
-  requiredLevel?: unknown;
-  categories: Category[];
-}
-
-interface Source2 {
-  sourceId: number;
-  pageNumber: number;
-  sourceType: number;
-}
-
-interface DisplayConfiguration {
-  RACIALTRAIT: number;
-  ABILITYSCORE: number;
-  LANGUAGE: number;
-  CLASSFEATURE: number;
-}
-
-interface Category {
-  id: number;
-  entityTypeId: number;
-  entityId: number;
-  definitionKey: string;
-  entityTagId: number;
-  tagName: string;
-}
-
-interface WeightSpeeds {
-  normal: Normal;
-  encumbered?: unknown;
-  heavilyEncumbered?: unknown;
-  pushDragLift?: unknown;
-  override?: unknown;
-}
-
-interface Normal {
-  walk: number;
-  fly: number;
-  burrow: number;
-  swim: number;
-  climb: number;
-}
-
-interface Source3 {
-  sourceId: number;
-  pageNumber?: number;
-  sourceType: number;
-}
-
-interface Notes {
-  allies?: unknown;
-  personalPossessions: string;
-  otherHoldings?: unknown;
-  organizations?: unknown;
-  enemies?: unknown;
-  backstory?: unknown;
-  otherNotes: string;
-}
-
-interface Traits {
-  personalityTraits?: unknown;
-  ideals?: unknown;
-  bonds?: unknown;
-  flaws?: unknown;
-  appearance?: unknown;
-}
-
-interface Preferences {
-  useHomebrewContent: boolean;
-  progressionType: number;
-  encumbranceType: number;
-  ignoreCoinWeight: boolean;
-  hitPointType: number;
-  showUnarmedStrike: boolean;
-  showScaledSpells: boolean;
-  primarySense: number;
-  primaryMovement: number;
-  privacyType: number;
-  sharingType: number;
-  abilityScoreDisplayType: number;
-  enforceFeatRules: boolean;
-  enforceMulticlassRules: boolean;
-  enableOptionalClassFeatures: boolean;
-  enableOptionalOrigins: boolean;
-  enableDarkMode: boolean;
-  enableContainerCurrency: boolean;
-}
-
-interface Configuration {
-  startingEquipmentType: number;
-  abilityScoreType: number;
-  showHelpText: boolean;
-}
-
-interface Inventory {
-  id: number;
-  entityTypeId: number;
-  definition: Definition3;
-  definitionId: number;
-  definitionTypeId: number;
-  displayAsAttack?: unknown;
-  quantity: number;
-  isAttuned: boolean;
-  equipped: boolean;
-  equippedEntityTypeId?: number;
-  equippedEntityId?: number;
-  chargesUsed: number;
-  limitedUse?: unknown;
-  containerEntityId: number;
-  containerEntityTypeId: number;
-  containerDefinitionKey: string;
-  currency?: unknown;
-}
-
-interface Definition3 {
-  id: number;
-  baseTypeId: number;
-  entityTypeId: number;
-  definitionKey: string;
-  canEquip: boolean;
-  magic: boolean;
-  name: string;
-  snippet?: unknown;
-  weight: number;
-  weightMultiplier: number;
-  capacity?: string;
-  capacityWeight: number;
-  type: string;
-  description: string;
-  canAttune: boolean;
-  attunementDescription?: unknown;
-  rarity: string;
-  isHomebrew: boolean;
-  version?: unknown;
-  sourceId?: unknown;
-  sourcePageNumber?: unknown;
-  stackable: boolean;
-  bundleSize: number;
-  avatarUrl?: unknown;
-  largeAvatarUrl?: unknown;
-  filterType: string;
-  cost: number;
-  isPack: boolean;
-  tags: string[];
-  grantedModifiers: unknown[];
-  subType?: string;
-  isConsumable: boolean;
-  weaponBehaviors: unknown[];
-  baseItemId?: number;
-  baseArmorName?: unknown;
-  strengthRequirement?: unknown;
-  armorClass?: unknown;
-  stealthCheck?: unknown;
-  damage?: Damage;
-  damageType?: string;
-  fixedDamage?: unknown;
-  properties?: Property[];
-  attackType?: number;
-  categoryId?: number;
-  range?: number;
-  longRange?: number;
-  isMonkWeapon: boolean;
-  levelInfusionGranted?: unknown;
-  sources: Source4[];
-  armorTypeId?: unknown;
-  gearTypeId?: number;
-  groupedId?: unknown;
-  canBeAddedToInventory: boolean;
-  isContainer: boolean;
-  isCustomItem: boolean;
-  isLegacy: boolean;
-}
-
-interface Damage {
-  diceCount: number;
-  diceValue: number;
-  diceMultiplier?: unknown;
-  fixedValue?: unknown;
-  diceString: string;
-}
-
-interface Property {
-  id: number;
-  name: string;
-  description: string;
-  notes?: unknown;
-}
-
-interface Source4 {
-  sourceId: number;
-  pageNumber?: unknown;
-  sourceType: number;
-}
-
-interface Currencies {
-  cp: number;
-  sp: number;
-  gp: number;
-  ep: number;
-  pp: number;
-}
-
-interface Class {
-  id: number;
-  entityTypeId: number;
-  level: number;
-  isStartingClass: boolean;
-  hitDiceUsed: number;
-  definitionId: number;
-  subclassDefinitionId?: unknown;
-  definition: Definition4;
-  subclassDefinition: SubclassDefinition;
-  classFeatures: ClassFeature3[];
-}
-
-interface Definition4 {
-  id: number;
-  definitionKey: string;
-  name: string;
-  description: string;
-  equipmentDescription: string;
-  parentClassId?: unknown;
-  avatarUrl: string;
-  largeAvatarUrl: string;
-  portraitAvatarUrl: string;
-  moreDetailsUrl: string;
-  spellCastingAbilityId: number;
-  sources: Source5[];
-  classFeatures: ClassFeature[];
-  hitDice: number;
-  wealthDice: WealthDice;
-  canCastSpells: boolean;
-  knowsAllSpells: boolean;
-  spellPrepareType?: unknown;
-  spellCastingLearningStyle?: unknown;
-  spellContainerName?: unknown;
-  sourcePageNumber: number;
-  subclassDefinition?: unknown;
-  isHomebrew: boolean;
-  primaryAbilities: number[];
-  spellRules: SpellRules;
-  prerequisites: Prerequisite[];
-}
-
-interface Source5 {
-  sourceId: number;
-  pageNumber: number;
-  sourceType: number;
-}
-
-interface ClassFeature {
-  id: number;
-  name: string;
-  prerequisite?: unknown;
-  description: string;
-  requiredLevel: number;
-  displayOrder: number;
-}
-
-interface WealthDice {
-  diceCount: number;
-  diceValue: number;
-  diceMultiplier: number;
-  fixedValue?: unknown;
-  diceString: string;
-}
-
-interface SpellRules {
-  multiClassSpellSlotDivisor: number;
-  isRitualSpellCaster: boolean;
-  levelCantripsKnownMaxes: number[];
-  levelSpellKnownMaxes: number[];
-  levelSpellSlots: number[][];
-  multiClassSpellSlotRounding: number;
-  levelPreparedSpellMaxes: unknown[];
-}
-
-interface Prerequisite {
-  description: string;
-  prerequisiteMappings: PrerequisiteMapping[];
-  hidePrerequisite: boolean;
-}
-
-interface PrerequisiteMapping {
-  id: number;
-  entityId: number;
-  entityTypeId: number;
-  type: string;
-  subType: string;
-  value: number;
-  friendlyTypeName: string;
-  friendlySubTypeName: string;
-}
-
-interface SubclassDefinition {
-  id: number;
-  definitionKey: string;
-  name: string;
-  description: string;
-  equipmentDescription?: unknown;
-  parentClassId: number;
-  avatarUrl?: unknown;
-  largeAvatarUrl?: unknown;
-  portraitAvatarUrl?: unknown;
-  moreDetailsUrl: string;
-  spellCastingAbilityId: number;
-  sources: Source6[];
-  classFeatures: ClassFeature2[];
-  hitDice: number;
-  wealthDice?: unknown;
-  canCastSpells: boolean;
-  knowsAllSpells: boolean;
-  spellPrepareType?: unknown;
-  spellCastingLearningStyle?: unknown;
-  spellContainerName?: unknown;
-  sourcePageNumber: number;
-  subclassDefinition?: unknown;
-  isHomebrew: boolean;
-  primaryAbilities?: unknown;
-  spellRules?: unknown;
-  prerequisites?: unknown;
-}
-
-interface Source6 {
-  sourceId: number;
-  pageNumber: number;
-  sourceType: number;
-}
-
-interface ClassFeature2 {
-  id: number;
-  name: string;
-  prerequisite?: unknown;
-  description: string;
-  requiredLevel: number;
-  displayOrder: number;
-}
-
-interface ClassFeature3 {
-  definition: Definition5;
-  levelScale?: unknown;
-}
-
-interface Definition5 {
-  id: number;
-  definitionKey: string;
-  entityTypeId: number;
-  displayOrder: number;
-  name: string;
-  description: string;
-  snippet: string;
-  activation?: unknown;
-  multiClassDescription: string;
-  requiredLevel: number;
-  isSubClassFeature: boolean;
-  limitedUse: LimitedUse[];
-  hideInBuilder: boolean;
-  hideInSheet: boolean;
-  sourceId: number;
-  sourcePageNumber?: number;
-  creatureRules: unknown[];
-  levelScales: unknown[];
-  infusionRules: unknown[];
-  spellListIds: unknown[];
-  classId: number;
-  featureType: number;
-  sources: Source7[];
-  affectedFeatureDefinitionKeys: unknown[];
-  entityType: string;
-  entityID: string;
-  grantedFeats: unknown[];
-}
-
-interface LimitedUse {
-  level?: unknown;
-  uses: number;
-}
-
-interface Source7 {
-  sourceId: number;
-  pageNumber?: number;
-  sourceType: number;
-}
-
-interface DeathSaves {
-  failCount?: unknown;
-  successCount?: unknown;
-  isStabilized: boolean;
-}
-
-interface SpellSlot {
-  level: number;
-  used: number;
-  available: number;
-}
-
-interface PactMagic {
-  level: number;
-  used: number;
-  available: number;
-}
-
-interface Spells {
-  race: Race2[];
-  class: unknown[];
-  background?: unknown;
-  item: unknown[];
-  feat: unknown[];
-}
-
-interface Race2 {
-  overrideSaveDc?: unknown;
-  limitedUse?: LimitedUse2;
-  id: number;
-  entityTypeId: number;
-  definition: Definition6;
-  definitionId: number;
-  prepared: boolean;
-  countsAsKnownSpell: boolean;
-  usesSpellSlot: boolean;
-  castAtLevel?: number;
-  alwaysPrepared: boolean;
-  restriction: string;
-  spellCastingAbilityId: number;
-  displayAsAttack?: unknown;
-  additionalDescription?: unknown;
-  castOnlyAsRitual: boolean;
-  ritualCastingType?: unknown;
-  range: Range2;
-  activation: Activation2;
-  baseLevelAtWill: boolean;
-  atWillLimitedUseLevel?: unknown;
-  isSignatureSpell?: unknown;
-  componentId: number;
-  componentTypeId: number;
-  spellListId?: unknown;
-}
-
-interface LimitedUse2 {
-  name?: unknown;
-  statModifierUsesId?: unknown;
-  resetType: number;
-  numberUsed: number;
-  minNumberConsumed?: unknown;
-  maxNumberConsumed: number;
-  maxUses: number;
-  operator: number;
-  useProficiencyBonus: boolean;
-  proficiencyBonusOperator: number;
-  resetDice?: unknown;
-}
-
-interface Definition6 {
-  id: number;
-  definitionKey: string;
-  name: string;
-  level: number;
-  school: string;
-  duration: Duration;
-  activation: Activation;
-  range: Range;
-  asPartOfWeaponAttack: boolean;
-  description: string;
-  snippet: string;
-  concentration: boolean;
-  ritual: boolean;
-  rangeArea?: unknown;
-  damageEffect?: unknown;
-  components: number[];
-  componentsDescription: string;
-  saveDcAbilityId?: number;
-  healing?: unknown;
-  healingDice: unknown[];
-  tempHpDice: unknown[];
-  attackType?: unknown;
-  canCastAtHigherLevel: boolean;
-  isHomebrew: boolean;
-  version?: unknown;
-  sourceId?: unknown;
-  sourcePageNumber: number;
-  requiresSavingThrow: boolean;
-  requiresAttackRoll: boolean;
-  atHigherLevels: AtHigherLevels;
-  modifiers: Modifier[];
-  conditions: unknown[];
-  tags: string[];
-  castingTimeDescription: string;
-  scaleType?: string;
-  sources: Source8[];
-  spellGroups: unknown[];
-  isLegacy: boolean;
-}
-
-interface Duration {
-  durationInterval: number;
-  durationUnit?: string;
-  durationType: string;
+interface RaceRacialTraitDefinition {
+  id?: number;
+  definitionKey?: string | null;
+  entityTypeId?: number;
+  displayOrder?: number | null;
+  name?: string | null;
+  description?: string | null;
+  snippet?: string | null;
+  hideInBuilder?: boolean;
+  hideInSheet?: boolean;
+  activation?: Activation;
+  sourceId?: number | null;
+  sourcePageNumber?: number | null;
+  creatureRules?: EntityCreature[] | null;
+  spellListIds?: number[] | null;
+  featureType?: number;
+  sources?: SourceMapping[] | null;
+  affectedFeatureDefinitionKeys?: string[] | null;
+  isCalledOut?: boolean;
+  entityType?: string | null;
+  entityID?: string | null;
+  entityRaceId?: number;
+  entityRaceTypeId?: number;
+  displayConfiguration?: Record<string, number>;
+  requiredLevel?: number | null;
+  categories?: EntityTagEntityTagMapping[] | null;
 }
 
 interface Activation {
-  activationTime: number;
-  activationType: number;
+  activationTime?: number | null;
+  activationType?: number | null;
 }
 
-interface Range {
-  origin: string;
-  rangeValue: number;
-  aoeType?: string;
-  aoeValue?: number;
+interface EntityTagEntityTagMapping {
+  id?: number;
+  entityTypeId?: number;
+  entityId?: number;
+  definitionKey?: string | null;
+  entityTagId?: number;
+  tagName?: string | null;
 }
 
-interface AtHigherLevels {
-  higherLevelDefinitions: unknown[];
-  additionalAttacks: unknown[];
-  additionalTargets: unknown[];
-  areaOfEffect: unknown[];
-  duration: unknown[];
-  creatures: unknown[];
-  special: unknown[];
-  points: unknown[];
-  range: unknown[];
+interface EntityCreature {
+  creatureGroupId?: number;
+  monsterTypeId?: number | null;
+  maxChallengeRatingId?: number | null;
+  levelDivisor?: number | null;
+  monsterIds?: number[] | null;
+  movementIds?: number[] | null;
+  sizeIds?: number[] | null;
 }
 
-interface Modifier {
-  fixedValue?: unknown;
-  id: string;
-  entityId?: unknown;
-  entityTypeId?: unknown;
-  type: string;
-  subType: string;
-  dice?: unknown;
-  restriction: string;
-  statId?: unknown;
-  requiresAttunement: boolean;
-  duration?: unknown;
-  friendlyTypeName: string;
-  friendlySubtypeName: string;
-  isGranted: boolean;
-  bonusTypes: unknown[];
-  value?: unknown;
-  availableToMulticlass?: unknown;
-  modifierTypeId: number;
-  modifierSubTypeId: number;
-  componentId: number;
-  componentTypeId: number;
-  die: Die;
-  count: number;
-  durationUnit?: unknown;
-  usePrimaryStat: boolean;
-  atHigherLevels: AtHigherLevels2;
+interface WeightSpeed {
+  normal?: Movement;
+  encumbered?: Movement;
+  heavilyEncumbered?: Movement;
+  pushDragLift?: Movement;
+  override?: Movement;
 }
 
-interface Die {
-  diceCount: number;
-  diceValue: number;
-  diceMultiplier?: unknown;
-  fixedValue?: unknown;
-  diceString: string;
+interface Movement {
+  walk?: number | null;
+  fly?: number | null;
+  burrow?: number | null;
+  swim?: number | null;
+  climb?: number | null;
 }
 
-interface AtHigherLevels2 {
-  higherLevelDefinitions: HigherLevelDefinition[];
-  additionalAttacks: unknown[];
-  additionalTargets: unknown[];
-  areaOfEffect: unknown[];
-  duration: unknown[];
-  creatures: unknown[];
-  special: unknown[];
-  points: unknown[];
-  range: unknown[];
+interface CharacterNotes {
+  allies?: string | null;
+  personalPossessions?: string | null;
+  otherHoldings?: string | null;
+  organizations?: string | null;
+  enemies?: string | null;
+  backstory?: string | null;
+  otherNotes?: string | null;
 }
 
-interface HigherLevelDefinition {
-  level: number;
-  typeId: number;
-  dice: Dice;
-  value?: unknown;
-  details: string;
+interface CharacterTraits {
+  personalityTraits?: string | null;
+  ideals?: string | null;
+  bonds?: string | null;
+  flaws?: string | null;
+  appearance?: string | null;
+}
+
+interface CampaignSettingCharacterCampaignSetting {
+  campaignSettingId?: number;
+  enabledSourceIds?: number[] | null;
+}
+
+interface CharacterOptionalClassFeature {
+  classFeatureId?: number;
+  affectedClassFeatureId?: number | null;
+  classFeatureDefinitionKey?: string | null;
+  affectedClassFeatureDefinitionKey?: string | null;
+}
+
+interface CharacterOptionalOrigin {
+  racialTraitId?: number;
+  affectedRacialTraitId?: number | null;
+  racialTraitDefinitionKey?: string | null;
+  affectedRacialTraitDefinitionKey?: string | null;
+}
+
+interface MonsterCreature {
+  id?: number;
+  entityTypeId?: number;
+  name?: string | null;
+  description?: string | null;
+  isActive?: boolean;
+  removedHitPoints?: number;
+  temporaryHitPoints?: number | null;
+  groupId?: number;
+  definition?: MonsterMonsterDefinition;
+}
+
+interface MonsterMonsterDefinition {
+  id?: number;
+  entityTypeId?: number;
+  name?: string | null;
+  alignmentId?: number | null;
+  sizeId?: number;
+  typeId?: number;
+  armorClass?: number;
+  armorClassDescription?: string | null;
+  averageHitPoints?: number;
+  hitPointDice?: Dice;
+  movements?: MonsterMonsterMovement[] | null;
+  passivePerception?: number | null;
+  isHomebrew?: boolean;
+  challengeRatingId?: number;
+  sourceId?: number | null;
+  sourcePageNumber?: number | null;
+  isLegendary?: boolean;
+  isMythic?: boolean;
+  hasLair?: boolean;
+  avatarUrl?: string | null;
+  largeAvatarUrl?: string | null;
+  basicAvatarUrl?: string | null;
+  version?: string | null;
+  swarm?: MonsterMonsterSwarm;
+  subTypes?: number[] | null;
+  environments?: number[] | null;
+  tags?: string[] | null;
+  sources?: SourceMapping[] | null;
+  stats?: MonsterMonsterStat[] | null;
+  senses?: MonsterMonsterSense[] | null;
+  damageAdjustments?: number[] | null;
+  conditionImmunities?: number[] | null;
+  savingThrows?: MonsterMonsterSavingThrow[] | null;
+  skills?: MonsterMonsterSkill[] | null;
+  languages?: MonsterMonsterLanguage[] | null;
+  specialTraitsDescription?: string | null;
+  actionsDescription?: string | null;
+  reactionsDescription?: string | null;
+  legendaryActionsDescription?: string | null;
+  mythicActionsDescription?: string | null;
+  bonusActionsDescription?: string | null;
+  characteristicsDescription?: string | null;
+  lairDescription?: string | null;
+  languageDescription?: string | null;
+  languageNote?: string | null;
+  hideCr?: boolean;
+  isLegacy?: boolean;
+  statBlockType?: number;
+  initiative?: MonsterMonsterInitiative;
+  lairChallengeRatingId?: number | null;
+  gear?: string | null;
+  slug?: string | null;
+}
+
+interface MonsterMonsterInitiative {
+  score?: number;
+  bonus?: number;
+}
+
+interface MonsterMonsterSwarm {
+  name?: string | null;
+  sizeId?: number;
+  typeId?: number;
+}
+
+interface MonsterMonsterStat {
+  statId?: number;
+  name?: string | null;
+  value?: number | null;
+}
+
+interface MonsterMonsterSense {
+  senseId?: number;
+  notes?: string | null;
+}
+
+interface MonsterMonsterSavingThrow {
+  statId?: number;
+  bonusModifier?: number | null;
+}
+
+interface MonsterMonsterSkill {
+  skillId?: number;
+  value?: number;
+  additionalBonus?: number | null;
+}
+
+interface MonsterMonsterLanguage {
+  languageId?: number;
+  notes?: string | null;
 }
 
 interface Dice {
-  diceCount: number;
-  diceValue: number;
-  diceMultiplier?: unknown;
-  fixedValue: number;
-  diceString: string;
+  diceCount?: number | null;
+  diceValue?: number | null;
+  diceMultiplier?: number | null;
+  fixedValue?: number | null;
+  diceString?: string | null;
 }
 
-interface Source8 {
-  sourceId: number;
-  pageNumber?: number;
-  sourceType: number;
+interface MonsterMonsterMovement {
+  movementId?: number;
+  speed?: number;
+  notes?: string | null;
 }
 
-interface Range2 {
-  origin: string;
-  rangeValue: number;
-  aoeType?: string;
-  aoeValue?: number;
+interface SpellSpellSlot {
+  level?: number;
+  used?: number;
+  available?: number;
 }
 
-interface Activation2 {
-  activationTime: number;
-  activationType: number;
+interface CharacterCampaignData {
+  id?: number;
+  name?: string | null;
+  description?: string | null;
+  link?: string | null;
+  publicNotes?: string | null;
+  dmUserId?: number;
+  dmUsername?: string | null;
+  characters?: CharacterCampaignCharacter[] | null;
 }
 
-interface Options {
-  race: unknown[];
-  class: Class2[];
-  background?: unknown;
-  item?: unknown;
-  feat: unknown[];
+interface CharacterCampaignCharacter {
+  userId?: number;
+  username?: string | null;
+  characterId?: number;
+  characterName?: string | null;
+  characterUrl?: string | null;
+  avatarUrl?: string | null;
+  privacyType?: number;
+  campaignId?: number | null;
+  isAssigned?: boolean;
 }
 
-interface Class2 {
-  componentId: number;
-  componentTypeId: number;
-  definition: Definition7;
+interface CharacterCustomItem {
+  id?: number;
+  name?: string | null;
+  description?: string | null;
+  /** @format double */
+  weight?: number | null;
+  cost?: number | null;
+  quantity?: number | null;
+  notes?: string | null;
 }
 
-interface Definition7 {
-  id: number;
-  entityTypeId: number;
-  name: string;
-  description: string;
-  snippet: string;
-  activation?: unknown;
-  sourceId: number;
-  sourcePageNumber?: unknown;
-  creatureRules: unknown[];
-  spellListIds: unknown[];
-}
-
-interface Choices {
-  race: unknown[];
-  class: Class3[];
-  background: Background2[];
-  item?: unknown;
-  feat: unknown[];
-  choiceDefinitions: ChoiceDefinition[];
-  definitionKeyNameMap?: unknown;
-}
-
-interface Class3 {
-  componentId: number;
-  componentTypeId: number;
-  id: string;
-  parentChoiceId?: string;
-  type: number;
-  subType?: number;
-  optionValue: number;
-  label?: string;
-  isOptional: boolean;
-  isInfinite: boolean;
-  defaultSubtypes: unknown[];
-  displayOrder?: number;
-  options: unknown[];
-  optionIds: number[];
-  tagConstraints: unknown[];
-}
-
-interface Background2 {
-  componentId: number;
-  componentTypeId: number;
-  id: string;
-  parentChoiceId?: unknown;
-  type: number;
-  subType: number;
-  optionValue: number;
-  label: string;
-  isOptional: boolean;
-  isInfinite: boolean;
-  defaultSubtypes: string[];
-  displayOrder?: unknown;
-  options: unknown[];
-  optionIds: number[];
-  tagConstraints: unknown[];
-}
-
-interface ChoiceDefinition {
-  id: string;
-  options: Option[];
-}
-
-interface Option {
-  id: number;
-  label: string;
-  description?: string;
-  sourceId?: unknown;
-}
-
-interface Actions {
-  race: unknown[];
-  class: Class4[];
-  background?: unknown;
-  item?: unknown;
-  feat: unknown[];
-}
-
-interface Class4 {
-  componentId: number;
-  componentTypeId: number;
-  id: string;
-  entityTypeId: string;
-  limitedUse?: LimitedUse3;
-  name: string;
-  description: string;
-  snippet: string;
-  abilityModifierStatId?: unknown;
-  onMissDescription: string;
-  saveFailDescription: string;
-  saveSuccessDescription: string;
-  saveStatId?: unknown;
-  fixedSaveDc?: unknown;
-  attackTypeRange?: unknown;
-  actionType: number;
-  attackSubtype?: unknown;
-  dice?: unknown;
-  value?: unknown;
-  damageTypeId?: unknown;
-  isMartialArts: boolean;
-  isProficient: boolean;
-  spellRangeType?: unknown;
-  displayAsAttack?: unknown;
-  range: Range3;
-  activation: Activation3;
-  numberOfTargets?: unknown;
-  fixedToHit?: unknown;
-  ammunition?: unknown;
-}
-
-interface LimitedUse3 {
-  name?: unknown;
-  statModifierUsesId?: unknown;
-  resetType: number;
-  numberUsed: number;
-  minNumberConsumed: number;
-  maxNumberConsumed: number;
-  maxUses: number;
-  operator: number;
-  useProficiencyBonus: boolean;
-  proficiencyBonusOperator: number;
-  resetDice?: unknown;
-}
-
-interface Range3 {
-  range?: unknown;
-  longRange?: unknown;
-  aoeType?: unknown;
-  aoeSize?: unknown;
-  hasAoeSpecialDescription: boolean;
-  minimumRange?: unknown;
-}
-
-interface Activation3 {
-  activationTime?: number;
-  activationType: number;
-}
-
-interface Modifiers {
-  race: Race3[];
-  class: Class5[];
-  background: Background3[];
-  item: unknown[];
-  feat: unknown[];
-  condition: unknown[];
-}
-
-interface Race3 {
-  fixedValue?: number;
-  id: string;
-  entityId: number;
-  entityTypeId: number;
-  type: string;
-  subType: string;
-  dice?: unknown;
-  restriction: string;
-  statId?: unknown;
-  requiresAttunement: boolean;
-  duration?: unknown;
-  friendlyTypeName: string;
-  friendlySubtypeName: string;
-  isGranted: boolean;
-  bonusTypes: unknown[];
-  value?: number;
-  availableToMulticlass: boolean;
-  modifierTypeId: number;
-  modifierSubTypeId: number;
-  componentId: number;
-  componentTypeId: number;
-  tagConstraints: unknown[];
-}
-
-interface Class5 {
-  fixedValue?: number;
-  id: string;
-  entityId?: number;
+interface SpellClassSpellComponents {
   entityTypeId?: number;
-  type: string;
-  subType: string;
-  dice?: unknown;
-  restriction?: string;
-  statId?: unknown;
-  requiresAttunement: boolean;
-  duration?: unknown;
-  friendlyTypeName: string;
-  friendlySubtypeName: string;
-  isGranted: boolean;
-  bonusTypes: unknown[];
-  value?: number;
-  availableToMulticlass: boolean;
-  modifierTypeId: number;
-  modifierSubTypeId: number;
-  componentId: number;
-  componentTypeId: number;
-  tagConstraints: unknown[];
+  characterClassId?: number;
+  spells?: SpellBaseSpell[] | null;
 }
 
-interface Background3 {
-  fixedValue?: unknown;
-  id: string;
-  entityId: number;
-  entityTypeId: number;
-  type: string;
-  subType: string;
-  dice?: unknown;
-  restriction: string;
-  statId?: unknown;
-  requiresAttunement: boolean;
-  duration?: unknown;
-  friendlyTypeName: string;
-  friendlySubtypeName: string;
-  isGranted: boolean;
-  bonusTypes: unknown[];
-  value?: unknown;
-  availableToMulticlass: boolean;
-  modifierTypeId: number;
-  modifierSubTypeId: number;
-  componentId: number;
-  componentTypeId: number;
-  tagConstraints: unknown[];
+interface SpellBaseSpell {
+  overrideSaveDc?: number | null;
+  limitedUse?: EntityLimitedUse;
+  id?: number | null;
+  entityTypeId?: number | null;
+  definition?: SpellSpellDefinition;
+  definitionId?: number;
+  prepared?: boolean;
+  countsAsKnownSpell?: boolean | null;
+  usesSpellSlot?: boolean;
+  castAtLevel?: number | null;
+  alwaysPrepared?: boolean;
+  restriction?: string | null;
+  spellCastingAbilityId?: number | null;
+  displayAsAttack?: boolean | null;
+  additionalDescription?: string | null;
+  castOnlyAsRitual?: boolean;
+  ritualCastingType?: number | null;
+  range?: Range;
+  activation?: Activation;
+  baseLevelAtWill?: boolean;
+  atWillLimitedUseLevel?: number | null;
+  isSignatureSpell?: boolean | null;
+  componentId?: number;
+  componentTypeId?: number;
+  spellListId?: number | null;
 }
 
-interface ClassSpell {
-  entityTypeId: number;
-  characterClassId: number;
-  spells: Spell[];
+interface Range {
+  origin?: string | null;
+  rangeValue?: number | null;
+  aoeType?: string | null;
+  aoeValue?: number | null;
 }
 
-interface Spell {
-  overrideSaveDc?: unknown;
-  limitedUse?: unknown;
-  id: number;
-  entityTypeId: number;
-  definition: Definition8;
-  definitionId: number;
-  prepared: boolean;
-  countsAsKnownSpell: boolean;
-  usesSpellSlot: boolean;
-  castAtLevel?: unknown;
-  alwaysPrepared: boolean;
-  restriction?: unknown;
-  spellCastingAbilityId?: unknown;
-  displayAsAttack?: unknown;
-  additionalDescription?: unknown;
-  castOnlyAsRitual: boolean;
-  ritualCastingType?: unknown;
-  range: Range5;
-  activation: Activation5;
-  baseLevelAtWill: boolean;
-  atWillLimitedUseLevel?: unknown;
-  isSignatureSpell?: unknown;
-  componentId: number;
-  componentTypeId: number;
-  spellListId?: unknown;
+interface SpellSpellDefinition {
+  id?: number;
+  definitionKey?: string | null;
+  name?: string | null;
+  level?: number;
+  school?: string | null;
+  duration?: SpellSpellDuration;
+  activation?: Activation;
+  range?: Range;
+  asPartOfWeaponAttack?: boolean;
+  description?: string | null;
+  snippet?: string | null;
+  concentration?: boolean;
+  ritual?: boolean;
+  rangeArea?: string | null;
+  damageEffect?: string | null;
+  components?: number[] | null;
+  componentsDescription?: string | null;
+  saveDcAbilityId?: number | null;
+  healing?: string | null;
+  healingDice?: Dice[] | null;
+  tempHpDice?: Dice[] | null;
+  attackType?: number | null;
+  canCastAtHigherLevel?: boolean;
+  isHomebrew?: boolean;
+  version?: string | null;
+  /**
+   * @deprecated
+   * @format int32
+   */
+  sourceId?: number | null;
+  sourcePageNumber?: number | null;
+  requiresSavingThrow?: boolean;
+  requiresAttackRoll?: boolean;
+  atHigherLevels?: SpellHigherLevel;
+  modifiers?: SpellSpellModifier[] | null;
+  conditions?: SpellSpellCondition[] | null;
+  tags?: string[] | null;
+  castingTimeDescription?: string | null;
+  scaleType?: string | null;
+  sources?: SourceMapping[] | null;
+  spellGroups?: number[] | null;
+  isLegacy?: boolean;
 }
 
-interface Definition8 {
-  id: number;
-  definitionKey: string;
-  name: string;
-  level: number;
-  school: string;
-  duration: Duration2;
-  activation: Activation4;
-  range: Range4;
-  asPartOfWeaponAttack: boolean;
-  description: string;
-  snippet: string;
-  concentration: boolean;
-  ritual: boolean;
-  rangeArea?: unknown;
-  damageEffect?: unknown;
-  components: number[];
-  componentsDescription: string;
-  saveDcAbilityId?: number;
-  healing?: unknown;
-  healingDice: unknown[];
-  tempHpDice: unknown[];
-  attackType?: number;
-  canCastAtHigherLevel: boolean;
-  isHomebrew: boolean;
-  version?: unknown;
-  sourceId?: unknown;
-  sourcePageNumber: number;
-  requiresSavingThrow: boolean;
-  requiresAttackRoll: boolean;
-  atHigherLevels: AtHigherLevels3;
-  modifiers: Modifier2[];
-  conditions: unknown[];
-  tags: string[];
-  castingTimeDescription: string;
-  scaleType?: string;
-  sources: Source9[];
-  spellGroups: unknown[];
-  isLegacy: boolean;
+interface SpellSpellCondition {
+  type?: number | null;
+  conditionId?: number;
+  conditionDuration?: number;
+  durationUnit?: string | null;
+  exception?: string | null;
 }
 
-interface Duration2 {
-  durationInterval: number;
-  durationUnit?: string;
-  durationType: string;
+interface SpellSpellModifier {
+  fixedValue?: number | null;
+  id?: string | null;
+  entityId?: number | null;
+  entityTypeId?: number | null;
+  type?: string | null;
+  subType?: string | null;
+  dice?: Dice;
+  restriction?: string | null;
+  statId?: number | null;
+  requiresAttunement?: boolean;
+  duration?: Duration;
+  friendlyTypeName?: string | null;
+  friendlySubtypeName?: string | null;
+  isGranted?: boolean;
+  bonusTypes?: number[] | null;
+  value?: number | null;
+  availableToMulticlass?: boolean | null;
+  modifierTypeId?: number;
+  modifierSubTypeId?: number;
+  componentId?: number;
+  componentTypeId?: number;
+  die?: Dice;
+  count?: number;
+  durationUnit?: string | null;
+  usePrimaryStat?: boolean;
+  atHigherLevels?: SpellHigherLevel;
 }
 
-interface Activation4 {
-  activationTime: number;
-  activationType: number;
+interface SpellHigherLevel {
+  higherLevelDefinitions?: SpellHigherLevelDefinition[] | null;
+  additionalAttacks?: SpellHigherLevelEntry[] | null;
+  additionalTargets?: SpellHigherLevelEntry[] | null;
+  areaOfEffect?: SpellHigherLevelEntry[] | null;
+  duration?: SpellHigherLevelEntry[] | null;
+  creatures?: SpellHigherLevelEntry[] | null;
+  special?: SpellHigherLevelEntry[] | null;
+  points?: SpellHigherLevelEntry[] | null;
+  range?: SpellHigherLevelEntry[] | null;
 }
 
-interface Range4 {
-  origin: string;
-  rangeValue?: number;
-  aoeType?: unknown;
-  aoeValue?: unknown;
+interface SpellHigherLevelDefinition {
+  level?: number | null;
+  typeId?: number;
+  dice?: Dice;
+  value?: number | null;
+  details?: string | null;
 }
 
-interface AtHigherLevels3 {
-  higherLevelDefinitions: HigherLevelDefinition2[];
-  additionalAttacks: unknown[];
-  additionalTargets: unknown[];
-  areaOfEffect: unknown[];
-  duration: unknown[];
-  creatures: unknown[];
-  special: unknown[];
-  points: unknown[];
-  range: unknown[];
+interface SpellHigherLevelEntry {
+  level?: number | null;
+  description?: string | null;
+  extendedAoe?: number | null;
+  totalCount?: number;
+  die?: Dice;
+  targets?: number;
+  range?: number | null;
 }
 
-interface HigherLevelDefinition2 {
-  level?: unknown;
-  typeId: number;
-  dice?: unknown;
-  value: number;
-  details: string;
+interface Duration {
+  durationInterval?: number;
+  durationUnit?: string | null;
 }
 
-interface Modifier2 {
-  fixedValue?: unknown;
-  id: string;
-  entityId?: unknown;
-  entityTypeId?: unknown;
-  type: string;
-  subType: string;
-  dice?: unknown;
-  restriction: string;
-  statId?: unknown;
-  requiresAttunement: boolean;
-  duration?: unknown;
-  friendlyTypeName: string;
-  friendlySubtypeName: string;
-  isGranted: boolean;
-  bonusTypes: unknown[];
-  value?: unknown;
-  availableToMulticlass?: unknown;
-  modifierTypeId: number;
-  modifierSubTypeId: number;
-  componentId: number;
-  componentTypeId: number;
-  die: Die2;
-  count: number;
-  durationUnit?: unknown;
-  usePrimaryStat: boolean;
-  atHigherLevels: AtHigherLevels4;
+interface SpellSpellDuration {
+  durationInterval?: number;
+  durationUnit?: string | null;
+  durationType?: string | null;
 }
 
-interface Die2 {
-  diceCount?: number;
-  diceValue?: number;
-  diceMultiplier?: unknown;
-  fixedValue?: number;
-  diceString?: string;
+interface EntityLimitedUse {
+  name?: string | null;
+  statModifierUsesId?: number | null;
+  resetType?: number | null;
+  numberUsed?: number;
+  minNumberConsumed?: number | null;
+  maxNumberConsumed?: number;
+  maxUses?: number;
+  operator?: number | null;
+  useProficiencyBonus?: boolean;
+  proficiencyBonusOperator?: number | null;
+  resetDice?: Dice;
 }
 
-interface AtHigherLevels4 {
-  higherLevelDefinitions: HigherLevelDefinition3[];
-  additionalAttacks: unknown[];
-  additionalTargets: unknown[];
-  areaOfEffect: unknown[];
-  duration: unknown[];
-  creatures: unknown[];
-  special: unknown[];
-  points: unknown[];
-  range: unknown[];
+interface CharacterModifierComponents {
+  race?: Modifier[] | null;
+  class?: Modifier[] | null;
+  background?: Modifier[] | null;
+  item?: Modifier[] | null;
+  feat?: Modifier[] | null;
+  condition?: Modifier[] | null;
 }
 
-interface HigherLevelDefinition3 {
-  level: number;
-  typeId: number;
-  dice?: Dice2;
-  value?: number;
-  details: string;
+interface Modifier {
+  fixedValue?: number | null;
+  id?: string | null;
+  entityId?: number | null;
+  entityTypeId?: number | null;
+  type?: string | null;
+  subType?: string | null;
+  dice?: Dice;
+  restriction?: string | null;
+  statId?: number | null;
+  requiresAttunement?: boolean;
+  duration?: Duration;
+  friendlyTypeName?: string | null;
+  friendlySubtypeName?: string | null;
+  isGranted?: boolean;
+  bonusTypes?: number[] | null;
+  value?: number | null;
+  availableToMulticlass?: boolean | null;
+  modifierTypeId?: number;
+  modifierSubTypeId?: number;
+  componentId?: number;
+  componentTypeId?: number;
+  tagConstraints?: EntityTagEntityTagConstraint[] | null;
 }
 
-interface Dice2 {
-  diceCount: number;
-  diceValue: number;
-  diceMultiplier?: unknown;
-  fixedValue: number;
-  diceString: string;
+interface EntityTagEntityTagConstraint {
+  id?: number;
+  parentComponentTypeId?: number;
+  parentComponentId?: number;
+  entityModifierId?: number;
+  entityTagId?: number;
+  definitionKey?: string | null;
+  tagName?: string | null;
 }
 
-interface Source9 {
-  sourceId: number;
-  pageNumber?: number;
-  sourceType: number;
+interface CharacterActionComponents {
+  race?: Action[] | null;
+  class?: Action[] | null;
+  background?: Action[] | null;
+  item?: Action[] | null;
+  feat?: Action[] | null;
 }
 
-interface Range5 {
-  origin: string;
-  rangeValue?: number;
-  aoeType?: unknown;
-  aoeValue?: unknown;
+interface Action {
+  componentId?: number;
+  componentTypeId?: number;
+  id?: string | null;
+  entityTypeId?: string | null;
+  limitedUse?: EntityLimitedUse;
+  name?: string | null;
+  description?: string | null;
+  snippet?: string | null;
+  abilityModifierStatId?: number | null;
+  onMissDescription?: string | null;
+  saveFailDescription?: string | null;
+  saveSuccessDescription?: string | null;
+  saveStatId?: number | null;
+  fixedSaveDc?: number | null;
+  attackTypeRange?: number | null;
+  actionType?: number | null;
+  attackSubtype?: number | null;
+  dice?: Dice;
+  value?: number | null;
+  damageTypeId?: number | null;
+  isMartialArts?: boolean;
+  isProficient?: boolean;
+  spellRangeType?: number | null;
+  displayAsAttack?: boolean | null;
+  range?: ActionRange;
+  activation?: Activation;
+  numberOfTargets?: number | null;
+  fixedToHit?: number | null;
+  ammunition?: Ammunition[] | null;
 }
 
-interface Activation5 {
-  activationTime: number;
-  activationType: number;
+interface ActionRange {
+  range?: number | null;
+  longRange?: number | null;
+  aoeType?: number | null;
+  aoeSize?: number | null;
+  hasAoeSpecialDescription?: boolean;
+  minimumRange?: number | null;
+}
+
+interface Ammunition {
+  definitionKey?: string | null;
+  quantity?: number;
+  custom?: string | null;
+}
+
+interface CharacterChoiceComponents {
+  race?: CharacterBuilderChoice[] | null;
+  class?: CharacterBuilderChoice[] | null;
+  background?: CharacterBuilderChoice[] | null;
+  item?: CharacterBuilderChoice[] | null;
+  feat?: CharacterBuilderChoice[] | null;
+  choiceDefinitions?: CharacterChoiceDefinition[] | null;
+  definitionKeyNameMap?: Record<string, string>;
+}
+
+interface CharacterBuilderChoice {
+  componentId?: number;
+  componentTypeId?: number;
+  id?: string | null;
+  parentChoiceId?: string | null;
+  type?: number;
+  subType?: number | null;
+  optionValue?: number | null;
+  label?: string | null;
+  isOptional?: boolean;
+  isInfinite?: boolean;
+  defaultSubtypes?: string[] | null;
+  displayOrder?: number | null;
+  options?: CharacterBuilderChoiceOption[] | null;
+  optionIds?: number[] | null;
+  tagConstraints?: EntityTagEntityTagConstraint[] | null;
+}
+
+interface CharacterBuilderChoiceOption {
+  id?: number;
+  label?: string | null;
+  description?: string | null;
+  sourceId?: number | null;
+}
+
+interface CharacterChoiceDefinition {
+  id?: string | null;
+  options?: CharacterBuilderChoiceOption[] | null;
+}
+
+interface SpellSpellComponents {
+  race?: SpellBaseSpell[] | null;
+  class?: SpellBaseSpell[] | null;
+  background?: SpellBaseSpell[] | null;
+  item?: SpellBaseSpell[] | null;
+  feat?: SpellBaseSpell[] | null;
+}
+
+interface CharacterOptionComponents {
+  race?: CharacterOption[] | null;
+  class?: CharacterOption[] | null;
+  background?: CharacterOption[] | null;
+  item?: CharacterOption[] | null;
+  feat?: CharacterOption[] | null;
+}
+
+interface CharacterOption {
+  componentId?: number;
+  componentTypeId?: number;
+  definition?: EntityOptionDefinition;
+}
+
+interface EntityOptionDefinition {
+  id?: number;
+  entityTypeId?: number;
+  name?: string | null;
+  description?: string | null;
+  snippet?: string | null;
+  activation?: Activation;
+  sourceId?: number | null;
+  sourcePageNumber?: number | null;
+  creatureRules?: EntityCreature[] | null;
+  spellListIds?: number[] | null;
+}
+
+interface CharacterDeathSave {
+  failCount?: number | null;
+  successCount?: number | null;
+  isStabilized?: boolean;
+}
+
+interface CharacterCondition {
+  id?: number;
+  level?: number | null;
+}
+
+interface CharacterValues {
+  typeId?: number;
+  value?: object | null;
+  notes?: string | null;
+  valueId?: string | null;
+  valueTypeId?: string | null;
+  contextId?: string | null;
+  contextTypeId?: string | null;
+}
+
+interface CustomAction {
+  id?: string | null;
+  entityTypeId?: string | null;
+  name?: string | null;
+  toHitBonus?: number | null;
+  description?: string | null;
+  snippet?: string | null;
+  isProficient?: boolean;
+  isOffhand?: boolean | null;
+  statId?: number | null;
+  rangeId?: number | null;
+  diceCount?: number | null;
+  diceType?: number | null;
+  fixedValue?: number | null;
+  damageTypeId?: number | null;
+  onMissDescription?: string | null;
+  saveFailDescription?: string | null;
+  saveSuccessDescription?: string | null;
+  saveStatId?: number | null;
+  fixedSaveDc?: number | null;
+  actionType?: number | null;
+  attackSubtype?: number | null;
+  range?: number | null;
+  longRange?: number | null;
+  aoeType?: number | null;
+  aoeSize?: number | null;
+  activationTime?: number | null;
+  activationType?: number | null;
+  isSilvered?: boolean;
+  damageBonus?: number | null;
+  isMartialArts?: boolean;
+  spellRangeType?: number | null;
+  displayAsAttack?: boolean | null;
+}
+
+interface CustomProficiency {
+  id?: number;
+  name?: string | null;
+  type?: number;
+  statId?: number | null;
+  proficiencyLevel?: number;
+  notes?: string | null;
+  description?: string | null;
+  override?: number | null;
+  magicBonus?: number | null;
+  miscBonus?: number | null;
+}
+
+interface CustomSpeed {
+  movementId?: number;
+  distance?: number | null;
+  source?: string | null;
+}
+
+interface CustomSense {
+  senseId?: number;
+  distance?: number | null;
+  source?: string | null;
+}
+
+interface CharacterDefenseAdjustment {
+  adjustmentId?: number;
+  source?: string | null;
+  type?: number;
+}
+
+interface CharacterFeatureMapping {
+  /** @format uuid */
+  id?: string;
+}
+
+interface FeatFeatDetails {
+  componentTypeId?: number | null;
+  componentId?: number | null;
+  definition?: FeatFeatDefinition;
+  definitionId?: number;
+}
+
+interface FeatFeatDefinition {
+  id?: number;
+  entityTypeId?: number;
+  definitionKey?: string | null;
+  name?: string | null;
+  description?: string | null;
+  snippet?: string | null;
+  activation?: Activation;
+  /**
+   * @deprecated
+   * @format int32
+   */
+  sourceId?: number | null;
+  sourcePageNumber?: number | null;
+  creatureRules?: EntityCreature[] | null;
+  prerequisites?: Prerequisite[] | null;
+  isHomebrew?: boolean;
+  sources?: SourceMapping[] | null;
+  spellListIds?: number[] | null;
+  isRepeatable?: boolean;
+  repeatableParentId?: number | null;
+  categories?: EntityTagEntityTagMapping[] | null;
+}
+
+interface Prerequisite {
+  description?: string | null;
+  prerequisiteMappings?: PrerequisiteMapping[] | null;
+  hidePrerequisite?: boolean;
+}
+
+interface PrerequisiteMapping {
+  id?: number;
+  entityId?: number | null;
+  entityTypeId?: number | null;
+  type?: string | null;
+  subType?: string | null;
+  value?: number | null;
+  friendlyTypeName?: string | null;
+  friendlySubTypeName?: string | null;
+}
+
+interface ClassClassDetails {
+  id?: number;
+  entityTypeId?: number;
+  level?: number;
+  isStartingClass?: boolean;
+  hitDiceUsed?: number;
+  definitionId?: number;
+  subclassDefinitionId?: number | null;
+  definition?: ClassClassDefinition;
+  subclassDefinition?: ClassClassDefinition;
+  classFeatures?: ClassClassFeature[] | null;
+}
+
+interface ClassClassDefinition {
+  id?: number;
+  definitionKey?: string | null;
+  name?: string | null;
+  description?: string | null;
+  equipmentDescription?: string | null;
+  parentClassId?: number | null;
+  avatarUrl?: string | null;
+  largeAvatarUrl?: string | null;
+  portraitAvatarUrl?: string | null;
+  moreDetailsUrl?: string | null;
+  spellCastingAbilityId?: number | null;
+  sources?: SourceMapping[] | null;
+  classFeatures?: ModelInfo[] | null;
+  hitDice?: number;
+  wealthDice?: Dice;
+  canCastSpells?: boolean;
+  knowsAllSpells?: boolean | null;
+  spellPrepareType?: number | null;
+  spellCastingLearningStyle?: number | null;
+  spellContainerName?: string | null;
+  sourcePageNumber?: number | null;
+  subclassDefinition?: ClassClassDefinition;
+  isHomebrew?: boolean;
+  primaryAbilities?: number[] | null;
+  spellRules?: ClassSpellConfiguration;
+  prerequisites?: Prerequisite[] | null;
+}
+
+interface ClassSpellConfiguration {
+  multiClassSpellSlotDivisor?: number | null;
+  isRitualSpellCaster?: boolean;
+  levelCantripsKnownMaxes?: number[] | null;
+  levelSpellKnownMaxes?: number[] | null;
+  levelSpellSlots?: number[][] | null;
+  multiClassSpellSlotRounding?: number | null;
+  levelPreparedSpellMaxes?: number[] | null;
+}
+
+interface ModelInfo {
+  id?: number;
+  name?: string | null;
+  prerequisite?: string | null;
+  description?: string | null;
+  requiredLevel?: number | null;
+  displayOrder?: number | null;
+}
+
+interface ClassClassFeature {
+  definition?: ClassClassFeatureDefinition;
+  levelScale?: LevelScale;
+}
+
+interface ClassClassFeatureDefinition {
+  id?: number;
+  definitionKey?: string | null;
+  entityTypeId?: number;
+  displayOrder?: number | null;
+  name?: string | null;
+  description?: string | null;
+  snippet?: string | null;
+  activation?: Activation;
+  multiClassDescription?: string | null;
+  requiredLevel?: number;
+  /** @deprecated */
+  isSubClassFeature?: boolean;
+  limitedUse?: LimitedUseLevel[] | null;
+  hideInBuilder?: boolean;
+  hideInSheet?: boolean;
+  sourceId?: number | null;
+  sourcePageNumber?: number | null;
+  creatureRules?: EntityCreature[] | null;
+  levelScales?: LevelScale[] | null;
+  infusionRules?: InfusionChoiceRule[] | null;
+  spellListIds?: number[] | null;
+  classId?: number;
+  featureType?: number;
+  sources?: SourceMapping[] | null;
+  affectedFeatureDefinitionKeys?: string[] | null;
+  entityType?: string | null;
+  entityID?: string | null;
+  grantedFeats?: FeatFeatList[] | null;
+}
+
+interface LevelScale {
+  id?: number;
+  level?: number;
+  description?: string | null;
+  dice?: Dice;
+  fixedValue?: number | null;
+}
+
+interface LimitedUseLevel {
+  level?: number | null;
+  uses?: number;
+}
+
+interface InfusionChoiceRule {
+  level?: number;
+  choiceKey?: string | null;
+}
+
+interface CharacterCurrency {
+  cp?: number;
+  sp?: number;
+  gp?: number;
+  ep?: number;
+  pp?: number;
+}
+
+interface CharacterPreferences {
+  useHomebrewContent?: boolean;
+  progressionType?: number;
+  encumbranceType?: number;
+  ignoreCoinWeight?: boolean;
+  hitPointType?: number;
+  showUnarmedStrike?: boolean;
+  showScaledSpells?: boolean;
+  primarySense?: number;
+  primaryMovement?: number;
+  privacyType?: number;
+  sharingType?: number;
+  abilityScoreDisplayType?: number;
+  enforceFeatRules?: boolean;
+  enforceMulticlassRules?: boolean;
+  enableOptionalClassFeatures?: boolean;
+  enableOptionalOrigins?: boolean;
+  enableDarkMode?: boolean;
+  enableContainerCurrency?: boolean;
+}
+
+interface CharacterConfiguration {
+  startingEquipmentType?: number | null;
+  abilityScoreType?: number | null;
+  showHelpText?: boolean | null;
+}
+
+interface CharacterLifestyle {
+  id?: number | null;
+  name?: string | null;
+  description?: string | null;
+  cost?: string | null;
+}
+
+interface ItemBaseInventory {
+  id?: number;
+  entityTypeId?: number;
+  definition?: ItemBaseItemDefinition;
+  definitionId?: number;
+  definitionTypeId?: number;
+  displayAsAttack?: boolean | null;
+  quantity?: number;
+  isAttuned?: boolean | null;
+  equipped?: boolean | null;
+  equippedEntityTypeId?: number | null;
+  equippedEntityId?: number | null;
+  chargesUsed?: number;
+  limitedUse?: ItemItemLimitedUseData;
+  containerEntityId?: number;
+  containerEntityTypeId?: number;
+  containerDefinitionKey?: string | null;
+  currency?: CharacterCurrency;
+}
+
+interface ItemItemLimitedUseData {
+  maxUses?: number;
+  numberUsed?: number;
+  resetType?: string | null;
+  resetTypeDescription?: string | null;
+}
+
+interface ItemBaseItemDefinition {
+  id?: number;
+  baseTypeId?: number;
+  entityTypeId?: number;
+  definitionKey?: string | null;
+  canEquip?: boolean;
+  magic?: boolean;
+  name?: string | null;
+  snippet?: string | null;
+  /** @format double */
+  weight?: number;
+  /** @format double */
+  weightMultiplier?: number;
+  capacity?: string | null;
+  /** @format double */
+  capacityWeight?: number;
+  type?: string | null;
+  description?: string | null;
+  canAttune?: boolean;
+  attunementDescription?: string | null;
+  rarity?: string | null;
+  isHomebrew?: boolean;
+  version?: string | null;
+  /**
+   * @deprecated
+   * @format int32
+   */
+  sourceId?: number | null;
+  sourcePageNumber?: number | null;
+  stackable?: boolean;
+  bundleSize?: number;
+  avatarUrl?: string | null;
+  largeAvatarUrl?: string | null;
+  filterType?: string | null;
+  /** @format double */
+  cost?: number | null;
+  isPack?: boolean;
+  tags?: string[] | null;
+  grantedModifiers?: Modifier[] | null;
+  subType?: string | null;
+  isConsumable?: boolean;
+  weaponBehaviors?: ItemBaseWeapon[] | null;
+  baseItemId?: number | null;
+  baseArmorName?: string | null;
+  strengthRequirement?: number | null;
+  armorClass?: number | null;
+  stealthCheck?: number | null;
+  damage?: Dice;
+  damageType?: string | null;
+  fixedDamage?: number | null;
+  properties?: ItemWeaponProperty[] | null;
+  attackType?: number | null;
+  categoryId?: number | null;
+  range?: number | null;
+  longRange?: number | null;
+  isMonkWeapon?: boolean;
+  levelInfusionGranted?: number | null;
+  sources?: SourceMapping[] | null;
+  armorTypeId?: number | null;
+  gearTypeId?: number | null;
+  groupedId?: number | null;
+  canBeAddedToInventory?: boolean;
+  isContainer?: boolean;
+  isCustomItem?: boolean;
+  isLegacy?: boolean;
+}
+
+interface ItemWeaponProperty {
+  id?: number;
+  name?: string | null;
+  description?: string | null;
+  notes?: string | null;
+}
+
+interface ItemBaseWeapon {
+  baseItemId?: number | null;
+  baseTypeId?: number;
+  type?: string | null;
+  attackType?: number | null;
+  categoryId?: number;
+  properties?: ItemWeaponProperty[] | null;
+  damage?: Dice;
+  damageType?: string | null;
+  range?: number | null;
+  longRange?: number | null;
+  isMonkWeapon?: boolean;
 }
