@@ -28,6 +28,11 @@ export interface IPlayerDnD {
    */
   race: string;
 
+  /**
+   * Indicates if the character is inspired
+   */
+  isInspired: boolean;
+
   // TODO: Add racial traits + class Features + subclassDefinition classFeatures
 
   /**
@@ -108,9 +113,9 @@ export interface IPlayerDnD {
   items: InventoryItem[];
 
   /**
-   * Character's alignment
+   * Character's profile information
    */
-  alignment?: Alignment;
+  profile: Profile;
 }
 
 /**
@@ -448,7 +453,21 @@ export interface Penalty {
   skill?: SkillsType;
 }
 
-export type PenaltyType = "stat" | "skill" | "speed" | "armorClass";
+/**
+ * Definition of available penalty types
+ */
+export type PenaltyType =
+  | "skill"
+  | "savingThrow"
+  | "speed"
+  | "armorClass"
+  | "attackRoll"
+  | "damageRoll"
+  | "hp";
+
+/**
+ * Definition of available inventory item types
+ */
 export type InventoryItemType = "weapon" | "armor" | "potion" | "tool";
 
 /**
@@ -468,3 +487,80 @@ export type DamageType =
   | "radiant"
   | "slashing"
   | "thunder";
+
+/**
+ * Schema definition for a character profile
+ */
+export interface Profile {
+  /**
+   * Character's age
+   */
+  age?: number;
+
+  /**
+   * Character's gender
+   */
+  gender?: string;
+
+  /**
+   * Character's height
+   */
+  height?: number;
+
+  /**
+   * Character's weight
+   */
+  weight?: number;
+
+  /**
+   * Character's eyes color
+   */
+  eyes?: string;
+
+  /**
+   * Character's faith
+   */
+  faith?: string;
+
+  /**
+   * Character's hair color
+   */
+  hair?: string;
+
+  /**
+   * Character's skin color
+   */
+  skin?: string;
+
+  /**
+   * Character's lifestyle
+   */
+  lifestyle?: Lifestyle;
+
+  /**
+   * Character's alignment
+   */
+  alignment?: Alignment;
+}
+
+/**
+ * Schema definition for a character lifestyle
+ */
+export interface Lifestyle {
+  /**
+   * Name of the lifestyle
+   */
+  name:
+    | "wretched"
+    | "squalid"
+    | "poor"
+    | "modest"
+    | "comfortable"
+    | "wealthy"
+    | "aristocratic";
+
+  /**
+   * Cost of the lifestyle
+   */
+  cost: Currencies;
+}

@@ -350,7 +350,8 @@
         "armor",
         "potion",
         "tool"
-      ]
+      ],
+      "description": "Definition of available inventory item types"
     },
     "DamageType": {
       "type": "string",
@@ -400,11 +401,90 @@
     "PenaltyType": {
       "type": "string",
       "enum": [
-        "stat",
         "skill",
+        "savingThrow",
         "speed",
-        "armorClass"
-      ]
+        "armorClass",
+        "attackRoll",
+        "damageRoll",
+        "hp"
+      ],
+      "description": "Definition of available penalty types"
+    },
+    "Profile": {
+      "type": "object",
+      "properties": {
+        "age": {
+          "type": "number",
+          "description": "Character's age"
+        },
+        "gender": {
+          "type": "string",
+          "description": "Character's gender"
+        },
+        "height": {
+          "type": "number",
+          "description": "Character's height"
+        },
+        "weight": {
+          "type": "number",
+          "description": "Character's weight"
+        },
+        "eyes": {
+          "type": "string",
+          "description": "Character's eyes color"
+        },
+        "faith": {
+          "type": "string",
+          "description": "Character's faith"
+        },
+        "hair": {
+          "type": "string",
+          "description": "Character's hair color"
+        },
+        "skin": {
+          "type": "string",
+          "description": "Character's skin color"
+        },
+        "lifestyle": {
+          "$ref": "#/definitions/Lifestyle",
+          "description": "Character's lifestyle"
+        },
+        "alignment": {
+          "$ref": "#/definitions/Alignment",
+          "description": "Character's alignment"
+        }
+      },
+      "additionalProperties": false,
+      "description": "Schema definition for a character profile"
+    },
+    "Lifestyle": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "enum": [
+            "wretched",
+            "squalid",
+            "poor",
+            "modest",
+            "comfortable",
+            "wealthy",
+            "aristocratic"
+          ],
+          "description": "Name of the lifestyle"
+        },
+        "cost": {
+          "$ref": "#/definitions/Currencies",
+          "description": "Cost of the lifestyle"
+        }
+      },
+      "required": [
+        "name",
+        "cost"
+      ],
+      "additionalProperties": false,
+      "description": "Schema definition for a character lifestyle"
     },
     "Alignment": {
       "type": "string",
