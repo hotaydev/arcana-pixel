@@ -4,5 +4,6 @@ export default {
 	documentation: "https://docs.arcanapixel.com",
 	featureFlags: {
 		expansionsEnabled: false,
+		manualCharacterCreationEnabled: false,
 	},
 };

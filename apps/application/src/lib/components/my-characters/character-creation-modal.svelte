@@ -78,7 +78,7 @@
 			title: "Ordem Paranormal",
 			description: "RPG de horror e investigação sobrenatural",
 			icon: Skull,
-			status: "beta",
+			status: "coming_soon",
 			importOptions: [
 				{
 					id: "cris",
@@ -266,15 +266,24 @@
 							{/each}
 						</div>
 
-						<div class="divider">
-							<span>ou</span>
-						</div>
+						{#if variables.featureFlags.manualCharacterCreationEnabled}
+							<div class="divider">
+								<span>ou</span>
+							</div>
+						{:else}
+							<div class="hint">
+								<span>Em breve você poderá criar seus personagens por aqui.</span>
+								<span>Por enquanto, use um dos importadores acima.</span>
+							</div>
+						{/if}
 					{/if}
 
-					<button class="create-button" onclick={() => selectImportOption("manual")}>
-						<Plus size={20} />
-						<span>Criar personagem manualmente</span>
-					</button>
+					{#if variables.featureFlags.manualCharacterCreationEnabled}
+						<button class="create-button" onclick={() => selectImportOption("manual")}>
+							<Plus size={20} />
+							<span>Criar personagem manualmente</span>
+						</button>
+					{/if}
 				{/if}
 			</div>
 		</div>
@@ -512,7 +521,8 @@
 		color: var(--text-color);
 	}
 
-	.divider {
+	.divider,
+	.hint {
 		position: relative;
 		margin: 2rem 0;
 		text-align: center;
@@ -529,7 +539,8 @@
 		z-index: 1;
 	}
 
-	.divider span {
+	.divider span,
+	.hint span {
 		position: relative;
 		background-color: var(--background-color-level-1);
 		padding: 0 1rem;
