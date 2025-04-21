@@ -1,4 +1,195 @@
-<script lang="ts"></script>
+<script lang="ts">
+	// Message types
+	type MessageType = "dm" | "player" | "system";
+	type RollType = "success" | "failure" | "critical" | "damage" | "normal";
+
+	interface Roll {
+		title: string;
+		result: number;
+		detail: string;
+		type: RollType;
+		criticalTag?: boolean;
+	}
+
+	interface Message {
+		id: number;
+		sender: string;
+		senderType: MessageType;
+		text?: string;
+		rolls?: Roll[];
+		timestamp: string; // ISO string format
+	}
+
+	// Format time like in my-card component
+	function formatMessageTime(timestamp: string) {
+		const date = new Date(timestamp);
+		const now = new Date();
+		const todayStart = new Date(now.getFullYear(), now.getMonth(), now.getDate()).getTime();
+		const yesterdayStart = todayStart - 24 * 60 * 60 * 1000;
+		const timeString = date.toLocaleTimeString("pt-BR", { hour: "2-digit", minute: "2-digit" });
+
+		if (date.getTime() >= todayStart) {
+			return `Hoje, ${timeString}`;
+		} else if (date.getTime() >= yesterdayStart) {
+			return `Ontem, ${timeString}`;
+		} else {
+			return `${date.toLocaleDateString("pt-BR", { day: "2-digit", month: "2-digit" })}, ${timeString}`;
+		}
+	}
+
+	// Mock messages data
+	let messages = $state<Message[]>([
+		{
+			id: 1,
+			sender: "Mestre",
+			senderType: "dm",
+			text: "Bem-vindos à Floresta Sombria. Vocês se encontram em uma clareira, os sons de criaturas misteriosas ecoam ao seu redor...",
+			timestamp: "2023-11-05T13:45:00",
+		},
+		{
+			id: 2,
+			sender: "Gorn",
+			senderType: "player",
+			text: "Vou verificar se há rastros de goblinóides por aqui. *Rola Sobrevivência*",
+			rolls: [
+				{
+					title: "Sobrevivência",
+					result: 17,
+					detail: "(13 + 4)",
+					type: "success",
+				},
+			],
+			timestamp: "2023-11-05T14:02:00",
+		},
+		{
+			id: 3,
+			sender: "Gorn",
+			senderType: "player",
+			rolls: [
+				{
+					title: "Iniciativa",
+					result: 12,
+					detail: "(10 + 2)",
+					type: "normal",
+				},
+			],
+			timestamp: "2023-11-05T14:03:00",
+		},
+		{
+			id: 4,
+			sender: "Lyra",
+			senderType: "player",
+			text: "Vou lançar Detectar Magia para ver se há alguma aura mágica nesta área.",
+			timestamp: "2023-11-05T14:05:00",
+		},
+		{
+			id: 5,
+			sender: "Mestre",
+			senderType: "dm",
+			text: "Gorn, você nota rastros recentes de humanoides pequenos se movendo para o leste. Lyra, você detecta uma aura fraca de transmutação vindo de uma árvore antiga ao norte.",
+			timestamp: "2023-11-05T14:08:00",
+		},
+		{
+			id: 6,
+			sender: "Lyra",
+			senderType: "player",
+			rolls: [
+				{
+					title: "Ataque - Raio de Fogo",
+					result: 20,
+					detail: "(20 + 5)",
+					type: "critical",
+					criticalTag: true,
+				},
+				{
+					title: "Dano",
+					result: 18,
+					detail: "(4d6: 3,5,4,6)",
+					type: "damage",
+				},
+			],
+			timestamp: "2023-11-05T14:09:00",
+		},
+		{
+			id: 7,
+			sender: "Thorne",
+			senderType: "player",
+			text: "Vamos investigar a árvore. Eu posso usar Orientação em quem for examinar.",
+			timestamp: "2023-11-05T14:10:00",
+		},
+		{
+			id: 8,
+			sender: "Vex",
+			senderType: "player",
+			text: "Eu vou na frente para verificar armadilhas. Provavelmente não é uma árvore comum.",
+			rolls: [
+				{
+					title: "Percepção",
+					result: 22,
+					detail: "(18 + 4)",
+					type: "success",
+				},
+			],
+			timestamp: "2023-11-05T14:12:00",
+		},
+		{
+			id: 9,
+			sender: "Vex",
+			senderType: "player",
+			rolls: [
+				{
+					title: "Teste de Armadilhas",
+					result: 3,
+					detail: "(1 + 2)",
+					type: "failure",
+				},
+			],
+			timestamp: "2023-11-05T14:13:00",
+		},
+		{
+			id: 10,
+			sender: "Mestre",
+			senderType: "dm",
+			text: "Vex, você se aproxima com cautela e percebe que um pequeno compartimento está escondido no tronco da árvore. Parece conter algo...",
+			timestamp: "2023-11-05T14:15:00",
+		},
+		// Example of a recent message from today
+		{
+			id: 11,
+			sender: "Gorn",
+			senderType: "player",
+			text: "Eu vou abrir o compartimento com cuidado.",
+			timestamp: new Date().toISOString(),
+		},
+	]);
+
+	// Function to get CSS class for character avatar
+	function getAvatarClass(senderType: MessageType, sender: string): string {
+		if (senderType === "dm") return "dm";
+
+		// Assign class based on character name
+		switch (sender) {
+			case "Gorn":
+				return "warrior";
+			case "Lyra":
+				return "mage";
+			case "Thorne":
+				return "cleric";
+			case "Vex":
+				return "rogue";
+			default:
+				return "player";
+		}
+	}
+
+	// For message input
+	let newMessage = $state("");
+
+	function sendMessage() {
+		if (!newMessage.trim()) return;
+		newMessage = "";
+	}
+</script>
 
 <div class="messages-container">
 	<div class="messages-header">
@@ -6,188 +197,55 @@
 	</div>
 
 	<div class="messages-list">
-		<div class="message-item dm-message">
-			<div class="message-avatar dm">
-				<span>DM</span>
-			</div>
-			<div class="message-content">
-				<div class="message-sender">Mestre</div>
-				<div class="message-text">
-					Bem-vindos à Floresta Sombria. Vocês se encontram em uma clareira, os sons de criaturas
-					misteriosas ecoam ao seu redor...
+		{#each messages as message (message.id)}
+			<div
+				class="message-item {!message.text && message.rolls
+					? 'roll-only'
+					: ''} {message.senderType === 'dm' ? 'dm-message' : ''}"
+			>
+				<div class="message-avatar {getAvatarClass(message.senderType, message.sender)}">
+					<span>{message.sender.charAt(0)}</span>
 				</div>
-				<div class="message-time">Hoje, 13:45</div>
-			</div>
-		</div>
+				<div class="message-content">
+					<div class="message-sender">{message.sender}</div>
 
-		<div class="message-date-divider">
-			<span>Hoje</span>
-		</div>
+					{#if message.text}
+						<div class="message-text">
+							{message.text}
+						</div>
+					{/if}
 
-		<div class="message-item">
-			<div class="message-avatar warrior">
-				<span>G</span>
-			</div>
-			<div class="message-content">
-				<div class="message-sender">Gorn</div>
-				<div class="message-text">
-					Vou verificar se há rastros de goblinóides por aqui. *Rola Sobrevivência*
-				</div>
-				<div class="message-roll success">
-					<div class="roll-title">Sobrevivência</div>
-					<div class="roll-value">
-						<span class="dice">🎲</span>
-						<span class="roll-result">17</span>
-						<span class="roll-detail">(13 + 4)</span>
-					</div>
-				</div>
-				<div class="message-time">14:02</div>
-			</div>
-		</div>
+					{#if message.rolls && message.rolls.length > 0}
+						{#each message.rolls as roll}
+							<div class="message-roll {roll.type}">
+								<div class="roll-title">{roll.title}</div>
+								<div class="roll-value">
+									<span class="dice">{roll.type === "damage" ? "🔥" : "🎲"}</span>
+									<span class="roll-result">{roll.result}</span>
+									<span class="roll-detail">{roll.detail}</span>
+									{#if roll.criticalTag}
+										<span class="critical-tag">CRÍTICO!</span>
+									{/if}
+								</div>
+							</div>
+						{/each}
+					{/if}
 
-		<div class="message-item roll-only">
-			<div class="message-avatar warrior">
-				<span>G</span>
-			</div>
-			<div class="message-content">
-				<div class="message-sender">Gorn</div>
-				<div class="message-roll">
-					<div class="roll-title">Iniciativa</div>
-					<div class="roll-value">
-						<span class="dice">🎲</span>
-						<span class="roll-result">12</span>
-						<span class="roll-detail">(10 + 2)</span>
-					</div>
+					<div class="message-time">{formatMessageTime(message.timestamp)}</div>
 				</div>
-				<div class="message-time">14:03</div>
 			</div>
-		</div>
-
-		<div class="message-item">
-			<div class="message-avatar mage">
-				<span>L</span>
-			</div>
-			<div class="message-content">
-				<div class="message-sender">Lyra</div>
-				<div class="message-text">
-					Vou lançar Detectar Magia para ver se há alguma aura mágica nesta área.
-				</div>
-				<div class="message-time">14:05</div>
-			</div>
-		</div>
-
-		<div class="message-item dm-message">
-			<div class="message-avatar dm">
-				<span>DM</span>
-			</div>
-			<div class="message-content">
-				<div class="message-sender">Mestre</div>
-				<div class="message-text">
-					Gorn, você nota rastros recentes de humanoides pequenos se movendo para o leste. Lyra,
-					você detecta uma aura fraca de transmutação vindo de uma árvore antiga ao norte.
-				</div>
-				<div class="message-time">14:08</div>
-			</div>
-		</div>
-
-		<div class="message-item roll-only">
-			<div class="message-avatar mage">
-				<span>L</span>
-			</div>
-			<div class="message-content">
-				<div class="message-sender">Lyra</div>
-				<div class="message-roll critical">
-					<div class="roll-title">Ataque - Raio de Fogo</div>
-					<div class="roll-value">
-						<span class="dice">🎲</span>
-						<span class="roll-result">20</span>
-						<span class="roll-detail">(20 + 5)</span>
-						<span class="critical-tag">CRÍTICO!</span>
-					</div>
-				</div>
-				<div class="message-roll damage">
-					<div class="roll-title">Dano</div>
-					<div class="roll-value">
-						<span class="dice">🔥</span>
-						<span class="roll-result">18</span>
-						<span class="roll-detail">(4d6: 3,5,4,6)</span>
-					</div>
-				</div>
-				<div class="message-time">14:09</div>
-			</div>
-		</div>
-
-		<div class="message-item">
-			<div class="message-avatar cleric">
-				<span>T</span>
-			</div>
-			<div class="message-content">
-				<div class="message-sender">Thorne</div>
-				<div class="message-text">
-					Vamos investigar a árvore. Eu posso usar Orientação em quem for examinar.
-				</div>
-				<div class="message-time">14:10</div>
-			</div>
-		</div>
-
-		<div class="message-item">
-			<div class="message-avatar rogue">
-				<span>V</span>
-			</div>
-			<div class="message-content">
-				<div class="message-sender">Vex</div>
-				<div class="message-text">
-					Eu vou na frente para verificar armadilhas. Provavelmente não é uma árvore comum.
-				</div>
-				<div class="message-roll success">
-					<div class="roll-title">Percepção</div>
-					<div class="roll-value">
-						<span class="dice">🎲</span>
-						<span class="roll-result">22</span>
-						<span class="roll-detail">(18 + 4)</span>
-					</div>
-				</div>
-				<div class="message-time">14:12</div>
-			</div>
-		</div>
-
-		<div class="message-item roll-only">
-			<div class="message-avatar rogue">
-				<span>V</span>
-			</div>
-			<div class="message-content">
-				<div class="message-sender">Vex</div>
-				<div class="message-roll failure">
-					<div class="roll-title">Teste de Armadilhas</div>
-					<div class="roll-value">
-						<span class="dice">🎲</span>
-						<span class="roll-result">3</span>
-						<span class="roll-detail">(1 + 2)</span>
-					</div>
-				</div>
-				<div class="message-time">14:13</div>
-			</div>
-		</div>
-
-		<div class="message-item dm-message">
-			<div class="message-avatar dm">
-				<span>DM</span>
-			</div>
-			<div class="message-content">
-				<div class="message-sender">Mestre</div>
-				<div class="message-text">
-					Vex, você se aproxima com cautela e percebe que um pequeno compartimento está escondido no
-					tronco da árvore. Parece conter algo...
-				</div>
-				<div class="message-time">14:15</div>
-			</div>
-		</div>
+		{/each}
 	</div>
 
 	<div class="message-input-area">
 		<div class="input-wrapper">
-			<input type="text" placeholder="Digite sua mensagem..." />
-			<button class="send-button">Enviar</button>
+			<input
+				type="text"
+				placeholder="Digite sua mensagem..."
+				bind:value={newMessage}
+				onkeydown={(e) => e.key === "Enter" && sendMessage()}
+			/>
+			<button class="send-button" onclick={sendMessage}>Enviar</button>
 		</div>
 	</div>
 </div>
@@ -223,6 +281,27 @@
 		display: flex;
 		flex-direction: column;
 		gap: 0.75rem;
+		scrollbar-width: thin;
+		scrollbar-color: var(--background-color-level-3) var(--background-color-level-1);
+	}
+
+	/* Custom scrollbar for webkit browsers */
+	.messages-list::-webkit-scrollbar {
+		width: 6px;
+	}
+
+	.messages-list::-webkit-scrollbar-track {
+		background: var(--background-color-level-1);
+		border-radius: 4px;
+	}
+
+	.messages-list::-webkit-scrollbar-thumb {
+		background-color: var(--background-color-level-3);
+		border-radius: 4px;
+	}
+
+	.messages-list::-webkit-scrollbar-thumb:hover {
+		background-color: var(--primary-color);
 	}
 
 	.message-date-divider {

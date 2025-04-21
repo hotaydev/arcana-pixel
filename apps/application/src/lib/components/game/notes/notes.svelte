@@ -115,6 +115,10 @@
 		margin-bottom: 0.75rem;
 	}
 
+	.notes-header h3 {
+		margin-bottom: 0;
+	}
+
 	.new-note-btn {
 		padding: 0.4rem 0.75rem;
 		background-color: var(--primary-color);
@@ -161,6 +165,27 @@
 		display: flex;
 		flex-direction: column;
 		gap: 0.75rem;
+		scrollbar-width: thin;
+		scrollbar-color: var(--background-color-level-3) var(--background-color-level-1);
+	}
+
+	/* Custom scrollbar for webkit browsers */
+	.notes-list::-webkit-scrollbar {
+		width: 6px;
+	}
+
+	.notes-list::-webkit-scrollbar-track {
+		background: var(--background-color-level-1);
+		border-radius: 4px;
+	}
+
+	.notes-list::-webkit-scrollbar-thumb {
+		background-color: var(--background-color-level-3);
+		border-radius: 4px;
+	}
+
+	.notes-list::-webkit-scrollbar-thumb:hover {
+		background-color: var(--primary-color);
 	}
 
 	.note-item {
