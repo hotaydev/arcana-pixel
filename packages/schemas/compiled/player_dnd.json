@@ -28,7 +28,14 @@
           "description": "Subclass name (e.g., \"School of Evocation\" for Wizard)"
         },
         "hitDice": {
-          "$ref": "#/definitions/HitDice",
+          "anyOf": [
+            {
+              "$ref": "#/definitions/HitDice"
+            },
+            {
+              "type": "string"
+            }
+          ],
           "description": "Hit dice used for healing"
         },
         "hitDiceUsed": {

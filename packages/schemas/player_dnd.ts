@@ -188,7 +188,7 @@ export interface Class {
   /**
    * Hit dice used for healing
    */
-  hitDice: HitDice;
+  hitDice: HitDice | string;
 
   /**
    * Amount of hit dice already used

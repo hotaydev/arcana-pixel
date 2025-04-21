@@ -1,6 +1,5 @@
 import {
   Class,
-  HitDice,
   IPlayerDnD,
   Skill,
   SkillsType,
@@ -42,8 +41,7 @@ export class DndBeyondImporterService {
     const playerClasses: Class[] = (dndBeyondData.classes ?? []).map((c) => ({
       class: c.definition?.name ?? "",
       level: c.level ?? 1,
-       
-      hitDice: c.definition?.hitDice ? (`d${c.definition?.hitDice}` as HitDice) : "d6",
+      hitDice: c.definition?.hitDice ? `d${c.definition?.hitDice}` : "d6",
       hitDiceUsed: c.hitDiceUsed ?? 0,
     }));
     const playerLevel = playerClasses.reduce((a, b) => a + b.level, 0);
