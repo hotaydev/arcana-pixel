@@ -1,5 +1,6 @@
 import {
   Class,
+  HitDice,
   IPlayerDnD,
   Skill,
   SkillsType,
@@ -15,7 +16,7 @@ import { catchError, firstValueFrom } from "rxjs";
 import { IDndBeyondCharacter } from "../models/dnd-beyond.model";
 import { randomUUID } from "node:crypto";
 
-// TODO: move this to a shared library, so we cna use it already as an "expansion"
+// TODO: move this to a shared library, so we can use it already as an "expansion"
 
 @Injectable()
 export class DndBeyondImporterService {
@@ -41,6 +42,9 @@ export class DndBeyondImporterService {
     const playerClasses: Class[] = (dndBeyondData.classes ?? []).map((c) => ({
       class: c.definition?.name ?? "",
       level: c.level ?? 1,
+       
+      hitDice: c.definition?.hitDice ? (`d${c.definition?.hitDice}` as HitDice) : "d6",
+      hitDiceUsed: c.hitDiceUsed ?? 0,
     }));
     const playerLevel = playerClasses.reduce((a, b) => a + b.level, 0);
 
@@ -108,20 +112,20 @@ export class DndBeyondImporterService {
       avatar: dndBeyondData.decorations?.avatarUrl ?? undefined,
       classes: playerClasses,
       armorClass: 12, // TODO: get real total defense
+      isInspired: dndBeyondData.inspiration ?? false,
       xp: {
         current: dndBeyondData.currentXp ?? 0,
         max: this.getNextLevelExperience(dndBeyondData.currentXp ?? 0),
       },
+      // Need to check other Hit Point Bonuses
       hp: {
         current:
           (dndBeyondData.baseHitPoints ?? 0) +
-          (dndBeyondData.bonusHitPoints ?? 0) +
-          (dndBeyondData.temporaryHitPoints ?? 0), // Need to check other Hit Point Bonuses
-        max:
-          (dndBeyondData.baseHitPoints ?? 0) +
           (dndBeyondData.bonusHitPoints ?? 0) -
           (dndBeyondData.removedHitPoints ?? 0),
+        max: (dndBeyondData.baseHitPoints ?? 0) + (dndBeyondData.bonusHitPoints ?? 0),
       },
+      tempHp: dndBeyondData.temporaryHitPoints ?? 0,
       initiative: baseStats.dex.value,
       speed: this.feetsToMeters(dndBeyondData.race?.weightSpeeds?.normal?.walk || 30),
       proficiencyBonus: this.getProficiencyBonus(playerLevel),
@@ -142,6 +146,13 @@ export class DndBeyondImporterService {
       items: [],
       spells: [],
       spellSlots: [],
+      exhaustion: 0,
+      conditions: [],
+      profile: {},
+      proficiencies: [],
+      // background: {},
+      // deathSaves: {},
+      // spellcastingAbility: {},
     };
   }
 

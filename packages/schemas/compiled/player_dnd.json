@@ -28,13 +28,7 @@
           "description": "Subclass name (e.g., \"School of Evocation\" for Wizard)"
         },
         "hitDice": {
-          "type": "string",
-          "enum": [
-            "d6",
-            "d8",
-            "d10",
-            "d12"
-          ],
+          "$ref": "#/definitions/HitDice",
           "description": "Hit dice used for healing"
         },
         "hitDiceUsed": {
@@ -51,6 +45,15 @@
       ],
       "additionalProperties": false,
       "description": "Schema definition for a single character class"
+    },
+    "HitDice": {
+      "type": "string",
+      "enum": [
+        "d6",
+        "d8",
+        "d10",
+        "d12"
+      ]
     },
     "ProgressionBar": {
       "type": "object",
@@ -712,9 +715,6 @@
           "description": "Languages known by the character"
         }
       },
-      "required": [
-        "languages"
-      ],
       "additionalProperties": false,
       "description": "Schema definition for a character profile"
     },

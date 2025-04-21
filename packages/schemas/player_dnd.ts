@@ -162,7 +162,7 @@ export interface IPlayerDnD {
     failures: number;
   };
 
-  background: Background;
+  background?: Background;
 }
 
 /**
@@ -188,7 +188,7 @@ export interface Class {
   /**
    * Hit dice used for healing
    */
-  hitDice: "d6" | "d8" | "d10" | "d12";
+  hitDice: HitDice;
 
   /**
    * Amount of hit dice already used
@@ -197,6 +197,8 @@ export interface Class {
    */
   hitDiceUsed: number;
 }
+
+export type HitDice = "d6" | "d8" | "d10" | "d12";
 
 /**
  * Schema definition for a single spellcasting ability
@@ -610,7 +612,7 @@ export interface Profile {
   /**
    * Languages known by the character
    */
-  languages: string[];
+  languages?: string[];
 }
 
 /**
