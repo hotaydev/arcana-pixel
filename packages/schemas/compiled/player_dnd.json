@@ -20,12 +20,34 @@
         },
         "level": {
           "type": "number",
-          "description": "Class level"
+          "description": "Class level",
+          "default": 1
+        },
+        "subclass": {
+          "type": "string",
+          "description": "Subclass name (e.g., \"School of Evocation\" for Wizard)"
+        },
+        "hitDice": {
+          "type": "string",
+          "enum": [
+            "d6",
+            "d8",
+            "d10",
+            "d12"
+          ],
+          "description": "Hit dice used for healing"
+        },
+        "hitDiceUsed": {
+          "type": "number",
+          "description": "Amount of hit dice already used Max amount is the class level",
+          "default": 0
         }
       },
       "required": [
         "class",
-        "level"
+        "level",
+        "hitDice",
+        "hitDiceUsed"
       ],
       "additionalProperties": false,
       "description": "Schema definition for a single character class"
@@ -681,8 +703,18 @@
         "alignment": {
           "$ref": "#/definitions/Alignment",
           "description": "Character's alignment"
+        },
+        "languages": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Languages known by the character"
         }
       },
+      "required": [
+        "languages"
+      ],
       "additionalProperties": false,
       "description": "Schema definition for a character profile"
     },
@@ -727,6 +759,212 @@
         "neutral_evil",
         "chaotic_evil"
       ]
+    },
+    "Condition": {
+      "type": "string",
+      "enum": [
+        "blinded",
+        "charmed",
+        "deafened",
+        "exhausted",
+        "frightened",
+        "grappled",
+        "incapacitated",
+        "invisible",
+        "paralyzed",
+        "petrified",
+        "poisoned",
+        "prone",
+        "restrained",
+        "stunned",
+        "unconscious"
+      ]
+    },
+    "Proficiency": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "armor",
+            "weapon",
+            "tool"
+          ],
+          "description": "Type of proficiency Note: Saving throws and skills are not included in this list, both are handled separately"
+        },
+        "proficiency": {
+          "anyOf": [
+            {
+              "$ref": "#/definitions/ArmorType"
+            },
+            {
+              "$ref": "#/definitions/WeaponType"
+            },
+            {
+              "$ref": "#/definitions/ToolType"
+            }
+          ],
+          "description": "Proficiency value"
+        }
+      },
+      "required": [
+        "type",
+        "proficiency"
+      ],
+      "additionalProperties": false
+    },
+    "ArmorType": {
+      "type": "string",
+      "enum": [
+        "light",
+        "medium",
+        "heavy",
+        "shield"
+      ]
+    },
+    "WeaponType": {
+      "type": "string",
+      "enum": [
+        "simple",
+        "martial"
+      ]
+    },
+    "ToolType": {
+      "anyOf": [
+        {
+          "$ref": "#/definitions/ArtisanTool"
+        },
+        {
+          "$ref": "#/definitions/GamingSet"
+        },
+        {
+          "$ref": "#/definitions/MusicalInstrument"
+        },
+        {
+          "$ref": "#/definitions/Kit"
+        },
+        {
+          "$ref": "#/definitions/Vehicle"
+        }
+      ]
+    },
+    "ArtisanTool": {
+      "type": "string",
+      "enum": [
+        "alchemist_supplies",
+        "brewer_supplies",
+        "calligrapher_supplies",
+        "carpenter_tools",
+        "cartographer_tools",
+        "cobbler_tools",
+        "cook_utensils",
+        "glassblower_tools",
+        "jeweler_tools",
+        "leatherworker_tools",
+        "mason_tools",
+        "painter_supplies",
+        "potter_tools",
+        "smith_tools",
+        "tinker_tools",
+        "weaver_tools",
+        "woodcarver_tools"
+      ]
+    },
+    "GamingSet": {
+      "type": "string",
+      "enum": [
+        "dice_set",
+        "dragonchess_set",
+        "playing_card_set",
+        "three_dragon_ante_set"
+      ]
+    },
+    "MusicalInstrument": {
+      "type": "string",
+      "enum": [
+        "bagpipes",
+        "drum",
+        "dulcimer",
+        "flute",
+        "lute",
+        "lyre",
+        "horn",
+        "pan_flute",
+        "shawm",
+        "viol"
+      ]
+    },
+    "Kit": {
+      "type": "string",
+      "enum": [
+        "disguise_kit",
+        "forgery_kit",
+        "herbalism_kit",
+        "poisoners_kit",
+        "thieves_tools",
+        "navigator_tools",
+        "healer_kit"
+      ]
+    },
+    "Vehicle": {
+      "type": "string",
+      "enum": [
+        "land_vehicles",
+        "water_vehicles"
+      ]
+    },
+    "Background": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Name of the background"
+        },
+        "description": {
+          "type": "string",
+          "description": "Description of the background"
+        },
+        "features": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Special features provided by the background"
+        },
+        "traits": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Character personality traits from background"
+        },
+        "ideals": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Character ideals from background"
+        },
+        "bonds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Character bonds from background"
+        },
+        "flaws": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Character flaws from background"
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "additionalProperties": false,
+      "description": "Schema definition for a character background"
     }
   }
 }

@@ -56,6 +56,12 @@ export interface IPlayerDnD {
   hp: ProgressionBar;
 
   /**
+   * Temporary hit points
+   * @default 0
+   */
+  tempHp?: number;
+
+  /**
    * Array of available spell slots, ordered by level
    * Ex. Level 1: array position 0, Level 2: array position 1, etc.
    * If undefined, the character is not a spellcaster
@@ -101,16 +107,19 @@ export interface IPlayerDnD {
   /**
    * Spellcasting ability.
    * If not provided, the character is not a spellcaster.
+   * @default undefined
    */
   spellcastingAbility?: SpellCastingAbility[];
 
   /**
    * List of spells
+   * @default []
    */
   spells: Spell[];
 
   /**
    * List of items
+   * @default []
    */
   items: InventoryItem[];
 
@@ -118,6 +127,42 @@ export interface IPlayerDnD {
    * Character's profile information
    */
   profile: Profile;
+
+  /**
+   * Character's current exhaustion level (0-6)
+   */
+  exhaustion: number;
+
+  /**
+   * Current conditions affecting the character
+   * @default []
+   */
+  conditions: Condition[];
+
+  /**
+   * Proficiencies of the character
+   * @default []
+   */
+  proficiencies: Proficiency[];
+
+  /**
+   * Death saves of the character
+   */
+  deathSaves?: {
+    /**
+     * Amount of successes
+     * @default 0
+     */
+    successes: number;
+
+    /**
+     * Amount of failures
+     * @default 0
+     */
+    failures: number;
+  };
+
+  background: Background;
 }
 
 /**
@@ -131,8 +176,26 @@ export interface Class {
 
   /**
    * Class level
+   * @default 1
    */
   level: number;
+
+  /**
+   * Subclass name (e.g., "School of Evocation" for Wizard)
+   */
+  subclass?: string;
+
+  /**
+   * Hit dice used for healing
+   */
+  hitDice: "d6" | "d8" | "d10" | "d12";
+
+  /**
+   * Amount of hit dice already used
+   * Max amount is the class level
+   * @default 0
+   */
+  hitDiceUsed: number;
 }
 
 /**
@@ -543,6 +606,11 @@ export interface Profile {
    * Character's alignment
    */
   alignment?: Alignment;
+
+  /**
+   * Languages known by the character
+   */
+  languages: string[];
 }
 
 /**
@@ -773,4 +841,134 @@ export interface SpellDuration {
     | "month"
     | "permanent"
     | "until_dispelled";
+}
+
+export type Condition =
+  | "blinded"
+  | "charmed"
+  | "deafened"
+  | "exhausted"
+  | "frightened"
+  | "grappled"
+  | "incapacitated"
+  | "invisible"
+  | "paralyzed"
+  | "petrified"
+  | "poisoned"
+  | "prone"
+  | "restrained"
+  | "stunned"
+  | "unconscious";
+
+export type ArmorType = "light" | "medium" | "heavy" | "shield";
+
+export type WeaponType = "simple" | "martial";
+
+export type ArtisanTool =
+  | "alchemist_supplies"
+  | "brewer_supplies"
+  | "calligrapher_supplies"
+  | "carpenter_tools"
+  | "cartographer_tools"
+  | "cobbler_tools"
+  | "cook_utensils"
+  | "glassblower_tools"
+  | "jeweler_tools"
+  | "leatherworker_tools"
+  | "mason_tools"
+  | "painter_supplies"
+  | "potter_tools"
+  | "smith_tools"
+  | "tinker_tools"
+  | "weaver_tools"
+  | "woodcarver_tools";
+
+export type GamingSet =
+  | "dice_set"
+  | "dragonchess_set"
+  | "playing_card_set"
+  | "three_dragon_ante_set";
+
+export type MusicalInstrument =
+  | "bagpipes"
+  | "drum"
+  | "dulcimer"
+  | "flute"
+  | "lute"
+  | "lyre"
+  | "horn"
+  | "pan_flute"
+  | "shawm"
+  | "viol";
+
+export type Kit =
+  | "disguise_kit"
+  | "forgery_kit"
+  | "herbalism_kit"
+  | "poisoners_kit"
+  | "thieves_tools"
+  | "navigator_tools"
+  | "healer_kit";
+
+export type Vehicle = "land_vehicles" | "water_vehicles";
+
+export type ToolType =
+  | ArtisanTool
+  | GamingSet
+  | MusicalInstrument
+  | Kit
+  | Vehicle;
+
+export interface Proficiency {
+  /**
+   * Type of proficiency
+   * Note: Saving throws and skills are not included in this list, both are handled separately
+   */
+  type: "armor" | "weapon" | "tool";
+
+  /**
+   * Proficiency value
+   */
+  proficiency: ArmorType | WeaponType | ToolType;
+}
+
+/**
+ * Schema definition for a character background
+ */
+export interface Background {
+  /**
+   * Name of the background
+   */
+  name: string;
+
+  /**
+   * Description of the background
+   */
+  description?: string;
+
+  /**
+   * Special features provided by the background
+   */
+  features?: string[];
+  // TODO: Add features structures (there's a TODO related to it in the start of this document)
+
+  /**
+   * Character personality traits from background
+   */
+  traits?: string[];
+
+  /**
+   * Character ideals from background
+   */
+  ideals?: string[];
+
+  /**
+   * Character bonds from background
+   */
+  bonds?: string[];
+
+  /**
+   * Character flaws from background
+   */
+  flaws?: string[];
 }
