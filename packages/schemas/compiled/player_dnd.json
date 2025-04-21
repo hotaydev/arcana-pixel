@@ -226,6 +226,253 @@
       "additionalProperties": false,
       "description": "Schema definition for a single spellcasting ability"
     },
+    "Spell": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "number",
+          "description": "Unique identifier for the spell"
+        },
+        "isPrepared": {
+          "type": "boolean",
+          "description": "Indicates if the spell is prepared or not"
+        },
+        "isCantrip": {
+          "type": "boolean",
+          "description": "Indicates if the spell is a cantrip"
+        },
+        "range": {
+          "$ref": "#/definitions/Range",
+          "description": "Range of the spell"
+        },
+        "level": {
+          "type": "number",
+          "description": "Level of the spell"
+        },
+        "atHigherLevels": {
+          "$ref": "#/definitions/SpellAtHigherLevels",
+          "description": "Bonus to the spell when cast at higher levels"
+        },
+        "component": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/SpellComponent"
+          },
+          "description": "Components required to cast the spell"
+        },
+        "name": {
+          "type": "string",
+          "description": "Name of the spell"
+        },
+        "description": {
+          "type": "string",
+          "description": "Description of the spell"
+        },
+        "duration": {
+          "$ref": "#/definitions/SpellDuration",
+          "description": "Duration of the spell"
+        },
+        "needConcentration": {
+          "type": "boolean",
+          "description": "Indicates if the spell needs concentration"
+        },
+        "castAs": {
+          "type": "string",
+          "enum": [
+            "action",
+            "bonus_action",
+            "reaction",
+            "ritual"
+          ],
+          "description": "Type of the spell"
+        },
+        "damageType": {
+          "$ref": "#/definitions/DamageType",
+          "description": "Damage type of the spell Nullable when the spell doesn't deal damage"
+        },
+        "save": {
+          "$ref": "#/definitions/Stat",
+          "description": "Save DC (Difficulty Class) of the spell Nullable when the spell isn't cast against a creature/character"
+        },
+        "heals": {
+          "$ref": "#/definitions/Dice",
+          "description": "Amount of healing the spell deals Nullable when the spell doesn't deal healing"
+        },
+        "damage": {
+          "$ref": "#/definitions/Dice",
+          "description": "Amount of damage the spell deals Nullable when the spell doesn't deal damage"
+        }
+      },
+      "required": [
+        "id",
+        "isPrepared",
+        "isCantrip",
+        "range",
+        "level",
+        "component",
+        "name",
+        "description",
+        "duration",
+        "needConcentration",
+        "castAs"
+      ],
+      "additionalProperties": false,
+      "description": "Schema definition for a single spell"
+    },
+    "Range": {
+      "type": "object",
+      "properties": {
+        "distance": {
+          "type": "number",
+          "description": "Distance of the range Is zero for touch and self"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "touch",
+            "self",
+            "cone",
+            "sphere",
+            "line",
+            "cube",
+            "cylinder"
+          ],
+          "description": "Type of the range"
+        }
+      },
+      "required": [
+        "distance",
+        "type"
+      ],
+      "additionalProperties": false,
+      "description": "Schema definition for a spell range"
+    },
+    "SpellAtHigherLevels": {
+      "type": "object",
+      "properties": {
+        "level": {
+          "type": "number",
+          "description": "Level of the spell"
+        },
+        "bonus": {
+          "$ref": "#/definitions/Dice",
+          "description": "Bonus to the spell"
+        }
+      },
+      "required": [
+        "level",
+        "bonus"
+      ],
+      "additionalProperties": false,
+      "description": "Schema definition for casting a spell at higher levels"
+    },
+    "Dice": {
+      "type": "object",
+      "properties": {
+        "d4": {
+          "type": "number",
+          "description": "Number of d4s"
+        },
+        "d6": {
+          "type": "number",
+          "description": "Number of d6s"
+        },
+        "d8": {
+          "type": "number",
+          "description": "Number of d8s"
+        },
+        "d10": {
+          "type": "number",
+          "description": "Number of d10s"
+        },
+        "d12": {
+          "type": "number",
+          "description": "Number of d12s"
+        },
+        "d20": {
+          "type": "number",
+          "description": "Number of d20s"
+        },
+        "d100": {
+          "type": "number",
+          "description": "Number of d100s"
+        },
+        "hasAdvantage": {
+          "type": "boolean",
+          "description": "Indicates if the dice roll has advantage"
+        },
+        "hasDisadvantage": {
+          "type": "boolean",
+          "description": "Indicates if the dice roll has disadvantage"
+        },
+        "isSum": {
+          "type": "boolean",
+          "description": "Indicates if the dice roll is summed Skill checks get the higher value, so it's set to false; Damage rolls, Healing, etc get the sum of all dice, so it's set to true;",
+          "default": false
+        }
+      },
+      "additionalProperties": false,
+      "description": "Schema definition for a dice roll Can be used for damage, healing, bonuses, etc."
+    },
+    "SpellComponent": {
+      "type": "string",
+      "enum": [
+        "verbal",
+        "somatic",
+        "material",
+        "focus"
+      ],
+      "description": "Types of components required to cast a spell"
+    },
+    "SpellDuration": {
+      "type": "object",
+      "properties": {
+        "duration": {
+          "type": "number",
+          "description": "Duration time, specified by the unit"
+        },
+        "unit": {
+          "type": "string",
+          "enum": [
+            "instantaneous",
+            "round",
+            "minute",
+            "hour",
+            "day",
+            "week",
+            "month",
+            "permanent",
+            "until_dispelled"
+          ],
+          "description": "Unit of the duration"
+        }
+      },
+      "required": [
+        "duration",
+        "unit"
+      ],
+      "additionalProperties": false,
+      "description": "Schema definition for a spell duration"
+    },
+    "DamageType": {
+      "type": "string",
+      "enum": [
+        "acid",
+        "bludgeoning",
+        "cold",
+        "fire",
+        "force",
+        "lightning",
+        "necrotic",
+        "piercing",
+        "poison",
+        "psychic",
+        "radiant",
+        "slashing",
+        "thunder"
+      ],
+      "description": "Definition of available damage types"
+    },
     "InventoryItem": {
       "type": "object",
       "properties": {
@@ -352,25 +599,6 @@
         "tool"
       ],
       "description": "Definition of available inventory item types"
-    },
-    "DamageType": {
-      "type": "string",
-      "enum": [
-        "acid",
-        "bludgeoning",
-        "cold",
-        "fire",
-        "force",
-        "lightning",
-        "necrotic",
-        "piercing",
-        "poison",
-        "psychic",
-        "radiant",
-        "slashing",
-        "thunder"
-      ],
-      "description": "Definition of available damage types"
     },
     "Penalty": {
       "type": "object",

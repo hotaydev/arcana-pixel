@@ -58,8 +58,10 @@ export interface IPlayerDnD {
   /**
    * Array of available spell slots, ordered by level
    * Ex. Level 1: array position 0, Level 2: array position 1, etc.
+   * If undefined, the character is not a spellcaster
+   * Warlock have only one spell slot, which indicates the total spell slots available at any level
    */
-  spellSlots: ProgressionBar[];
+  spellSlots?: ProgressionBar[];
 
   /**
    * Charcter Armor Class (Defense)
@@ -105,7 +107,7 @@ export interface IPlayerDnD {
   /**
    * List of spells
    */
-  spells: any[];
+  spells: Spell[];
 
   /**
    * List of items
@@ -563,4 +565,212 @@ export interface Lifestyle {
    * Cost of the lifestyle
    */
   cost: Currencies;
+}
+
+/**
+ * Schema definition for a single spell
+ */
+export interface Spell {
+  /**
+   * Unique identifier for the spell
+   */
+  id: number;
+
+  /**
+   * Indicates if the spell is prepared or not
+   */
+  isPrepared: boolean;
+
+  /**
+   * Indicates if the spell is a cantrip
+   */
+  isCantrip: boolean;
+
+  /**
+   * Range of the spell
+   */
+  range: Range;
+
+  /**
+   * Level of the spell
+   */
+  level: number;
+
+  /**
+   * Bonus to the spell when cast at higher levels
+   */
+  atHigherLevels?: SpellAtHigherLevels;
+
+  /**
+   * Components required to cast the spell
+   */
+  component: SpellComponent[];
+
+  /**
+   * Name of the spell
+   */
+  name: string;
+
+  /**
+   * Description of the spell
+   */
+  description: string;
+
+  /**
+   * Duration of the spell
+   */
+  duration: SpellDuration;
+
+  /**
+   * Indicates if the spell needs concentration
+   */
+  needConcentration: boolean;
+
+  /**
+   * Type of the spell
+   */
+  castAs: "action" | "bonus_action" | "reaction" | "ritual";
+
+  /**
+   * Damage type of the spell
+   * Nullable when the spell doesn't deal damage
+   */
+  damageType?: DamageType;
+
+  /**
+   * Save DC (Difficulty Class) of the spell
+   * Nullable when the spell isn't cast against a creature/character
+   */
+  save?: Stat;
+
+  /**
+   * Amount of healing the spell deals
+   * Nullable when the spell doesn't deal healing
+   */
+  heals?: Dice;
+
+  /**
+   * Amount of damage the spell deals
+   * Nullable when the spell doesn't deal damage
+   */
+  damage?: Dice;
+}
+
+/**
+ * Schema definition for a spell range
+ */
+export interface Range {
+  /**
+   * Distance of the range
+   * Is zero for touch and self
+   */
+  distance: number;
+
+  /**
+   * Type of the range
+   */
+  type: "touch" | "self" | "cone" | "sphere" | "line" | "cube" | "cylinder";
+}
+
+/**
+ * Types of components required to cast a spell
+ */
+export type SpellComponent = "verbal" | "somatic" | "material" | "focus";
+
+/**
+ * Schema definition for casting a spell at higher levels
+ */
+export interface SpellAtHigherLevels {
+  /**
+   * Level of the spell
+   */
+  level: number;
+
+  /**
+   * Bonus to the spell
+   */
+  bonus: Dice;
+}
+
+/**
+ * Schema definition for a dice roll
+ * Can be used for damage, healing, bonuses, etc.
+ */
+export interface Dice {
+  /**
+   * Number of d4s
+   */
+  d4?: number;
+
+  /**
+   * Number of d6s
+   */
+  d6?: number;
+
+  /**
+   * Number of d8s
+   */
+  d8?: number;
+
+  /**
+   * Number of d10s
+   */
+  d10?: number;
+
+  /**
+   * Number of d12s
+   */
+  d12?: number;
+
+  /**
+   * Number of d20s
+   */
+  d20?: number;
+
+  /**
+   * Number of d100s
+   */
+  d100?: number;
+
+  /**
+   * Indicates if the dice roll has advantage
+   */
+  hasAdvantage?: boolean;
+
+  /**
+   * Indicates if the dice roll has disadvantage
+   */
+  hasDisadvantage?: boolean;
+
+  /**
+   * Indicates if the dice roll is summed
+   * Skill checks get the higher value, so it's set to false;
+   * Damage rolls, Healing, etc get the sum of all dice, so it's set to true;
+   * @default false
+   */
+  isSum?: boolean;
+}
+
+/**
+ * Schema definition for a spell duration
+ */
+export interface SpellDuration {
+  /**
+   * Duration time, specified by the unit
+   */
+  duration: number;
+
+  /**
+   * Unit of the duration
+   */
+  unit:
+    | "instantaneous"
+    | "round"
+    | "minute"
+    | "hour"
+    | "day"
+    | "week"
+    | "month"
+    | "permanent"
+    | "until_dispelled";
 }
