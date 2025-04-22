@@ -3,6 +3,13 @@ import { setMap } from "$lib/stores/map.store";
 import type { IMapDefinitions } from "@arcana-pixel/schemas/map_definitions";
 
 export default (mapData: IMapDefinitions) => {
+	let viewZoom = localStorage.getItem("mapZoom")
+		? parseInt(localStorage.getItem("mapZoom")!)
+		: mapData.config.minZoom;
+	let viewCenter = JSON.parse(
+		localStorage.getItem("mapCenter") ?? JSON.stringify(mapData.config.center)
+	);
+
 	const doesBoundsExist = mapData.config.bounds?.southWest && mapData.config.bounds?.northEast;
 	const isTilesUrlMap = mapData.config.url.includes("{z}/{x}/{y}");
 	const bounds = doesBoundsExist
@@ -12,9 +19,6 @@ export default (mapData: IMapDefinitions) => {
 	var map = L.map("arcana-map", {
 		crs: L.CRS.Simple,
 		attributionControl: false,
-		// zoomSnap: 0.0001,
-		// zoomDelta: 0.25,
-		// wheelDebounceTime: 25,
 		zoomControl: false,
 		maxBoundsViscosity: 1.0,
 		maxBounds: bounds,
@@ -28,7 +32,12 @@ export default (mapData: IMapDefinitions) => {
 			maxNativeZoom: mapData.config.maxNativeZoom,
 			minNativeZoom: mapData.config.minNativeZoom,
 		}).addTo(map);
-		map.setView(mapData.config.center, mapData.config.minZoom);
+		map.setView(viewCenter, viewZoom);
+
+		map.on("moveend", function (e) {
+			localStorage.setItem("mapZoom", map.getZoom().toString());
+			localStorage.setItem("mapCenter", JSON.stringify(map.getCenter()));
+		});
 	} else {
 		// It's a plain simple unique image
 		L.imageOverlay(

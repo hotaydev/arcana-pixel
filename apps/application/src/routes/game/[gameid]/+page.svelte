@@ -11,11 +11,13 @@
 		Briefcase,
 		Sparkles,
 		Map,
+		User,
 	} from "@lucide/svelte";
 	import ArcanaMap from "$lib/components/game/map/arcana-map.svelte";
 	import MapToolbar from "$lib/components/game/map/map-toolbar.svelte";
 	import Notes from "$lib/components/game/notes/notes.svelte";
 	import Chat from "$lib/components/game/chat/chat.svelte";
+	import Logo from "$lib/components/common/logo.svelte";
 
 	// Interface for sidebar tabs
 	interface Tab {
@@ -23,6 +25,55 @@
 		title: string;
 		icon: Component;
 		counter?: number;
+	}
+
+	// Mock data for connected players
+	const connectedPlayers = [
+		{ id: 1, name: "John Doe", initials: "JD", color: "#4F46E5" },
+		{ id: 2, name: "Anna Smith", initials: "AS", color: "#10B981" },
+		{ id: 3, name: "Miguel Torres", initials: "MT", color: "#F59E0B" },
+	];
+
+	// Mock game session name
+	const gameSessionName = "A Caverna dos Mistérios Eternos";
+
+	// State for popup menus
+	let logoMenuOpen = $state(false);
+	let profileMenuOpen = $state(false);
+
+	// Toggle popup menus
+	function toggleLogoMenu() {
+		logoMenuOpen = !logoMenuOpen;
+		if (logoMenuOpen) profileMenuOpen = false;
+	}
+
+	function toggleProfileMenu() {
+		profileMenuOpen = !profileMenuOpen;
+		if (profileMenuOpen) logoMenuOpen = false;
+	}
+
+	// Close menus when clicking outside
+	function handleClickOutside(e: MouseEvent) {
+		const logoMenuElem = document.getElementById("logo-menu");
+		const profileMenuElem = document.getElementById("profile-menu");
+
+		if (
+			logoMenuOpen &&
+			logoMenuElem &&
+			!logoMenuElem.contains(e.target as Node) &&
+			!document.querySelector(".logo")?.contains(e.target as Node)
+		) {
+			logoMenuOpen = false;
+		}
+
+		if (
+			profileMenuOpen &&
+			profileMenuElem &&
+			!profileMenuElem.contains(e.target as Node) &&
+			!document.querySelector(".profile-button")?.contains(e.target as Node)
+		) {
+			profileMenuOpen = false;
+		}
 	}
 
 	// Unified layout configuration
@@ -128,8 +179,12 @@
 
 	// Handle help tab click
 	function openHelp() {
-		layoutConfig.right.contentVisible = true;
-		layoutConfig.right.activeTab = "help";
+		if (layoutConfig.right.activeTab === "help") {
+			layoutConfig.right.contentVisible = !layoutConfig.right.contentVisible;
+		} else {
+			layoutConfig.right.contentVisible = true;
+			layoutConfig.right.activeTab = "help";
+		}
 	}
 
 	// Start resizing the right column
@@ -216,6 +271,9 @@
 
 	// Load configuration from localStorage on mount
 	onMount(() => {
+		// Setup click handler for closing menus
+		document.addEventListener("click", handleClickOutside);
+
 		const savedConfig = localStorage.getItem(STORAGE_KEY);
 		if (savedConfig) {
 			try {
@@ -286,6 +344,7 @@
 			document.removeEventListener("mouseup", stopRightResize);
 			document.removeEventListener("mousemove", handleLeftMouseMove);
 			document.removeEventListener("mouseup", stopLeftResize);
+			document.removeEventListener("click", handleClickOutside);
 		};
 	});
 
@@ -336,6 +395,53 @@
 </script>
 
 <main>
+	<!-- Top Bar -->
+	<div class="top-bar card">
+		<div class="left-section">
+			<Logo withText={false} size={32} onclick={toggleLogoMenu} />
+			<div class="vertical-divider"></div>
+			<div class="session-name">{gameSessionName}</div>
+
+			<!-- Logo Menu Popup -->
+			{#if logoMenuOpen}
+				<div class="popup-menu" id="logo-menu" transition:fade={{ duration: 150 }}>
+					<ul>
+						<li>Salvar Sessão</li>
+						<li>Configurações da Campanha</li>
+						<li>Exportar Mapa</li>
+						<li>Voltar para Dashboard</li>
+					</ul>
+				</div>
+			{/if}
+		</div>
+
+		<div class="right-section">
+			<div class="player-avatars">
+				{#each connectedPlayers as player}
+					<div class="player-avatar" style="background-color: {player.color};" title={player.name}>
+						{player.initials}
+					</div>
+				{/each}
+			</div>
+
+			<button class="profile-button" onclick={toggleProfileMenu}>
+				<User size={20} />
+			</button>
+
+			<!-- Profile Menu Popup -->
+			{#if profileMenuOpen}
+				<div class="popup-menu profile-popup" id="profile-menu" transition:fade={{ duration: 150 }}>
+					<ul>
+						<li>Meu Perfil</li>
+						<li>Configurações</li>
+						<li>Convidar Jogadores</li>
+						<li>Sair da Sessão</li>
+					</ul>
+				</div>
+			{/if}
+		</div>
+	</div>
+
 	<!-- Resizable columns container -->
 	<div class="columns-container">
 		<!-- Left column with sidebar -->
@@ -489,11 +595,132 @@
 		position: relative;
 		display: flex;
 		flex-direction: column;
-		padding: 1.25rem;
+		padding: 1rem;
 		background-color: var(--background-color-level-0);
 		height: 100vh;
 		width: 100%;
 		overflow: hidden;
+		gap: 0.75rem;
+	}
+
+	/* Override card border radius */
+	.card {
+		border-radius: calc(var(--border-radius) - 4px) !important;
+	}
+
+	/* Top Bar */
+	.top-bar {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		flex-direction: row;
+		padding: 0.75rem 1rem;
+		height: 56px;
+		width: 100%;
+		position: relative;
+		z-index: 100;
+	}
+
+	.left-section,
+	.right-section {
+		display: flex;
+		align-items: center;
+		position: relative;
+	}
+
+	.session-name {
+		margin-left: 0.75rem;
+		font-weight: 500;
+		font-size: 1.1rem;
+		color: var(--text-color);
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		max-width: 300px;
+	}
+
+	.vertical-divider {
+		height: 24px;
+		width: 1px;
+		background-color: var(--background-color-level-3);
+		margin: 0 0.5rem 0 1.25rem;
+	}
+
+	.player-avatars {
+		display: flex;
+		margin-right: 1rem;
+	}
+
+	.player-avatar {
+		width: 32px;
+		height: 32px;
+		border-radius: 50%;
+		color: white;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		font-weight: 600;
+		font-size: 0.8rem;
+		margin-left: -8px;
+		border: 2px solid var(--background-color-level-1);
+	}
+
+	.player-avatar:first-child {
+		margin-left: 0;
+	}
+
+	.profile-button {
+		display: flex;
+		align-items: center;
+		background: none;
+		border: none;
+		color: var(--text-color);
+		cursor: pointer;
+		padding: 0.5rem;
+		border-radius: var(--border-radius);
+		background-color: var(--background-color-level-2);
+	}
+
+	.profile-button:hover {
+		background-color: var(--background-color-level-3);
+	}
+
+	/* Popup Menus */
+	.popup-menu {
+		position: absolute;
+		top: 100%;
+		background-color: var(--background-color-level-2);
+		border-radius: var(--border-radius);
+		box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+		padding: 0.5rem 0;
+		z-index: 1000;
+		min-width: 200px;
+	}
+
+	#logo-menu {
+		left: 0;
+		margin-top: 0.5rem;
+	}
+
+	.profile-popup {
+		right: 0;
+		margin-top: 0.5rem;
+	}
+
+	.popup-menu ul {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+	}
+
+	.popup-menu li {
+		padding: 0.5rem 1rem;
+		cursor: pointer;
+		transition: background-color 0.2s;
+	}
+
+	.popup-menu li:hover {
+		background-color: var(--background-color-level-3);
 	}
 
 	/* Columns Layout */
@@ -502,7 +729,7 @@
 		display: flex;
 		position: relative;
 		gap: 0;
-		height: 100%;
+		height: calc(100% - 72px);
 		overflow: hidden;
 	}
 
@@ -781,6 +1008,63 @@
 		.sidebar-navigation button {
 			flex: 1;
 			justify-content: center;
+		}
+
+		/* Top bar responsive adjustments */
+		.top-bar {
+			flex-wrap: wrap;
+			height: auto;
+			padding: 0.5rem;
+		}
+
+		.session-name {
+			max-width: 150px;
+			font-size: 0.9rem;
+		}
+
+		.vertical-divider {
+			height: 20px;
+			margin: 0 0.25rem 0 0.75rem;
+		}
+
+		.player-avatars {
+			margin-right: 0.5rem;
+		}
+
+		.player-avatar {
+			width: 28px;
+			height: 28px;
+			font-size: 0.7rem;
+		}
+
+		/* If space is very limited, make logo and name show on their own row */
+		@media (max-width: 480px) {
+			.top-bar {
+				gap: 0.5rem;
+			}
+
+			.left-section,
+			.right-section {
+				width: 100%;
+				justify-content: space-between;
+			}
+
+			.session-name {
+				max-width: 220px;
+			}
+
+			.popup-menu {
+				position: fixed;
+				left: 1rem;
+				right: 1rem;
+				width: calc(100% - 2rem);
+			}
+
+			#logo-menu,
+			.profile-popup {
+				left: 1rem;
+				right: 1rem;
+			}
 		}
 	}
 </style>

@@ -54,5 +54,11 @@
 		width: 100%;
 		height: 100%;
 		background-color: var(--background-color-level-1);
+		z-index: 1;
+	}
+
+	/* Override card border radius */
+	.card {
+		border-radius: calc(var(--border-radius) - 4px) !important;
 	}
 </style>
