@@ -95,11 +95,12 @@
 								stroke-width="2"
 								stroke-linecap="round"
 								stroke-linejoin="round"
+								class="success-icon"
 							>
 								<path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
 								<polyline points="22 4 12 14.01 9 11.01"></polyline>
 							</svg>
-							<p>{m.roadmap_beta_success_title()}</p>
+							<span>{m.roadmap_beta_success_title()}</span>
 						</div>
 					{/if}
 
@@ -364,6 +365,14 @@
 		border-radius: 5px;
 		color: #4caf50;
 		margin-bottom: 2rem;
+	}
+
+	.success-message .success-icon {
+		flex-shrink: 0;
+	}
+	
+	.success-message span {
+		line-height: 1.4;
 	}
 
 	.beta-info {
