@@ -39,6 +39,8 @@
 		color: var(--primary-light);
 		font-weight: 500;
 		transition: all 0.3s ease;
+		margin: 0 auto;
+		width: fit-content;
 	}
 
 	.back-link:hover {

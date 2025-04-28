@@ -224,6 +224,12 @@
 		color: var(--primary-light);
 	}
 
+	@media (max-width: 600px) {
+		.cat-container {
+			display: none;
+		}
+	}
+
 	@media (max-width: 992px) {
 		.footer-content {
 			grid-template-columns: 1fr;

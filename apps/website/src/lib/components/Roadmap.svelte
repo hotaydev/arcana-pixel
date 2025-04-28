@@ -370,7 +370,7 @@
 	.success-message .success-icon {
 		flex-shrink: 0;
 	}
-	
+
 	.success-message span {
 		line-height: 1.4;
 	}
