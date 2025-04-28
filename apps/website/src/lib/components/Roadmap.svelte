@@ -1,13 +1,35 @@
 <script lang="ts">
-	import { ROADMAP_MILESTONES } from '$lib/variables';
+	import { ROADMAP_MILESTONES, SIGNUP_API_URL } from '$lib/variables';
 	import { m } from '$lib/paraglide/messages.js';
+	import { getLocale } from '$lib/paraglide/runtime';
 	let email = '';
 	let submitted = false;
 
 	function handleSubmit() {
 		const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 		if (email.trim() !== '' && emailRegex.test(email)) {
-			submitted = true;
+			const currentLang = getLocale();
+
+			fetch(SIGNUP_API_URL, {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json'
+				},
+				body: JSON.stringify({
+					email,
+					lang: currentLang
+				})
+			})
+				.then((response) => {
+					if (response.ok) {
+						submitted = true;
+					} else {
+						console.error('Failed to submit email');
+					}
+				})
+				.catch((error) => {
+					console.error('Error submitting email:', error);
+				});
 		}
 	}
 

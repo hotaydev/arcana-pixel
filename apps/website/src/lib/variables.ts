@@ -7,6 +7,7 @@ export const GITHUB_LINK = 'https://github.com/hotaydev/arcana-pixel';
 export const LINKEDIN_LINK = 'https://www.linkedin.com/company/hotay';
 export const DISCORD_LINK = 'https://dircord.gg/cvWUW2yMPM';
 export const SLOGAN = m.slogan();
+export const SIGNUP_API_URL = 'https://n8n.hotay.dev/webhook/arcanapixel-subscribe';
 
 export const FOOTER_LINKS = [
 	{
