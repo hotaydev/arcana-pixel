@@ -1,0 +1,8 @@
+User-agent: *
+Allow: *
+
+Disallow: /assets/*
+Disallow: /.well-known/*
+Disallow: /cdn-cgi/*
+
+Sitemap: https://www.arcanapixel.com/sitemap.xml
