@@ -2,11 +2,11 @@
 	import BlogFooter from '$lib/components/blog/BlogFooter.svelte';
 	import BlogHead from '$lib/components/blog/BlogHead.svelte';
 	import BlogHeader from '$lib/components/blog/BlogHeader.svelte';
-	import { posts } from '../post-index';
+	import { posts, type BlogPost } from '../post-index';
 	import { m } from '$lib/paraglide/messages.js';
 	import { DISCORD_LINK } from '$lib/variables';
 
-	const metadata = posts['our-mission'];
+	const metadata: BlogPost = posts['our-mission'];
 </script>
 
 <BlogHead {metadata} />

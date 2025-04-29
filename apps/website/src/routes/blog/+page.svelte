@@ -144,7 +144,7 @@
 							<div class="post-footer">
 								<span class="post-author">
 									{m.blog_by_author()}
-									{post.author}
+									{post.author.name}
 								</span>
 								<a href={localizeHref(`/blog/post/${post.slug}`)} class="read-more">
 									{m.blog_read_more()}
@@ -171,7 +171,7 @@
 
 <style>
 	.blog-container {
-		padding: 8rem 0 3rem;
+		padding: 8rem 0;
 		min-height: 80vh;
 	}
 

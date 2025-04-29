@@ -36,7 +36,8 @@
 		"vite": "^6.2.5"
 	},
 	"dependencies": {
-		"@inlang/paraglide-js": "^2.0.12"
+		"@inlang/paraglide-js": "^2.0.12",
+		"posthog-js": "^1.237.0"
 	},
 	"type": "module"
 }

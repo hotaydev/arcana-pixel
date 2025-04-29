@@ -1,8 +1,9 @@
 <script lang="ts">
 	import { FacebookIcon, LinkedInIcon, TwitterIcon } from '../icons';
 	import { m } from '$lib/paraglide/messages.js';
+	import type { BlogPost } from '../../../routes/blog/post/post-index';
 
-	export let metadata;
+	export let metadata: BlogPost;
 
 	const encodedTitle = encodeURIComponent(metadata.title);
 	const encodedUrl = encodeURIComponent(`https://www.arcanapixel.com/blog/post/${metadata.slug}`);
@@ -10,7 +11,11 @@
 
 <footer class="post-footer">
 	<div class="author-info">
-		<div class="author-name">{m.blog_written_by_author()} {metadata.author}</div>
+		<div class="author-name">
+			<a href={metadata.author.url} target="_blank" rel="noopener noreferrer"
+				>{m.blog_written_by_author()} {metadata.author.name}</a
+			>
+		</div>
 	</div>
 	<div class="share-post">
 		<span>{m.blog_share_post()}:</span>
