@@ -3,6 +3,3 @@
 node_modules/
 .vscode/
 **/.turbo/
-
-# Public folder is created by the postinstall script from @3d-dice/dice-box
-public/

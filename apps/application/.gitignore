@@ -21,3 +21,6 @@ Thumbs.db
 # Vite
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
+
+# Public folder is created by the postinstall script from @3d-dice/dice-box
+public/

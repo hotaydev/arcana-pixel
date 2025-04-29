@@ -6,6 +6,8 @@ export default defineConfig({
   outDir: 'dist',
   title: 'Arcana Pixel Docs',
   icon: '/pixel-d20.png',
+  logo: '/pixel-d20.png',
+  logoText: 'Arcana Docs',
   themeConfig: {
     socialLinks: [
       {
