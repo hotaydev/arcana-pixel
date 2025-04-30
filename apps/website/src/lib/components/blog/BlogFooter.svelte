@@ -24,7 +24,7 @@
 				href="https://x.com/intent/post?text={encodedTitle}&url={encodedUrl}"
 				target="_blank"
 				rel="noopener noreferrer"
-				aria-label={m.blog_share_post_twitter()}
+				aria-label={m.blog_share_post_x()}
 			>
 				<TwitterIcon />
 			</a>
