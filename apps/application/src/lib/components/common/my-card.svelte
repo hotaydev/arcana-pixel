@@ -2,17 +2,31 @@
 	import { Clock, Swords } from "@lucide/svelte";
 	import type { Component } from "svelte";
 
-	export let id: string;
-	export let title: string;
-	export let subtitle: string;
-	export let description: string;
-	export let lastPlayed: string;
-	export let rigthIcon: Component;
-	export let rigthText: string;
-	export let imageType: "portrait" | "landscape" = "landscape";
-	export let index: number;
-	export let fallbackImageIcon: Component;
-	export let open: (id: string) => void;
+	let {
+		id,
+		title,
+		subtitle,
+		description,
+		lastPlayed,
+		RigthIcon,
+		rigthText,
+		imageType = "landscape",
+		index,
+		FallbackImageIcon,
+		open,
+	}: {
+		id: string;
+		title: string;
+		subtitle: string;
+		description: string;
+		lastPlayed: string;
+		RigthIcon: Component;
+		rigthText: string;
+		imageType?: "portrait" | "landscape";
+		index: number;
+		FallbackImageIcon: Component;
+		open: (id: string) => void;
+	} = $props();
 
 	// Format date to relative time
 	function formatRelativeTime(dateString: string) {
@@ -38,14 +52,14 @@
 
 <!-- svelte-ignore a11y_click_events_have_key_events -->
 <!-- svelte-ignore a11y_no_static_element_interactions -->
-<div class="my-card" on:click={() => open(id)} style="animation-delay: {index * 0.1 + 0.1}s;">
+<div class="my-card" onclick={() => open(id)} style="animation-delay: {index * 0.1 + 0.1}s;">
 	<div class="avatar" style="aspect-ratio: {imageType === 'portrait' ? '1/1' : '16/9'};">
 		<div class="avatar-fallback">
-			<svelte:component
-				this={fallbackImageIcon ?? Swords}
-				size={48}
-				color="var(--text-color-dim)"
-			/>
+			{#if FallbackImageIcon}
+				<FallbackImageIcon size={48} color="var(--text-color-dim)" />
+			{:else}
+				<Swords size={48} color="var(--text-color-dim)" />
+			{/if}
 		</div>
 	</div>
 
@@ -61,7 +75,7 @@
 			</div>
 
 			<div class="meta-item">
-				<svelte:component this={rigthIcon} size={14} />
+				<RigthIcon size={14} />
 				<span>{rigthText}</span>
 			</div>
 		</div>

@@ -1,33 +1,38 @@
 // Available themes in the application
-export const themes = ["blue", "purple", "green", "red", "amber"] as const;
-export type ThemeType = (typeof themes)[number];
+export const colorThemes = ["blue", "purple", "green", "red", "amber"] as const;
+export const colorScheme = ["light", "dark"] as const;
+export type ThemeType = (typeof colorThemes)[number];
+export type SchemeType = (typeof colorScheme)[number];
+
+export const defaultColorTheme: ThemeType = "blue";
+export const defaultColorScheme: SchemeType = "dark";
 
 /**
  * Set the application color theme
  * @param theme The theme to set ('blue' is default and doesn't need an attribute)
  */
-export function setTheme(theme: ThemeType): void {
-	const root = document.documentElement;
-
-	// Blue is the default theme, so we remove the attribute to use default CSS variables
-	if (theme === "blue") {
-		root.removeAttribute("data-color-theme");
-	} else {
-		root.setAttribute("data-color-theme", theme);
+export function setTheme({ theme, scheme }: { theme?: ThemeType; scheme?: SchemeType }): void {
+	if (theme) {
+		document.documentElement.setAttribute("data-color-theme", theme);
+		localStorage.setItem("color-theme", theme);
 	}
-
-	// Store the theme preference in localStorage
-	localStorage.setItem("color-theme-preference", theme);
+	if (scheme) {
+		document.documentElement.setAttribute("data-theme", scheme);
+		localStorage.setItem("color-scheme", scheme);
+	}
 }
 
 /**
  * Get the current theme
  */
-export function getCurrentTheme(): ThemeType {
-	const themeAttr = document.documentElement.getAttribute("data-color-theme");
+export function getCurrentTheme(): { theme: ThemeType; scheme: SchemeType } {
+	const storedColorTheme = localStorage.getItem("color-theme") as ThemeType | null;
+	const storedColorScheme = localStorage.getItem("color-scheme") as SchemeType | null;
 
-	// If no attribute is set, the theme is blue (default)
-	return (themeAttr as ThemeType) || "blue";
+	return {
+		theme: storedColorTheme || defaultColorTheme,
+		scheme: storedColorScheme || defaultColorScheme,
+	};
 }
 
 /**
@@ -37,9 +42,13 @@ export function getCurrentTheme(): ThemeType {
 export function initTheme(): void {
 	if (typeof window === "undefined") return;
 
-	const storedTheme = localStorage.getItem("color-theme-preference") as ThemeType | null;
+	const theme = getCurrentTheme();
 
-	if (storedTheme && themes.includes(storedTheme as ThemeType)) {
-		setTheme(storedTheme);
+	if (theme.scheme && colorScheme.includes(theme.scheme)) {
+		setTheme({ scheme: theme.scheme });
+	}
+
+	if (theme.theme && colorThemes.includes(theme.theme)) {
+		setTheme({ theme: theme.theme });
 	}
 }

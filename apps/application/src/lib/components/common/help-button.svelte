@@ -4,8 +4,8 @@
 	import { onMount } from "svelte";
 	import variables from "$lib/variables";
 
-	let showMenu: boolean = false;
-	let menuRef: HTMLDivElement;
+	let showMenu: boolean = $state(false);
+	let menuRef: HTMLDivElement | undefined = $state(undefined);
 
 	// Toggle menu visibility
 	function toggleMenu(): void {
@@ -37,17 +37,15 @@
 	type="button"
 	class="help-button"
 	aria-label="Help"
-	on:click={toggleMenu}
+	onclick={toggleMenu}
 	aria-expanded={showMenu}
 	aria-controls="help-menu"
 >
-	<div class="icon-wrapper">
-		{#if showMenu}
-			<X size={22} color="white" />
-		{:else}
-			<CircleHelp size={24} color="white" />
-		{/if}
-	</div>
+	{#if showMenu}
+		<X size={22} color="white" />
+	{:else}
+		<CircleHelp size={24} color="white" />
+	{/if}
 </button>
 
 <!-- Help popup menu -->
@@ -110,15 +108,9 @@
 		box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 		transition: all 0.2s ease;
 		z-index: 90;
-	}
-
-	.icon-wrapper {
-		width: 100%;
-		height: 100%;
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		pointer-events: none; /* Ensures clicks pass through to the button */
 	}
 
 	.help-button:hover {

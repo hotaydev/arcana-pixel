@@ -3,42 +3,47 @@
 	import ArcanaLogo from "$lib/components/common/logo.svelte";
 	import { ChevronDown, LogOut, Settings, User, Moon, Sun } from "@lucide/svelte";
 	import Avatar from "$lib/components/icons/avatar.svelte";
-	import { onMount } from "svelte";
+	import { onMount, type Snippet } from "svelte";
 	import { goto } from "$app/navigation";
+	import {
+		colorScheme,
+		defaultColorScheme,
+		getCurrentTheme,
+		setTheme,
+		type SchemeType,
+	} from "$lib/utils/theme";
 
-	let showUserMenu = false;
-	let currentTheme = "dark";
+	let { children }: { children?: Snippet } = $props();
+	let showUserMenu = $state(false);
+	let currentTheme: SchemeType = $state(defaultColorScheme);
 
+	// TODO: remove hardcoded value
 	let username = "Taylor Hoffmann";
 
+	// Theme toggle function
+	function toggleTheme() {
+		currentTheme = currentTheme === colorScheme[0] ? colorScheme[1] : colorScheme[0];
+		setTheme({ scheme: currentTheme });
+	}
+
+	onMount(() => {
+		currentTheme = getCurrentTheme().scheme;
+	});
+
+	// Handle the close of the navbar menu on clicking outside the menu
 	function handleDocumentClick(event: MouseEvent) {
 		if (!event.composedPath().includes(document.querySelector(".user-profile")!)) {
 			showUserMenu = false;
 		}
 	}
 	document.addEventListener("click", handleDocumentClick);
-
-	// Theme toggle function
-	function toggleTheme() {
-		currentTheme = currentTheme === "dark" ? "light" : "dark";
-		document.documentElement.setAttribute("data-theme", currentTheme);
-		localStorage.setItem("theme", currentTheme);
-	}
-
-	onMount(() => {
-		// Check if user has saved theme preference
-		const savedTheme = localStorage.getItem("theme");
-		if (savedTheme) {
-			currentTheme = savedTheme;
-		}
-	});
 </script>
 
 <nav class="top-bar">
 	<ArcanaLogo />
 
 	<div class="middle-area">
-		<slot />
+		{@render children?.()}
 	</div>
 
 	<div class="nav-actions">
@@ -46,7 +51,7 @@
 		<!-- svelte-ignore a11y_no_static_element_interactions -->
 		<div
 			class="user-profile"
-			on:click={() => {
+			onclick={() => {
 				showUserMenu = !showUserMenu;
 			}}
 		>
@@ -63,7 +68,7 @@
 							<span>Perfil</span>
 						</li>
 						<!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
-						<li on:click={toggleTheme}>
+						<li onclick={toggleTheme}>
 							{#if currentTheme === "dark"}
 								<Sun size={16} />
 								<span>Tema Claro</span>
@@ -74,7 +79,7 @@
 						</li>
 						<!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
 						<li
-							on:click={() => {
+							onclick={() => {
 								goto("/settings");
 							}}
 						>
@@ -85,7 +90,7 @@
 						<!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
 						<li
 							class="logout"
-							on:click={() => {
+							onclick={() => {
 								goto("/auth");
 							}}
 						>

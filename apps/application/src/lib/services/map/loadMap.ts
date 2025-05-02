@@ -1,20 +1,11 @@
-import L from "leaflet";
+import L, { LatLngBounds, type LatLngExpression } from "leaflet";
 import { setMap } from "$lib/stores/map.store";
 import type { IMapDefinitions } from "@arcana-pixel/schemas/map_definitions";
 
 export default (mapData: IMapDefinitions) => {
-	let viewZoom = localStorage.getItem("mapZoom")
-		? parseInt(localStorage.getItem("mapZoom")!)
-		: mapData.config.minZoom;
-	let viewCenter = JSON.parse(
-		localStorage.getItem("mapCenter") ?? JSON.stringify(mapData.config.center)
-	);
-
-	const doesBoundsExist = mapData.config.bounds?.southWest && mapData.config.bounds?.northEast;
+	const { zoom, center } = getZoomAndCenter(mapData);
+	const bounds = getBounds(mapData);
 	const isTilesUrlMap = mapData.config.url.includes("{z}/{x}/{y}");
-	const bounds = doesBoundsExist
-		? new L.LatLngBounds(mapData.config.bounds!.southWest, mapData.config.bounds!.northEast)
-		: undefined;
 
 	var map = L.map("arcana-map", {
 		crs: L.CRS.Simple,
@@ -32,28 +23,41 @@ export default (mapData: IMapDefinitions) => {
 			maxNativeZoom: mapData.config.maxNativeZoom,
 			minNativeZoom: mapData.config.minNativeZoom,
 		}).addTo(map);
-		map.setView(viewCenter, viewZoom);
+		map.setView(center, zoom);
 
-		map.on("moveend", function (e) {
-			localStorage.setItem("mapZoom", map.getZoom().toString());
-			localStorage.setItem("mapCenter", JSON.stringify(map.getCenter()));
-		});
+		map.on("moveend", (e) => setZoomAndCenter(map));
 	} else {
+		const defaultImageBounds: LatLngBounds = new L.LatLngBounds([
+			[0, 0],
+			[1000, 1000],
+		]);
+
 		// It's a plain simple unique image
-		L.imageOverlay(
-			mapData.config.url,
-			bounds ?? [
-				[0, 0],
-				[1000, 1000],
-			]
-		).addTo(map);
-		map.fitBounds(
-			bounds ?? [
-				[0, 0],
-				[1000, 1000],
-			]
-		);
+		L.imageOverlay(mapData.config.url, bounds ?? defaultImageBounds).addTo(map);
+		map.fitBounds(bounds ?? defaultImageBounds);
 	}
 
 	setMap(map);
 };
+
+function setZoomAndCenter(map: L.Map) {
+	localStorage.setItem("mapZoom", map.getZoom().toString());
+	localStorage.setItem("mapCenter", JSON.stringify(map.getCenter()));
+}
+
+function getZoomAndCenter(mapData: IMapDefinitions): { zoom: number; center: LatLngExpression } {
+	const localStorageMapZoom = localStorage.getItem("mapZoom");
+	const localStorageMapCenter = localStorage.getItem("mapCenter");
+
+	let zoom = localStorageMapZoom ? parseInt(localStorageMapZoom!) : mapData.config.minZoom;
+	let center = JSON.parse(localStorageMapCenter ?? JSON.stringify(mapData.config.center));
+
+	return { zoom, center };
+}
+
+function getBounds(mapData: IMapDefinitions): L.LatLngBounds | undefined {
+	const bounds = mapData.config.bounds;
+	const boundsExist = bounds?.southWest && bounds?.northEast;
+
+	return boundsExist ? new L.LatLngBounds(bounds!.southWest, bounds!.northEast) : undefined;
+}

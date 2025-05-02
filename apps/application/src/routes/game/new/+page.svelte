@@ -5,35 +5,23 @@
 	import { Plus, Bookmark, ChevronDown, ChevronUp, ExternalLink } from "@lucide/svelte";
 	import variables from "$lib/variables";
 	import { goto } from "$app/navigation";
-
-	// RPG systems for dropdown
-	const rpgSystems = [
-		"Dungeons & Dragons 5e",
-		"Call of Cthulhu",
-		"Tormenta 20",
-		"Ordem Paranormal",
-		"Outro",
-	];
+	import { mockedRpgSystems } from "$lib/mock/systems";
 
 	// Form data
-	let formData = {
+	let formData = $state({
 		title: "",
 		description: "",
 		system: "",
-	};
+	});
 
 	// Form validation
-	let errors = {
+	let errors = $state({
 		title: "",
 		description: "",
-	};
+	});
 
 	// Tips visibility state
-	let tipsVisible = false;
-
-	function toggleTips() {
-		tipsVisible = !tipsVisible;
-	}
+	let tipsVisible = $state(false);
 
 	function validateForm() {
 		let isValid = true;
@@ -57,14 +45,11 @@
 		return isValid;
 	}
 
-	function handleSystemChange(value: string) {
-		formData.system = value;
-	}
+	function handleSubmit(event: SubmitEvent) {
+		event.preventDefault();
 
-	function handleSubmit() {
 		if (validateForm()) {
-			// Process form data
-			console.log("Submitting:", formData);
+			// TODO: Process form data
 			goto("/");
 		}
 	}
@@ -81,7 +66,7 @@
 			<p>Configure sua nova campanha ou sessão de RPG</p>
 		</header>
 
-		<form on:submit|preventDefault={handleSubmit}>
+		<form onsubmit={handleSubmit}>
 			<div class="form-grid">
 				<div class="form-section">
 					<div class="form-group">
@@ -115,7 +100,7 @@
 					<div class="form-group">
 						<label for="system">Sistema <span class="required">*</span></label>
 						<CustomSelect
-							options={rpgSystems}
+							options={mockedRpgSystems}
 							bind:value={formData.system}
 							placeholder="Selecione um sistema"
 							searchable
@@ -153,7 +138,12 @@
 		</form>
 
 		<div class="helpful-tips">
-			<button class="tips-header" on:click={toggleTips}>
+			<button
+				class="tips-header"
+				onclick={() => {
+					tipsVisible = !tipsVisible;
+				}}
+			>
 				<div class="toggle-icon">
 					{#if tipsVisible}
 						<ChevronUp size={20} />

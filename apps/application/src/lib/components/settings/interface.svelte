@@ -1,18 +1,23 @@
 <script lang="ts">
 	import { onMount } from "svelte";
-	import { themes, setTheme, getCurrentTheme, type ThemeType } from "$lib/utils/theme";
+	import {
+		colorThemes,
+		setTheme,
+		getCurrentTheme,
+		type ThemeType,
+		defaultColorTheme,
+	} from "$lib/utils/theme";
 
 	// Default theme is blue
-	let currentTheme: ThemeType = "blue";
+	let currentTheme: ThemeType = $state(defaultColorTheme);
 
 	onMount(() => {
-		// Get the current theme on component mount
-		currentTheme = getCurrentTheme();
+		currentTheme = getCurrentTheme().theme;
 	});
 
 	function handleThemeChange(theme: ThemeType) {
-		setTheme(theme);
 		currentTheme = theme;
+		setTheme({ theme: theme });
 	}
 </script>
 
@@ -28,7 +33,7 @@
 				<div class="setting-group">
 					<h3>Selecione um tema</h3>
 					<div class="theme-selector">
-						{#each themes as theme}
+						{#each colorThemes as theme}
 							<div class="theme-option">
 								<input
 									type="radio"

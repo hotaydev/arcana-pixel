@@ -2,11 +2,12 @@
 	import { BookOpen, Plus } from "@lucide/svelte";
 	import CharacterCard from "$lib/components/my-characters/character-card.svelte";
 	import CharacterCreationModal from "$lib/components/my-characters/character-creation-modal.svelte";
+	import type { ICharacter } from "$lib/mock/characters";
 
-	export let characters;
+	const { characters }: { characters: ICharacter[] } = $props();
 
 	// Modal state
-	let showCreationModal = false;
+	let showCreationModal = $state(false);
 
 	// Open modal for new character creation
 	function createNewCharacter() {
@@ -41,7 +42,7 @@
 				<p>Aqui você terá seus personagens de RPG de diferentes sistemas</p>
 				<p class="small">Crie seu próprio personagem ou importe de outros sistemas suportados.</p>
 			</div>
-			<button class="action-button" on:click={createNewCharacter}>
+			<button class="action-button" onclick={createNewCharacter}>
 				<Plus size={20} />
 				<span>Criar ou importar novo personagem</span>
 			</button>
@@ -52,7 +53,7 @@
 			<!-- Create new character card -->
 			<!-- svelte-ignore a11y_click_events_have_key_events -->
 			<!-- svelte-ignore a11y_no_static_element_interactions -->
-			<div class="character-card new-character" on:click={createNewCharacter}>
+			<div class="character-card new-character" onclick={createNewCharacter}>
 				<div class="new-character-content">
 					<Plus size={48} color="var(--text-color-dim)" />
 					<p>Criar ou importar novo personagem</p>

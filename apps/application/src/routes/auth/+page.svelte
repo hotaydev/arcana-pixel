@@ -7,17 +7,19 @@
 	import { CircleCheck } from "@lucide/svelte";
 
 	// State for login/register toggle
-	let isLogin = true;
+	let isLogin = $state(true);
 
 	// State for form submission
-	let email = "";
-	let isSubmitting = false;
-	let emailSent = false;
+	let email = $state("");
+	let isSubmitting = $state(false);
+	let emailSent = $state(false);
 
 	const copyright = `© ${new Date().getFullYear()} Arcana Pixel. Todos os direitos reservados.`;
 
 	// Handle form submission (mock)
-	async function handleSubmit() {
+	async function handleSubmit(event: SubmitEvent) {
+		event.preventDefault();
+
 		if (!email) return;
 
 		isSubmitting = true;
@@ -62,12 +64,12 @@
 
 			{#if !emailSent}
 				<div class="auth-options">
-					<button class="social-button google" on:click={loginWithGoogle}>
+					<button class="social-button google" onclick={loginWithGoogle}>
 						<GoogleIcon />
 						<span>Continuar com o Google</span>
 					</button>
 
-					<button class="social-button github" on:click={loginWithGithub}>
+					<button class="social-button github" onclick={loginWithGithub}>
 						<GithubIcon />
 						<span>Continuar com o GitHub</span>
 					</button>
@@ -76,7 +78,7 @@
 						<span>ou</span>
 					</div>
 
-					<form on:submit|preventDefault={handleSubmit}>
+					<form onsubmit={handleSubmit}>
 						<div class="form-group">
 							<label for="email">E-mail</label>
 							<input
@@ -104,7 +106,7 @@
 					<p>Enviamos um link mágico para <strong>{email}</strong></p>
 					<p class="small">Clique no link no e-mail para fazer login</p>
 
-					<button class="secondary-button" on:click={() => (emailSent = false)}>
+					<button class="secondary-button" onclick={() => (emailSent = false)}>
 						Tentar de outro jeito
 					</button>
 				</div>
@@ -115,7 +117,7 @@
 					{isLogin ? "Ainda não tem uma conta?" : "Já tem uma conta?"}
 					<button
 						class="text-button"
-						on:click={() => {
+						onclick={() => {
 							isLogin = !isLogin;
 						}}
 					>

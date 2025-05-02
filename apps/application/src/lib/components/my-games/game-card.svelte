@@ -19,8 +19,8 @@
 	lastPlayed={game.lastPlayed}
 	imageType="landscape"
 	{index}
-	fallbackImageIcon={Swords}
+	FallbackImageIcon={Swords}
 	open={openGame}
-	rigthIcon={Users}
+	RigthIcon={Users}
 	rigthText={`${game.players} jogadores`}
 />

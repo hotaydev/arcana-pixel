@@ -1,18 +1,14 @@
-<script>
+<script lang="ts">
 	import "../global.css";
 	import { onMount } from "svelte";
 	import { initTheme } from "$lib/utils/theme";
+	import type { Snippet } from "svelte";
+
+	let { children }: { children?: Snippet } = $props();
 
 	onMount(() => {
-		// Initialize theme from user preferences
 		initTheme();
-
-		// Check if user has saved theme preference
-		const savedTheme = localStorage.getItem("theme");
-		if (savedTheme) {
-			document.documentElement.setAttribute("data-theme", savedTheme);
-		}
 	});
 </script>
 
-<slot />
+{@render children?.()}

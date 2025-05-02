@@ -5,6 +5,7 @@
 	import InterfaceSettings from "$lib/components/settings/interface.svelte";
 	import { page } from "$app/state";
 	import { goto } from "$app/navigation";
+	import type { ITab } from "$lib/models/interface";
 
 	// UI state
 	let defaultSection = "interface";
@@ -18,7 +19,7 @@
 		goto(url.toString(), { replaceState: true });
 	}
 
-	const tabs = [
+	const tabs: ITab[] = [
 		{
 			id: "interface",
 			title: "Interface",

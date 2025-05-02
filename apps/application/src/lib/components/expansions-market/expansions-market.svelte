@@ -1,141 +1,11 @@
 <script lang="ts">
 	import {
-		Search,
-		Funnel,
-		Star,
-		Download,
-		BookMarked,
-		Map,
-		Users,
-		WandSparkles,
-		Bookmark,
-		Plus,
-		VenetianMask,
-		Workflow,
-		Puzzle,
-	} from "@lucide/svelte";
-
-	// Mock data for expansions
-	const featuredExpansions = [
-		{
-			id: "11bc2b34-17dd-11f0-8fe8-3e7bf1c93a1f",
-			title: "Grimório Arcano Expandido",
-			author: "Arcana Pixel",
-			type: "rules",
-			universe: "Dungeons and Dragons",
-			description: "100+ novas magias para todas as classes de conjuradores.",
-			downloads: 12450,
-			rating: 4.8,
-			official: true,
-			image: "/images/grimoire.jpg",
-		},
-		{
-			id: "167d617e-17dd-11f0-80d0-3e7bf1c93a1f",
-			title: "Mapa Detalhado - Cidadela de Ravenloft",
-			author: "MapMaster",
-			type: "maps",
-			universe: "Dungeons and Dragons",
-			description: "Mapas de alta resolução da cidadela com todas as salas e passagens secretas.",
-			downloads: 8763,
-			rating: 4.7,
-			official: false,
-			image: "/images/ravenloft.jpg",
-		},
-		{
-			id: "15ddfe86-17dd-11f0-9118-3e7bf1c93a1f",
-			title: "Bestiário da Ordem",
-			author: "Arcana Pixel",
-			type: "creatures",
-			universe: "Ordem Paranormal",
-			description: "Compilação oficial de criaturas para o RPG Ordem Paranormal.",
-			downloads: 9845,
-			rating: 4.9,
-			official: true,
-			image: "/images/bestiary.jpg",
-		},
-	];
-
-	const popularExpansions = [
-		{
-			id: "16cb7710-17dd-11f0-a124-3e7bf1c93a1f",
-			title: "NPCs Memoráveis",
-			author: "RPGMestres",
-			type: "npcs",
-			universe: "Universal",
-			description: "100 NPCs completos com background, personalidade e estatísticas.",
-			downloads: 7650,
-			rating: 4.5,
-			official: false,
-			image: null,
-		},
-		{
-			id: "1849a7ba-17dd-11f0-b2b8-3e7bf1c93a1f",
-			title: "Sistema de Combate Tático Avançado",
-			author: "CombatPro",
-			type: "rules",
-			universe: "Universal",
-			description: "Regras alternativas para combates mais estratégicos e dinâmicos.",
-			downloads: 6230,
-			rating: 4.3,
-			official: false,
-			image: null,
-		},
-		{
-			id: "19333b46-17dd-11f0-a74c-3e7bf1c93a1f",
-			title: "Kit de Iniciação - Cthulhu",
-			author: "Arcana Pixel",
-			type: "systems",
-			universe: "Call of Cthulhu",
-			description: "Tudo que você precisa para iniciar uma campanha de horror cósmico.",
-			downloads: 9120,
-			rating: 4.6,
-			official: true,
-			image: null,
-		},
-		{
-			id: "37362ae0-17dd-11f0-ab06-3e7bf1c93a1f",
-			title: "Mapa - Cidade de Neverwinter",
-			author: "CartaGrafica",
-			type: "maps",
-			universe: "Dungeons and Dragons",
-			description: "Mapa detalhado da cidade com pontos de interesse e guia.",
-			downloads: 5470,
-			rating: 4.4,
-			official: false,
-			image: null,
-		},
-		{
-			id: "381f70d8-17dd-11f0-a2ce-3e7bf1c93a1f",
-			title: "Automações de Combate para VTT",
-			author: "VTTScripter",
-			type: "automation",
-			universe: "Dungeons and Dragons",
-			description: "Scripts para automatizar ações de combate em plataformas virtuais.",
-			downloads: 4980,
-			rating: 4.2,
-			official: false,
-			image: null,
-		},
-	];
-
-	// Category types
-	const categories = [
-		{ id: "rules", name: "Regras", icon: BookMarked, count: 342 },
-		{ id: "maps", name: "Mapas", icon: Map, count: 586 },
-		{ id: "npcs", name: "NPCs", icon: Users, count: 412 },
-		{ id: "creatures", name: "Criaturas", icon: VenetianMask, count: 613 },
-		{ id: "systems", name: "Sistemas", icon: WandSparkles, count: 98 },
-		{ id: "automation", name: "Automações", icon: Workflow, count: 67 },
-	];
-
-	// Universes (RPG systems)
-	const universes = [
-		{ id: "dnd", name: "Dungeons & Dragons", count: 865 },
-		{ id: "ordem", name: "Ordem Paranormal", count: 348 },
-		{ id: "tormenta", name: "Tormenta RPG", count: 425 },
-		{ id: "cthulhu", name: "Call of Cthulhu", count: 267 },
-		{ id: "universal", name: "Universal", count: 452 },
-	];
+		mockedExpansionsCategories,
+		mockedExpansionsUniverses,
+		mockedFeaturedExpansions,
+		mockedPopularExpansions,
+	} from "$lib/mock/expansions";
+	import { Search, Funnel, Star, Download, Bookmark, Plus, Puzzle } from "@lucide/svelte";
 
 	// UI state
 	let searchQuery = $state("");
@@ -174,7 +44,7 @@
 
 	// Filter expansions based on search and selected filters
 	let filteredPopularExpansions = $derived(
-		popularExpansions.filter((expansion) => {
+		mockedPopularExpansions.filter((expansion) => {
 			// Filter by search query
 			const matchesSearch =
 				searchQuery === "" ||
@@ -243,7 +113,7 @@
 			<div class="filter-group">
 				<h3>Categorias</h3>
 				<div class="filter-options">
-					{#each categories as category}
+					{#each mockedExpansionsCategories as category}
 						<button
 							class="filter-tag {selectedCategories.includes(category.id) ? 'active' : ''}"
 							onclick={() => toggleCategory(category.id)}
@@ -259,7 +129,7 @@
 			<div class="filter-group">
 				<h3>Universos</h3>
 				<div class="filter-options">
-					{#each universes as universe}
+					{#each mockedExpansionsUniverses as universe}
 						<button
 							class="filter-tag {selectedUniverses.includes(universe.id) ? 'active' : ''}"
 							onclick={() => toggleUniverse(universe.id)}
@@ -288,7 +158,7 @@
 	<section class="featured-section">
 		<h2>Destaques</h2>
 		<div class="featured-carousel">
-			{#each featuredExpansions as expansion}
+			{#each mockedFeaturedExpansions as expansion}
 				<div class="featured-card">
 					<div class="featured-image">
 						<Puzzle size={48} />
@@ -303,7 +173,7 @@
 							<p class="meta-info">
 								<span class="universe">{expansion.universe}</span>
 								<span class="category"
-									>{categories.find((cat) => cat.id === expansion.type)?.name}</span
+									>{mockedExpansionsCategories.find((cat) => cat.id === expansion.type)?.name}</span
 								>
 							</p>
 							<div class="stats">
@@ -355,7 +225,7 @@
 					<div class="expansion-card">
 						<div class="expansion-header">
 							<div class="expansion-type">
-								{categories.find((cat) => cat.id === expansion.type)?.name}
+								{mockedExpansionsCategories.find((cat) => cat.id === expansion.type)?.name}
 							</div>
 							{#if expansion.official}
 								<div class="official-tag">Oficial</div>

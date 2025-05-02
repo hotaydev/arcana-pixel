@@ -1,10 +1,10 @@
 <script lang="ts">
 	import { Book, PersonStanding } from "@lucide/svelte";
 	import MyCard from "../common/my-card.svelte";
+	import type { ICharacter } from "$lib/mock/characters";
 	// import { goto } from "$app/navigation";
 
-	export let character;
-	export let index: number;
+	const { character, index }: { character: ICharacter; index: number } = $props();
 
 	// Handle open character
 	function openCharacter(characterId: string) {
@@ -21,8 +21,8 @@
 	lastPlayed={character.lastPlayed}
 	imageType="portrait"
 	{index}
-	fallbackImageIcon={PersonStanding}
+	FallbackImageIcon={PersonStanding}
 	open={openCharacter}
-	rigthIcon={Book}
+	RigthIcon={Book}
 	rigthText={character.system}
 />
