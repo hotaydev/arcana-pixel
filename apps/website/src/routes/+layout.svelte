@@ -17,6 +17,21 @@
 	}
 </script>
 
+<svelte:head>
+	{#each locales as locale (locale)}
+		<link
+			rel="alternate"
+			hreflang={locale}
+			href={new URL(localizeHref(page.url.pathname, { locale }), page.url.origin).toString()}
+		/>
+	{/each}
+	<link
+		rel="alternate"
+		hreflang="x-default"
+		href={new URL(localizeHref(page.url.pathname, { locale: 'pt' }), page.url.origin).toString()}
+	/>
+</svelte:head>
+
 <Navbar />
 {@render children?.()}
 <Footer />

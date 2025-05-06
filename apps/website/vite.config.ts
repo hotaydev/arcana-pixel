@@ -16,7 +16,7 @@ export default defineConfig({
 					localized: [
 						['en', '/en/:path(.*)?'],
 						['es', '/es/:path(.*)?'],
-						['pt', '/:path(.*)?'] // Default version, without lang prefix
+						['pt', '/pt/:path(.*)?']
 					]
 				}
 			]
