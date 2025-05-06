@@ -1,7 +1,10 @@
 <script lang="ts">
-	import { localizeHref } from '$lib/paraglide/runtime';
+	import { getLocale, localizeHref } from '$lib/paraglide/runtime';
+	import { m } from '$lib/paraglide/messages';
 
-	export let metadata;
+	const { metadata } = $props();
+
+	const currentLocale = getLocale();
 </script>
 
 <header class="post-header">
@@ -20,6 +23,29 @@
 		</time>
 	</div>
 	<h1>{metadata.title}</h1>
+
+	{#if currentLocale !== 'pt'}
+		<div class="translation-notice">
+			<span class="translation-icon">
+				<svg
+					xmlns="http://www.w3.org/2000/svg"
+					width="20"
+					height="20"
+					viewBox="0 0 24 24"
+					fill="none"
+					stroke="currentColor"
+					stroke-width="2"
+					stroke-linecap="round"
+					stroke-linejoin="round"
+				>
+					<circle cx="12" cy="12" r="10"></circle>
+					<line x1="12" y1="16" x2="12" y2="12"></line>
+					<line x1="12" y1="8" x2="12.01" y2="8"></line>
+				</svg>
+			</span>
+			<p>{m.blog_post_translation_notice()}</p>
+		</div>
+	{/if}
 </header>
 
 <style>
@@ -84,6 +110,41 @@
 		background: var(--gradient);
 	}
 
+	.translation-notice {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+		background-color: rgba(94, 18, 157, 0.1);
+		border-radius: 6px;
+		padding: 0.7rem 1rem;
+		margin-top: 1.5rem;
+		box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+		max-width: 80%;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	.translation-notice p {
+		font-style: italic;
+		color: var(--gray);
+		font-size: 0.9rem;
+		margin: 0;
+		width: 100%;
+	}
+
+	.translation-icon {
+		font-size: 1.2rem;
+		color: var(--primary-light);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	.translation-icon svg {
+		width: 20px;
+		height: 20px;
+	}
+
 	@media (max-width: 768px) {
 		.post-header {
 			margin-bottom: 2rem;
@@ -91,6 +152,11 @@
 
 		h1 {
 			font-size: 2rem;
+		}
+
+		.translation-notice {
+			max-width: 100%;
+			padding: 0.6rem 0.8rem;
 		}
 	}
 </style>
