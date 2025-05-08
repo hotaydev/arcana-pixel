@@ -11,6 +11,15 @@ export default defineConfig({
 			strategy: ['url', 'cookie', 'preferredLanguage', 'baseLocale'],
 			urlPatterns: [
 				//  We can use also https://inlang.com/m/gerre34r/library-inlang-paraglideJs/strategy#translated-pathnames
+
+				{
+					pattern: '/:prefix(.*)?/sitemap.xml',
+					localized: [
+						['en', '/sitemap.xml'],
+						['es', '/sitemap.xml'],
+						['pt', '/sitemap.xml']
+					]
+				},
 				{
 					pattern: '/:path(.*)?',
 					localized: [

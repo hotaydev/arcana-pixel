@@ -28,7 +28,6 @@
 		"globals": "^16.0.0",
 		"prettier": "^3.4.2",
 		"prettier-plugin-svelte": "^3.3.3",
-		"super-sitemap": "^1.0.3",
 		"svelte": "^5.0.0",
 		"svelte-check": "^4.0.0",
 		"typescript": "^5.0.0",
@@ -37,7 +36,9 @@
 	},
 	"dependencies": {
 		"@inlang/paraglide-js": "^2.0.12",
-		"posthog-js": "^1.237.0"
+		"@types/xml2js": "^0.4.14",
+		"posthog-js": "^1.237.0",
+		"xml2js": "^0.6.2"
 	},
 	"type": "module"
 }
