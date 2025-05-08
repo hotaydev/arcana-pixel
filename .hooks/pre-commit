@@ -2,6 +2,9 @@
 
 set -e # Exit on error
 
+# Change to the repository root directory
+cd "$(git rev-parse --show-toplevel)"
+
 if [ -n "$(git diff --staged --name-only -- apps/application/)" ]; then
   pnpx turbo format --filter=@arcana-pixel/application
 fi
@@ -14,8 +17,12 @@ if [ -n "$(git diff --staged --name-only -- apps/docs/)" ]; then
   pnpx turbo format --filter=@arcana-pixel/docs
 fi
 
-if [ -n "$(git diff --staged --name-only -- packages/website/)" ]; then
+if [ -n "$(git diff --staged --name-only -- apps/website/)" ]; then
   pnpx turbo format --filter=@arcana-pixel/website
+fi
+
+if [ -n "$(git diff --staged --name-only -- apps/website/src/routes/)" ]; then
+  cd apps/website/ && pnpm generate-sitemap && cd ../../
 fi
 
 if [ -n "$(git diff --staged --name-only -- packages/schemas/)" ]; then
