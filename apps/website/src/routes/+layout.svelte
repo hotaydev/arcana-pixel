@@ -7,7 +7,7 @@
 	import posthog from 'posthog-js';
 
 	import { page } from '$app/state';
-	import { locales, localizeHref } from '$lib/paraglide/runtime';
+	import { baseLocale, locales, localizeHref } from '$lib/paraglide/runtime';
 
 	let { children } = $props();
 
@@ -28,7 +28,10 @@
 	<link
 		rel="alternate"
 		hreflang="x-default"
-		href={new URL(localizeHref(page.url.pathname, { locale: 'pt' }), page.url.origin).toString()}
+		href={new URL(
+			localizeHref(page.url.pathname, { locale: baseLocale }),
+			page.url.origin
+		).toString()}
 	/>
 </svelte:head>
 
