@@ -8,12 +8,13 @@
 	"license": "AGPL-3.0",
 	"scripts": {
 		"dev": "vite dev",
-		"build": "vite build",
+		"build": "vite build && pnpm generate-sitemap",
 		"preview": "vite preview",
 		"prepare": "svelte-kit sync || echo ''",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
-		"format": "prettier --write . && eslint --fix ."
+		"format": "prettier --write . && eslint --fix .",
+		"generate-sitemap": "tsx scripts/generate-sitemap.ts"
 	},
 	"devDependencies": {
 		"@eslint/compat": "^1.2.5",
@@ -22,6 +23,7 @@
 		"@sveltejs/adapter-vercel": "^5.7.0",
 		"@sveltejs/kit": "^2.16.0",
 		"@sveltejs/vite-plugin-svelte": "^5.0.0",
+		"@types/xml2js": "^0.4.14",
 		"eslint": "^9.18.0",
 		"eslint-config-prettier": "^10.0.1",
 		"eslint-plugin-svelte": "^3.0.0",
@@ -30,15 +32,15 @@
 		"prettier-plugin-svelte": "^3.3.3",
 		"svelte": "^5.0.0",
 		"svelte-check": "^4.0.0",
+		"tsx": "^4.19.4",
 		"typescript": "^5.0.0",
 		"typescript-eslint": "^8.20.0",
-		"vite": "^6.2.5"
+		"vite": "^6.2.5",
+		"xml2js": "^0.6.2"
 	},
 	"dependencies": {
 		"@inlang/paraglide-js": "^2.0.12",
-		"@types/xml2js": "^0.4.14",
-		"posthog-js": "^1.237.0",
-		"xml2js": "^0.6.2"
+		"posthog-js": "^1.237.0"
 	},
 	"type": "module"
 }

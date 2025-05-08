@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://www.arcanapixel.com/pt/</loc>
+    <lastmod>2025-04-28T16:26:07-03:00</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.arcanapixel.com/en/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.arcanapixel.com/pt/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.arcanapixel.com/es/"/>
+  </url>
+  <url>
+    <loc>https://www.arcanapixel.com/pt/blog/</loc>
+    <lastmod>2025-04-29T20:02:09-03:00</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.arcanapixel.com/en/blog/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.arcanapixel.com/pt/blog/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.arcanapixel.com/es/blog/"/>
+  </url>
+  <url>
+    <loc>https://www.arcanapixel.com/pt/code-of-conduct/</loc>
+    <lastmod>2025-04-28T16:26:07-03:00</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.arcanapixel.com/en/code-of-conduct/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.arcanapixel.com/pt/code-of-conduct/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.arcanapixel.com/es/code-of-conduct/"/>
+  </url>
+  <url>
+    <loc>https://www.arcanapixel.com/pt/license/</loc>
+    <lastmod>2025-04-28T16:26:07-03:00</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.arcanapixel.com/en/license/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.arcanapixel.com/pt/license/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.arcanapixel.com/es/license/"/>
+  </url>
+  <url>
+    <loc>https://www.arcanapixel.com/pt/privacy-policy/</loc>
+    <lastmod>2025-04-28T16:26:07-03:00</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.arcanapixel.com/en/privacy-policy/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.arcanapixel.com/pt/privacy-policy/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.arcanapixel.com/es/privacy-policy/"/>
+  </url>
+  <url>
+    <loc>https://www.arcanapixel.com/pt/terms-of-service/</loc>
+    <lastmod>2025-04-28T16:26:07-03:00</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.arcanapixel.com/en/terms-of-service/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.arcanapixel.com/pt/terms-of-service/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.arcanapixel.com/es/terms-of-service/"/>
+  </url>
+  <url>
+    <loc>https://www.arcanapixel.com/pt/blog/post/our-mission/</loc>
+    <lastmod>2025-04-29T20:02:09-03:00</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.arcanapixel.com/en/blog/post/our-mission/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.arcanapixel.com/pt/blog/post/our-mission/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.arcanapixel.com/es/blog/post/our-mission/"/>
+  </url>
+</urlset>

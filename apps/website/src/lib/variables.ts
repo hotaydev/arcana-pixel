@@ -2,7 +2,6 @@ import { BookIcon, PersonIcon, UsersIcon, StarIcon } from './components/icons';
 import { m } from '$lib/paraglide/messages.js';
 import type { locales } from './paraglide/runtime';
 
-export const BASE_URL = 'https://www.arcanapixel.com';
 export const DOCUMENTATION_LINK = 'https://docs.arcanapixel.com';
 export const GITHUB_LINK = 'https://github.com/hotaydev/arcana-pixel';
 export const LINKEDIN_LINK = 'https://www.linkedin.com/company/hotay';
@@ -11,15 +10,6 @@ export const SIGNUP_API_URL = 'https://n8n.hotay.dev/webhook/arcanapixel-subscri
 export const POSTHOG_API_URL = 'https://insights.hotay.dev';
 export const POSTHOG_CLIENT_KEY = 'phc_JBYFh2Ew3kdz3hfD8IIxV62Ml7ipQnAINBYflUv2608';
 export const SLOGAN = m.slogan();
-
-export const SITEMAP_URLS: string[] = [
-	'/',
-	'/blog',
-	'/code-of-conduct',
-	'/license',
-	'/privacy-policy',
-	'/terms-of-service'
-];
 
 export const FOOTER_LINKS = [
 	{
