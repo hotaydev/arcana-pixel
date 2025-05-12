@@ -33,6 +33,10 @@
 			page.url.origin
 		).toString()}
 	/>
+	<link
+		rel="canonical"
+		href={new URL(localizeHref(page.url.pathname), page.url.origin).toString()}
+	/>
 </svelte:head>
 
 <Navbar />
