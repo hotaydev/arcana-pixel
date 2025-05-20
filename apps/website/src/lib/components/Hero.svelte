@@ -1,8 +1,9 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import { GITHUB_LINK } from '$lib/variables';
+	import { GITHUB_LINK, DISCORD_LINK } from '$lib/variables';
 	import { m } from '$lib/paraglide/messages.js';
 	import { GithubIcon } from './icons';
+	import DiscordIcon from './icons/social/discord.svelte';
 	import { fly } from 'svelte/transition';
 
 	let isVisible = false;
@@ -111,9 +112,11 @@
 				</p>
 				<div class="hero-buttons">
 					<a href="#features" class="btn-primary">{m.landing_explore_features()}</a>
-					<a href={GITHUB_LINK} class="btn-secondary">
-						<GithubIcon />
-						GitHub
+					<a href={GITHUB_LINK} class="btn-secondary" style="padding: 0.75rem 1rem !important;">
+						<GithubIcon size={24} />
+					</a>
+					<a href={DISCORD_LINK} class="btn-secondary" aria-label="Discord">
+						<DiscordIcon size={30} />
 					</a>
 				</div>
 				<div class="hero-stats">
@@ -145,6 +148,13 @@
 		padding: 8rem 0 5rem;
 		user-select: auto;
 		isolation: isolate;
+	}
+
+	.btn-secondary {
+		padding: 0.75rem !important;
+		/* display: flex;
+		align-items: center;
+		justify-content: center; */
 	}
 
 	.hero-center {

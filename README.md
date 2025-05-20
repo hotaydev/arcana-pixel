@@ -11,17 +11,20 @@
   <img alt="GitHub License" src="https://img.shields.io/github/license/hotaydev/arcana-pixel?color=1ad56f">
   <img alt="GitHub commit activity" src="https://img.shields.io/github/commit-activity/m/hotaydev/arcana-pixel">
   <img alt="Website" src="https://img.shields.io/website?url=https%3A%2F%2Fwww.arcanapixel.com">
+  <a href="https://discord.gg/cvWUW2yMPM"><img alt="Discord" src="https://img.shields.io/badge/Chat-Discord-7289da"></a>
   <br/><br/>
 </div>
 
 ---
+
 > [!WARNING]
 > This project is in active development and has not yet had an initial release.
 > To stay updated on releases and progress, subscribe to our [pre-registration page](https://www.arcanapixel.com/en/#still-in-development).
+
 ---
 
 Welcome, dear adventurers and fellow creators!
-Thank you for visiting the **Arcana Pixel** repository. We are thrilled to have you join us on this exciting journey toward building a community-driven, 100% Open Source *Virtual Table Top* (VTT) platform. Every line of code and creative idea here is shared under the [AGPL-3.0 license](./LICENSE), ensuring that our project remains free and accessible for everyone — forever.
+Thank you for visiting the **Arcana Pixel** repository. We are thrilled to have you join us on this exciting journey toward building a community-driven, 100% Open Source _Virtual Table Top_ (VTT) platform. Every line of code and creative idea here is shared under the [AGPL-3.0 license](./LICENSE), ensuring that our project remains free and accessible for everyone — forever.
 
 ---
 
@@ -64,6 +67,7 @@ Our journey also continues in our maps repository, where you’ll find our offic
 ## Community & Future Plans
 
 We’re just getting started! Soon, we’ll provide detailed guidelines on:
+
 - How you can use and extend our VTT platform.
 - Adding support for new RPG universes and systems.
 - Integrating homebrew content, custom maps, monsters, and more.

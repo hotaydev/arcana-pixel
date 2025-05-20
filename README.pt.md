@@ -11,17 +11,20 @@
   <img alt="GitHub License" src="https://img.shields.io/github/license/hotaydev/arcana-pixel?color=1ad56f">
   <img alt="GitHub commit activity" src="https://img.shields.io/github/commit-activity/m/hotaydev/arcana-pixel">
   <img alt="Website" src="https://img.shields.io/website?url=https%3A%2F%2Fwww.arcanapixel.com">
+  <a href="https://discord.gg/cvWUW2yMPM"><img alt="Discord" src="https://img.shields.io/badge/Chat-Discord-7289da"></a>
   <br/><br/>
 </div>
 
 ---
+
 > [!WARNING]  
 > Este projeto está em desenvolvimento ativo e ainda não teve um lançamento inicial.  
-> Para receber atualizações sobre lançamentos e progresso, inscreva-se em nossa [página de pré-registro](https://www.arcanapixel.com/#still-in-development).  
+> Para receber atualizações sobre lançamentos e progresso, inscreva-se em nossa [página de pré-registro](https://www.arcanapixel.com/#still-in-development).
+
 ---
 
 Bem-vindos, aventureiros e criadores!
-Obrigado por visitar o repositório **Arcana Pixel**. Estamos entusiasmados por ter você conosco nesta jornada emocionante rumo à construção de uma plataforma *Virtual Table Top* (VTT) 100% Open Source e impulsionada pela comunidade. Cada linha de código e ideia criativa aqui compartilhada é regida pela [licença AGPL-3.0](./LICENSE), garantindo que nosso projeto permaneça gratuito e acessível a todos — para sempre.
+Obrigado por visitar o repositório **Arcana Pixel**. Estamos entusiasmados por ter você conosco nesta jornada emocionante rumo à construção de uma plataforma _Virtual Table Top_ (VTT) 100% Open Source e impulsionada pela comunidade. Cada linha de código e ideia criativa aqui compartilhada é regida pela [licença AGPL-3.0](./LICENSE), garantindo que nosso projeto permaneça gratuito e acessível a todos — para sempre.
 
 ---
 
@@ -64,6 +67,7 @@ Nossa jornada também continua em nosso repositório de mapas, onde você encont
 ## Comunidade e Planos Futuros
 
 Estamos apenas começando! Em breve, forneceremos diretrizes detalhadas sobre:
+
 - Como você pode utilizar e expandir nossa plataforma VTT.
 - Adicionar suporte para novos universos e sistemas de RPG.
 - Integrar conteúdo homebrew, mapas personalizados, monstros e muito mais.

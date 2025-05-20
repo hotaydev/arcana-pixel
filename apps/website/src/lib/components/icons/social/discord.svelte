@@ -1,4 +1,8 @@
-<svg viewBox="0 0 192 192" xmlns="http://www.w3.org/2000/svg" fill="none" width="30" height="30"
+<script lang="ts">
+	export let size: number = 20;
+</script>
+
+<svg viewBox="0 0 192 192" xmlns="http://www.w3.org/2000/svg" fill="none" width={size} height={size}
 	><path
 		stroke="currentColor"
 		stroke-linecap="round"
