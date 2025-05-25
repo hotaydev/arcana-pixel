@@ -11,8 +11,9 @@
     "preview": "rspress preview"
   },
   "devDependencies": {
-    "rspress": "^1.43.11",
     "@biomejs/biome": "^1.9.4",
-    "@types/node": "^22.14.1"
+    "@rspress/plugin-container-syntax": "^1.44.0",
+    "@types/node": "^22.14.1",
+    "rspress": "^1.43.11"
   }
 }
