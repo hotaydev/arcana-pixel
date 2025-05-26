@@ -5,7 +5,7 @@ import type { locales } from './paraglide/runtime';
 export const DOCUMENTATION_LINK = 'https://docs.arcanapixel.com';
 export const GITHUB_LINK = 'https://github.com/hotaydev/arcana-pixel';
 export const LINKEDIN_LINK = 'https://www.linkedin.com/company/hotay';
-export const DISCORD_LINK = 'https://dircord.gg/cvWUW2yMPM';
+export const DISCORD_LINK = 'https://discord.gg/cvWUW2yMPM';
 export const SIGNUP_API_URL = 'https://n8n.hotay.dev/webhook/arcanapixel-subscribe';
 export const POSTHOG_API_URL = 'https://insights.hotay.dev';
 export const POSTHOG_CLIENT_KEY = 'phc_JBYFh2Ew3kdz3hfD8IIxV62Ml7ipQnAINBYflUv2608';
