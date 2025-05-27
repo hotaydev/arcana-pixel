@@ -10,7 +10,11 @@
 	// State variables using runes
 	let searchQuery = $state('');
 	let tagFilter = $state('');
-	let filteredPosts = $state<BlogPost[]>([...Object.values(posts)]);
+	let filteredPosts = $state<BlogPost[]>(
+		[...Object.values(posts)].sort(
+			(a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
+		)
+	);
 
 	// Apply filters whenever search or tag changes
 	$effect(() => {
@@ -34,7 +38,7 @@
 			);
 		}
 
-		filteredPosts = results;
+		filteredPosts = results.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 	});
 
 	// Update URL when filters change

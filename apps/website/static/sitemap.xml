@@ -29,6 +29,13 @@
     <xhtml:link rel="alternate" hreflang="es" href="https://www.arcanapixel.com/es/license/"/>
   </url>
   <url>
+    <loc>https://www.arcanapixel.com/pt/links/</loc>
+    <lastmod>2025-05-27T15:39:51.856Z</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.arcanapixel.com/en/links/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.arcanapixel.com/pt/links/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.arcanapixel.com/es/links/"/>
+  </url>
+  <url>
     <loc>https://www.arcanapixel.com/pt/privacy-policy/</loc>
     <lastmod>2025-04-28T16:26:07-03:00</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.arcanapixel.com/en/privacy-policy/"/>
@@ -48,5 +55,12 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://www.arcanapixel.com/en/blog/post/our-mission/"/>
     <xhtml:link rel="alternate" hreflang="pt" href="https://www.arcanapixel.com/pt/blog/post/our-mission/"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://www.arcanapixel.com/es/blog/post/our-mission/"/>
+  </url>
+  <url>
+    <loc>https://www.arcanapixel.com/pt/blog/post/ordem-paranormal/</loc>
+    <lastmod>2025-05-27T15:39:51.916Z</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.arcanapixel.com/en/blog/post/ordem-paranormal/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.arcanapixel.com/pt/blog/post/ordem-paranormal/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.arcanapixel.com/es/blog/post/ordem-paranormal/"/>
   </url>
 </urlset>

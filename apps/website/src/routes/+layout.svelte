@@ -39,9 +39,13 @@
 	/>
 </svelte:head>
 
-<Navbar />
+{#if !page.url.pathname.includes('/links')}
+	<Navbar />
+{/if}
 {@render children?.()}
-<Footer />
+{#if !page.url.pathname.includes('/links')}
+	<Footer />
+{/if}
 
 <!-- Used for SSG: https://inlang.com/m/gerre34r/library-inlang-paraglideJs/sveltekit#static-site-generation-ssg -->
 <div style="display:none">

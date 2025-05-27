@@ -30,5 +30,16 @@ export const posts: Record<string, BlogPost> = {
 			.blog_post_our_mission_tags()
 			.split(',')
 			.map((tag) => tag.trim())
+	},
+	'ordem-paranormal': {
+		slug: 'ordem-paranormal',
+		title: m.blog_post_ordem_paranormal_title(),
+		description: m.blog_post_ordem_paranormal_description(),
+		date: '2025-05-21T12:00:00-03:00',
+		author: taylorHoffmann,
+		tags: m
+			.blog_post_ordem_paranormal_tags()
+			.split(',')
+			.map((tag) => tag.trim())
 	}
 };

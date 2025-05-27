@@ -1,4 +1,5 @@
 export { default as MapIcon } from './MapIcon.svelte';
+export { default as WebsiteIcon } from './Website.svelte';
 export { default as CharacterIcon } from './CharacterIcon.svelte';
 export { default as DiceIcon } from './DiceIcon.svelte';
 export { default as AudioIcon } from './AudioIcon.svelte';
