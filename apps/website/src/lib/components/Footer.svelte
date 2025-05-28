@@ -1,7 +1,14 @@
 <script lang="ts">
 	import Logo from './Logo.svelte';
-	import { FOOTER_LINKS, SLOGAN, GITHUB_LINK, DISCORD_LINK, LINKEDIN_LINK } from '$lib/variables';
-	import { DiscordIcon, GithubIcon, LinkedInIcon } from './icons';
+	import {
+		FOOTER_LINKS,
+		SLOGAN,
+		GITHUB_LINK,
+		DISCORD_LINK,
+		LINKEDIN_LINK,
+		INSTAGRAM_LINK
+	} from '$lib/variables';
+	import { DiscordIcon, GithubIcon, InstagramIcon, LinkedInIcon } from './icons';
 	import { m } from '$lib/paraglide/messages.js';
 	import LanguageSwitcher from './LanguageSwitcher.svelte';
 	import { localizeHref } from '$lib/paraglide/runtime';
@@ -33,7 +40,7 @@
 						{#each section.items as item (item.text)}
 							<li>
 								<a
-									href={localizeHref(item.url)}
+									href={item.url.startsWith('http') ? item.url : localizeHref(item.url)}
 									target={item.url.startsWith('http') ? '_blank' : null}
 									rel={item.url.startsWith('http') ? 'noopener noreferrer' : null}>{item.text}</a
 								>
@@ -53,10 +60,13 @@
 					<GithubIcon size={24} />
 				</a>
 				<a href={DISCORD_LINK} target="_blank" rel="noopener noreferrer" aria-label="Discord">
-					<DiscordIcon />
+					<DiscordIcon size={30} />
+				</a>
+				<a href={INSTAGRAM_LINK} target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+					<InstagramIcon size={24} />
 				</a>
 				<a href={LINKEDIN_LINK} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-					<LinkedInIcon />
+					<LinkedInIcon size={24} />
 				</a>
 			</div>
 		</div>
