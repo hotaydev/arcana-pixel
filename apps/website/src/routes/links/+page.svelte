@@ -4,19 +4,56 @@
 		LinkedInIcon,
 		GithubIcon,
 		MapIcon,
-		WebsiteIcon
+		WebsiteIcon,
+		InstagramIcon
 	} from '$lib/components/icons';
 	import { localizeHref } from '$lib/paraglide/runtime';
-	import { DISCORD_LINK, GITHUB_LINK, LINKEDIN_LINK } from '$lib/variables';
+	import { DISCORD_LINK, GITHUB_LINK, INSTAGRAM_LINK, LINKEDIN_LINK } from '$lib/variables';
 	import { m } from '$lib/paraglide/messages.js';
+	import type { Component } from 'svelte';
 
 	// Dice images for background decoration
-	const dices = [
+	const dices: { name: string; image: string }[] = [
 		{ name: 'D4', image: '/assets/images/dices/pixel-d4.webp' },
 		{ name: 'D6', image: '/assets/images/dices/pixel-d6.webp' },
 		{ name: 'D8', image: '/assets/images/dices/pixel-d8.webp' },
 		{ name: 'D20', image: '/assets/images/dices/pixel-d20.webp' },
 		{ name: 'D12', image: '/assets/images/dices/pixel-d12.webp' }
+	];
+
+	// Main links
+	const mainLinks: {
+		name: string;
+		url: string;
+		icon: Component;
+		iconSize?: number;
+	}[] = [
+		{
+			name: m.links_page_link_website(),
+			url: localizeHref('/'),
+			icon: WebsiteIcon,
+			iconSize: 36
+		},
+		{
+			name: m.footer_links_mission(),
+			url: localizeHref('blog/post/our-mission'),
+			icon: MapIcon,
+			iconSize: 36
+		},
+		{
+			name: 'Discord',
+			url: DISCORD_LINK,
+			icon: DiscordIcon,
+			iconSize: 40
+		}
+	];
+
+	// Social media links
+	const socialLinks: { name: string; url: string; icon: Component; iconSize?: number }[] = [
+		{ name: 'Discord', url: DISCORD_LINK, icon: DiscordIcon, iconSize: 26 },
+		{ name: 'GitHub', url: GITHUB_LINK, icon: GithubIcon },
+		{ name: 'LinkedIn', url: LINKEDIN_LINK, icon: LinkedInIcon },
+		{ name: 'Instagram', url: INSTAGRAM_LINK, icon: InstagramIcon }
 	];
 </script>
 
@@ -31,38 +68,22 @@
 		<h1>{m.links_page_main_title()}</h1>
 
 		<section class="links-container">
-			<a href={DISCORD_LINK} class="link-item" target="_blank" rel="noopener noreferrer">
-				<div class="icon-container">
-					<DiscordIcon size={40} />
-				</div>
-				<span>Discord</span>
-			</a>
-
-			<a href={localizeHref('blog/post/our-mission')} class="link-item">
-				<div class="icon-container">
-					<MapIcon size={36} />
-				</div>
-				<span>{m.footer_links_mission()}</span>
-			</a>
-
-			<a href={localizeHref('/')} class="link-item">
-				<div class="icon-container">
-					<WebsiteIcon size={36} />
-				</div>
-				<span>{m.links_page_link_website()}</span>
-			</a>
+			{#each mainLinks as link (link.url)}
+				<a href={link.url} class="link-item">
+					<div class="icon-container">
+						<link.icon size={link.iconSize} />
+					</div>
+					<span>{link.name}</span>
+				</a>
+			{/each}
 		</section>
 
 		<div class="social-icons">
-			<a href={DISCORD_LINK} target="_blank" rel="noopener noreferrer" class="social-icon">
-				<DiscordIcon />
-			</a>
-			<a href={GITHUB_LINK} target="_blank" rel="noopener noreferrer" class="social-icon">
-				<GithubIcon />
-			</a>
-			<a href={LINKEDIN_LINK} target="_blank" rel="noopener noreferrer" class="social-icon">
-				<LinkedInIcon />
-			</a>
+			{#each socialLinks as link (link.url)}
+				<a href={link.url} target="_blank" rel="noopener noreferrer" class="social-icon">
+					<link.icon size={link.iconSize} />
+				</a>
+			{/each}
 		</div>
 	</div>
 
@@ -202,11 +223,6 @@
 	.social-icon:hover {
 		transform: translateY(-3px) rotate(8deg);
 		box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-	}
-
-	.social-icon :global(svg) {
-		width: 1.5rem;
-		height: 1.5rem;
 	}
 
 	/* Floating dice background */
