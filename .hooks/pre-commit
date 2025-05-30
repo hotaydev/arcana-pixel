@@ -19,10 +19,10 @@ fi
 
 if [ -n "$(git diff --staged --name-only -- apps/website/)" ]; then
   pnpx turbo format --filter=@arcana-pixel/website
-fi
 
-if [ -n "$(git diff --staged --name-only -- apps/website/src/routes/)" ]; then
-  cd apps/website/ && pnpm generate-sitemap && cd ../../
+  if [ -n "$(git diff --staged --name-only -- apps/website/src/routes/)" ]; then
+    cd apps/website/ && pnpm generate-sitemap && cd ../../
+  fi
 fi
 
 if [ -n "$(git diff --staged --name-only -- packages/schemas/)" ]; then
