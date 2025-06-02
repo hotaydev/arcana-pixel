@@ -1,11 +1,12 @@
 <script lang="ts">
-	import { posts, type BlogPost } from './post/post-index';
 	import { page } from '$app/state';
 	import { browser } from '$app/environment';
 	import { goto } from '$app/navigation';
 	import { CloseIcon, SearchIcon } from '$lib/components/icons';
 	import { m } from '$lib/paraglide/messages.js';
 	import { localizeHref } from '$lib/paraglide/runtime';
+	import type { BlogPost } from '$lib/models/blog-post';
+	import { posts } from '$lib/data/blog-posts';
 
 	// State variables using runes
 	let searchQuery = $state('');

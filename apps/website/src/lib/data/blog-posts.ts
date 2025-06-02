@@ -1,23 +1,7 @@
+import type { BlogPost } from '$lib/models/blog-post';
 import { m } from '$lib/paraglide/messages.js';
-
-export type PostAuthor = {
-	name: string;
-	url: string;
-};
-
-export type BlogPost = {
-	slug: string;
-	title: string;
-	description: string;
-	date: string;
-	author: PostAuthor;
-	tags: string[];
-};
-
-const taylorHoffmann: PostAuthor = {
-	name: 'Taylor Hoffmann',
-	url: 'https://www.linkedin.com/in/hoffmann-taylor/'
-};
+import { taylorHoffmann } from './blog-authors';
+import { Tags } from './blog-tags';
 
 export const posts: Record<string, BlogPost> = {
 	'our-mission': {
@@ -26,10 +10,7 @@ export const posts: Record<string, BlogPost> = {
 		description: m.blog_post_our_mission_description(),
 		date: '2025-04-24T12:00:00-03:00',
 		author: taylorHoffmann,
-		tags: m
-			.blog_post_our_mission_tags()
-			.split(',')
-			.map((tag) => tag.trim())
+		tags: [Tags.Announcement, Tags.Mission].map((tag) => m[tag]())
 	},
 	'ordem-paranormal': {
 		slug: 'ordem-paranormal',
@@ -37,9 +18,6 @@ export const posts: Record<string, BlogPost> = {
 		description: m.blog_post_ordem_paranormal_description(),
 		date: '2025-05-21T12:00:00-03:00',
 		author: taylorHoffmann,
-		tags: m
-			.blog_post_ordem_paranormal_tags()
-			.split(',')
-			.map((tag) => tag.trim())
+		tags: [Tags.VTT, Tags.Rituals, Tags.OrdemParanormal].map((tag) => m[tag]())
 	}
 };

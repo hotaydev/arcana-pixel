@@ -1,9 +1,9 @@
 <script lang="ts">
 	import { FacebookIcon, LinkedInIcon, TwitterIcon } from '../icons';
 	import { m } from '$lib/paraglide/messages.js';
-	import type { BlogPost } from '../../../routes/blog/post/post-index';
+	import type { BlogPost } from '$lib/models/blog-post';
 
-	export let metadata: BlogPost;
+	const { metadata }: { metadata: BlogPost } = $props();
 
 	const encodedTitle = encodeURIComponent(metadata.title);
 	const encodedUrl = encodeURIComponent(`https://www.arcanapixel.com/blog/post/${metadata.slug}`);

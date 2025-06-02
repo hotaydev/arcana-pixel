@@ -1,8 +1,9 @@
 <script lang="ts">
 	import { getLocale, localizeHref } from '$lib/paraglide/runtime';
 	import { m } from '$lib/paraglide/messages';
+	import type { BlogPost } from '$lib/models/blog-post';
 
-	const { metadata } = $props();
+	const { metadata }: { metadata: BlogPost } = $props();
 
 	const currentLocale = getLocale();
 </script>

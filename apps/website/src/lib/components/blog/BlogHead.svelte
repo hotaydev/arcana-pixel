@@ -1,5 +1,8 @@
 <script lang="ts">
-	export let metadata;
+	import type { BlogPost } from '$lib/models/blog-post';
+
+	const { metadata }: { metadata: BlogPost } = $props();
+
 	const keywords = ['Arcana Pixel', 'VTT', 'RPG platform', 'Blog', ...metadata.tags];
 </script>
 

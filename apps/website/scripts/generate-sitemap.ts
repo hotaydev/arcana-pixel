@@ -1,4 +1,4 @@
-import { posts } from '../src/routes/blog/post/post-index';
+import { posts } from '../src/lib/data/blog-posts';
 import { baseLocale, locales } from '../src/lib/paraglide/runtime';
 import { parseStringPromise, Builder } from 'xml2js';
 import * as fs from 'node:fs';
