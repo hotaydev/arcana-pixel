@@ -18,6 +18,14 @@ export const posts: Record<string, BlogPost> = {
 		description: m.blog_post_ordem_paranormal_description(),
 		date: '2025-05-21T12:00:00-03:00',
 		author: taylorHoffmann,
-		tags: [Tags.VTT, Tags.Rituals, Tags.OrdemParanormal].map((tag) => m[tag]())
+		tags: [Tags.VTT, Tags.OrdemParanormal].map((tag) => m[tag]())
+	},
+	'what-is-a-vtt': {
+		slug: 'what-is-a-vtt',
+		title: m.blog_post_what_is_a_vtt_title(),
+		description: m.blog_post_what_is_a_vtt_description(),
+		date: '2025-06-02T15:20:00-03:00',
+		author: taylorHoffmann,
+		tags: [Tags.VTT, Tags.DidYouKnow].map((tag) => m[tag]())
 	}
 };
