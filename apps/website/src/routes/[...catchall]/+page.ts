@@ -2,6 +2,8 @@ import { localizeHref } from '$lib/paraglide/runtime';
 import { error, redirect, type Load } from '@sveltejs/kit';
 import { redirects } from '../../redirects';
 
+export const prerender = false;
+
 export const load: Load = ({ params }) => {
 	const slug = params.catchall;
 
