@@ -12,5 +12,5 @@
 	<meta name="keywords" content={keywords.join(', ')} />
 	<meta property="og:title" content={metadata.title} />
 	<meta property="og:description" content={metadata.description} />
-	<meta property="og:url" content={`https://www.arcanapixel.com/blog/post/${metadata.slug}`} />
+	<meta property="og:url" content={`https://www.arcanapixel.com/blog/${metadata.slug}`} />
 </svelte:head>

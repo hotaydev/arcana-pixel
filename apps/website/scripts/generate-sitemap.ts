@@ -43,12 +43,12 @@ function getRoutePaths(directory: string, basePath: string = ''): string[] {
 // Get static paths from routes directory
 const routesPaths = getRoutePaths(path.join(process.cwd(), 'src', 'routes'))
 	.map((p) => p || '/') // Convert empty string to root path
-	.filter((p) => !p.includes('/blog/post/')); // Filter out blog post routes as we'll handle them separately
+	.filter((p) => !p.includes('/blog/(post)/')); // Filter out blog post routes as we'll handle them separately
 
 // Combine with blog posts (keeping the existing structure)
 const staticPaths = [
 	...routesPaths,
-	...Object.keys(posts).map((post) => `/blog/post/${posts[post].slug}`)
+	...Object.keys(posts).map((post) => `/blog/(post)/${posts[post].slug}`)
 ];
 
 // Function to get the last modification date of a file from git
@@ -78,12 +78,11 @@ function getFilePathForRoute(route: string): string {
 	}
 
 	// Handle blog posts
-	if (route.startsWith('/blog/post/')) {
-		const slug = route.replace('/blog/post/', '');
-		const postKey = Object.keys(posts).find((key) => posts[key].slug === slug);
-		if (postKey) {
+	if (route.startsWith('/blog/')) {
+		const slug = route.replace('/blog/(post)/', '');
+		if (Object.keys(posts).find((key) => posts[key].slug === slug)) {
 			// For blog posts, use the blog index file instead since individual posts don't have their own files
-			return path.join(process.cwd(), 'src', 'routes', 'blog', 'post', slug, '+page.svelte');
+			return path.join(process.cwd(), 'src', 'routes', 'blog', '(post)', slug, '+page.svelte');
 		}
 	}
 
@@ -100,14 +99,15 @@ async function generateSitemap() {
 		.map((path) => {
 			const filePath = getFilePathForRoute(path);
 			const lastMod = getLastModifiedDate(filePath);
+			const pathToUse = path.replace('/blog/(post)/', '/blog/');
 			return `
 	<url>
-		<loc>${ensureTrailingSlash(baseURL)}${baseLocale}${ensureTrailingSlash(path)}</loc>
+		<loc>${ensureTrailingSlash(baseURL)}${baseLocale}${ensureTrailingSlash(pathToUse)}</loc>
 		<lastmod>${lastMod}</lastmod>
 		${locales
 			.map(
 				(locale) =>
-					`<xhtml:link rel="alternate" hreflang="${locale}" href="${ensureTrailingSlash(baseURL)}${locale}${ensureTrailingSlash(path)}" />`
+					`<xhtml:link rel="alternate" hreflang="${locale}" href="${ensureTrailingSlash(baseURL)}${locale}${ensureTrailingSlash(pathToUse)}" />`
 			)
 			.join('')}
 	</url>`;

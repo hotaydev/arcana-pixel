@@ -35,7 +35,7 @@ export default ts.config(
 	},
 	{
 		files: [
-			'src/routes/blog/post/*/*.svelte',
+			'src/routes/blog/(post)/*/*.svelte',
 			'src/lib/components/Roadmap.svelte',
 			'src/lib/components/SupportedSystems.svelte',
 			'src/lib/components/Features.svelte',

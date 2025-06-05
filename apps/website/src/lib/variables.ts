@@ -16,7 +16,7 @@ export const FOOTER_LINKS = [
 	{
 		title: m.footer_links_product(),
 		items: [
-			{ text: m.footer_links_mission(), url: '/blog/post/our-mission' },
+			{ text: m.footer_links_mission(), url: '/blog/our-mission' },
 			{ text: m.footer_links_features(), url: '/#features' },
 			{ text: m.footer_links_pricing(), url: '/#pricing' },
 			{ text: m.footer_links_roadmap(), url: '/#roadmap' }

@@ -36,7 +36,7 @@
 		},
 		{
 			name: m.footer_links_mission(),
-			url: localizeHref('blog/post/our-mission'),
+			url: localizeHref('blog/our-mission'),
 			icon: MapIcon,
 			iconSize: 36
 		},

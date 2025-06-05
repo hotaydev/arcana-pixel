@@ -143,7 +143,7 @@
 								</div>
 							</div>
 							<h2 class="post-title">
-								<a href={localizeHref(`/blog/post/${post.slug}`)}>{post.title}</a>
+								<a href={localizeHref(`/blog/${post.slug}`)}>{post.title}</a>
 							</h2>
 							<p class="post-excerpt">{post.description}</p>
 							<div class="post-footer">
@@ -151,7 +151,7 @@
 									{m.blog_by_author()}
 									{post.author.name}
 								</span>
-								<a href={localizeHref(`/blog/post/${post.slug}`)} class="read-more">
+								<a href={localizeHref(`/blog/${post.slug}`)} class="read-more">
 									{m.blog_read_more()}
 								</a>
 							</div>

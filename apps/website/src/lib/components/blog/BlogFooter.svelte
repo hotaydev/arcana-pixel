@@ -6,7 +6,7 @@
 	const { metadata }: { metadata: BlogPost } = $props();
 
 	const encodedTitle = encodeURIComponent(metadata.title);
-	const encodedUrl = encodeURIComponent(`https://www.arcanapixel.com/blog/post/${metadata.slug}`);
+	const encodedUrl = encodeURIComponent(`https://www.arcanapixel.com/blog/${metadata.slug}`);
 </script>
 
 <footer class="post-footer">
