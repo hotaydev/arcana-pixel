@@ -2,8 +2,19 @@
 	import { GITHUB_LINK } from '$lib/variables';
 	import { m } from '$lib/paraglide/messages.js';
 	import { localizeHref } from '$lib/paraglide/runtime';
+	import { onMount } from 'svelte';
+	import { CheckIcon } from './icons';
 
-	const plans = [
+	interface Plan {
+		name: string;
+		price: string;
+		description: string;
+		features: string[];
+		cta: string;
+		popular?: boolean;
+	}
+
+	const plans: Plan[] = [
 		{
 			name: m.pricing_free_title(),
 			price: '0',
@@ -15,8 +26,7 @@
 				m.pricing_features_up_to_campaigns({ count: 1 }),
 				m.pricing_features_up_to_players({ count: 6 })
 			],
-			cta: m.pricing_get_started(),
-			popular: false
+			cta: m.pricing_get_started()
 		},
 		{
 			name: m.pricing_adventurer_title(),
@@ -27,7 +37,8 @@
 				m.pricing_feature_up_to_characters_per_user({ count: 50 }),
 				m.pricing_features_up_to_storage({ count: 1 }),
 				m.pricing_features_up_to_campaigns({ count: 5 }),
-				m.pricing_features_up_to_players({ count: 6 })
+				m.pricing_features_up_to_players({ count: 6 }),
+				m.pricing_features_group_checkout()
 			],
 			cta: m.pricing_choose_plan(),
 			popular: true
@@ -41,12 +52,49 @@
 				m.pricing_features_unlimited_characters(),
 				m.pricing_features_up_to_storage({ count: 10 }),
 				m.pricing_features_unlimited_campaigns(),
-				m.pricing_features_up_to_players({ count: 10 })
+				m.pricing_features_up_to_players({ count: 10 }),
+				m.pricing_features_streaming_tools()
 			],
-			cta: m.pricing_choose_plan(),
-			popular: false
+			cta: m.pricing_choose_plan()
 		}
 	];
+
+	let activeIndex: number = 0;
+	let carouselContainer: HTMLElement | undefined;
+
+	onMount(() => {
+		if (!carouselContainer) return;
+
+		const observer = new IntersectionObserver(
+			(entries) => {
+				entries.forEach((entry) => {
+					if (entry.isIntersecting) {
+						const index = parseInt(entry.target.getAttribute('data-index') || '0');
+						activeIndex = index;
+					}
+				});
+			},
+			{
+				root: carouselContainer,
+				threshold: 0.6
+			}
+		);
+
+		const cards = carouselContainer.querySelectorAll('.price-card');
+		cards.forEach((card) => observer.observe(card));
+
+		return () => {
+			cards.forEach((card) => observer.unobserve(card));
+		};
+	});
+
+	function scrollToCard(index: number) {
+		const cards = carouselContainer?.querySelectorAll('.price-card');
+		if (cards && cards[index]) {
+			cards[index].scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+			activeIndex = index;
+		}
+	}
 </script>
 
 <section id="pricing" class="section">
@@ -56,48 +104,54 @@
 			<p>{m.pricing_description()}</p>
 		</div>
 
-		<div class="pricing-grid">
-			{#each plans as plan (plan.name)}
-				<div class="price-card {plan.popular ? 'popular' : ''}">
-					{#if plan.popular}
-						<div class="popular-badge">{m.pricing_popular()}</div>
-					{/if}
-					<div class="price-header">
-						<h3>{plan.name}</h3>
-						<div class="price">
-							<span class="currency">{m.pricing_currency()}</span>
-							<span class="amount">{plan.price}</span>
-							<span class="period">/{m.pricing_period()}</span>
+		<div class="pricing-carousel-wrapper">
+			<div class="pricing-carousel" bind:this={carouselContainer}>
+				{#each plans as plan, i (plan.name)}
+					<!-- svelte-ignore a11y_no_static_element_interactions -->
+					<!-- svelte-ignore a11y_click_events_have_key_events -->
+					<div
+						class="price-card {plan.popular ? 'popular' : ''}"
+						data-index={i}
+						onclick={() => scrollToCard(i)}
+					>
+						{#if plan.popular}
+							<div class="popular-badge">{m.pricing_popular()}</div>
+						{/if}
+						<div class="price-header">
+							<h3>{plan.name}</h3>
+							<div class="price">
+								<span class="currency">{m.pricing_currency()}</span>
+								<span class="amount">{plan.price}</span>
+								<span class="period">/{m.pricing_period()}</span>
+							</div>
+							<p>{plan.description}</p>
 						</div>
-						<p>{plan.description}</p>
+
+						<ul class="features-list">
+							{#each plan.features as feature (feature)}
+								<li>
+									<CheckIcon />
+									{feature}
+								</li>
+							{/each}
+						</ul>
+
+						<a href={localizeHref('/#beta')} class={plan.popular ? 'btn-primary' : 'btn-secondary'}>
+							{plan.cta}
+						</a>
 					</div>
+				{/each}
+			</div>
 
-					<ul class="features-list">
-						{#each plan.features as feature (feature)}
-							<li>
-								<svg
-									xmlns="http://www.w3.org/2000/svg"
-									width="18"
-									height="18"
-									viewBox="0 0 24 24"
-									fill="none"
-									stroke="currentColor"
-									stroke-width="2"
-									stroke-linecap="round"
-									stroke-linejoin="round"
-								>
-									<polyline points="20 6 9 17 4 12"></polyline>
-								</svg>
-								{feature}
-							</li>
-						{/each}
-					</ul>
-
-					<a href={localizeHref('/#beta')} class={plan.popular ? 'btn-primary' : 'btn-secondary'}>
-						{plan.cta}
-					</a>
-				</div>
-			{/each}
+			<div class="carousel-indicators">
+				{#each plans as plan, i (plan.name)}
+					<button
+						class="indicator {i === activeIndex ? 'active' : ''}"
+						onclick={() => scrollToCard(i)}
+						aria-label={m.go_to_plan_slide({ plan: plans[i].name })}
+					></button>
+				{/each}
+			</div>
 		</div>
 
 		<div class="pricing-note">
@@ -116,12 +170,24 @@
 		user-select: auto;
 	}
 
-	.pricing-grid {
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-		gap: 2rem;
+	.pricing-carousel-wrapper {
 		position: relative;
 		z-index: 2;
+	}
+
+	.pricing-carousel {
+		display: flex;
+		overflow-x: auto;
+		scroll-snap-type: x mandatory;
+		-webkit-overflow-scrolling: touch;
+		scrollbar-width: none; /* Firefox */
+		-ms-overflow-style: none; /* Internet Explorer/Edge */
+		gap: 2rem;
+		padding: 3rem 0 1.5rem;
+	}
+
+	.pricing-carousel::-webkit-scrollbar {
+		display: none; /* Chrome, Safari, Opera */
 	}
 
 	.price-card {
@@ -133,13 +199,37 @@
 		position: relative;
 		display: flex;
 		flex-direction: column;
+		flex: 0 0 auto;
+		width: 90%;
+		max-width: 400px;
+		scroll-snap-align: center;
+		margin-bottom: 1rem;
+	}
+
+	/* Medium screens - show about 1.5 cards */
+	@media (min-width: 768px) {
+		.price-card {
+			width: calc(65% - 1rem);
+		}
+	}
+
+	/* Large screens - show multiple cards */
+	@media (min-width: 1200px) {
+		.price-card {
+			width: calc(33.333% - 1.333rem);
+		}
 	}
 
 	.price-card.popular {
 		border: 1px solid var(--primary-light);
-		transform: scale(1.05);
 		z-index: 1;
 		box-shadow: 0 20px 40px -15px rgba(94, 18, 157, 0.3);
+	}
+
+	@media (min-width: 992px) {
+		.price-card.popular {
+			transform: scale(1.05);
+		}
 	}
 
 	.price-card:hover {
@@ -147,7 +237,44 @@
 	}
 
 	.price-card.popular:hover {
-		transform: scale(1.05) translateY(-5px);
+		transform: translateY(-5px);
+	}
+
+	@media (min-width: 992px) {
+		.price-card.popular:hover {
+			transform: scale(1.05) translateY(-5px);
+		}
+	}
+
+	.carousel-indicators {
+		display: flex;
+		justify-content: center;
+		gap: 0.5rem;
+		margin-top: 1rem;
+	}
+
+	/* Hide indicators on large screens where all cards are visible */
+	@media (min-width: 1200px) {
+		.carousel-indicators {
+			display: none;
+		}
+	}
+
+	.indicator {
+		width: 12px;
+		height: 12px;
+		border-radius: 50%;
+		background-color: rgba(255, 255, 255, 0.2);
+		border: none;
+		padding: 0;
+		cursor: pointer;
+		transition: background-color 0.3s ease;
+	}
+
+	.indicator.active {
+		background-color: var(--primary-light);
+		width: 14px;
+		height: 14px;
 	}
 
 	.popular-badge {
@@ -218,12 +345,6 @@
 		color: var(--light);
 	}
 
-	.features-list svg {
-		flex-shrink: 0;
-		margin-right: 0.8rem;
-		color: var(--primary-light);
-	}
-
 	.price-card a {
 		text-align: center;
 		display: block;
@@ -232,7 +353,7 @@
 
 	.pricing-note {
 		text-align: center;
-		margin-top: 3rem;
+		margin-top: 2rem;
 		color: var(--gray);
 		font-size: 0.9rem;
 		position: relative;
@@ -252,21 +373,10 @@
 		color: var(--light);
 	}
 
-	@media (max-width: 992px) {
-		.price-card.popular {
-			transform: scale(1);
-			z-index: 1;
-		}
-
-		.price-card.popular:hover {
-			transform: translateY(-5px);
-		}
-	}
-
 	.section-header {
 		text-align: center;
 		max-width: 700px;
-		margin: 0 auto 6rem;
+		margin: 0 auto 4rem;
 		position: relative;
 		z-index: 3;
 	}

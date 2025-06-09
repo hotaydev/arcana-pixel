@@ -12,8 +12,10 @@ export { default as LinkedInIcon } from './social/linkedin.svelte';
 export { default as DiscordIcon } from './social/discord.svelte';
 export { default as GithubIcon } from './social/github.svelte';
 export { default as InstagramIcon } from './social/instagram.svelte';
+export { default as WhatsappIcon } from './social/whatsapp.svelte';
 export { default as SearchIcon } from './Search.svelte';
 export { default as CloseIcon } from './Close.svelte';
+export { default as CheckIcon } from './CheckIcon.svelte';
 
 // Roadmap milestone icons
 export { default as BookIcon } from './BookIcon.svelte';

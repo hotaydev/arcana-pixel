@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { FacebookIcon, LinkedInIcon, TwitterIcon } from '../icons';
+	import { FacebookIcon, LinkedInIcon, TwitterIcon, WhatsappIcon } from '../icons';
 	import { m } from '$lib/paraglide/messages.js';
 	import type { BlogPost } from '$lib/models/blog-post';
 
@@ -20,6 +20,14 @@
 	<div class="share-post">
 		<span>{m.blog_share_post()}:</span>
 		<div class="share-buttons">
+			<a
+				href="https://wa.me/?text={encodedTitle}{encodeURIComponent('\n\n')}{encodedUrl}"
+				target="_blank"
+				rel="noopener noreferrer"
+				aria-label={m.blog_share_post_whatsapp()}
+			>
+				<WhatsappIcon />
+			</a>
 			<a
 				href="https://x.com/intent/post?text={encodedTitle}&url={encodedUrl}"
 				target="_blank"

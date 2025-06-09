@@ -1,12 +1,12 @@
 packages:
   - apps/*
-  - packages/*
+  - packages/**
 onlyBuiltDependencies:
-  - '@3d-dice/dice-box'
-  - '@biomejs/biome'
-  - '@nestjs/core'
-  - '@scarf/scarf'
-  - '@swc/core'
+  - "@3d-dice/dice-box"
+  - "@biomejs/biome"
+  - "@nestjs/core"
+  - "@scarf/scarf"
+  - "@swc/core"
   - core-js
   - esbuild
   - protobufjs
