@@ -27,5 +27,13 @@ export const posts: Record<string, BlogPost> = {
 		date: '2025-06-02T15:20:00-03:00',
 		author: taylorHoffmann,
 		tags: [Tags.VTT, Tags.DidYouKnow].map((tag) => m[tag]())
+	},
+	'why-we-are-open-source': {
+		slug: 'why-we-are-open-source',
+		title: m.blog_post_why_we_are_open_source_title(),
+		description: m.blog_post_why_we_are_open_source_description(),
+		date: '2025-06-12T11:20:00-03:00',
+		author: taylorHoffmann,
+		tags: [Tags.VTT, Tags.DidYouKnow, Tags.Mission].map((tag) => m[tag]())
 	}
 };

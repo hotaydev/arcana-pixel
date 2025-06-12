@@ -70,4 +70,11 @@
     <xhtml:link rel="alternate" hreflang="pt" href="https://www.arcanapixel.com/pt/blog/what-is-a-vtt/"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://www.arcanapixel.com/es/blog/what-is-a-vtt/"/>
   </url>
+  <url>
+    <loc>https://www.arcanapixel.com/pt/blog/why-we-are-open-source/</loc>
+    <lastmod>2025-06-12T13:19:09.782Z</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.arcanapixel.com/en/blog/why-we-are-open-source/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.arcanapixel.com/pt/blog/why-we-are-open-source/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.arcanapixel.com/es/blog/why-we-are-open-source/"/>
+  </url>
 </urlset>
