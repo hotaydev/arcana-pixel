@@ -33,7 +33,7 @@
 		}
 	}
 
-	const launchDate = new Date('2025-06-25');
+	const launchDate = new Date('2025-07-26'); // For some reason, this date, when showed on the website, subtracts 1 day from the actual date. So we are putting it here with +1 day.
 </script>
 
 <section id="roadmap" class="section">
