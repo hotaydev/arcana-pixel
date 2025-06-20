@@ -4,6 +4,7 @@ import type { locales } from './paraglide/runtime';
 
 export const DOCUMENTATION_LINK = 'https://docs.arcanapixel.com';
 export const GITHUB_LINK = 'https://github.com/hotaydev/arcana-pixel';
+export const SUPPORT_EMAIL = 'support@arcanapixel.com';
 export const LINKEDIN_LINK = 'https://www.linkedin.com/company/hotay';
 export const INSTAGRAM_LINK = 'https://www.instagram.com/arcanapixel';
 export const DISCORD_LINK = 'https://discord.gg/cvWUW2yMPM';
@@ -27,7 +28,7 @@ export const FOOTER_LINKS = [
 		items: [
 			{ text: m.footer_links_docs(), url: DOCUMENTATION_LINK },
 			{ text: m.footer_links_blog(), url: '/blog' },
-			{ text: m.footer_links_support(), url: DISCORD_LINK }
+			{ text: m.footer_links_support(), url: '/support' }
 		]
 	},
 	{

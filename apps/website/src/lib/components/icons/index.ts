@@ -16,6 +16,7 @@ export { default as WhatsappIcon } from './social/whatsapp.svelte';
 export { default as SearchIcon } from './Search.svelte';
 export { default as CloseIcon } from './Close.svelte';
 export { default as CheckIcon } from './CheckIcon.svelte';
+export { default as EmailIcon } from './EmailIcon.svelte';
 
 // Roadmap milestone icons
 export { default as BookIcon } from './BookIcon.svelte';

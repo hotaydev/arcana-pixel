@@ -43,6 +43,13 @@
     <xhtml:link rel="alternate" hreflang="es" href="https://www.arcanapixel.com/es/privacy-policy/"/>
   </url>
   <url>
+    <loc>https://www.arcanapixel.com/pt/support/</loc>
+    <lastmod>2025-06-20T00:25:19.368Z</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.arcanapixel.com/en/support/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.arcanapixel.com/pt/support/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.arcanapixel.com/es/support/"/>
+  </url>
+  <url>
     <loc>https://www.arcanapixel.com/pt/terms-of-service/</loc>
     <lastmod>2025-04-28T16:26:07-03:00</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.arcanapixel.com/en/terms-of-service/"/>
@@ -72,7 +79,7 @@
   </url>
   <url>
     <loc>https://www.arcanapixel.com/pt/blog/why-we-are-open-source/</loc>
-    <lastmod>2025-06-12T13:19:09.782Z</lastmod>
+    <lastmod>2025-06-12T10:18:57-03:00</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.arcanapixel.com/en/blog/why-we-are-open-source/"/>
     <xhtml:link rel="alternate" hreflang="pt" href="https://www.arcanapixel.com/pt/blog/why-we-are-open-source/"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://www.arcanapixel.com/es/blog/why-we-are-open-source/"/>
